@@ -1,8 +1,16 @@
 # RiboPipe
 
-**RiboPipe** is a lightweight end-to-end pipeline for processing
-Ribo-seq P-site count data and training codon-level translation
-prediction models.
+**RiboPipe** is a lightweight, modular pipeline for processing Ribo-seq
+P-site count data and training codon-level translation prediction
+models.
+
+The pipeline supports:
+
+-   Transcript-level preprocessing from raw P-site count matrices
+-   Codon-resolution coverage extraction
+-   Biological feature integration (e.g., tRNA copy number)
+-   Length-aware training for codon-level prediction
+-   Export of coverage matrices for downstream analysis
 
 ------------------------------------------------------------------------
 
@@ -41,8 +49,15 @@ pip install -e .
 
 ### Step 1: Preprocess Ribo-seq CSV
 
+Prepare:
+
+-   A P-site count CSV file
+-   A transcript FASTA file
+
+Example:
+
 ``` bash
-ribopipe preprocess   --csv /mnt/ws1/ribo_seq_work/inada_lab/Psite_data_human/Psite_human/GSE233886_HEK293F_Psite_rawcount.csv   --fasta /mnt/ws1/ribo_seq_work/inada_lab/software/ribo-impute/data/gencode.v47.transcripts.fa   --out-dir GSE233886_out   --fasta-cache GSE233886_out/fasta_cache.pkl
+ribopipe preprocess   --csv data/psite_counts.csv   --fasta data/transcripts.fa   --out-dir output_dir   --fasta-cache output_dir/fasta_cache.pkl
 ```
 
 ------------------------------------------------------------------------
@@ -50,7 +65,7 @@ ribopipe preprocess   --csv /mnt/ws1/ribo_seq_work/inada_lab/Psite_data_human/Ps
 ### Step 2: Generate Coverage Matrix
 
 ``` bash
-ribopipe matrix   --npz-dir GSE233886_out   --out-csv GSE233886_out/coverage_matrix_transcript_x_sample.csv
+ribopipe matrix   --npz-dir output_dir   --out-csv output_dir/coverage_matrix_transcript_x_sample.csv
 ```
 
 ------------------------------------------------------------------------
@@ -58,7 +73,7 @@ ribopipe matrix   --npz-dir GSE233886_out   --out-csv GSE233886_out/coverage_mat
 ### Step 3: Generate Biological Features
 
 ``` bash
-ribopipe biofeat   --cds-npz GSE233886_out/GSE233886_HEK293F_Psite_rawcount__HEK293F_WT_DMSO.npz   --trna-json /mnt/ws1/ribo_seq_work/inada_lab/software/ribo-impute/data/trna_copy_numbers.json   --out-npz GSE233886_out/bio_features.npz
+ribopipe biofeat   --cds-npz output_dir/sample_name.npz   --trna-json data/trna_copy_numbers.json   --out-npz output_dir/bio_features.npz
 ```
 
 ------------------------------------------------------------------------
@@ -66,7 +81,7 @@ ribopipe biofeat   --cds-npz GSE233886_out/GSE233886_HEK293F_Psite_rawcount__HEK
 ### Step 4: Train Codon-Level Prediction Model
 
 ``` bash
-ribopipe train_pipeline   --coverage-csv GSE233886_out/coverage_matrix_transcript_x_sample.csv   --npz-dir GSE233886_out   --bio-feat GSE233886_out/bio_features.npz   --threshold P75   --epochs 100   --train-split 1.0   --max-codons 1000
+ribopipe train_pipeline   --coverage-csv output_dir/coverage_matrix_transcript_x_sample.csv   --npz-dir output_dir   --bio-feat output_dir/bio_features.npz   --threshold P75   --epochs 100   --train-split 0.8   --max-codons 1000
 ```
 
 ------------------------------------------------------------------------
@@ -74,8 +89,8 @@ ribopipe train_pipeline   --coverage-csv GSE233886_out/coverage_matrix_transcrip
 ## Key Parameters
 
   Parameter       Description
-  --------------- ------------------------------------------------
-  --threshold     Select high-expression transcripts (P75 / P95)
+  --------------- -------------------------------------------------------
+  --threshold     Select high-expression transcripts (e.g., P75 or P95)
   --train-split   Fraction of transcripts used for training
   --epochs        Number of training epochs
   --max-codons    Maximum CDS length (truncated/padded)
@@ -84,7 +99,7 @@ ribopipe train_pipeline   --coverage-csv GSE233886_out/coverage_matrix_transcrip
 
 ## Output Structure
 
-    GSE233886_out/
+    output_dir/
     ├── *.npz
     ├── coverage_matrix_transcript_x_sample.csv
     ├── bio_features.npz
