@@ -28,7 +28,7 @@ pip install -e .
 
 ## Workflow Overview
 
-    Raw P-site CSV
+    Raw P-site CSV (generated using ribowaltz)
           │
           ▼
     ribopipe preprocess
@@ -94,6 +94,7 @@ ribopipe train_pipeline   --coverage-csv output_dir/coverage_matrix_transcript_x
   --train-split   Fraction of transcripts used for training
   --epochs        Number of training epochs
   --max-codons    Maximum CDS length (truncated/padded)
+  --output-dir    File Fold for saving prediction results 
 
 ------------------------------------------------------------------------
 
@@ -104,7 +105,8 @@ ribopipe train_pipeline   --coverage-csv output_dir/coverage_matrix_transcript_x
     ├── coverage_matrix_transcript_x_sample.csv
     ├── bio_features.npz
     ├── model_checkpoint.pt
-    └── predictions/
+    
+    predictions/ (determined by --output-dir)
 
 ------------------------------------------------------------------------
 
