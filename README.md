@@ -81,7 +81,7 @@ ribopipe biofeat   --cds-npz output_dir/sample_name.npz   --trna-json data/trna_
 ### Step 4: Train Codon-Level Prediction Model
 
 ``` bash
-ribopipe train_pipeline   --coverage-csv output_dir/coverage_matrix_transcript_x_sample.csv   --npz-dir output_dir   --bio-feat output_dir/bio_features.npz   --threshold P75   --epochs 100   --train-split 0.8   --max-codons 1000
+ribopipe train_pipeline   --coverage-csv output_dir/coverage_matrix_transcript_x_sample.csv   --npz-dir output_dir   --bio-feat output_dir/bio_features.npz   --threshold P75   --epochs 200   --train-split 0.8   --max-codons 5000 --output-dir ./predictions
 ```
 
 ------------------------------------------------------------------------
