@@ -1,6 +1,5 @@
 # RiboPipe
 
-![Figure](./supp_case_grid_GSE233886.jpg)
 
 **RiboPipe** is a lightweight, modular pipeline for processing Ribo-seq
 P-site count data and training codon-level translation prediction
@@ -13,6 +12,8 @@ The pipeline supports:
 -   Biological feature integration (e.g., tRNA copy number)
 -   Length-aware training for codon-level prediction
 -   Export of coverage matrices for downstream analysis
+
+![Figure](./supp_case_grid_GSE233886.jpg) 
 
 ------------------------------------------------------------------------
 
@@ -114,9 +115,7 @@ ribopipe train_pipeline   --coverage-csv output_dir/coverage_matrix_transcript_x
 
 ------------------------------------------------------------------------
 
-## Prediction examples on GSE233886
 
-![Figure 1](supp_case_grid.pdf)
 
 ## License
 
