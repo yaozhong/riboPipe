@@ -1,5 +1,7 @@
 # RiboPipe
 
+![Figure](./supp_case_grid_GSE233886.jpg)
+
 **RiboPipe** is a lightweight, modular pipeline for processing Ribo-seq
 P-site count data and training codon-level translation prediction
 models.
