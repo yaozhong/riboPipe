@@ -73,8 +73,10 @@ ribopipe matrix   --npz-dir output_dir   --out-csv output_dir/coverage_matrix_tr
 ### Step 3: Generate Biological Features
 
 ``` bash
-ribopipe biofeat   --cds-npz output_dir/sample_name.npz   --trna-json data/trna_copy_numbers.json   --out-npz output_dir/bio_features.npz
+ribopipe biofeat   --cds-npz output_dir/sample_name.npz   --trna-json trna_copy_numbers.json   --out-npz output_dir/bio_features.npz
 ```
+
+trna_copy_numbers.json are generated based on GtRNAdb for Homo sapiens (https://gtrnadb.ucsc.edu/genomes/eukaryota/Hsapi38/Hsapi38-summary-all.html). For preparing bioFeat for other spieces, please based on the GtRNAdb information for generating the JSON file of trna_copy_numbers.json.  
 
 ------------------------------------------------------------------------
 
@@ -88,13 +90,13 @@ ribopipe train_pipeline   --coverage-csv output_dir/coverage_matrix_transcript_x
 
 ## Key Parameters
 
-  Parameter       Description
-  --------------- -------------------------------------------------------
-  --threshold     Select high-expression transcripts (e.g., P75 or P95)
-  --train-split   Fraction of transcripts used for training
-  --epochs        Number of training epochs
-  --max-codons    Maximum CDS length (truncated/padded)
-  --output-dir    File Fold for saving prediction results 
+  |Parameter      | Description |
+  |--------------- |-------------------------------------------------------|
+  |--threshold     |Select high-expression transcripts (e.g., P75 or P95)|
+  |--train-split   |Fraction of transcripts used for training|
+  |--epochs        |Number of training epochs|
+  |--max-codons    |Maximum CDS length (truncated/padded)|
+  |--output-dir    |File Fold for saving prediction results| 
 
 ------------------------------------------------------------------------
 
