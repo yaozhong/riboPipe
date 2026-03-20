@@ -112,6 +112,10 @@ ribopipe train_pipeline   --coverage-csv output_dir/coverage_matrix_transcript_x
 
 ------------------------------------------------------------------------
 
+## Prediction examples on GSE233886
+
+![Figure 1](supp_case_grid.pdf)
+
 ## License
 
 MIT License
