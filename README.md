@@ -1,9 +1,8 @@
 # RiboPipe
 
 
-**RiboPipe** is a lightweight, modular pipeline for processing Ribo-seq
-P-site count data and training codon-level translation prediction
-models.
+**RiboPipe** is lightweight framework for within-sample imputation of codon-resolution ribosome occupancy profiles. 
+By learning sequence-dependent translation patterns from high-coverage transcripts, RiboPipe enables accurate and data-efficient reconstruction of codon-level coverage for low-coverage transcripts within the same condition.
 
 The pipeline supports:
 
