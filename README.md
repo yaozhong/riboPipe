@@ -161,7 +161,7 @@ ribopipe train_pipeline   --coverage-csv output_dir/coverage_matrix_transcript_x
     ├── *.npz
     ├── coverage_matrix_transcript_x_sample.csv
     ├── bio_features.npz
-    ├── model_checkpoint.pt
+    └── model_checkpoint.pt
     
     predictions/ (determined by --output-dir)
 
