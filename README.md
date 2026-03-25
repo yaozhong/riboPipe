@@ -167,7 +167,22 @@ ribopipe train_pipeline   --coverage-csv output_dir/coverage_matrix_transcript_x
 
 ------------------------------------------------------------------------
 
+## Reference
+Tetailed information is shown in:
 
+> Zhang Y. et al. RiboPipe: efficient per-transcript codon-resolution ribo-seq imputation. bioRxiv (2026). https://doi.org/10.64898/2026.03.20.711481v1 
+
+
+```bibtex
+@article{zhang2026ribopipe,
+  title   = {RiboPipe: efficient per-transcript codon-resolution ribo-seq imputation},
+  author  = {Zhang, Yaozhong and Hashimoto, Satoshi and others},
+  journal = {bioRxiv},
+  year    = {2026},
+  doi     = {10.64898/2026.03.20.711481v1},
+  url     = {https://www.biorxiv.org/content/10.64898/2026.03.20.711481v1}
+}
+```
 
 ## License
 
