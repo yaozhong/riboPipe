@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Test / build caches and stray logs
+.pytest_cache/
+*.log
+
+# Model checkpoints and data (too large for git)
+*.pt
+*.npz
+*.h5
+*.pkl
+
+# Output directories
+output/
+results/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

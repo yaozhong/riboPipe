@@ -1,0 +1,46 @@
+[project]
+name = "ribopipe"
+version = "1.1.0"
+description = "Within-sample Ribo-seq imputation: predict codon-level pause profiles for low-coverage transcripts"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [{ name = "The RiboPipe Authors" }]
+keywords = ["ribosome-profiling", "ribo-seq", "imputation", "translation", "bioinformatics"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "torch>=1.12",
+    "biopython",
+    "tqdm",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+# ViennaRNA is only needed to (re)generate the local-structure (MFE) feature cache
+# used by the headline `ribopipe_nt_struct_h256` model. Training/prediction on an
+# existing cache do not require it.
+struct = ["ViennaRNA>=2.5"]
+test = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/yaozhong/riboPipe"
+Repository = "https://github.com/yaozhong/riboPipe"
+
+[project.scripts]
+ribopipe = "ribopipe.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["ribopipe*"]

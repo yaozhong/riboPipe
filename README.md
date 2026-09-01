@@ -1,167 +1,188 @@
 # RiboPipe
 
+**Within-sample Ribo-seq imputation**: learn a sequence-to-occupancy mapping from a
+sample's own high-coverage transcripts and use it to recover codon-resolution ribosome
+pause profiles for the same sample's sparse transcripts.
 
-**RiboPipe** is lightweight framework for within-sample imputation of codon-resolution ribosome occupancy profiles. 
-By learning sequence-dependent translation patterns from high-coverage transcripts, RiboPipe enables accurate and data-efficient reconstruction of codon-level coverage for low-coverage transcripts within the same condition.
+At typical Ribo-seq depths, **94–99 % of each dataset's transcriptome** is too sparse for
+reliable per-codon analysis. RiboPipe learns from the dense minority and predicts the
+sparse majority.
 
-The pipeline supports:
+## Headline results — gene-level 5-fold cross-validation
 
--   Transcript-level preprocessing from raw P-site count matrices
--   Codon-resolution coverage extraction
--   Biological feature integration (e.g., tRNA copy number)
--   Length-aware training for codon-level prediction
--   Export of coverage matrices for downstream analysis
+The honest benchmark holds out **whole genes** (every isoform of a gene stays in one
+fold), so the numbers reflect generalisation to sequences the model has never seen.
 
-![Figure](./supp_case_grid_GSE233886.jpg) 
+| Metric (median per transcript) | RiboPipe `nt_struct_h256` |
+|--------------------------------|---------------------------|
+| Dataset | per-transcript Pearson *r* | Top-5 % peak recall |
+|---|---:|---:|
+| TX9_WT (HEK293)          | **0.598** | 0.405 |
+| GSE233886_WT (HEK293F)   | **0.690** | 0.500 |
+| GSE133393_WT (HEK293)    | **0.529** | 0.345 |
+| PRJNA_iPS (iPSC)         | **0.518** | 0.329 |
 
-------------------------------------------------------------------------
+RiboPipe leads per-transcript Pearson on all four datasets and top-5 % peak recall on
+three of four (tying official RiboMIMO on GSE233886_WT), at **~0.35 M parameters** — a
+fifth of RiboMIMO and an eighth of RiboGL. Reproduce with
+[`reproduce/run_cv5.sh`](reproduce/README.md).
+
+> **On the ~0.98 transcript-level number.** A plain *transcript*-level split leaks:
+> isoforms of the same gene share near-identical sequence, so a held-out isoform's twin
+> sits in the training set. That regime (≈0.98 Pearson) measures **deployment recall** —
+> filling in a sparse isoform when a dense sibling of the *same gene* was observed. It is
+> a real and useful quantity, but it is **not** comparable to the gene-level headline
+> above and the paper never leads with it. See `reproduce/README.md`.
+
+## The headline model: motif-CNN (k=7) + BiGRU-128
+
+A k=7 **exp-motif CNN** (readable first-layer filters) → k=3 taper conv → a single
+**bidirectional GRU (h=128)** over a 187-channel per-codon input:
+
+| Feature group | Dims | Description |
+|---------------|-----:|-------------|
+| Codon identity | 64 | one-hot (built inside the model) |
+| Nucleotide context | 120 | one-hot of the ±15 nt window (30 nt) around the A-site |
+| Local mRNA structure | 3 | ViennaRNA MFE of 30-nt folds at offsets −17/−16/−15 |
+| **Total (first-conv channels)** | **187** | hand-crafted biological features are **off by default** |
+
+- **Backbone:** `Conv1d(187→128, k=7, exp)` → `Conv1d(128→64, k=3)` →
+  `BiGRU(64→128, bidirectional)` → `Linear(256→32) → ReLU → Linear(32→1)`.
+  **≈0.35 M parameters** (`ribopipe.model.RiboPipeCNN`).
+- **Target:** covered-mean-normalised `log(1+µ)` pause score.
+- **Loss:** unweighted **Huber** (δ = 1) — the paper's training default.
+- **Early stopping** on the median per-transcript Pearson of a gene-level validation
+  hold-out (patience 20, up to 200 epochs).
+
+The interpretable first-layer filters read out directly as the E/P/A elongation motifs.
+The legacy two-layer BiLSTM headline remains available via `--backbone bilstm`; every
+feature group is a toggle (`--no-nt`, `--no-struct`, `--with-bio`) reproducing the paper's
+feature-ablation rows. The paper's released checkpoints load with
+`ribopipe.model.load_cnn_from_paper_checkpoint`.
 
 ## Installation
 
-``` bash
-wget ribopipe_mvp.zip
-unzip ribopipe_mvp.zip
+```bash
+# from GitHub (recommended)
+pip install "git+https://github.com/yaozhong/riboPipe.git"
 
-cd ribopipe_mvp
-pip install -e .
+# or from a clone (editable; the [struct] extra pulls in ViennaRNA for the MFE cache)
+git clone https://github.com/yaozhong/riboPipe
+cd riboPipe
+pip install -e ".[struct]"
 ```
 
-------------------------------------------------------------------------
+This installs the **`ribopipe`** command-line tool and the `ribopipe` Python package
+(headline `RiboPipeCNN`, training / 5-fold CV / prediction, and the baselines).
+Requirements: Python ≥ 3.8, PyTorch ≥ 1.12, NumPy, Pandas, SciPy, scikit-learn,
+Biopython. ViennaRNA (`ViennaRNA>=2.5`, the `[struct]` extra) is needed **only** to
+(re)generate the structure cache; training and prediction on an existing cache do not
+import it.
 
-## Workflow Overview
+The four pre-trained headline checkpoints are in `checkpoints/` in the repository (not
+shipped in the pip wheel); load one with
+`ribopipe.model.load_cnn_from_paper_checkpoint(path)`.
 
-    Raw P-site CSV (generated using ribowaltz)
-          │
-          ▼
-    ribopipe preprocess
-          │
-          ▼
-    Per-sample transcript NPZ files
-          │
-          ├── ribopipe matrix  → coverage matrix (transcript × sample)
-          │
-          ├── ribopipe biofeat → biological feature file (.npz)
-          │
-          ▼
-    ribopipe train_pipeline → codon-level prediction model
+## Quick start (one sample, end to end)
 
-------------------------------------------------------------------------
+```bash
+# 1. Preprocess raw CSV to per-transcript NPZ
+ribopipe preprocess --csv codon_counts.csv --fasta transcripts_cds.fa --out-dir ./npz
 
-## Usage
+# 2. Build transcript × sample coverage matrix
+ribopipe matrix --npz-dir ./npz --out-csv coverage_matrix.csv
 
-### Step 1: Preprocess Ribo-seq CSV
+# 3. Generate per-codon biological features
+ribopipe biofeat --cds-npz ./npz/my_sample.npz --trna-json trna_abundances.json \
+  --out-npz bio_features.npz
 
-Prepare:
+# 4. Precompute the ViennaRNA local-structure (MFE) cache  (one-time per dataset)
+ribopipe struct --npz ./npz/my_sample.npz
+#   -> ./npz/struct_cache/my_sample_struct.npz
 
--   A P-site count CSV file
--   A transcript reference FASTA file
+# 5. Train the headline model
+ribopipe train \
+  --npz ./npz/my_sample.npz \
+  --bio-npz bio_features.npz \
+  --struct-npz ./npz/struct_cache/my_sample_struct.npz \
+  --coverage-csv coverage_matrix.csv \
+  --sample my_sample \
+  --enst2ensg reproduce/enst2ensg_grch38.json.gz \
+  --out-dir ./model
 
-Raw ribo-seq data is processed using [riboWaltz](https://github.com/LabTranslationalArchitectomics/riboWaltz).
-The processed file is saved in CSV format.
-
-```
-"","transcript","start","end","from_cds_start","from_cds_stop","region","HEK293F_WT_DMSO_rep1","HEK293F_WT_DMSO_rep2"
-...
-"25","ENST00000000233.10",73,76,-5,-185,"5utr",0,0
-"26","ENST00000000233.10",76,79,-4,-184,"5utr",1,0
-"27","ENST00000000233.10",79,82,-3,-183,"5utr",0,0
-"28","ENST00000000233.10",82,85,-2,-182,"5utr",0,0
-"29","ENST00000000233.10",85,88,-1,-181,"5utr",3,1
-"30","ENST00000000233.10",88,91,0,-180,"cds",1,1
-"31","ENST00000000233.10",91,94,1,-179,"cds",0,0
-"32","ENST00000000233.10",94,97,2,-178,"cds",1,0
-"33","ENST00000000233.10",97,100,3,-177,"cds",1,5
-"34","ENST00000000233.10",100,103,4,-176,"cds",5,2
-"35","ENST00000000233.10",103,106,5,-175,"cds",1,0
-"36","ENST00000000233.10",106,109,6,-174,"cds",0,0
-"37","ENST00000000233.10",109,112,7,-173,"cds",0,2
-"38","ENST00000000233.10",112,115,8,-172,"cds",3,3
-"39","ENST00000000233.10",115,118,9,-171,"cds",0,2
-"40","ENST00000000233.10",118,121,10,-170,"cds",1,1
-"41","ENST00000000233.10",121,124,11,-169,"cds",0,1
-"42","ENST00000000233.10",124,127,12,-168,"cds",2,3
-"43","ENST00000000233.10",127,130,13,-167,"cds",4,1
-"44","ENST00000000233.10",130,133,14,-166,"cds",1,0
-"45","ENST00000000233.10",133,136,15,-165,"cds",0,0
-...
+# 6. Predict pause profiles for all transcripts
+ribopipe predict \
+  --checkpoint ./model/ribopipe_model.pt \
+  --npz ./npz/my_sample.npz \
+  --bio-npz bio_features.npz \
+  --struct-npz ./npz/struct_cache/my_sample_struct.npz \
+  --out-csv predictions.csv
 ```
 
+The checkpoint stores its own feature configuration, so `predict` restores the exact
+training setup automatically. Pass `--no-struct` at step 5 (and drop `--struct-npz`) for
+the codon+bio+NT ablation that needs no ViennaRNA.
 
-Example:
+See [`examples/run_ribopipe.sh`](examples/run_ribopipe.sh) for a complete annotated script.
 
-``` bash
-ribopipe preprocess   --csv data/psite_counts.csv   --fasta data/transcripts.fa   --out-dir output_dir   --fasta-cache output_dir/fasta_cache.pkl
+## Reproduce the headline benchmark
+
+```bash
+NPZ=./npz/my_sample.npz \
+BIO=bio_features.npz \
+STRUCT=./npz/struct_cache/my_sample_struct.npz \
+bash reproduce/run_cv5.sh
 ```
 
-------------------------------------------------------------------------
+Gene-level 5-fold CV of the headline model against the baselines (codon-mean, tri-codon,
+ridge, BiLSTM-base). See [`reproduce/README.md`](reproduce/README.md).
 
-### Step 2: Generate Coverage Matrix
+## Python API
 
-``` bash
-ribopipe matrix   --npz-dir output_dir   --out-csv output_dir/coverage_matrix_transcript_x_sample.csv
+```python
+import ribopipe
+
+# Train the headline model on a set of high-coverage transcript IDs
+model = ribopipe.train_on_ids(
+    "sample.npz", "bio_features.npz", train_ids, val_ids=val_ids,
+    struct_npz_path="struct_cache/sample_struct.npz",
+    use_nt=True, use_struct=True, use_bio=True,
+    hidden=256, loss_name="peakmse",
+)
+
+# Predict
+preds = ribopipe.predict(
+    model, "sample.npz", "bio_features.npz", test_ids,
+    struct_npz_path="struct_cache/sample_struct.npz",
+    use_nt=True, use_struct=True, use_bio=True,
+)  # dict: transcript_id -> np.ndarray (pause scores, len = CDS codons)
+
+# Gene-level 5-fold CV
+summary = ribopipe.run_cv5(
+    "sample.npz", "bio_features.npz", all_ids,
+    enst2ensg_path="reproduce/enst2ensg_grch38.json.gz",
+    struct_npz_path="struct_cache/sample_struct.npz",
+    methods=["ribopipe_nt_struct_h256", "bilstm_base", "tricodon"],
+)
 ```
 
-------------------------------------------------------------------------
+## Design
 
-### Step 3: Generate Biological Features
+RiboPipe frames Ribo-seq imputation as **within-sample learning**:
 
-``` bash
-ribopipe biofeat   --cds-npz output_dir/sample_name.npz   --trna-json trna_copy_numbers.json   --out-npz output_dir/bio_features.npz
-```
+1. **T_high** (top-coverage transcripts) — used for training and evaluation.
+2. **T_low** (the sparse remainder, 94–99 % of the transcriptome) — prediction targets.
 
-trna_copy_numbers.json are generated based on GtRNAdb for Homo sapiens (https://gtrnadb.ucsc.edu/genomes/eukaryota/Hsapi38/Hsapi38-summary-all.html). For preparing bioFeat for other spieces, please based on the GtRNAdb information for generating the JSON file of trna_copy_numbers.json.  
+All model-selection and benchmarking splits are **gene-level** to avoid isoform leakage.
+A mask-and-recover analysis shows that below a per-transcript depth D\*, sequence-based
+prediction is more accurate than the raw (downsampled) signal itself.
 
-------------------------------------------------------------------------
+## Citation
 
-### Step 4: Train Codon-Level Prediction Model
+If you use RiboPipe, please cite:
 
-``` bash
-ribopipe train_pipeline   --coverage-csv output_dir/coverage_matrix_transcript_x_sample.csv   --npz-dir output_dir   --bio-feat output_dir/bio_features.npz   --threshold P75   --epochs 200   --train-split 0.8   --max-codons 5000 --output-dir ./predictions
-```
-
-------------------------------------------------------------------------
-
-## Key Parameters
-
-  |Parameter      | Description |
-  |--------------- |-------------------------------------------------------|
-  |--threshold     |Select high-expression transcripts (e.g., P75 or P95)|
-  |--train-split   |Fraction of transcripts used for training|
-  |--epochs        |Number of training epochs|
-  |--max-codons    |Maximum CDS length (truncated/padded)|
-  |--output-dir    |File Fold for saving prediction results| 
-
-------------------------------------------------------------------------
-
-## Output Structure
-
-    output_dir/
-    ├── *.npz
-    ├── coverage_matrix_transcript_x_sample.csv
-    ├── bio_features.npz
-    └── model_checkpoint.pt
-    
-    predictions/ (determined by --output-dir)
-
-------------------------------------------------------------------------
-
-## Reference
-Tetailed information is shown in:
-
-> Zhang Y. et al. RiboPipe: efficient per-transcript codon-resolution ribo-seq imputation. bioRxiv (2026). [https://doi.org/10.64898/2026.03.20.711481v1](https://www.biorxiv.org/content/10.64898/2026.03.20.711481v1) 
-
-
-```bibtex
-@article{zhang2026ribopipe,
-  title   = {RiboPipe: efficient per-transcript codon-resolution ribo-seq imputation},
-  author  = {Zhang, Yaozhong and Hashimoto, Satoshi and others},
-  journal = {bioRxiv},
-  year    = {2026},
-  doi     = {10.64898/2026.03.20.711481v1},
-  url     = {https://www.biorxiv.org/content/10.64898/2026.03.20.711481v1}
-}
-```
+> [manuscript in preparation]
 
 ## License
 
-MIT License
+MIT — see [LICENSE](LICENSE).
