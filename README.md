@@ -13,8 +13,6 @@ sparse majority.
 The honest benchmark holds out **whole genes** (every isoform of a gene stays in one
 fold), so the numbers reflect generalisation to sequences the model has never seen.
 
-| Metric (median per transcript) | RiboPipe `nt_struct_h256` |
-|--------------------------------|---------------------------|
 | Dataset | per-transcript Pearson *r* | Top-5 % peak recall |
 |---|---:|---:|
 | TX9_WT (HEK293)          | **0.598** | 0.405 |
@@ -146,15 +144,15 @@ import ribopipe
 model = ribopipe.train_on_ids(
     "sample.npz", "bio_features.npz", train_ids, val_ids=val_ids,
     struct_npz_path="struct_cache/sample_struct.npz",
-    use_nt=True, use_struct=True, use_bio=True,
-    hidden=256, loss_name="peakmse",
-)
+    use_nt=True, use_struct=True, use_bio=False,   # headline: codon + NT(+/-15) + struct MFE (no bio features)
+    loss_name="huber",                              # unweighted Huber (delta=1)
+)   # backbone="cnn" (default) = motif-CNN k=7 + BiGRU-128 (h=128), ~0.35M params
 
 # Predict
 preds = ribopipe.predict(
     model, "sample.npz", "bio_features.npz", test_ids,
     struct_npz_path="struct_cache/sample_struct.npz",
-    use_nt=True, use_struct=True, use_bio=True,
+    use_nt=True, use_struct=True, use_bio=False,
 )  # dict: transcript_id -> np.ndarray (pause scores, len = CDS codons)
 
 # Gene-level 5-fold CV
@@ -162,7 +160,7 @@ summary = ribopipe.run_cv5(
     "sample.npz", "bio_features.npz", all_ids,
     enst2ensg_path="reproduce/enst2ensg_grch38.json.gz",
     struct_npz_path="struct_cache/sample_struct.npz",
-    methods=["ribopipe_nt_struct_h256", "bilstm_base", "tricodon"],
+    methods=["ribopipe", "bilstm_base", "tricodon"],
 )
 ```
 

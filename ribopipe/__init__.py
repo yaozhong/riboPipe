@@ -3,9 +3,9 @@
 Learn a sequence-to-occupancy mapping from a sample's high-coverage transcripts and
 impute codon-resolution pause profiles for its sparsely covered transcripts.
 
-Headline model: ``ribopipe_nt_struct_h256`` -- a two-layer BiLSTM over codon + biological
+Headline model: ``ribopipe`` (``RiboPipeCNN``) -- a k=7 exp-motif CNN + BiGRU-128 over codon + nucleotide
 + nucleotide (+/-15 nt) + local mRNA-structure (MFE) features, trained on the
-mean-normalised pause score with a parameter-free peak-gated (``peakmse``) loss and
+covered-mean-normalised log pause score with an unweighted Huber loss and
 selected by early stopping on a gene-level validation hold-out.
 """
 __version__ = "1.1.0"

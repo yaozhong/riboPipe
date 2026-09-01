@@ -7,7 +7,7 @@ Per fold we report the median per-transcript Pearson / Spearman / top-5% peak re
 Jaccard; the summary is their mean +/- SD across folds.
 
 Supported ``methods`` (self-contained): ``codon_mean``, ``tricodon``, ``ridge``,
-``bilstm_base`` (codon+bio) and ``ribopipe_nt_struct_h256`` (codon+bio+NT+struct, the
+``bilstm_base`` (codon, BiLSTM) and ``ribopipe`` (codon+NT+struct, motif-CNN + BiGRU-128, the
 headline).  Published neural baselines are external code; run them separately under the
 same folds (see the paper supplement).
 """
@@ -69,7 +69,7 @@ def run_cv5(
 ) -> dict:
     """Run gene-level ``n_folds``-fold CV; return the summary dict (and optionally write JSON)."""
     if methods is None:
-        methods = ["ribopipe_nt_struct_h256"]
+        methods = ["ribopipe"]
     from .baselines import codon_mean_lookup, ridge_window
 
     e2g = json.load(open(enst2ensg_path)) if enst2ensg_path.endswith(".json") else None
@@ -104,8 +104,8 @@ def run_cv5(
                 pred = _our_method(npz_path, bio_npz_path, tr_ids, te_ids,
                                    use_nt=False, use_struct=False, struct_npz_path=None,
                                    enst2ensg_path=enst2ensg_path, epochs=epochs, patience=patience,
-                                   loss_name=loss_name, hidden=hidden, device=device, e2g=e2g, backbone=backbone)
-            elif m == "ribopipe_nt_struct_h256":
+                                   loss_name=loss_name, hidden=hidden, device=device, e2g=e2g, backbone="bilstm")
+            elif m in ("ribopipe", "ribopipe_nt_struct_h256"):
                 pred = _our_method(npz_path, bio_npz_path, tr_ids, te_ids,
                                    use_nt=True, use_struct=True, struct_npz_path=struct_npz_path,
                                    enst2ensg_path=enst2ensg_path, epochs=epochs, patience=patience,

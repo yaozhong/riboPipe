@@ -1,7 +1,7 @@
 """RiboPipe training loop.
 
-Headline configuration (``ribopipe_nt_struct_h256``): codon + bio + NT(+/-15) + struct
-features, ``meannorm`` target, parameter-free ``peakmse`` loss, Adam(1e-3), batch 64,
+Headline configuration (``ribopipe``, motif-CNN k=7 + BiGRU-128): codon + NT(+/-15) + struct
+features (use_bio=False), covered-mean-norm log target, unweighted Huber loss, Adam(1e-3), batch 64,
 up to 200 epochs with early stopping (patience 20) on the median per-transcript Pearson
 of a gene-level validation hold-out.
 
@@ -75,7 +75,7 @@ def train_on_ids(
     device: Optional[str] = None,
     verbose: bool = True,
 ) -> BiLSTM:
-    """Train a RiboPipe BiLSTM over explicit train / val id lists. Returns the model.
+    """Train a RiboPipe model (headline motif-CNN + BiGRU-128, or `--backbone bilstm`) over explicit train / val id lists. Returns the model.
 
     With ``val_ids`` provided, trains up to ``epochs`` and restores the checkpoint with
     the best median per-transcript Pearson on the validation set (early stop after

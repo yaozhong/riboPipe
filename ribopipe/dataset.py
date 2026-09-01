@@ -7,7 +7,7 @@ The per-codon input concatenates, in order:
     NT one-hot     120   (+/-15 nt around the A-site, 30 positions x 4)         [use_nt]
     struct MFE       3   (positions 3i-17, 3i-16, 3i-15 relative to A-site)     [use_struct]
     ----------------------
-    total          193   for the headline ``ribopipe_nt_struct_h256`` config
+    total          187   for the headline ``ribopipe`` config (use_bio=False: codon+NT+struct)
 
 The codon one-hot is added inside the model, so the dataset returns the remaining
 ``bio_dim = 6/126/129/...`` feature block.  Toggling the flags reproduces the paper's

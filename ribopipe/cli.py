@@ -70,7 +70,7 @@ def main(argv=None):
     ap_t.add_argument("--enst2ensg", default=None,
                       help="ENST→ENSG JSON(.gz) for a leak-free gene-level validation hold-out")
     ap_t.add_argument("--hidden", type=int, default=256, choices=[128, 256, 512],
-                      help="BiLSTM hidden units per direction (256=headline)")
+                      help="BiLSTM hidden units per direction (only used with --backbone bilstm)")
     ap_t.add_argument("--epochs", type=int, default=200)
     ap_t.add_argument("--patience", type=int, default=20)
     ap_t.add_argument("--batch-size", type=int, default=64)
@@ -106,8 +106,8 @@ def main(argv=None):
     ap_c.add_argument("--bio-npz", required=True, help="Biological features NPZ")
     ap_c.add_argument("--enst2ensg", required=True, help="ENST→ENSG JSON(.gz) for gene-level folds")
     ap_c.add_argument("--struct-npz", default=None, help="Struct MFE cache (for the headline model)")
-    ap_c.add_argument("--methods", default="ribopipe_nt_struct_h256",
-                      help="Comma-separated: ribopipe_nt_struct_h256,bilstm_base,codon_mean,tricodon,ridge")
+    ap_c.add_argument("--methods", default="ribopipe",
+                      help="Comma-separated: ribopipe,bilstm_base,codon_mean,tricodon,ridge")
     ap_c.add_argument("--ids", default=None,
                       help="Text file of transcript IDs to use (default: all in NPZ)")
     ap_c.add_argument("--n-folds", type=int, default=5)

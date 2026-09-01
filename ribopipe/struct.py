@@ -1,6 +1,6 @@
 """Local mRNA-structure (MFE) feature cache — ViennaRNA sliding-window fold.
 
-The headline model (`ribopipe_nt_struct_h256`) reads a small local-structure feature
+The headline model (`ribopipe`, motif-CNN + BiGRU-128) reads a small local-structure feature
 (3 dims per codon) alongside the codon/bio/nucleotide block.  That feature is derived
 from a *per-nucleotide MFE track*: for every nucleotide position ``i`` we fold a fixed
 30-nt window starting at ``i`` with ViennaRNA and record its minimum free energy.

@@ -1,8 +1,9 @@
 """RiboPipe training losses (paper Methods: training objective).
 
-The headline RiboPipe configuration (``ribopipe_nt_struct_h256``) is trained with the
-parameter-free **peak-gated** loss :func:`huber_peak_mse` (``peakmse``): squared error on
-peak positions (target > tau) and robust Huber on the background (target <= tau).  The
+The headline RiboPipe configuration (``ribopipe``) is trained with an unweighted **Huber**
+loss (:func:`huber_mask`, delta=1). An optional parameter-free peak-gated loss
+:func:`huber_peak_mse` (``peakmse``) -- squared error on peaks, Huber on background -- is
+also provided for the paper's loss-ablation rows.  The
 other losses are kept for the ablation / baseline configurations reported in the paper.
 
 All losses operate on a padded ``(B, L_max)`` prediction/target pair together with a
