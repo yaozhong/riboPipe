@@ -7,10 +7,6 @@ low-depth ribosome profiling.*
 sample's own high-coverage transcripts and use it to recover codon-resolution ribosome
 pause profiles for the same sample's sparse transcripts.
 
-At typical Ribo-seq depths, **94–99 % of each dataset's transcriptome** is too sparse for
-reliable per-codon analysis. RiboPipe learns from the dense minority and predicts the
-sparse majority.
-
 ## Headline results — gene-level 5-fold cross-validation
 
 The honest benchmark holds out **whole genes** (every isoform of a gene stays in one
@@ -90,6 +86,37 @@ import it.
 The four pre-trained headline checkpoints are in `checkpoints/` in the repository (not
 shipped in the pip wheel); load one with
 `ribopipe.model.load_cnn_from_paper_checkpoint(path)`.
+
+## Data processing
+
+RiboPipe consumes **per-codon Ribo-seq counts**, not raw reads: the entry point is a
+codon-level counts CSV plus a CDS FASTA. The preprocessing that turns these into
+model-ready tensors is shared across all datasets in the paper and ships with the package
+under `ribopipe/preprocess/`.
+
+**Input CSV schema** — one row per codon, validated by `ribopipe.preprocess.schema`:
+
+| Column | Meaning |
+|---|---|
+| `transcript` | transcript ID (matches the FASTA header) |
+| `start`, `end` | codon coordinates |
+| `from_cds_start`, `from_cds_stop` | codon offset from the CDS start / stop |
+| `region` | `5UTR` / `CDS` / `3UTR` |
+| one column **per sample** | per-codon read count for that sample |
+
+Sample columns follow `Celltype|genotype|treatment|replicate|type|remarks`
+(e.g. `HEK293T|WT|DMSO|rep1|mono|x`); the legacy `<condition>_repN` form is also accepted.
+
+**Preprocessing chain** (the four steps of the Quick start below):
+
+1. `ribopipe preprocess` — CSV (+ CDS FASTA) → per-transcript NPZ (`cds.sequence`, `cds.avg_count`).
+2. `ribopipe matrix` — the NPZ directory → a transcript × sample coverage matrix, used for the high-/low-coverage split.
+3. `ribopipe biofeat` — per-codon biological features (ported unchanged from the original `bioFeat_gen.py`); optional — the headline model runs without them.
+4. `ribopipe struct` — the ViennaRNA local-structure (MFE) feature cache.
+
+Producing the codon-count CSV from raw reads (alignment, P-site offset assignment, codon
+summarisation) is done upstream with standard Ribo-seq tooling and is not part of this
+package.
 
 ## Quick start (one sample, end to end)
 
