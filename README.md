@@ -7,81 +7,24 @@ low-depth ribosome profiling.*
 sample's own high-coverage transcripts and use it to recover codon-resolution ribosome
 pause profiles for the same sample's sparse transcripts.
 
-## Headline results — gene-level 5-fold cross-validation
-
-The honest benchmark holds out **whole genes** (every isoform of a gene stays in one
-fold), so the numbers reflect generalisation to sequences the model has never seen.
-
-| Dataset | per-transcript Pearson *r* | Top-5 % peak recall |
-|---|---:|---:|
-| TX9_WT (HEK293)          | **0.598** | 0.405 |
-| GSE233886_WT (HEK293F)   | **0.690** | 0.500 |
-| GSE133393_WT (HEK293)    | **0.529** | 0.345 |
-| PRJNA_iPS (iPSC)         | **0.518** | 0.329 |
-
-RiboPipe leads per-transcript Pearson on all four datasets and top-5 % peak recall on
-three of four (tying official RiboMIMO on GSE233886_WT), at **~0.35 M parameters** — a
-fifth of RiboMIMO and an eighth of RiboGL. Reproduce with
-[`reproduce/run_cv5.sh`](reproduce/README.md).
-
-> **On the ~0.98 transcript-level number.** A plain *transcript*-level split leaks:
-> isoforms of the same gene share near-identical sequence, so a held-out isoform's twin
-> sits in the training set. That regime (≈0.98 Pearson) measures **deployment recall** —
-> filling in a sparse isoform when a dense sibling of the *same gene* was observed. It is
-> a real and useful quantity, but it is **not** comparable to the gene-level headline
-> above and the paper never leads with it. See `reproduce/README.md`.
-
-![RiboPipe headline gene-level benchmark](docs/benchmark.png)
-
-*Gene-level 5-fold cross-validation (scored on the gene-longest transcript per gene;
-mean ± SD across folds). RiboPipe (~0.35 M parameters) leads per-transcript accuracy across
-the human datasets while staying far smaller than the deep-learning baselines — Figure 1 of
-the paper.*
-
-## The headline model: motif-CNN (k=7) + BiGRU-128
-
-A k=7 **exp-motif CNN** (readable first-layer filters) → k=3 taper conv → a single
-**bidirectional GRU (h=128)** over a 187-channel per-codon input:
-
-| Feature group | Dims | Description |
-|---------------|-----:|-------------|
-| Codon identity | 64 | one-hot (built inside the model) |
-| Nucleotide context | 120 | one-hot of the ±15 nt window (30 nt) around the A-site |
-| Local mRNA structure | 3 | ViennaRNA MFE of 30-nt folds at offsets −17/−16/−15 |
-| **Total (first-conv channels)** | **187** | codon + NT + struct; no hand-crafted biological features |
-
-- **Backbone:** `Conv1d(187→128, k=7, exp)` → `Conv1d(128→64, k=3)` →
-  `BiGRU(64→128, bidirectional)` → `Linear(256→32) → ReLU → Linear(32→1)`.
-  **≈0.35 M parameters** (`ribopipe.model.RiboPipeCNN`).
-- **Target:** covered-mean-normalised `log(1+µ)` pause score.
-- **Loss:** unweighted **Huber** (δ = 1) — the paper's training default.
-- **Early stopping** on the median per-transcript Pearson of a gene-level validation
-  hold-out (patience 20, up to 200 epochs).
-
-The interpretable first-layer filters read out directly as the E/P/A elongation motifs.
-The legacy two-layer BiLSTM headline remains available via `--backbone bilstm`; each
-feature group is a toggle (`--no-nt`, `--no-struct`) reproducing the paper's
-feature-ablation rows. The paper's released checkpoints load with
-`ribopipe.model.load_cnn_from_paper_checkpoint`.
-
 ## Installation
 
 ```bash
-# from GitHub (recommended)
-pip install "git+https://github.com/yaozhong/riboPipe.git"
+# from GitHub (pin the release tag)
+pip install "git+https://github.com/yaozhong/riboPipe.git@v1.2.0"
 
-# or from a clone (editable; the [struct] extra pulls in ViennaRNA for the MFE cache)
+# or from a clone (editable), with the optional extras you need
 git clone https://github.com/yaozhong/riboPipe
 cd riboPipe
-pip install -e ".[struct]"
+pip install -e ".[struct,raw]"
 ```
 
 This installs the **`ribopipe`** command-line tool and the `ribopipe` Python package
 (headline `RiboPipeCNN`, training / 5-fold CV / prediction, and the baselines).
 Requirements: Python ≥ 3.8, PyTorch ≥ 1.12, NumPy, Pandas, SciPy, scikit-learn,
-Biopython. ViennaRNA (`ViennaRNA>=2.5`, the `[struct]` extra) is needed **only** to
-(re)generate the structure cache; training and prediction on an existing cache do not
-import it.
+Biopython, matplotlib. Optional extras: **`[struct]`** (`ViennaRNA>=2.5`) to (re)generate
+the local-structure MFE cache; **`[raw]`** (`pysam`) for `raw2csv` (BAM → codon-count CSV);
+**`[test]`** (`pytest`). Training/prediction on an existing CSV + cache import neither.
 
 The four pre-trained headline checkpoints are in `checkpoints/` in the repository (not
 shipped in the pip wheel); load one with
@@ -285,14 +228,6 @@ and reads then matches or exceeds either source alone at every depth tested.
 Public datasets used in the paper: GEO **GSE133393** and **GSE233886**, and BioProject
 **PRJNA976655**. The in-house HEK293 dataset (TX9_WT) will be deposited in GEO upon
 publication, with reviewer access available on request.
-
-## Citation
-
-If you use RiboPipe, please cite:
-
-> Zhang Y-z., Hashimoto S., Li S., Inada T., Imoto S.
-> *RiboPipe: an interpretable sequence-to-occupancy model for reliability-aware imputation
-> of low-depth ribosome profiling.* Submitted to *Briefings in Bioinformatics* (2026).
 
 ## License
 
