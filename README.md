@@ -35,6 +35,13 @@ fifth of RiboMIMO and an eighth of RiboGL. Reproduce with
 > a real and useful quantity, but it is **not** comparable to the gene-level headline
 > above and the paper never leads with it. See `reproduce/README.md`.
 
+![RiboPipe headline gene-level benchmark](docs/benchmark.png)
+
+*Gene-level 5-fold cross-validation (scored on the gene-longest transcript per gene;
+mean ± SD across folds). RiboPipe (~0.35 M parameters) leads per-transcript accuracy across
+the human datasets while staying far smaller than the deep-learning baselines — Figure 1 of
+the paper.*
+
 ## The headline model: motif-CNN (k=7) + BiGRU-128
 
 A k=7 **exp-motif CNN** (readable first-layer filters) → k=3 taper conv → a single
