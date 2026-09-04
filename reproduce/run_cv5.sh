@@ -8,7 +8,6 @@
 #
 # Prerequisites (one per dataset), produced by the preprocessing + struct steps:
 #   $NPZ         per-transcript NPZ         (ribopipe preprocess)
-#   $BIO         biological-feature NPZ     (ribopipe biofeat)
 #   $STRUCT      ViennaRNA MFE cache        (ribopipe struct)
 #
 # The ENST->ENSG map used for the gene-level folds ships gzipped alongside this script.
@@ -16,7 +15,6 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 NPZ=${NPZ:?set NPZ=/path/to/<dataset>.npz}
-BIO=${BIO:?set BIO=/path/to/<dataset>_bio.npz}
 STRUCT=${STRUCT:?set STRUCT=/path/to/struct_cache/<dataset>_struct.npz}
 E2G=reproduce/enst2ensg_grch38.json.gz
 OUT=${OUT:-reproduce/cv5_result.json}
@@ -26,7 +24,6 @@ OUT=${OUT:-reproduce/cv5_result.json}
 
 ribopipe cv5 \
   --npz "$NPZ" \
-  --bio-npz "$BIO" \
   --struct-npz "$STRUCT" \
   --enst2ensg "$E2G" \
   --backbone cnn --loss huber \

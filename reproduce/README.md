@@ -48,12 +48,11 @@ pip install "git+https://github.com/yaozhong/riboPipe.git"     # or: pip install
 
 # one-time per dataset (from raw codon-count CSV + CDS FASTA):
 ribopipe preprocess --csv counts.csv --fasta cds.fa --out-dir ./npz
-ribopipe biofeat   --cds-npz ./npz/DATASET.npz --trna-json trna.json --out-npz DATASET_bio.npz
 ribopipe struct    --npz ./npz/DATASET.npz          # ViennaRNA MFE cache
 
 python reproduce/predict_with_checkpoint.py \
     --checkpoint checkpoints/ribopipe_headline_TX9_WT.pt \
-    --npz ./npz/DATASET.npz --bio-npz DATASET_bio.npz \
+    --npz ./npz/DATASET.npz \
     --struct-npz ./npz/struct_cache/DATASET_struct.npz \
     --ids test_ids.txt
 ```
@@ -64,7 +63,6 @@ python reproduce/predict_with_checkpoint.py \
 ribopipe struct --npz /path/to/DATASET.npz          # one-time MFE cache
 
 NPZ=/path/to/DATASET.npz \
-BIO=/path/to/DATASET_bio.npz \
 STRUCT=/path/to/struct_cache/DATASET_struct.npz \
 bash reproduce/run_cv5.sh
 ```
@@ -72,7 +70,7 @@ bash reproduce/run_cv5.sh
 Per-method mean ± SD across folds (Pearson / Spearman / peak recall@5 % / Jaccard) is
 printed and written to `reproduce/cv5_result.json`. The headline uses `--backbone cnn
 --loss huber`; the paper's ablation rows are recovered with the feature toggles
-(`--no-nt`, `--no-struct`, `--with-bio`) and `--backbone bilstm`.
+(`--no-nt`, `--no-struct`) and `--backbone bilstm`.
 
 ## Low-coverage crossover, hybrid and interpretability
 

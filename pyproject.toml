@@ -29,6 +29,9 @@ dependencies = [
 # used by the headline motif-CNN + BiGRU model. Training/prediction on an
 # existing cache do not require it.
 struct = ["ViennaRNA>=2.5"]
+# Raw-read -> P-site -> codon-count CSV conversion (ribopipe raw2csv). Only needed to
+# go from BAM to the package's input CSV; training/prediction on a CSV do not import it.
+raw = ["pysam>=0.17"]
 test = ["pytest"]
 
 [project.urls]

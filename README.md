@@ -48,7 +48,7 @@ A k=7 **exp-motif CNN** (readable first-layer filters) → k=3 taper conv → a 
 | Codon identity | 64 | one-hot (built inside the model) |
 | Nucleotide context | 120 | one-hot of the ±15 nt window (30 nt) around the A-site |
 | Local mRNA structure | 3 | ViennaRNA MFE of 30-nt folds at offsets −17/−16/−15 |
-| **Total (first-conv channels)** | **187** | hand-crafted biological features are **off by default** |
+| **Total (first-conv channels)** | **187** | codon + NT + struct; no hand-crafted biological features |
 
 - **Backbone:** `Conv1d(187→128, k=7, exp)` → `Conv1d(128→64, k=3)` →
   `BiGRU(64→128, bidirectional)` → `Linear(256→32) → ReLU → Linear(32→1)`.
@@ -59,8 +59,8 @@ A k=7 **exp-motif CNN** (readable first-layer filters) → k=3 taper conv → a 
   hold-out (patience 20, up to 200 epochs).
 
 The interpretable first-layer filters read out directly as the E/P/A elongation motifs.
-The legacy two-layer BiLSTM headline remains available via `--backbone bilstm`; every
-feature group is a toggle (`--no-nt`, `--no-struct`, `--with-bio`) reproducing the paper's
+The legacy two-layer BiLSTM headline remains available via `--backbone bilstm`; each
+feature group is a toggle (`--no-nt`, `--no-struct`) reproducing the paper's
 feature-ablation rows. The paper's released checkpoints load with
 `ribopipe.model.load_cnn_from_paper_checkpoint`.
 
@@ -107,16 +107,28 @@ under `ribopipe/preprocess/`.
 Sample columns follow `Celltype|genotype|treatment|replicate|type|remarks`
 (e.g. `HEK293T|WT|DMSO|rep1|mono|x`); the legacy `<condition>_repN` form is also accepted.
 
-**Preprocessing chain** (the four steps of the Quick start below):
+**From raw reads.** If you start from aligned reads rather than a counts CSV,
+`ribopipe raw2csv` turns **CDS-aligned BAM(s)** (one per sample) into the codon-count CSV
+above by standard P-site assignment (fixed offset, or `--auto-offset` from the start-codon
+metagene). It needs the `[raw]` extra (`pip install -e ".[raw]"`, pulls in `pysam`).
+
+```bash
+ribopipe raw2csv \
+  --bam sampleA.bam sampleB.bam \
+  --sample "HEK293T|WT|DMSO|rep1|mono|x" "HEK293T|WT|DMSO|rep2|mono|x" \
+  --fasta transcripts_cds.fa --out-csv codon_counts.csv --auto-offset
+```
+
+> The paper's human data were P-site-assigned upstream with **riboWaltz** (R). `raw2csv`
+> re-implements that standard step so the toolkit is runnable end-to-end from BAM; it is
+> **not** a byte-for-byte reproduction of the paper's riboWaltz run. For the published
+> numbers, use the released count CSVs / checkpoints.
+
+**Preprocessing chain** (the three steps of the Quick start below):
 
 1. `ribopipe preprocess` — CSV (+ CDS FASTA) → per-transcript NPZ (`cds.sequence`, `cds.avg_count`).
 2. `ribopipe matrix` — the NPZ directory → a transcript × sample coverage matrix, used for the high-/low-coverage split.
-3. `ribopipe biofeat` — per-codon biological features (ported unchanged from the original `bioFeat_gen.py`); optional — the headline model runs without them.
-4. `ribopipe struct` — the ViennaRNA local-structure (MFE) feature cache.
-
-Producing the codon-count CSV from raw reads (alignment, P-site offset assignment, codon
-summarisation) is done upstream with standard Ribo-seq tooling and is not part of this
-package.
+3. `ribopipe struct` — the ViennaRNA local-structure (MFE) feature cache.
 
 ## Quick start (one sample, end to end)
 
@@ -127,36 +139,30 @@ ribopipe preprocess --csv codon_counts.csv --fasta transcripts_cds.fa --out-dir 
 # 2. Build transcript × sample coverage matrix
 ribopipe matrix --npz-dir ./npz --out-csv coverage_matrix.csv
 
-# 3. Generate per-codon biological features
-ribopipe biofeat --cds-npz ./npz/my_sample.npz --trna-json trna_abundances.json \
-  --out-npz bio_features.npz
-
-# 4. Precompute the ViennaRNA local-structure (MFE) cache  (one-time per dataset)
+# 3. Precompute the ViennaRNA local-structure (MFE) cache  (one-time per dataset)
 ribopipe struct --npz ./npz/my_sample.npz
 #   -> ./npz/struct_cache/my_sample_struct.npz
 
-# 5. Train the headline model
+# 4. Train the headline model
 ribopipe train \
   --npz ./npz/my_sample.npz \
-  --bio-npz bio_features.npz \
   --struct-npz ./npz/struct_cache/my_sample_struct.npz \
   --coverage-csv coverage_matrix.csv \
   --sample my_sample \
   --enst2ensg reproduce/enst2ensg_grch38.json.gz \
   --out-dir ./model
 
-# 6. Predict pause profiles for all transcripts
+# 5. Predict pause profiles for all transcripts
 ribopipe predict \
   --checkpoint ./model/ribopipe_model.pt \
   --npz ./npz/my_sample.npz \
-  --bio-npz bio_features.npz \
   --struct-npz ./npz/struct_cache/my_sample_struct.npz \
   --out-csv predictions.csv
 ```
 
 The checkpoint stores its own feature configuration, so `predict` restores the exact
-training setup automatically. Pass `--no-struct` at step 5 (and drop `--struct-npz`) for
-the codon+bio+NT ablation that needs no ViennaRNA.
+training setup automatically. Pass `--no-struct` at step 4 (and drop `--struct-npz`) for
+the codon+NT ablation that needs no ViennaRNA.
 
 See [`examples/run_ribopipe.sh`](examples/run_ribopipe.sh) for a complete annotated script.
 
@@ -164,13 +170,70 @@ See [`examples/run_ribopipe.sh`](examples/run_ribopipe.sh) for a complete annota
 
 ```bash
 NPZ=./npz/my_sample.npz \
-BIO=bio_features.npz \
 STRUCT=./npz/struct_cache/my_sample_struct.npz \
 bash reproduce/run_cv5.sh
 ```
 
 Gene-level 5-fold CV of the headline model against the baselines (codon-mean, tri-codon,
 ridge, BiLSTM-base). See [`reproduce/README.md`](reproduce/README.md).
+
+## Interpretability
+
+RiboPipe is interpretable in two complementary ways.
+
+**Local — motif filters.** The k=7 exp-motif CNN's first-layer filters read out directly as
+E/P/A amino-acid sequence logos (e.g. P-site proline, acidic/aromatic A-site residues).
+No data needed — weights only:
+
+```bash
+ribopipe motifs --checkpoint checkpoints/ribopipe_headline_TX9_WT.pt \
+  --top 3 --out-csv motif_weights.csv --out-png motif_logos.png
+```
+
+**Non-local — in-silico mutagenesis (ISM).** Substituting the A-site codon with all 64
+codons and re-running the full network gives a per-codon / per-amino-acid A-site
+attribution — the model-derived counterpart of an empirical A-site dwell profile:
+
+```bash
+ribopipe ism --checkpoint checkpoints/ribopipe_headline_TX9_WT.pt \
+  --npz ./npz/my_sample.npz --struct-npz ./npz/struct_cache/my_sample_struct.npz \
+  --out-csv asite_attribution.csv
+```
+
+The Python API exposes `ribopipe.interpret.{filter_aa_matrices, motif_report,
+asite_codon_attribution, motif_vs_ism}`; `motif_vs_ism` scores where the local and ISM
+readouts agree, and disagreement flags occupancy the local codon window cannot explain.
+
+## Low-coverage reliability (when to trust the model)
+
+RiboPipe says not only *what* the profile is but *when* to trust it over the reads.
+
+**Crossover D\*.** An independent read-split (disjoint halves of a transcript's reads) scores
+the model and the down-sampled reads against a held-out reference; the depth where the reads
+overtake the model is the crossover **D\* ≈ 0.22–0.57 reads/codon**. Below it the model is the
+more reliable estimator. `crossover` also reports the model-favoured fraction of expressed
+genes and locates D\* by the sweep-free `r⁻¹(m)` inversion:
+
+```bash
+ribopipe crossover --checkpoint checkpoints/ribopipe_headline_TX9_WT.pt \
+  --npz ./npz/my_sample.npz --struct-npz ./npz/struct_cache/my_sample_struct.npz \
+  --out-json crossover.json
+```
+
+**Depth-weighted imputation.** The drop-in low-coverage estimator blends prediction and reads
+with a logistic gate in log-depth centred at D* (`w = sigmoid((ln rc − ln D*)/0.5)`): mostly
+model where coverage is sparse, mostly reads where it is deep. It matches or exceeds either
+source alone at every depth.
+
+```bash
+ribopipe impute --checkpoint checkpoints/ribopipe_headline_TX9_WT.pt \
+  --npz ./npz/my_sample.npz --struct-npz ./npz/struct_cache/my_sample_struct.npz \
+  --out-csv imputed_profiles.csv          # --dstar is estimated if not given
+```
+
+Python API: `ribopipe.reliability.{estimate_dstar, fraction_below, invert_dstar,
+depth_weight, hybrid_profile, impute}`. Everything is covered-mean-normalised Pearson; the
+read split is binomial by default (repsplit where genuine replicates exist).
 
 ## Python API
 
@@ -179,22 +242,22 @@ import ribopipe
 
 # Train the headline model on a set of high-coverage transcript IDs
 model = ribopipe.train_on_ids(
-    "sample.npz", "bio_features.npz", train_ids, val_ids=val_ids,
+    "sample.npz", train_ids, val_ids=val_ids,
     struct_npz_path="struct_cache/sample_struct.npz",
-    use_nt=True, use_struct=True, use_bio=False,   # headline: codon + NT(+/-15) + struct MFE (no bio features)
-    loss_name="huber",                              # unweighted Huber (delta=1)
+    use_nt=True, use_struct=True,   # headline: codon + NT(+/-15) + struct MFE
+    loss_name="huber",              # unweighted Huber (delta=1)
 )   # backbone="cnn" (default) = motif-CNN k=7 + BiGRU-128 (h=128), ~0.35M params
 
 # Predict
 preds = ribopipe.predict(
-    model, "sample.npz", "bio_features.npz", test_ids,
+    model, "sample.npz", test_ids,
     struct_npz_path="struct_cache/sample_struct.npz",
-    use_nt=True, use_struct=True, use_bio=False,
+    use_nt=True, use_struct=True,
 )  # dict: transcript_id -> np.ndarray (pause scores, len = CDS codons)
 
 # Gene-level 5-fold CV
 summary = ribopipe.run_cv5(
-    "sample.npz", "bio_features.npz", all_ids,
+    "sample.npz", all_ids,
     enst2ensg_path="reproduce/enst2ensg_grch38.json.gz",
     struct_npz_path="struct_cache/sample_struct.npz",
     methods=["ribopipe", "bilstm_base", "tricodon"],

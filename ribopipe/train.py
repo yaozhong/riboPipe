@@ -1,7 +1,7 @@
 """RiboPipe training loop.
 
 Headline configuration (``ribopipe``, motif-CNN k=7 + BiGRU-128): codon + NT(+/-15) + struct
-features (use_bio=False), covered-mean-norm log target, unweighted Huber loss, Adam(1e-3), batch 64,
+features, covered-mean-norm log target, unweighted Huber loss, Adam(1e-3), batch 64,
 up to 200 epochs with early stopping (patience 20) on the median per-transcript Pearson
 of a gene-level validation hold-out.
 
@@ -36,10 +36,10 @@ def set_seed(s: int = 123):
     torch.cuda.manual_seed_all(s)
 
 
-def _val_pearson(model, npz_path, bio_npz_path, val_ids, dev, *,
-                 use_nt, use_struct, use_bio, struct_npz_path, target) -> float:
-    ds = RiboDataset(npz_path, bio_npz_path, val_ids, target=target,
-                     use_nt=use_nt, use_struct=use_struct, use_bio=use_bio,
+def _val_pearson(model, npz_path, val_ids, dev, *,
+                 use_nt, use_struct, struct_npz_path, target) -> float:
+    ds = RiboDataset(npz_path, val_ids, target=target,
+                     use_nt=use_nt, use_struct=use_struct,
                      struct_npz_path=struct_npz_path)
     pred = predict_dataset(model, ds, dev)
     true = true_pause(load_items(npz_path, val_ids))
@@ -49,7 +49,6 @@ def _val_pearson(model, npz_path, bio_npz_path, val_ids, dev, *,
 
 def train_on_ids(
     npz_path: str,
-    bio_npz_path: str,
     train_ids: List[str],
     val_ids: Optional[List[str]] = None,
     *,
@@ -63,7 +62,6 @@ def train_on_ids(
     grad_clip: float = 0.0,
     use_nt: bool = True,
     use_struct: bool = True,
-    use_bio: bool = False,
     target: str = "meannorm",
     loss_name: str = "huber",
     tau: float = 1.0,
@@ -87,12 +85,12 @@ def train_on_ids(
         device = "cuda" if torch.cuda.is_available() else "cpu"
     dev = torch.device(device)
 
-    ds = RiboDataset(npz_path, bio_npz_path, train_ids, target=target,
-                     use_nt=use_nt, use_struct=use_struct, use_bio=use_bio,
+    ds = RiboDataset(npz_path, train_ids, target=target,
+                     use_nt=use_nt, use_struct=use_struct,
                      struct_npz_path=struct_npz_path)
     if verbose:
         print(f"  [data] n={len(ds)} bio_dim={ds.bio_dim} use_nt={use_nt} "
-              f"use_struct={use_struct} use_bio={use_bio} target={target}", flush=True)
+              f"use_struct={use_struct} target={target}", flush=True)
         print(f"  [loss] {loss_name} tau={tau} delta={delta}", flush=True)
 
     if backbone == "cnn":
@@ -144,8 +142,8 @@ def train_on_ids(
             opt.step()
 
         if val_ids is not None:
-            vr = _val_pearson(model, npz_path, bio_npz_path, val_ids, dev,
-                              use_nt=use_nt, use_struct=use_struct, use_bio=use_bio,
+            vr = _val_pearson(model, npz_path, val_ids, dev,
+                              use_nt=use_nt, use_struct=use_struct,
                               struct_npz_path=struct_npz_path, target=target)
             if vr > best_r + 1e-4:
                 best_r, best_ep, no_imp = vr, ep, 0
@@ -169,7 +167,7 @@ def train_on_ids(
 
     model._ribopipe_config = dict(
         backbone=backbone, hidden=hidden, bio_dim=ds.bio_dim, use_nt=use_nt,
-        use_struct=use_struct, use_bio=use_bio, target=target,
+        use_struct=use_struct, target=target,
     )
     return model
 
@@ -182,7 +180,6 @@ def save_checkpoint(model: BiLSTM, path: str):
 
 def train(
     npz_path: str,
-    bio_npz_path: str,
     coverage_csv: str,
     sample_col: str,
     *,
@@ -197,7 +194,6 @@ def train(
     max_codons: int = 1000,
     use_nt: bool = True,
     use_struct: bool = True,
-    use_bio: bool = False,
     loss_name: str = "huber",
     target: str = "meannorm",
     val_frac: float = 0.1,
@@ -228,10 +224,10 @@ def train(
         print(f"[split] T_high train={len(tr90)} val={len(val)}", flush=True)
 
     model = train_on_ids(
-        npz_path, bio_npz_path, tr90, val_ids=val,
+        npz_path, tr90, val_ids=val,
         struct_npz_path=struct_npz_path, hidden=hidden, backbone=backbone, epochs=epochs,
         patience=patience, batch_size=batch_size, lr=lr,
-        use_nt=use_nt, use_struct=use_struct, use_bio=use_bio,
+        use_nt=use_nt, use_struct=use_struct,
         loss_name=loss_name, target=target, seed=seed, device=device, verbose=verbose,
     )
 

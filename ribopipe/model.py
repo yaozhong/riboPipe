@@ -26,7 +26,7 @@ class BiLSTM(nn.Module):
 
     Input per codon:
         - 64-dim fixed one-hot codon encoding (rows 0-63 = identity; row 64 = pad)
-        - bio_dim biological features (codon frequency, tAI, wobble, AA properties)
+        - bio_dim non-codon feature channels (headline = 123: 120 nt one-hot + 3 struct MFE)
 
     Output:
         - scalar mean-normalised pause score (count / transcript mean) per codon
@@ -34,8 +34,8 @@ class BiLSTM(nn.Module):
     Parameters
     ----------
     bio_dim : int
-        Number of per-codon biological features (default 6: codon-freq, tAI,
-        wobble, hydrophobicity, charge, helix propensity).
+        Number of non-codon per-codon feature channels concatenated after the
+        64-d codon one-hot (headline = 123: 120 nt one-hot + 3 struct MFE).
     hidden : int
         Hidden units per direction per LSTM layer.  h=256 is the primary model
         in the paper; h=128 is the efficient variant (trains in ~32 min on one GPU).
@@ -97,7 +97,7 @@ def load_model(
 # headline number in the paper (decoupled-model backbone with use_named=False,
 # so the effective model is the backbone alone).  Input per codon:
 #   64-dim fixed codon one-hot (built inside)  +  bio_dim contextual features
-#   (headline: 120 nt one-hot + 3 struct MFE = 123, i.e. use_bio=False).
+#   (headline: 120 nt one-hot + 3 struct MFE = 123).
 # Total first-conv in-channels = 64 + 123 = 187, matching the released ckpts.
 # ---------------------------------------------------------------------------
 class RiboPipeCNN(nn.Module):
@@ -108,7 +108,7 @@ class RiboPipeCNN(nn.Module):
     ----------
     bio_dim : int
         Per-codon contextual feature dims concatenated after the 64-d codon
-        one-hot (headline = 123: 120 nt + 3 struct; ``use_bio=False``).
+        one-hot (headline = 123: 120 nt + 3 struct).
     ch1, ch2 : int
         First (motif) and taper conv widths (128, 64).
     k1 : int

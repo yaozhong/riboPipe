@@ -1,8 +1,8 @@
 """Smoke test: build tiny synthetic data, train a few epochs on CPU, predict.
 
 Runs without a GPU, without ViennaRNA, and without the real datasets, so it is safe for
-CI.  It exercises the full path: RiboDataset (codon + bio + NT features) -> BiLSTM ->
-peakmse loss -> early-stopping train_on_ids -> predict -> per-transcript metrics.
+CI.  It exercises the full path: RiboDataset (codon + NT features) -> model ->
+early-stopping train_on_ids -> predict -> per-transcript metrics.
 """
 import os
 import tempfile
@@ -14,9 +14,9 @@ CODONS = [a + b + c for a in "ACGT" for b in "ACGT" for c in "ACGT"]
 
 
 def _make_synthetic(dir_path, n_tx=24, seed=0):
-    """Write a tiny NPZ (cds.sequence + cds.avg_count) and a matching bio-features NPZ."""
+    """Write a tiny NPZ (cds.sequence + cds.avg_count)."""
     rng = np.random.RandomState(seed)
-    npz_obj, bio_obj = {}, {}
+    npz_obj = {}
     for t in range(n_tx):
         L = int(rng.randint(30, 80))
         seq = "".join(CODONS[i] for i in rng.randint(0, 64, size=L))
@@ -26,13 +26,10 @@ def _make_synthetic(dir_path, n_tx=24, seed=0):
         key = f"ENST{t:08d}"
         npz_obj[key] = {"cds": {"sequence": seq, "avg_count": cnt,
                                  "avg_count_norm": cnt / cnt.sum()}}
-        bio_obj[key] = rng.rand(L, 6).astype(np.float32)
 
     npz_path = os.path.join(dir_path, "synthetic.npz")
-    bio_path = os.path.join(dir_path, "bio.npz")
     np.savez(npz_path, **{k: np.array(v, dtype=object) for k, v in npz_obj.items()})
-    np.savez(bio_path, **bio_obj)
-    return npz_path, bio_path, list(npz_obj.keys())
+    return npz_path, list(npz_obj.keys())
 
 
 def test_import_version():
@@ -44,23 +41,23 @@ def test_train_predict_smoke():
     import ribopipe
 
     with tempfile.TemporaryDirectory() as d:
-        npz_path, bio_path, ids = _make_synthetic(d)
+        npz_path, ids = _make_synthetic(d)
         tr, val, te = ids[:14], ids[14:19], ids[19:]
 
         # NT features on, struct off (no ViennaRNA needed for the smoke test)
         model = ribopipe.train_on_ids(
-            npz_path, bio_path, tr, val_ids=val,
-            use_nt=True, use_struct=False, use_bio=True,
+            npz_path, tr, val_ids=val,
+            use_nt=True, use_struct=False,
             hidden=32, epochs=3, patience=5, batch_size=8,
-            loss_name="peakmse", device="cpu", verbose=False,
+            loss_name="huber", device="cpu", verbose=False,
         )
         cfg = getattr(model, "_ribopipe_config", {})
-        # codon(inside model) + 6 bio + 120 nt
-        assert cfg.get("bio_dim") == 6 + 120
+        # codon(inside model) + 120 nt (struct off)
+        assert cfg.get("bio_dim") == 120
 
         preds = ribopipe.predict(
-            model, npz_path, bio_path, te,
-            use_nt=True, use_struct=False, use_bio=True, device="cpu",
+            model, npz_path, te,
+            use_nt=True, use_struct=False, device="cpu",
         )
         assert len(preds) > 0
         for k, p in preds.items():

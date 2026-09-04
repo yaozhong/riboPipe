@@ -27,18 +27,18 @@ from .dataset import RiboDataset
 from .train import train_on_ids
 
 
-def _our_method(npz_path, bio_npz_path, tr_ids, te_ids, *, use_nt, use_struct,
+def _our_method(npz_path, tr_ids, te_ids, *, use_nt, use_struct,
                 struct_npz_path, enst2ensg_path, epochs, patience, loss_name,
                 hidden, device, e2g, backbone="cnn"):
     tr90, val = split_val(tr_ids, e2g=e2g, enst2ensg_path=enst2ensg_path)
     model = train_on_ids(
-        npz_path, bio_npz_path, tr90, val_ids=val,
+        npz_path, tr90, val_ids=val,
         struct_npz_path=struct_npz_path, hidden=hidden, backbone=backbone, epochs=epochs, patience=patience,
-        use_nt=use_nt, use_struct=use_struct, use_bio=False,
+        use_nt=use_nt, use_struct=use_struct,
         loss_name=loss_name, device=device, verbose=False,
     )
-    ds = RiboDataset(npz_path, bio_npz_path, te_ids, target="meannorm",
-                     use_nt=use_nt, use_struct=use_struct, use_bio=False,
+    ds = RiboDataset(npz_path, te_ids, target="meannorm",
+                     use_nt=use_nt, use_struct=use_struct,
                      struct_npz_path=struct_npz_path)
     dev = device or ("cuda" if _has_cuda() else "cpu")
     return predict_dataset(model, ds, dev)
@@ -51,7 +51,6 @@ def _has_cuda():
 
 def run_cv5(
     npz_path: str,
-    bio_npz_path: str,
     all_ids: List[str],
     enst2ensg_path: str,
     *,
@@ -101,12 +100,12 @@ def run_cv5(
             elif m == "ridge":
                 pred = ridge_window(tr_items, te_items)
             elif m == "bilstm_base":
-                pred = _our_method(npz_path, bio_npz_path, tr_ids, te_ids,
+                pred = _our_method(npz_path, tr_ids, te_ids,
                                    use_nt=False, use_struct=False, struct_npz_path=None,
                                    enst2ensg_path=enst2ensg_path, epochs=epochs, patience=patience,
                                    loss_name=loss_name, hidden=hidden, device=device, e2g=e2g, backbone="bilstm")
             elif m == "ribopipe":
-                pred = _our_method(npz_path, bio_npz_path, tr_ids, te_ids,
+                pred = _our_method(npz_path, tr_ids, te_ids,
                                    use_nt=True, use_struct=True, struct_npz_path=struct_npz_path,
                                    enst2ensg_path=enst2ensg_path, epochs=epochs, patience=patience,
                                    loss_name=loss_name, hidden=hidden, device=device, e2g=e2g, backbone=backbone)

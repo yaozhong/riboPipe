@@ -7,7 +7,6 @@ Example
     python reproduce/predict_with_checkpoint.py \
         --checkpoint checkpoints/ribopipe_headline_TX9_WT.pt \
         --npz    TX9_WT.npz \
-        --bio-npz TX9_WT_bio.npz \
         --struct-npz struct_cache/TX9_WT_struct.npz \
         --ids    test_ids.txt
 
@@ -29,7 +28,6 @@ def main():
     ap = argparse.ArgumentParser(description="Score a headline checkpoint on held-out transcripts.")
     ap.add_argument("--checkpoint", required=True)
     ap.add_argument("--npz", required=True, help="per-transcript NPZ (ribopipe preprocess)")
-    ap.add_argument("--bio-npz", required=True, help="biological-feature NPZ (ribopipe biofeat)")
     ap.add_argument("--struct-npz", default=None, help="ViennaRNA MFE cache (ribopipe struct)")
     ap.add_argument("--ids", required=True, help="text file, one held-out transcript id per line")
     ap.add_argument("--device", default=None)
@@ -37,7 +35,7 @@ def main():
 
     ids = [x.strip() for x in open(a.ids) if x.strip()]
     preds, _ = predict_from_checkpoint(
-        a.checkpoint, a.npz, a.bio_npz, ids,
+        a.checkpoint, a.npz, ids,
         struct_npz_path=a.struct_npz, device=a.device)
     true = true_pause(load_items(a.npz, ids))
     P, S, REC, JAC, n = per_tx_medians(preds, true)

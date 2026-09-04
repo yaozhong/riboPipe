@@ -8,8 +8,11 @@ Headline model: ``ribopipe`` (``RiboPipeCNN``) -- a k=7 exp-motif CNN + BiGRU-12
 covered-mean-normalised log pause score with an unweighted Huber loss and
 selected by early stopping on a gene-level validation hold-out.
 """
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 
+from . import rawcount  # BAM -> P-site -> codon-count CSV (pysam imported lazily)
+from . import interpret  # motif filters + ISM attribution (matplotlib/scipy lazy)
+from . import reliability  # read-split crossover D* + depth-weighted hybrid impute
 from .model import BiLSTM, seq_to_idx, PAD_IDX
 from .dataset import RiboDataset, collate_fn, build_split
 from .losses import huber_peak_mse, huber_mask, huber_peak_weighted, wmse_mask
@@ -22,6 +25,7 @@ from .struct import compute_struct_cache, mfe_track, struct_cache_path
 
 __all__ = [
     "__version__",
+    "rawcount", "interpret",
     "BiLSTM", "seq_to_idx", "PAD_IDX",
     "RiboDataset", "collate_fn", "build_split",
     "huber_peak_mse", "huber_mask", "huber_peak_weighted", "wmse_mask",

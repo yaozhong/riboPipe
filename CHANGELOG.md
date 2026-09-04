@@ -3,6 +3,31 @@
 All notable changes to RiboPipe are documented here. This project adheres to
 [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] - 2026-09
+
+Turns the headline model into an end-to-end, submission-quality toolkit: raw reads to
+prediction, biological interpretation, and low-coverage reliability/imputation.
+
+### Added
+- **Raw processing** (`ribopipe raw2csv`, `ribopipe.rawcount`): CDS-aligned BAM(s) ->
+  P-site assignment (fixed or `--auto-offset` start-codon metagene) -> the codon-count CSV
+  that `preprocess` consumes. Optional `[raw]` extra (`pysam`). A standard riboWaltz-style
+  step, not a byte-for-byte reproduction of the paper's riboWaltz run.
+- **Interpretability** (`ribopipe motifs` / `ribopipe ism`, `ribopipe.interpret`):
+  read the exp-motif CNN first-layer filters as E/P/A amino-acid logos, and an end-to-end
+  in-silico-mutagenesis A-site codon/AA attribution with a local-vs-ISM agreement score.
+- **Low-coverage reliability** (`ribopipe crossover` / `ribopipe impute`,
+  `ribopipe.reliability`): the independent-read-split crossover depth D* (reads/codon), the
+  model-favoured fraction of expressed genes, the sweep-free `r^-1(m)` inversion, and the
+  depth-weighted hybrid estimator (logistic gate in log-depth, slope 0.5, centred at D*).
+- Tests for all three (`tests/test_rawcount.py`, `test_interpret.py`, `test_reliability.py`).
+
+### Removed
+- **Hand-crafted biological features (bioFeat)** entirely: the `biofeat` preprocessing
+  step, `--bio-npz` / `--with-bio` flags, and the `use_bio` code paths. The headline model
+  never used them (`use_bio=False`); inputs are codon + NT(+/-15) + structure only. Released
+  checkpoints are unaffected.
+
 ## [1.1.0] - 2026-09
 
 Headline-model release matching the published paper (RiboPipe). The installable

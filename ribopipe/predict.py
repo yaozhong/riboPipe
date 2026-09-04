@@ -56,12 +56,10 @@ def predict_dataset(model: BiLSTM, ds: RiboDataset, device, batch_size: int = 16
 def predict(
     model: BiLSTM,
     npz_path: str,
-    bio_npz_path: str,
     transcript_ids: List[str],
     *,
     use_nt: bool = True,
     use_struct: bool = True,
-    use_bio: bool = True,
     struct_npz_path: Optional[str] = None,
     target: str = "meannorm",
     batch_size: int = 16,
@@ -76,8 +74,8 @@ def predict(
     if device is None:
         device = next(model.parameters()).device
     ds = RiboDataset(
-        npz_path, bio_npz_path, transcript_ids, target=target,
-        use_nt=use_nt, use_struct=use_struct, use_bio=use_bio,
+        npz_path, transcript_ids, target=target,
+        use_nt=use_nt, use_struct=use_struct,
         struct_npz_path=struct_npz_path, max_codons=max_codons,
     )
     return predict_dataset(model, ds, device, batch_size=batch_size)
@@ -107,7 +105,6 @@ def pearson_per_transcript(predictions: Dict[str, np.ndarray], npz_path: str) ->
 def predict_from_checkpoint(
     pt_path: str,
     npz_path: str,
-    bio_npz_path: str,
     transcript_ids: List[str],
     hidden: int = 256,
     bio_dim: Optional[int] = None,
@@ -130,14 +127,13 @@ def predict_from_checkpoint(
         bio_dim = cfg.get("bio_dim", bio_dim)
         use_nt = cfg.get("use_nt", True)
         use_struct = cfg.get("use_struct", True)
-        use_bio = cfg.get("use_bio", True)
         target = cfg.get("target", "meannorm")
     else:
         state = ckpt
-        use_nt = use_struct = use_bio = True
+        use_nt = use_struct = True
         target = "meannorm"
         if bio_dim is None:
-            bio_dim = 193  # headline default (codon inside model; 6 bio + 120 nt + 3 struct + ... )
+            bio_dim = 123  # headline default (codon inside model; 120 nt + 3 struct)
 
     # Detect the backbone from the state dict: the headline model has a first
     # conv `c1.weight` (shape (ch1, 64+bio_dim, k)); the legacy BiLSTM has `l1.*`.
@@ -154,14 +150,14 @@ def predict_from_checkpoint(
         model.load_state_dict(state, strict=True)
     else:
         if bio_dim is None:
-            bio_dim = 193
+            bio_dim = 123
         model = BiLSTM(bio_dim=bio_dim, hidden=hidden).to(dev)
         model.load_state_dict(state)
     model.eval()
 
     preds = predict(
-        model, npz_path, bio_npz_path, transcript_ids,
-        use_nt=use_nt, use_struct=use_struct, use_bio=use_bio,
+        model, npz_path, transcript_ids,
+        use_nt=use_nt, use_struct=use_struct,
         struct_npz_path=struct_npz_path, target=target,
         device=dev, max_codons=max_codons,
     )

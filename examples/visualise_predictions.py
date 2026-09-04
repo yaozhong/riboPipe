@@ -4,7 +4,6 @@
 Usage:
     python visualise_predictions.py \
         --npz path/to/sample.npz \
-        --bio-npz path/to/bio_features.npz \
         --checkpoint path/to/ribopipe_model.pt \
         --ids transcript_ids.txt \
         --out predictions.pdf
@@ -24,7 +23,6 @@ from ribopipe.predict import predict
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--npz", required=True)
-    ap.add_argument("--bio-npz", required=True)
     ap.add_argument("--checkpoint", required=True)
     ap.add_argument("--ids", required=True, help="Text file, one transcript ID per line")
     ap.add_argument("--out", default="predictions.pdf")
@@ -35,7 +33,7 @@ def main():
         ids = [l.strip() for l in f if l.strip()]
 
     model = load_model(args.checkpoint, hidden=args.hidden)
-    preds = predict(model, args.npz, args.bio_npz, ids)
+    preds = predict(model, args.npz, ids)
 
     z = np.load(args.npz, allow_pickle=True)
 

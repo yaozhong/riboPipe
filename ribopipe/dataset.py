@@ -3,15 +3,15 @@
 The per-codon input concatenates, in order:
 
     codon one-hot   64   (built on-device from a fixed embedding; see model.py)
-    bio features     6   (tAI, codon frequency, wobble, AA physico-chemical)   [use_bio]
     NT one-hot     120   (+/-15 nt around the A-site, 30 positions x 4)         [use_nt]
     struct MFE       3   (positions 3i-17, 3i-16, 3i-15 relative to A-site)     [use_struct]
     ----------------------
-    total          187   for the headline ``ribopipe`` config (use_bio=False: codon+NT+struct)
+    total          187   for the headline ``ribopipe`` config (codon + NT + struct)
 
 The codon one-hot is added inside the model, so the dataset returns the remaining
-``bio_dim = 6/126/129/...`` feature block.  Toggling the flags reproduces the paper's
-feature-ablation rows (e.g. ``use_nt=False, use_struct=False`` = BiLSTM-base, 6 dims).
+non-codon ``bio_dim = 123`` feature block (120 nt + 3 struct).  Toggling the flags
+reproduces the paper's feature-ablation rows (e.g. ``use_nt=False, use_struct=False``
+= codon only, the BiLSTM-base ablation).
 """
 from __future__ import annotations
 
@@ -76,15 +76,13 @@ class RiboDataset(Dataset):
     ----------
     npz_path : str
         Per-transcript NPZ (each key -> dict with ``cds.sequence`` and ``cds.avg_count``).
-    bio_npz_path : str
-        Biological-features NPZ (per transcript, shape (L, 6)).
     transcript_ids : list[str]
         Transcripts to include; invalid/missing ones are silently dropped.
     target : {"meannorm", "meannorm_log", "minmax"}
         Regression target space. ``meannorm`` (count/mean) is the paper default and
         preserves peak amplitude.
-    use_nt, use_struct, use_bio : bool
-        Feature toggles (headline = all True). ``use_nt`` adds the +/-15 nt one-hot;
+    use_nt, use_struct : bool
+        Feature toggles (headline = both True). ``use_nt`` adds the +/-15 nt one-hot;
         ``use_struct`` adds the 3 struct-MFE dims (requires ``struct_npz_path``).
     struct_npz_path : str or None
         Path to the struct MFE cache (from ``ribopipe struct``). Required if
@@ -98,12 +96,10 @@ class RiboDataset(Dataset):
     def __init__(
         self,
         npz_path: str,
-        bio_npz_path: str,
         transcript_ids: List[str],
         target: str = "meannorm",
         use_nt: bool = True,
         use_struct: bool = True,
-        use_bio: bool = True,
         struct_npz_path: Optional[str] = None,
         max_codons: int = 1000,
     ):
@@ -113,8 +109,6 @@ class RiboDataset(Dataset):
         self.items: List[Tuple] = []  # (key, idx, ext, raw_count, L)
 
         z = np.load(npz_path, allow_pickle=True)
-        b = np.load(bio_npz_path, allow_pickle=True)
-        b_keys = set(b.files)
         struct_cache = load_struct_cache(struct_npz_path) if use_struct else {}
 
         for key in transcript_ids:
@@ -132,11 +126,6 @@ class RiboDataset(Dataset):
             idx = seq_to_idx(seq, L)
 
             parts = []
-            if use_bio:
-                bio = b[key].astype(np.float32) if key in b_keys else np.zeros((L, 6), np.float32)
-                if bio.shape[0] != L:
-                    bio = np.zeros((L, 6), np.float32)
-                parts.append(bio)
             if use_nt:
                 parts.append(nt_onehot(seq, L))
             if use_struct:
@@ -152,7 +141,7 @@ class RiboDataset(Dataset):
         if self.items:
             self.bio_dim = self.items[0][2].shape[1]
         else:
-            self.bio_dim = (6 if use_bio else 0) + (120 if use_nt else 0) + (3 if use_struct else 0)
+            self.bio_dim = (120 if use_nt else 0) + (3 if use_struct else 0)
 
     def __len__(self) -> int:
         return len(self.items)
