@@ -206,7 +206,7 @@ summary = ribopipe.run_cv5(
 RiboPipe frames Ribo-seq imputation as **within-sample learning**:
 
 1. **T_high** (top-coverage transcripts) — used for training and evaluation.
-2. **T_low** (the sparse remainder, 94–99 % of the transcriptome) — prediction targets.
+2. **T_low** (the sparse remainder of the transcriptome) — prediction targets.
 
 All model-selection and benchmarking splits are **gene-level** to avoid isoform leakage.
 
