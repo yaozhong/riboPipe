@@ -49,7 +49,7 @@ def huber_peak_weighted(pred, tgt, mask, delta: float = 1.0, alpha: float = 0.0,
 
 
 def huber_peak_mse(pred, tgt, mask, tau: float = 1.0, delta: float = 1.0):
-    """Parameter-free peak-gated loss (RiboPipe headline, ``peakmse``).
+    """Parameter-free peak-gated loss (optional alternative objective, ``peakmse``).
 
     Squared error (MSE) on peak positions (tgt > tau); robust Huber (delta) on the
     background (tgt <= tau).  Unlike :func:`huber_peak_weighted` there is no peak-weight

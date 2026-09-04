@@ -1,5 +1,8 @@
 # RiboPipe
 
+*An interpretable sequence-to-occupancy model for reliability-aware imputation of
+low-depth ribosome profiling.*
+
 **Within-sample Ribo-seq imputation**: learn a sequence-to-occupancy mapping from a
 sample's own high-coverage transcripts and use it to recover codon-resolution ribosome
 pause profiles for the same sample's sparse transcripts.
@@ -172,14 +175,27 @@ RiboPipe frames Ribo-seq imputation as **within-sample learning**:
 2. **T_low** (the sparse remainder, 94–99 % of the transcriptome) — prediction targets.
 
 All model-selection and benchmarking splits are **gene-level** to avoid isoform leakage.
-A mask-and-recover analysis shows that below a per-transcript depth D\*, sequence-based
-prediction is more accurate than the raw (downsampled) signal itself.
+
+An **independent-read-split** analysis identifies a crossover depth
+**D\* ≈ 0.22–0.57 reads/codon**, below which the model's prediction is more reliable than
+a transcript's own sparse reads — a regime that covers **52–82 % of expressed genes**. This
+is the *reliability-aware* part of the title: RiboPipe reports not only what the pause
+profile is, but when to trust it over the raw reads. A depth-weighted hybrid of prediction
+and reads then matches or exceeds either source alone at every depth tested.
+
+## Data availability
+
+Public datasets used in the paper: GEO **GSE133393** and **GSE233886**, and BioProject
+**PRJNA976655**. The in-house HEK293 dataset (TX9_WT) will be deposited in GEO upon
+publication, with reviewer access available on request.
 
 ## Citation
 
 If you use RiboPipe, please cite:
 
-> [manuscript in preparation]
+> Zhang Y-z., Hashimoto S., Li S., Inada T., Imoto S.
+> *RiboPipe: an interpretable sequence-to-occupancy model for reliability-aware imputation
+> of low-depth ribosome profiling.* Submitted to *Briefings in Bioinformatics* (2026).
 
 ## License
 

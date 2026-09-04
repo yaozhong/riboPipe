@@ -32,7 +32,8 @@ training objective is the paper's unweighted Huber loss.
 ## [0.3.0] - 2026-07
 
 Faithful headline-model release: the installable package now reproduces the paper's
-headline configuration (`ribopipe_nt_struct_h256`) rather than a codon+bio-only variant.
+headline configuration (motif-CNN + BiGRU-128, ~0.35M params, unweighted Huber loss)
+rather than a codon+bio-only variant.
 
 ### Added
 - **Nucleotide context features** (`use_nt`): +/-15 nt one-hot window around each A-site

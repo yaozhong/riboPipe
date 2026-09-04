@@ -75,9 +75,9 @@ def main(argv=None):
     ap_t.add_argument("--patience", type=int, default=20)
     ap_t.add_argument("--batch-size", type=int, default=64)
     ap_t.add_argument("--lr", type=float, default=1e-3)
-    ap_t.add_argument("--loss", default="peakmse",
-                      choices=["peakmse", "huber", "wmse", "peakw"],
-                      help="Training loss (headline: peakmse)")
+    ap_t.add_argument("--loss", default="huber",
+                      choices=["huber", "peakmse", "wmse", "peakw"],
+                      help="Training loss (headline: unweighted Huber, delta=1)")
     ap_t.add_argument("--target", default="meannorm",
                       choices=["meannorm", "meannorm_log", "minmax"])
     ap_t.add_argument("--max-codons", type=int, default=1000)
@@ -114,7 +114,7 @@ def main(argv=None):
     ap_c.add_argument("--epochs", type=int, default=200)
     ap_c.add_argument("--patience", type=int, default=20)
     ap_c.add_argument("--hidden", type=int, default=256)
-    ap_c.add_argument("--loss", default="peakmse")
+    ap_c.add_argument("--loss", default="huber")
     ap_c.add_argument("--out-json", default=None, help="Write the summary dict to this JSON")
     ap_c.add_argument("--device", default=None)
 

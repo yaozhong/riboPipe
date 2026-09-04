@@ -105,7 +105,7 @@ def run_cv5(
                                    use_nt=False, use_struct=False, struct_npz_path=None,
                                    enst2ensg_path=enst2ensg_path, epochs=epochs, patience=patience,
                                    loss_name=loss_name, hidden=hidden, device=device, e2g=e2g, backbone="bilstm")
-            elif m in ("ribopipe", "ribopipe_nt_struct_h256"):
+            elif m == "ribopipe":
                 pred = _our_method(npz_path, bio_npz_path, tr_ids, te_ids,
                                    use_nt=True, use_struct=True, struct_npz_path=struct_npz_path,
                                    enst2ensg_path=enst2ensg_path, epochs=epochs, patience=patience,

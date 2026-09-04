@@ -26,7 +26,7 @@ dependencies = [
 
 [project.optional-dependencies]
 # ViennaRNA is only needed to (re)generate the local-structure (MFE) feature cache
-# used by the headline `ribopipe_nt_struct_h256` model. Training/prediction on an
+# used by the headline motif-CNN + BiGRU model. Training/prediction on an
 # existing cache do not require it.
 struct = ["ViennaRNA>=2.5"]
 test = ["pytest"]

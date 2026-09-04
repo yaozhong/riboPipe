@@ -37,7 +37,7 @@ echo "=== Step 4: Precompute ViennaRNA local-structure (MFE) cache ==="
 ribopipe struct --npz "$OUT/npz/${SAMPLE}.npz"
 STRUCT="$OUT/npz/struct_cache/${SAMPLE}_struct.npz"
 
-echo "=== Step 5: Train the headline model (codon+bio+NT+struct, peakmse, h=256) ==="
+echo "=== Step 5: Train the headline model (codon+NT+struct, no bio, Huber loss, motif-CNN + BiGRU-128) ==="
 ribopipe train \
   --npz "$OUT/npz/${SAMPLE}.npz" \
   --bio-npz "$OUT/bio_features.npz" \
@@ -45,7 +45,6 @@ ribopipe train \
   --coverage-csv "$OUT/coverage_matrix.csv" \
   --sample "$SAMPLE" \
   --enst2ensg "$E2G" \
-  --hidden 256 \
   --out-dir "$OUT/model"
 
 echo "=== Step 6: Predict pause profiles ==="
