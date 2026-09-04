@@ -25,7 +25,7 @@ from .struct import compute_struct_cache, mfe_track, struct_cache_path
 
 __all__ = [
     "__version__",
-    "rawcount", "interpret",
+    "rawcount", "interpret", "reliability",
     "BiLSTM", "seq_to_idx", "PAD_IDX",
     "RiboDataset", "collate_fn", "build_split",
     "huber_peak_mse", "huber_mask", "huber_peak_weighted", "wmse_mask",
