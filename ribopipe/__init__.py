@@ -22,6 +22,12 @@ from .train import train, train_on_ids, save_checkpoint
 from .predict import predict, predict_dataset, predict_from_checkpoint, load_items
 from .cv5 import run_cv5
 from .struct import compute_struct_cache, mfe_track, struct_cache_path
+from . import magnitude  # optional, stackable transcript-level ribosome-load head
+from .magnitude import (
+    MagnitudeHead, build_magnitude_dataset, feature_vector,
+    fit_magnitude_head, predict_log_density, predict_mean_density,
+    reconstruct_absolute,
+)
 
 __all__ = [
     "__version__",
@@ -35,4 +41,7 @@ __all__ = [
     "predict", "predict_dataset", "predict_from_checkpoint", "load_items",
     "run_cv5",
     "compute_struct_cache", "mfe_track", "struct_cache_path",
+    "magnitude", "MagnitudeHead", "build_magnitude_dataset", "feature_vector",
+    "fit_magnitude_head", "predict_log_density", "predict_mean_density",
+    "reconstruct_absolute",
 ]
