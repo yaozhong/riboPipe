@@ -11,7 +11,7 @@ pause profiles for the same sample's sparse transcripts.
 
 ```bash
 # from GitHub (pin the release tag)
-pip install "git+https://github.com/yaozhong/riboPipe.git@v1.2.0"
+pip install "git+https://github.com/yaozhong/riboPipe.git@v1.2.1"
 
 # or from a clone (editable), with the optional extras you need
 git clone https://github.com/yaozhong/riboPipe
