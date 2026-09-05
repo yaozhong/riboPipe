@@ -46,8 +46,8 @@ def predict_dataset(model: BiLSTM, ds: RiboDataset, device, batch_size: int = 16
         for i, key in enumerate(keys):
             m = mask_t[i].bool()
             p = y[i][m].cpu().numpy()
-            if ds.target == "meannorm_log":
-                p = np.expm1(p)  # back to pause scale
+            if ds.target in ("meannorm_log", "covmean0_log"):
+                p = np.expm1(p)  # back to (covered-)mean-normalised pause scale
             out[key] = p
     return out
 
@@ -140,7 +140,9 @@ def predict_from_checkpoint(
     is_cnn = any(k == "c1.weight" or k.endswith(".c1.weight") for k in state)
     if is_cnn:
         from .model import RiboPipeCNN
-        c1 = state.get("c1.weight", next(v for k, v in state.items() if k.endswith(".c1.weight")))
+        c1 = state.get("c1.weight")
+        if c1 is None:  # research checkpoints store the backbone under a `bb.` prefix
+            c1 = next(v for k, v in state.items() if k.endswith(".c1.weight"))
         bio_dim = int(c1.shape[1]) - 64          # in-channels = 64 codon one-hot + bio_dim
         # strip any backbone prefix (research checkpoints store under `bb.`)
         state = {k.split("bb.", 1)[-1]: v for k, v in state.items()
