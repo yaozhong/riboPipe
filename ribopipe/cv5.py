@@ -69,6 +69,7 @@ def run_cv5(
     use_nt: bool = True,
     use_struct: bool = True,
     target: str = "covmean0_log",
+    folds: Optional[List] = None,
     device: Optional[str] = None,
     out_json: Optional[str] = None,
     verbose: bool = True,
@@ -89,10 +90,17 @@ def run_cv5(
         from .folds import load_enst2ensg
         e2g = load_enst2ensg(enst2ensg_path)
 
-    folds, n_genes, n_unmapped = gene_folds(all_ids, e2g=e2g, n_folds=n_folds, seed=0)
-    if verbose:
-        print(f"{len(all_ids)} tx, {n_genes} genes, {n_unmapped} unmapped -> {n_folds} gene-folds "
-              f"(test sizes: {[len(te) for _, te in folds]})", flush=True)
+    if folds is None:
+        folds, n_genes, n_unmapped = gene_folds(all_ids, e2g=e2g, n_folds=n_folds, seed=0)
+        if verbose:
+            print(f"{len(all_ids)} tx, {n_genes} genes, {n_unmapped} unmapped -> {n_folds} gene-folds "
+                  f"(test sizes: {[len(te) for _, te in folds]})", flush=True)
+    else:
+        n_folds = len(folds)
+        n_genes, n_unmapped = 0, 0
+        if verbose:
+            print(f"frozen folds: {len(all_ids)} tx -> {n_folds} folds "
+                  f"(test sizes: {[len(te) for _, te in folds]})", flush=True)
 
     lookup = {"codon_mean", "tricodon", "ridge"}
     need_tr_items = bool(lookup & set(methods))

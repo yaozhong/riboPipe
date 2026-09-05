@@ -115,6 +115,10 @@ def main(argv=None):
                       help="Comma-separated: ribopipe,bilstm_base,codon_mean,tricodon,ridge")
     ap_c.add_argument("--ids", default=None,
                       help="Text file of transcript IDs to use (default: all in NPZ)")
+    ap_c.add_argument("--folds", default=None,
+                      help="Frozen gene-level fold file (reproduce/folds/cv5_folds_<TAG>.json). "
+                           "Reproduces the paper's evaluation universe (T_high INTERSECT gene-longest "
+                           "REP) and fixed fold assignments; overrides --ids and the on-the-fly split.")
     ap_c.add_argument("--n-folds", type=int, default=5)
     ap_c.add_argument("--epochs", type=int, default=200)
     ap_c.add_argument("--patience", type=int, default=20)
@@ -270,7 +274,13 @@ def main(argv=None):
         import numpy as np
         from .cv5 import run_cv5
 
-        if args.ids:
+        folds = None
+        if args.folds:
+            from .folds import load_frozen_folds
+            folds, ids, meta = load_frozen_folds(args.folds)
+            print(f"[folds] {args.folds}: {meta.get('tag','?')} "
+                  f"{len(ids)} tx, {len(folds)} folds (seed {meta.get('seed', 0)})")
+        elif args.ids:
             with open(args.ids) as f:
                 ids = [line.strip() for line in f if line.strip()]
         else:
@@ -283,6 +293,7 @@ def main(argv=None):
             enst2ensg_path=args.enst2ensg,
             methods=[m.strip() for m in args.methods.split(",") if m.strip()],
             struct_npz_path=args.struct_npz,
+            folds=folds,
             n_folds=args.n_folds,
             epochs=args.epochs,
             patience=args.patience,

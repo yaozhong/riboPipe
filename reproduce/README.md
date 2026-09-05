@@ -12,6 +12,27 @@ covered-mean-norm `log(1+µ)` target, unweighted Huber loss).
 | `run_cv5.sh` | End-to-end: gene-level 5-fold CV of the headline model + baselines on one dataset (trains from scratch). |
 | `predict_with_checkpoint.py` | **No training**: score a released headline checkpoint (`../checkpoints/*.pt`) on a held-out transcript list. |
 | `enst2ensg_grch38.json.gz` | ENST→ENSG map (GENCODE/GRCh38) that keeps every isoform of a gene inside one fold. |
+| `rep_ids.json` | Gene-longest representative set (one transcript per gene) used to build the evaluation universe. |
+| `folds/cv5_folds_<TAG>.json` | **Frozen** gene-level evaluation universe + fold assignments (seed 0) for the four datasets — reproduces the paper's exact sample sizes. |
+| `build_folds.py` | Regenerates `folds/*.json` from the frozen T_high split ∩ `rep_ids.json` (documents the seed/provenance). |
+
+## The evaluation universe (paper sample sizes)
+
+The headline benchmark is **not** run on every transcript in a dataset NPZ. Per dataset the
+universe is `T_high ∩ REP`: the high-coverage transcripts (normalised CDS coverage > 0.5;
+the frozen gene-level split) intersected with the gene-longest representative set
+(`rep_ids.json`, one transcript per gene). It is then folded by `ribopipe.folds.gene_folds`
+with **seed 0**. The four frozen files pin this exactly:
+
+| TAG | universe (tx) | 5-fold test sizes | scored *n* |
+|---|---:|---|---:|
+| TX9_WT         | 3257 | 648 / 648 / 648 / 648 / 648 | 3101 |
+| GSE233886_WT   | 1704 | 341 / 340 / 340 / 340 / 340 | 1643 |
+| GSE133393_WT   | 1088 | 216 / 216 / 216 / 216 / 215 | 1056 |
+| PRJNA_iPS      | 1656 | 331 / 331 / 331 / 330 / 330 | 1618 |
+
+(scored *n* < universe because per-transcript metrics drop constant / <5-codon profiles.)
+Pass the matching file via `--folds` (or `FOLDS=` for `run_cv5.sh`) to reproduce these.
 
 ## Datasets (paper Data Availability)
 
@@ -64,13 +85,15 @@ ribopipe struct --npz /path/to/DATASET.npz          # one-time MFE cache
 
 NPZ=/path/to/DATASET.npz \
 STRUCT=/path/to/struct_cache/DATASET_struct.npz \
+FOLDS=reproduce/folds/cv5_folds_TX9_WT.json \
 bash reproduce/run_cv5.sh
 ```
 
 Per-method mean ± SD across folds (Pearson / Spearman / peak recall@5 % / Jaccard) is
 printed and written to `reproduce/cv5_result.json`. The headline uses `--backbone cnn
---loss huber`; the paper's ablation rows are recovered with the feature toggles
-(`--no-nt`, `--no-struct`) and `--backbone bilstm`.
+--loss huber --target covmean0_log`; the paper's ablation rows are recovered with the
+feature toggles (`--no-nt`, `--no-struct`) and `--backbone bilstm`. `FOLDS=` pins the
+paper's evaluation universe + folds (above); omit it to fold all NPZ transcripts on the fly.
 
 ## Low-coverage crossover, hybrid and interpretability
 
