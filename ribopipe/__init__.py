@@ -8,7 +8,7 @@ Headline model: ``ribopipe`` (``RiboPipeCNN``) -- a k=7 exp-motif CNN + BiGRU-12
 covered-mean-normalised log pause score with an unweighted Huber loss and
 selected by early stopping on a gene-level validation hold-out.
 """
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 
 from . import rawcount  # BAM -> P-site -> codon-count CSV (pysam imported lazily)
 from . import interpret  # motif filters + ISM attribution (matplotlib/scipy lazy)
