@@ -29,15 +29,19 @@ from .train import train_on_ids
 
 def _our_method(npz_path, tr_ids, te_ids, *, use_nt, use_struct,
                 struct_npz_path, enst2ensg_path, epochs, patience, loss_name,
-                hidden, device, e2g, backbone="cnn"):
+                hidden, device, e2g, backbone="cnn", target="covmean0_log"):
     tr90, val = split_val(tr_ids, e2g=e2g, enst2ensg_path=enst2ensg_path)
     model = train_on_ids(
         npz_path, tr90, val_ids=val,
         struct_npz_path=struct_npz_path, hidden=hidden, backbone=backbone, epochs=epochs, patience=patience,
-        use_nt=use_nt, use_struct=use_struct,
+        use_nt=use_nt, use_struct=use_struct, target=target,
         loss_name=loss_name, device=device, verbose=False,
     )
-    ds = RiboDataset(npz_path, te_ids, target="meannorm",
+    # The test dataset's target only drives the inverse transform in predict_dataset
+    # (log targets are expm1'd back to the pause scale); the scoring truth comes from
+    # true_pause(). Pearson/Spearman/rank metrics are scale-invariant, so a covered-mean
+    # prediction is compared correctly against the all-codon-mean-normalised truth.
+    ds = RiboDataset(npz_path, te_ids, target=target,
                      use_nt=use_nt, use_struct=use_struct,
                      struct_npz_path=struct_npz_path)
     dev = device or ("cuda" if _has_cuda() else "cpu")
@@ -62,11 +66,21 @@ def run_cv5(
     loss_name: str = "huber",
     hidden: int = 256,
     backbone: str = "cnn",
+    use_nt: bool = True,
+    use_struct: bool = True,
+    target: str = "covmean0_log",
+    folds: Optional[List] = None,
     device: Optional[str] = None,
     out_json: Optional[str] = None,
     verbose: bool = True,
 ) -> dict:
-    """Run gene-level ``n_folds``-fold CV; return the summary dict (and optionally write JSON)."""
+    """Run gene-level ``n_folds``-fold CV; return the summary dict (and optionally write JSON).
+
+    The ``ribopipe`` (headline) method honours ``backbone`` / ``use_nt`` / ``use_struct``
+    / ``target`` so the paper's feature-ablation rows are reproducible from the CLI
+    (``--backbone bilstm``, ``--no-nt``, ``--no-struct``). ``target`` defaults to the
+    paper headline ``covmean0_log``.  Lookup baselines ignore these.
+    """
     if methods is None:
         methods = ["ribopipe"]
     from .baselines import codon_mean_lookup, ridge_window
@@ -76,10 +90,17 @@ def run_cv5(
         from .folds import load_enst2ensg
         e2g = load_enst2ensg(enst2ensg_path)
 
-    folds, n_genes, n_unmapped = gene_folds(all_ids, e2g=e2g, n_folds=n_folds, seed=0)
-    if verbose:
-        print(f"{len(all_ids)} tx, {n_genes} genes, {n_unmapped} unmapped -> {n_folds} gene-folds "
-              f"(test sizes: {[len(te) for _, te in folds]})", flush=True)
+    if folds is None:
+        folds, n_genes, n_unmapped = gene_folds(all_ids, e2g=e2g, n_folds=n_folds, seed=0)
+        if verbose:
+            print(f"{len(all_ids)} tx, {n_genes} genes, {n_unmapped} unmapped -> {n_folds} gene-folds "
+                  f"(test sizes: {[len(te) for _, te in folds]})", flush=True)
+    else:
+        n_folds = len(folds)
+        n_genes, n_unmapped = 0, 0
+        if verbose:
+            print(f"frozen folds: {len(all_ids)} tx -> {n_folds} folds "
+                  f"(test sizes: {[len(te) for _, te in folds]})", flush=True)
 
     lookup = {"codon_mean", "tricodon", "ridge"}
     need_tr_items = bool(lookup & set(methods))
@@ -103,12 +124,14 @@ def run_cv5(
                 pred = _our_method(npz_path, tr_ids, te_ids,
                                    use_nt=False, use_struct=False, struct_npz_path=None,
                                    enst2ensg_path=enst2ensg_path, epochs=epochs, patience=patience,
-                                   loss_name=loss_name, hidden=hidden, device=device, e2g=e2g, backbone="bilstm")
+                                   loss_name=loss_name, hidden=hidden, device=device, e2g=e2g,
+                                   backbone="bilstm", target=target)
             elif m == "ribopipe":
                 pred = _our_method(npz_path, tr_ids, te_ids,
-                                   use_nt=True, use_struct=True, struct_npz_path=struct_npz_path,
+                                   use_nt=use_nt, use_struct=use_struct, struct_npz_path=struct_npz_path,
                                    enst2ensg_path=enst2ensg_path, epochs=epochs, patience=patience,
-                                   loss_name=loss_name, hidden=hidden, device=device, e2g=e2g, backbone=backbone)
+                                   loss_name=loss_name, hidden=hidden, device=device, e2g=e2g,
+                                   backbone=backbone, target=target)
             else:
                 raise SystemExit(f"unsupported method {m}")
             P, S, REC, JAC, n = per_tx_medians(pred, true)

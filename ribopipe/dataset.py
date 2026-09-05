@@ -78,9 +78,13 @@ class RiboDataset(Dataset):
         Per-transcript NPZ (each key -> dict with ``cds.sequence`` and ``cds.avg_count``).
     transcript_ids : list[str]
         Transcripts to include; invalid/missing ones are silently dropped.
-    target : {"meannorm", "meannorm_log", "minmax"}
-        Regression target space. ``meannorm`` (count/mean) is the paper default and
-        preserves peak amplitude.
+    target : {"meannorm", "meannorm_log", "minmax", "covmean0", "covmean0_log"}
+        Regression target space.  ``covmean0_log`` is the **paper headline target**
+        (the four released checkpoints were trained on it): normalise each codon by the
+        mean over *covered* codons only (count > 0) and take ``log1p``.  ``covmean0`` is
+        its linear (pre-log) base.  ``meannorm`` (count / all-codon mean) preserves peak
+        amplitude; ``meannorm_log`` is its log1p.  All log targets are back-transformed
+        with ``expm1`` at prediction time.
     use_nt, use_struct : bool
         Feature toggles (headline = both True). ``use_nt`` adds the +/-15 nt one-hot;
         ``use_struct`` adds the 3 struct-MFE dims (requires ``struct_npz_path``).
@@ -91,7 +95,7 @@ class RiboDataset(Dataset):
         Exclude transcripts longer than this (paper default: 1000).
     """
 
-    VALID_TARGETS = ("meannorm", "meannorm_log", "minmax")
+    VALID_TARGETS = ("meannorm", "meannorm_log", "minmax", "covmean0", "covmean0_log")
 
     def __init__(
         self,
@@ -156,6 +160,18 @@ class RiboDataset(Dataset):
             m = c.mean()
             ps = c / m if m > 0 else c
             tgt = np.log1p(ps).astype(np.float32)
+        elif self.target in ("covmean0", "covmean0_log"):
+            # Covered-mean normalisation: divide by the mean over COVERED codons only
+            # (count > 0), so zero-coverage positions never enter the denominator. This
+            # is the paper's headline target space; the four released checkpoints use
+            # ``covmean0_log`` = log1p of this ratio (zero-coverage codons -> log1p(0) = 0).
+            cov = c > 0
+            m = c[cov].mean() if cov.any() else 0.0
+            if m > 0:
+                ps = c / m
+                tgt = (np.log1p(ps) if self.target == "covmean0_log" else ps).astype(np.float32)
+            else:
+                tgt = np.zeros_like(c)
         else:  # minmax
             mn, mx = c.min(), c.max()
             tgt = (c - mn) / (mx - mn) if mx > mn else np.zeros_like(c)

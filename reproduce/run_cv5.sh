@@ -18,6 +18,11 @@ NPZ=${NPZ:?set NPZ=/path/to/<dataset>.npz}
 STRUCT=${STRUCT:?set STRUCT=/path/to/struct_cache/<dataset>_struct.npz}
 E2G=reproduce/enst2ensg_grch38.json.gz
 OUT=${OUT:-reproduce/cv5_result.json}
+# FOLDS: frozen gene-level evaluation universe + fold assignments (paper sample sizes).
+# Set FOLDS=reproduce/folds/cv5_folds_<TAG>.json for TAG in TX9_WT / GSE233886_WT /
+# GSE133393_WT / PRJNA_iPS. Without it, cv5 folds ALL transcripts in the NPZ on the fly
+# (more transcripts than the paper's T_high INTERSECT gene-longest universe).
+FOLDS=${FOLDS:-}
 
 # If you have not built the struct cache yet, do it once:
 #   ribopipe struct --npz "$NPZ"
@@ -26,7 +31,8 @@ ribopipe cv5 \
   --npz "$NPZ" \
   --struct-npz "$STRUCT" \
   --enst2ensg "$E2G" \
-  --backbone cnn --loss huber \
+  ${FOLDS:+--folds "$FOLDS"} \
+  --backbone cnn --loss huber --target covmean0_log \
   --methods "ribopipe,bilstm_base,tricodon,ridge,codon_mean" \
   --n-folds 5 --epochs 200 --patience 20 \
   --out-json "$OUT"

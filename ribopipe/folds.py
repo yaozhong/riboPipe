@@ -63,6 +63,30 @@ def gene_folds(all_ids, e2g=None, n_folds: int = 5, seed: int = 0, enst2ensg_pat
     return folds, len(genes), len(unmapped)
 
 
+def load_frozen_folds(path: str):
+    """Load a frozen gene-level fold file (see ``reproduce/build_folds.py``).
+
+    The file stores the evaluation universe as per-fold TEST id lists plus the
+    always-in-train ``unmapped`` ids.  We reconstruct the exact
+    ``gene_folds`` output: for fold *f*, ``train = (all other folds' test ids) +
+    unmapped`` and ``test = test_folds[f]``.
+
+    Returns ``(folds, all_ids, meta)`` where ``folds`` is a list of
+    ``(train_ids, test_ids)`` and ``all_ids`` is the full universe.
+    """
+    blob = json.load(open(path))
+    test_folds = blob["test_folds"]
+    unmapped = blob.get("unmapped", [])
+    all_ids = [k for te in test_folds for k in te] + list(unmapped)
+    folds = []
+    for f, te in enumerate(test_folds):
+        tr = [k for g, other in enumerate(test_folds) if g != f for k in other] + list(unmapped)
+        folds.append((tr, te))
+    meta = {k: blob[k] for k in ("tag", "seed", "n_folds", "n_tx", "n_genes", "n_unmapped")
+            if k in blob}
+    return folds, all_ids, meta
+
+
 def split_val(tr_ids, e2g=None, val_frac: float = 0.1, seed: int = 42, enst2ensg_path: str = None):
     """Carve ``val_frac`` of GENES from ``tr_ids`` (gene-level, no isoform leakage).
 

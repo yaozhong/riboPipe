@@ -115,13 +115,43 @@ def main(argv=None):
                       help="Comma-separated: ribopipe,bilstm_base,codon_mean,tricodon,ridge")
     ap_c.add_argument("--ids", default=None,
                       help="Text file of transcript IDs to use (default: all in NPZ)")
+    ap_c.add_argument("--folds", default=None,
+                      help="Frozen gene-level fold file (reproduce/folds/cv5_folds_<TAG>.json). "
+                           "Reproduces the paper's evaluation universe (T_high INTERSECT gene-longest "
+                           "REP) and fixed fold assignments; overrides --ids and the on-the-fly split.")
     ap_c.add_argument("--n-folds", type=int, default=5)
     ap_c.add_argument("--epochs", type=int, default=200)
     ap_c.add_argument("--patience", type=int, default=20)
     ap_c.add_argument("--hidden", type=int, default=256)
     ap_c.add_argument("--loss", default="huber")
+    ap_c.add_argument("--target", default="covmean0_log",
+                      choices=["covmean0_log", "covmean0", "meannorm", "meannorm_log", "minmax"],
+                      help="Regression target for the neural methods (headline: covmean0_log)")
     ap_c.add_argument("--out-json", default=None, help="Write the summary dict to this JSON")
     ap_c.add_argument("--device", default=None)
+    _add_feature_flags(ap_c)  # --backbone {cnn,bilstm}, --no-nt, --no-struct (headline: all on)
+
+    # ---- magnitude (optional transcript-level ribosome-load head) ----
+    ap_mag = sub.add_parser(
+        "magnitude",
+        help="Optional magnitude head: predict transcript-level log mean density from "
+             "5'UTR + CDS-global sequence features (train with --out, predict with --checkpoint)")
+    ap_mag.add_argument("--npz", required=True, help="Per-transcript NPZ (from preprocess)")
+    ap_mag.add_argument("--train-ids", default=None,
+                        help="Text file of high-coverage TRAIN transcript IDs (train mode; "
+                             "default: all covered transcripts)")
+    ap_mag.add_argument("--ids", default=None,
+                        help="Text file of transcript IDs to predict (default: all covered)")
+    ap_mag.add_argument("--out", default=None, help="TRAIN mode: save the magnitude head .pt here")
+    ap_mag.add_argument("--checkpoint", default=None,
+                        help="PREDICT mode: load a magnitude head .pt (mutually exclusive with --out)")
+    ap_mag.add_argument("--out-csv", default=None,
+                        help="Write per-transcript m_t (log density) and mean density prediction")
+    ap_mag.add_argument("--epochs", type=int, default=300)
+    ap_mag.add_argument("--hidden", type=int, default=64)
+    ap_mag.add_argument("--min-codons", type=int, default=20)
+    ap_mag.add_argument("--seed", type=int, default=123)
+    ap_mag.add_argument("--device", default=None)
 
     # ---- motifs (interpretability) ----
     ap_mo = sub.add_parser(
@@ -266,7 +296,13 @@ def main(argv=None):
         import numpy as np
         from .cv5 import run_cv5
 
-        if args.ids:
+        folds = None
+        if args.folds:
+            from .folds import load_frozen_folds
+            folds, ids, meta = load_frozen_folds(args.folds)
+            print(f"[folds] {args.folds}: {meta.get('tag','?')} "
+                  f"{len(ids)} tx, {len(folds)} folds (seed {meta.get('seed', 0)})")
+        elif args.ids:
             with open(args.ids) as f:
                 ids = [line.strip() for line in f if line.strip()]
         else:
@@ -279,16 +315,71 @@ def main(argv=None):
             enst2ensg_path=args.enst2ensg,
             methods=[m.strip() for m in args.methods.split(",") if m.strip()],
             struct_npz_path=args.struct_npz,
+            folds=folds,
             n_folds=args.n_folds,
             epochs=args.epochs,
             patience=args.patience,
             loss_name=args.loss,
             hidden=args.hidden,
+            backbone=args.backbone,
+            use_nt=args.use_nt,
+            use_struct=args.use_struct,
+            target=args.target,
             device=args.device,
             out_json=args.out_json,
             verbose=True,
         )
         print(json.dumps(summary, indent=2))
+        return 0
+
+    if args.cmd == "magnitude":
+        import csv
+        import numpy as np
+        from . import magnitude as MAG
+
+        if args.out and args.checkpoint:
+            p.error("--out (train) and --checkpoint (predict) are mutually exclusive")
+
+        z = np.load(args.npz, allow_pickle=True)
+        npzd = {k: z[k].item() for k in z.files}
+
+        def _read_ids(path):
+            with open(path) as f:
+                return [ln.strip() for ln in f if ln.strip()]
+
+        if args.checkpoint:  # ---- PREDICT ----
+            ckpt = MAG.load_magnitude_head(args.checkpoint, device=args.device)
+            ids = _read_ids(args.ids) if args.ids else None
+            X, _y, kept = MAG.build_magnitude_dataset(npzd, ids=ids, min_codons=args.min_codons)
+            m = MAG.predict_log_density(ckpt, X, device=args.device)
+            mean_hat = np.expm1(m)
+            print(f"predicted magnitude for {len(kept)} transcripts")
+        else:               # ---- TRAIN ----
+            train_ids = _read_ids(args.train_ids) if args.train_ids else None
+            Xtr, ytr, kept_tr = MAG.build_magnitude_dataset(npzd, ids=train_ids,
+                                                            min_codons=args.min_codons)
+            if len(kept_tr) == 0:
+                p.error("no covered training transcripts found for the magnitude head")
+            ckpt = MAG.fit_magnitude_head(Xtr, ytr, epochs=args.epochs, hidden=args.hidden,
+                                          seed=args.seed, device=args.device)
+            print(f"trained magnitude head on {len(kept_tr)} transcripts "
+                  f"({ckpt['in_dim']} features: {', '.join(ckpt['features'])})")
+            if args.out:
+                MAG.save_magnitude_head(ckpt, args.out)
+                print(f"saved -> {args.out}")
+            # predict on the requested set (default all) for the CSV
+            ids = _read_ids(args.ids) if args.ids else None
+            X, _y, kept = MAG.build_magnitude_dataset(npzd, ids=ids, min_codons=args.min_codons)
+            m = MAG.predict_log_density(ckpt, X, device=args.device)
+            mean_hat = np.expm1(m)
+
+        if args.out_csv:
+            with open(args.out_csv, "w", newline="") as fh:
+                wr = csv.writer(fh)
+                wr.writerow(["transcript", "m_t_log_density", "mean_density_hat"])
+                for tid, mi, mh in zip(kept, m, mean_hat):
+                    wr.writerow([tid, f"{mi:.5f}", f"{mh:.5f}"])
+            print(f"wrote {len(kept)} rows -> {args.out_csv}")
         return 0
 
     if args.cmd == "motifs":

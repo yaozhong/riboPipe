@@ -8,7 +8,7 @@ Headline model: ``ribopipe`` (``RiboPipeCNN``) -- a k=7 exp-motif CNN + BiGRU-12
 covered-mean-normalised log pause score with an unweighted Huber loss and
 selected by early stopping on a gene-level validation hold-out.
 """
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 
 from . import rawcount  # BAM -> P-site -> codon-count CSV (pysam imported lazily)
 from . import interpret  # motif filters + ISM attribution (matplotlib/scipy lazy)
@@ -22,6 +22,12 @@ from .train import train, train_on_ids, save_checkpoint
 from .predict import predict, predict_dataset, predict_from_checkpoint, load_items
 from .cv5 import run_cv5
 from .struct import compute_struct_cache, mfe_track, struct_cache_path
+from . import magnitude  # optional, stackable transcript-level ribosome-load head
+from .magnitude import (
+    MagnitudeHead, build_magnitude_dataset, feature_vector,
+    fit_magnitude_head, predict_log_density, predict_mean_density,
+    reconstruct_absolute,
+)
 
 __all__ = [
     "__version__",
@@ -35,4 +41,7 @@ __all__ = [
     "predict", "predict_dataset", "predict_from_checkpoint", "load_items",
     "run_cv5",
     "compute_struct_cache", "mfe_track", "struct_cache_path",
+    "magnitude", "MagnitudeHead", "build_magnitude_dataset", "feature_vector",
+    "fit_magnitude_head", "predict_log_density", "predict_mean_density",
+    "reconstruct_absolute",
 ]

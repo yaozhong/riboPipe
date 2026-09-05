@@ -9,6 +9,12 @@ Turns the headline model into an end-to-end, submission-quality toolkit: raw rea
 prediction, biological interpretation, and low-coverage reliability/imputation.
 
 ### Added
+- **Optional magnitude head** (`ribopipe magnitude`, `ribopipe.magnitude`): a small,
+  stackable MLP that predicts transcript-level log mean density (`m_t = log(1+mean_count)`)
+  from 5'UTR + CDS-global sequence features (5'UTR length / GC / cap-proximal GC / uAUG /
+  uORF / Kozak / 5'TOP proxy; CDS length / GC), trained with smooth-L1 on the high-coverage
+  split only. Absolute coverage reconstructs as `expm1(shape_log) * expm1(m_t)`. Independent
+  of and non-interfering with the scale-invariant shape model; imports without ViennaRNA.
 - **Raw processing** (`ribopipe raw2csv`, `ribopipe.rawcount`): CDS-aligned BAM(s) ->
   P-site assignment (fixed or `--auto-offset` start-codon metagene) -> the codon-count CSV
   that `preprocess` consumes. Optional `[raw]` extra (`pysam`). A standard riboWaltz-style
