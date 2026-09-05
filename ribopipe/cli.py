@@ -120,8 +120,12 @@ def main(argv=None):
     ap_c.add_argument("--patience", type=int, default=20)
     ap_c.add_argument("--hidden", type=int, default=256)
     ap_c.add_argument("--loss", default="huber")
+    ap_c.add_argument("--target", default="covmean0_log",
+                      choices=["covmean0_log", "covmean0", "meannorm", "meannorm_log", "minmax"],
+                      help="Regression target for the neural methods (headline: covmean0_log)")
     ap_c.add_argument("--out-json", default=None, help="Write the summary dict to this JSON")
     ap_c.add_argument("--device", default=None)
+    _add_feature_flags(ap_c)  # --backbone {cnn,bilstm}, --no-nt, --no-struct (headline: all on)
 
     # ---- motifs (interpretability) ----
     ap_mo = sub.add_parser(
@@ -284,6 +288,10 @@ def main(argv=None):
             patience=args.patience,
             loss_name=args.loss,
             hidden=args.hidden,
+            backbone=args.backbone,
+            use_nt=args.use_nt,
+            use_struct=args.use_struct,
+            target=args.target,
             device=args.device,
             out_json=args.out_json,
             verbose=True,
