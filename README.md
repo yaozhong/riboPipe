@@ -11,20 +11,25 @@ pause profiles for the same sample's sparse transcripts.
 
 ```bash
 # from GitHub (pin the release tag)
-pip install "git+https://github.com/yaozhong/riboPipe.git@v1.2.1"
+pip install "ribopipe[struct] @ git+https://github.com/yaozhong/riboPipe.git@v1.2.1"
 
-# or from a clone (editable), with the optional extras you need
+# or from a clone (editable)
 git clone https://github.com/yaozhong/riboPipe
 cd riboPipe
-pip install -e ".[struct,raw]"
+pip install -e ".[struct]"
 ```
 
-This installs the **`ribopipe`** command-line tool and the `ribopipe` Python package
-(headline `RiboPipeCNN`, training / 5-fold CV / prediction, and the baselines).
-Requirements: Python ≥ 3.8, PyTorch ≥ 1.12, NumPy, Pandas, SciPy, scikit-learn,
-Biopython, matplotlib. Optional extras: **`[struct]`** (`ViennaRNA>=2.5`) to (re)generate
-the local-structure MFE cache; **`[raw]`** (`pysam`) for `raw2csv` (BAM → codon-count CSV);
-**`[test]`** (`pytest`). Training/prediction on an existing CSV + cache import neither.
+This installs the **`ribopipe`** command-line tool and Python package: the headline model
+class **`RiboPipeCNN`** — a **motif-CNN (k=7) + BiGRU-128** backbone (~0.35 M parameters;
+load a released checkpoint with `ribopipe.model.load_cnn_from_paper_checkpoint`) — plus
+training / 5-fold CV / prediction and the baselines. The **`[struct]`** extra pulls in
+`ViennaRNA>=2.5` for the local-structure (MFE) features the paper's model uses, so it is
+part of the default install above; everything else is a core dependency (Python ≥ 3.8,
+PyTorch ≥ 1.12, NumPy, Pandas, SciPy, scikit-learn, Biopython, matplotlib).
+
+Only to rebuild the input CSV from raw BAMs do you need the extra **`[raw]`** (`pysam`, for
+`ribopipe raw2csv`); the datasets in `data/` already ship model-ready, so this is rarely
+needed.
 
 The four pre-trained headline checkpoints are in `checkpoints/` in the repository (not
 shipped in the pip wheel); load one with
@@ -225,9 +230,11 @@ and reads then matches or exceeds either source alone at every depth tested.
 
 ## Data availability
 
-Public datasets used in the paper: GEO **GSE133393** and **GSE233886**, and BioProject
-**PRJNA976655**. The in-house HEK293 dataset (TX9_WT) will be deposited in GEO upon
-publication, with reviewer access available on request.
+The per-codon benchmark data for all four datasets ship with this repository under `data/`
+(one `*_benchmark.npz` + index CSV + README per dataset). Sources: the public datasets are
+GEO **GSE133393** and **GSE233886** and BioProject **PRJNA976655**; the in-house HEK293
+dataset (**TX9_WT**) is released here as processed per-codon counts, with the raw reads to be
+deposited in GEO upon publication.
 
 ## License
 
