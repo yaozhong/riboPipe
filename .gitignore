@@ -35,3 +35,10 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Public benchmark dataset (small, intentionally tracked)
+!data/TX9_WT/tx9_wt_benchmark.npz
+!data/TX9_WT/
+!data/GSE233886_WT/gse233886_wt_benchmark.npz
+!data/GSE133393_WT/gse133393_wt_benchmark.npz
+!data/PRJNA_iPS/prjna_ips_benchmark.npz
