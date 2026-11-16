@@ -1,0 +1,668 @@
+{
+ "rule": "Part II independent-read reference. PRIMARY on all four human datasets: biological-replicate split with EXPECTED-depth matching (per transcript the deeper replicate is binomially thinned with p = shallower total / deeper total; realised totals vary and are recorded). Both role assignments (rep1\u2192input/rep2\u2192reference and the swap) are run; the deeper replicate is not treated as truth. SENSITIVITY: binomial read-level partition of pooled counts, only on the three UMI-deduplicated datasets; not on GSE133393. Every Part II result must report, per dataset and depth bin, N_eligible (in T_low), N_with_reference (shallower replicate > 0) and N_scored (correlations defined after thinning); undefined correlations are never scored as 0 and results on the scored subset are not extrapolated to all of T_low.",
+ "wording": "A pooled binomial split overestimates the agreement between independent libraries; for GSE133393 (no deduplication possible) the overestimate is large. The comparison does not apportion the gap between PCR duplication and library-to-library/biological variation.",
+ "evidence": {
+  "script": "scripts/audit_rep_vs_binom_final.py",
+  "source": "final A-site <tag>_reps.npz, Part II = T_high \u222a T_low",
+  "per_dataset": {
+   "DMSO_TX9P1": {
+    "rep_depth_partII": [
+     10572670,
+     11055852
+    ],
+    "bins": {
+     "[0,0.02]": {
+      "N_eligible": 2913,
+      "N_with_reference": 1941,
+      "N_scored": 1147,
+      "N_eligible_low": 2913,
+      "median_r_rep": -0.0041204097624806795,
+      "median_r_bin": 0.013881080948390325,
+      "diff_of_medians": 0.018001490710871003,
+      "median_paired_diff": 0.0004060422587779471,
+      "ci95_paired": [
+       0.0003229330152541847,
+       0.000504725826563119
+      ],
+      "actual_depth_median": 0.009586466165413534
+     },
+     "(0.02,0.05]": {
+      "N_eligible": 1051,
+      "N_with_reference": 1051,
+      "N_scored": 1045,
+      "N_eligible_low": 1051,
+      "median_r_rep": 0.08034298919322817,
+      "median_r_bin": 0.08703344589350451,
+      "diff_of_medians": 0.006690456700276334,
+      "median_paired_diff": 0.004359140534706218,
+      "ci95_paired": [
+       0.0016708014650409775,
+       0.008427372323040727
+      ],
+      "actual_depth_median": 0.03299180327868853
+     },
+     "(0.05,0.1]": {
+      "N_eligible": 1079,
+      "N_with_reference": 1079,
+      "N_scored": 1078,
+      "N_eligible_low": 1079,
+      "median_r_rep": 0.1412909365661255,
+      "median_r_bin": 0.14644078087430012,
+      "diff_of_medians": 0.0051498443081746115,
+      "median_paired_diff": 0.005285075501678102,
+      "ci95_paired": [
+       0.0010378690611282026,
+       0.009087541405754851
+      ],
+      "actual_depth_median": 0.07302344963442817
+     },
+     "(0.1,0.2]": {
+      "N_eligible": 1575,
+      "N_with_reference": 1575,
+      "N_scored": 1575,
+      "N_eligible_low": 1575,
+      "median_r_rep": 0.2509202846885058,
+      "median_r_bin": 0.2604094318619545,
+      "diff_of_medians": 0.009489147173448675,
+      "median_paired_diff": 0.010244118594430474,
+      "ci95_paired": [
+       0.007294933497869405,
+       0.013720044888416449
+      ],
+      "actual_depth_median": 0.1479253112033195
+     },
+     "(0.2,0.5]": {
+      "N_eligible": 2454,
+      "N_with_reference": 2454,
+      "N_scored": 2454,
+      "N_eligible_low": 2454,
+      "median_r_rep": 0.39756700854261096,
+      "median_r_bin": 0.4137791972823385,
+      "diff_of_medians": 0.016212188739727518,
+      "median_paired_diff": 0.016104290350175188,
+      "ci95_paired": [
+       0.013967206485722639,
+       0.018143808711916655
+      ],
+      "actual_depth_median": 0.3281152439881873
+     },
+     "(0.5,1]": {
+      "N_eligible": 1968,
+      "N_with_reference": 1968,
+      "N_scored": 1968,
+      "N_eligible_low": 1968,
+      "median_r_rep": 0.5714898924152998,
+      "median_r_bin": 0.5906468606728463,
+      "diff_of_medians": 0.019156968257546536,
+      "median_paired_diff": 0.016543634280972247,
+      "ci95_paired": [
+       0.01410554299590941,
+       0.01875577742731128
+      ],
+      "actual_depth_median": 0.7060981406402909
+     },
+     "(1,2]": {
+      "N_eligible": 1603,
+      "N_with_reference": 1603,
+      "N_scored": 1603,
+      "N_eligible_low": 906,
+      "median_r_rep": 0.7072072953469095,
+      "median_r_bin": 0.7312670940164068,
+      "diff_of_medians": 0.024059798669497257,
+      "median_paired_diff": 0.020300235768508368,
+      "ci95_paired": [
+       0.019098564508401195,
+       0.021834474131774195
+      ],
+      "actual_depth_median": 1.3763059701492537
+     },
+     "(2,5]": {
+      "N_eligible": 1314,
+      "N_with_reference": 1314,
+      "N_scored": 1314,
+      "N_eligible_low": 0,
+      "median_r_rep": 0.824808298377989,
+      "median_r_bin": 0.8514064393667692,
+      "diff_of_medians": 0.026598140988780217,
+      "median_paired_diff": 0.023484083128358868,
+      "ci95_paired": [
+       0.022106626397753557,
+       0.025471143319502954
+      ],
+      "actual_depth_median": 2.928712723472549
+     },
+     ">5": {
+      "N_eligible": 1133,
+      "N_with_reference": 1133,
+      "N_scored": 1133,
+      "N_eligible_low": 0,
+      "median_r_rep": 0.9310225549241397,
+      "median_r_bin": 0.9577473614718153,
+      "diff_of_medians": 0.026724806547675617,
+      "median_paired_diff": 0.024698652861729564,
+      "ci95_paired": [
+       0.023622849460487316,
+       0.025810686097812008
+      ],
+      "actual_depth_median": 10.227080181543117
+     }
+    }
+   },
+   "GSE233886_WT": {
+    "rep_depth_partII": [
+     6568080,
+     5013306
+    ],
+    "bins": {
+     "[0,0.02]": {
+      "N_eligible": 3192,
+      "N_with_reference": 2170,
+      "N_scored": 1305,
+      "N_eligible_low": 3192,
+      "median_r_rep": -0.003759398496240576,
+      "median_r_bin": 0.014781125366133624,
+      "diff_of_medians": 0.0185405238623742,
+      "median_paired_diff": 0.0003471243859653867,
+      "ci95_paired": [
+       0.00027314440539496186,
+       0.00041611791700900587
+      ],
+      "actual_depth_median": 0.009936305732484076
+     },
+     "(0.02,0.05]": {
+      "N_eligible": 1405,
+      "N_with_reference": 1405,
+      "N_scored": 1393,
+      "N_eligible_low": 1405,
+      "median_r_rep": 0.09324262164409236,
+      "median_r_bin": 0.09421919184291352,
+      "diff_of_medians": 0.000976570198821164,
+      "median_paired_diff": 0.0008973293858833623,
+      "ci95_paired": [
+       -0.0005522552181305145,
+       0.003237477170675708
+      ],
+      "actual_depth_median": 0.033426183844011144
+     },
+     "(0.05,0.1]": {
+      "N_eligible": 1624,
+      "N_with_reference": 1624,
+      "N_scored": 1623,
+      "N_eligible_low": 1624,
+      "median_r_rep": 0.17447258135520322,
+      "median_r_bin": 0.18132968871872196,
+      "diff_of_medians": 0.006857107363518744,
+      "median_paired_diff": 0.004995171231176987,
+      "ci95_paired": [
+       0.0023085246014590403,
+       0.008766375136363913
+      ],
+      "actual_depth_median": 0.07338877338877338
+     },
+     "(0.1,0.2]": {
+      "N_eligible": 1948,
+      "N_with_reference": 1948,
+      "N_scored": 1948,
+      "N_eligible_low": 1948,
+      "median_r_rep": 0.2854266123331455,
+      "median_r_bin": 0.2943973763413127,
+      "diff_of_medians": 0.008970764008167209,
+      "median_paired_diff": 0.009457324332376033,
+      "ci95_paired": [
+       0.006415188134666128,
+       0.01196957126117798
+      ],
+      "actual_depth_median": 0.14444069828425862
+     },
+     "(0.2,0.5]": {
+      "N_eligible": 2539,
+      "N_with_reference": 2539,
+      "N_scored": 2539,
+      "N_eligible_low": 2539,
+      "median_r_rep": 0.4489206495334844,
+      "median_r_bin": 0.4671179036479141,
+      "diff_of_medians": 0.01819725411442974,
+      "median_paired_diff": 0.015532234583324533,
+      "ci95_paired": [
+       0.01270750537414742,
+       0.017922437994834783
+      ],
+      "actual_depth_median": 0.3137931034482759
+     },
+     "(0.5,1]": {
+      "N_eligible": 1479,
+      "N_with_reference": 1479,
+      "N_scored": 1479,
+      "N_eligible_low": 1479,
+      "median_r_rep": 0.6198636240711244,
+      "median_r_bin": 0.6451905381541082,
+      "diff_of_medians": 0.02532691408298382,
+      "median_paired_diff": 0.021681005361101402,
+      "ci95_paired": [
+       0.018763821773883554,
+       0.0241928872338944
+      ],
+      "actual_depth_median": 0.6874213836477987
+     },
+     "(1,2]": {
+      "N_eligible": 991,
+      "N_with_reference": 991,
+      "N_scored": 991,
+      "N_eligible_low": 434,
+      "median_r_rep": 0.7591983626007133,
+      "median_r_bin": 0.7845001386747181,
+      "diff_of_medians": 0.025301776074004856,
+      "median_paired_diff": 0.026501983798361328,
+      "ci95_paired": [
+       0.02424534434283776,
+       0.028578978514806647
+      ],
+      "actual_depth_median": 1.3545774647887323
+     },
+     "(2,5]": {
+      "N_eligible": 732,
+      "N_with_reference": 732,
+      "N_scored": 732,
+      "N_eligible_low": 0,
+      "median_r_rep": 0.8568747556061502,
+      "median_r_bin": 0.8883000632092126,
+      "diff_of_medians": 0.03142530760306239,
+      "median_paired_diff": 0.030630677020920427,
+      "ci95_paired": [
+       0.02796416435467175,
+       0.033844592345595115
+      ],
+      "actual_depth_median": 2.9074740124740126
+     },
+     ">5": {
+      "N_eligible": 536,
+      "N_with_reference": 536,
+      "N_scored": 536,
+      "N_eligible_low": 0,
+      "median_r_rep": 0.9366597793795294,
+      "median_r_bin": 0.972305694311795,
+      "diff_of_medians": 0.035645914932265654,
+      "median_paired_diff": 0.0312191311221775,
+      "ci95_paired": [
+       0.02980729299116136,
+       0.03290323930143069
+      ],
+      "actual_depth_median": 11.160764119601328
+     }
+    }
+   },
+   "GSE133393_WT": {
+    "rep_depth_partII": [
+     3729143,
+     3789585
+    ],
+    "bins": {
+     "[0,0.02]": {
+      "N_eligible": 3113,
+      "N_with_reference": 2042,
+      "N_scored": 1282,
+      "N_eligible_low": 3113,
+      "median_r_rep": -0.0056212104201255955,
+      "median_r_bin": 0.12406372582725458,
+      "diff_of_medians": 0.12968493624738017,
+      "median_paired_diff": 0.10010397474413207,
+      "ci95_paired": [
+       0.09005478708394755,
+       0.10854116448796015
+      ],
+      "actual_depth_median": 0.010671936758893281
+     },
+     "(0.02,0.05]": {
+      "N_eligible": 1493,
+      "N_with_reference": 1493,
+      "N_scored": 1481,
+      "N_eligible_low": 1493,
+      "median_r_rep": 0.02282920804019544,
+      "median_r_bin": 0.16437001065571993,
+      "diff_of_medians": 0.14154080261552449,
+      "median_paired_diff": 0.12484992883345924,
+      "ci95_paired": [
+       0.11993918059619892,
+       0.130161690444146
+      ],
+      "actual_depth_median": 0.03382899628252788
+     },
+     "(0.05,0.1]": {
+      "N_eligible": 1865,
+      "N_with_reference": 1865,
+      "N_scored": 1865,
+      "N_eligible_low": 1865,
+      "median_r_rep": 0.05296086929424952,
+      "median_r_bin": 0.19559511554136827,
+      "diff_of_medians": 0.14263424624711873,
+      "median_paired_diff": 0.13687766708004365,
+      "ci95_paired": [
+       0.13280655957547427,
+       0.1400027763794299
+      ],
+      "actual_depth_median": 0.0729559748427673
+     },
+     "(0.1,0.2]": {
+      "N_eligible": 2170,
+      "N_with_reference": 2170,
+      "N_scored": 2170,
+      "N_eligible_low": 2170,
+      "median_r_rep": 0.0974237298112039,
+      "median_r_bin": 0.24235138374877035,
+      "diff_of_medians": 0.14492765393756646,
+      "median_paired_diff": 0.13969721442468802,
+      "ci95_paired": [
+       0.1362653884699489,
+       0.14214732279520578
+      ],
+      "actual_depth_median": 0.143115656273551
+     },
+     "(0.2,0.5]": {
+      "N_eligible": 2906,
+      "N_with_reference": 2906,
+      "N_scored": 2906,
+      "N_eligible_low": 2906,
+      "median_r_rep": 0.18418133289150918,
+      "median_r_bin": 0.33117416110441744,
+      "diff_of_medians": 0.14699282821290827,
+      "median_paired_diff": 0.1393729317331488,
+      "ci95_paired": [
+       0.1375631744335784,
+       0.14194551154998106
+      ],
+      "actual_depth_median": 0.3093913225154955
+     },
+     "(0.5,1]": {
+      "N_eligible": 1504,
+      "N_with_reference": 1504,
+      "N_scored": 1504,
+      "N_eligible_low": 1504,
+      "median_r_rep": 0.3223833128352463,
+      "median_r_bin": 0.4564805710356369,
+      "diff_of_medians": 0.1340972582003906,
+      "median_paired_diff": 0.13096026788364634,
+      "ci95_paired": [
+       0.1274679747050263,
+       0.13372699573188196
+      ],
+      "actual_depth_median": 0.6981754098360656
+     },
+     "(1,2]": {
+      "N_eligible": 908,
+      "N_with_reference": 908,
+      "N_scored": 908,
+      "N_eligible_low": 553,
+      "median_r_rep": 0.47088245870542356,
+      "median_r_bin": 0.590872260510527,
+      "diff_of_medians": 0.11998980180510344,
+      "median_paired_diff": 0.11358479988051562,
+      "ci95_paired": [
+       0.10988224780676703,
+       0.11720029537297545
+      ],
+      "actual_depth_median": 1.3559198998748436
+     },
+     "(2,5]": {
+      "N_eligible": 567,
+      "N_with_reference": 567,
+      "N_scored": 567,
+      "N_eligible_low": 0,
+      "median_r_rep": 0.6581997019438226,
+      "median_r_bin": 0.7551990307832716,
+      "diff_of_medians": 0.09699932883944895,
+      "median_paired_diff": 0.09111022979838701,
+      "ci95_paired": [
+       0.08648053556282523,
+       0.09553720517366404
+      ],
+      "actual_depth_median": 2.9261410788381745
+     },
+     ">5": {
+      "N_eligible": 367,
+      "N_with_reference": 367,
+      "N_scored": 367,
+      "N_eligible_low": 0,
+      "median_r_rep": 0.8689071782480262,
+      "median_r_bin": 0.9202742449104184,
+      "diff_of_medians": 0.05136706666239221,
+      "median_paired_diff": 0.052068252138291804,
+      "ci95_paired": [
+       0.0459625955695121,
+       0.05872144738821298
+      ],
+      "actual_depth_median": 10.562406015037594
+     }
+    }
+   },
+   "PRJNA_iPS": {
+    "rep_depth_partII": [
+     2920899,
+     821790
+    ],
+    "bins": {
+     "[0,0.02]": {
+      "N_eligible": 6619,
+      "N_with_reference": 4919,
+      "N_scored": 2975,
+      "N_eligible_low": 6619,
+      "median_r_rep": -0.003951339599773028,
+      "median_r_bin": 0.010032723226304633,
+      "diff_of_medians": 0.013984062826077661,
+      "median_paired_diff": 0.0010014299566560659,
+      "ci95_paired": [
+       0.0008403618978436023,
+       0.0011965713293613036
+      ],
+      "actual_depth_median": 0.01046770601336303
+     },
+     "(0.02,0.05]": {
+      "N_eligible": 2882,
+      "N_with_reference": 2882,
+      "N_scored": 2825,
+      "N_eligible_low": 2882,
+      "median_r_rep": 0.03729507719701124,
+      "median_r_bin": 0.04597385714325482,
+      "diff_of_medians": 0.008678779946243581,
+      "median_paired_diff": 0.007467153250343153,
+      "ci95_paired": [
+       0.005233499655272909,
+       0.009361279103690778
+      ],
+      "actual_depth_median": 0.03154305200341006
+     },
+     "(0.05,0.1]": {
+      "N_eligible": 1882,
+      "N_with_reference": 1882,
+      "N_scored": 1876,
+      "N_eligible_low": 1882,
+      "median_r_rep": 0.08131727156357893,
+      "median_r_bin": 0.09193624291970659,
+      "diff_of_medians": 0.01061897135612766,
+      "median_paired_diff": 0.011380731584455385,
+      "ci95_paired": [
+       0.009241032521139735,
+       0.014376513849750453
+      ],
+      "actual_depth_median": 0.06810979765149927
+     },
+     "(0.1,0.2]": {
+      "N_eligible": 1433,
+      "N_with_reference": 1433,
+      "N_scored": 1433,
+      "N_eligible_low": 1433,
+      "median_r_rep": 0.14725884466899272,
+      "median_r_bin": 0.15868540182110236,
+      "diff_of_medians": 0.011426557152109634,
+      "median_paired_diff": 0.014514846120999597,
+      "ci95_paired": [
+       0.011379005236624827,
+       0.01741360888192529
+      ],
+      "actual_depth_median": 0.13494318181818182
+     },
+     "(0.2,0.5]": {
+      "N_eligible": 1107,
+      "N_with_reference": 1107,
+      "N_scored": 1107,
+      "N_eligible_low": 1107,
+      "median_r_rep": 0.2833261718900862,
+      "median_r_bin": 0.3010500373060125,
+      "diff_of_medians": 0.0177238654159263,
+      "median_paired_diff": 0.017732483366152407,
+      "ci95_paired": [
+       0.012397420602213674,
+       0.024015876895352884
+      ],
+      "actual_depth_median": 0.2875
+     },
+     "(0.5,1]": {
+      "N_eligible": 459,
+      "N_with_reference": 459,
+      "N_scored": 459,
+      "N_eligible_low": 228,
+      "median_r_rep": 0.46742199696251535,
+      "median_r_bin": 0.4968384019511893,
+      "diff_of_medians": 0.029416404988673928,
+      "median_paired_diff": 0.023326892961512358,
+      "ci95_paired": [
+       0.017912068598612784,
+       0.03059101287805954
+      ],
+      "actual_depth_median": 0.6527027027027027
+     },
+     "(1,2]": {
+      "N_eligible": 246,
+      "N_with_reference": 246,
+      "N_scored": 246,
+      "N_eligible_low": 0,
+      "median_r_rep": 0.6313103284270436,
+      "median_r_bin": 0.6653970368864945,
+      "diff_of_medians": 0.03408670845945094,
+      "median_paired_diff": 0.02600708913864075,
+      "ci95_paired": [
+       0.01850363491821716,
+       0.033785705826824164
+      ],
+      "actual_depth_median": 1.2972730227198865
+     },
+     "(2,5]": {
+      "N_eligible": 165,
+      "N_with_reference": 165,
+      "N_scored": 165,
+      "N_eligible_low": 0,
+      "median_r_rep": 0.7717111423117649,
+      "median_r_bin": 0.811961185144338,
+      "diff_of_medians": 0.04025004283257316,
+      "median_paired_diff": 0.03280132512939049,
+      "ci95_paired": [
+       0.027321409402268404,
+       0.03925062199303497
+      ],
+      "actual_depth_median": 2.9773333333333336
+     },
+     ">5": {
+      "N_eligible": 111,
+      "N_with_reference": 111,
+      "N_scored": 111,
+      "N_eligible_low": 0,
+      "median_r_rep": 0.8964280540962412,
+      "median_r_bin": 0.9297958709327853,
+      "diff_of_medians": 0.033367816836544106,
+      "median_paired_diff": 0.02857539988457236,
+      "ci95_paired": [
+       0.023767539150378214,
+       0.035107181203893445
+      ],
+      "actual_depth_median": 8.186153846153847
+     }
+    }
+   }
+  },
+  "scope": "Split-protocol DIAGNOSTIC on the whole Part II set (T_high \u222a T_low). N_scored here requires both split correlations to be defined in all 5 seeds for the same transcript; it is NOT the denominator of RiboPipe/baseline evaluation on T_low.",
+  "binning_variable": "expected single-replicate depth min(R1,R2)/L (reads per codon, A-site, before thinning); first bin [0,0.02] includes transcripts whose shallower replicate is 0",
+  "actual_thinned_depth": "summarised per bin as a median (actual_depth_median); per-transcript thinned totals are not stored for this diagnostic",
+  "bin_label_note": "first-bin key renamed from '(0,0.02]' to '[0,0.02]' at v1.0 approval (label only; values not recomputed)"
+ },
+ "samples": {
+  "DMSO_TX9P1": {
+   "csv_columns": [
+    "WT_DMSO_rep3",
+    "WT_DMSO_rep4"
+   ],
+   "depth_universe": [
+    10572670,
+    11055852
+   ],
+   "rep_ids": [
+    "WT_DMSO_rep3 (barcode ATCGT; GSM10123144)",
+    "WT_DMSO_rep4 (barcode AGCTA; GSM10123145)"
+   ],
+   "umi": "inline 2+5 nt, deduplicated",
+   "note": "two independently barcoded libraries, pooled and sequenced in the same NextSeq run"
+  },
+  "GSE233886_WT": {
+   "csv_columns": [
+    "HEK293F_WT_DMSO_rep1",
+    "HEK293F_WT_DMSO_rep2"
+   ],
+   "depth_universe": [
+    6568080,
+    5013306
+   ],
+   "rep_ids": [
+    "HEK293F_WT_DMSO_rep1 = SRR24793079 = GSM7438601 'Monosomes_DMSO2'",
+    "HEK293F_WT_DMSO_rep2 = SRR24793080 = GSM7438600 'Monosomes_DMSO1'"
+   ],
+   "umi": "7 nt in read name, deduplicated",
+   "note": "our rep1/rep2 are GEO DMSO2/DMSO1 (labels reversed)"
+  },
+  "GSE133393_WT": {
+   "csv_columns": [
+    "HEK293_WT_rep1",
+    "HEK293_WT_rep2"
+   ],
+   "depth_universe": [
+    3729143,
+    3789585
+   ],
+   "rep_ids": [
+    "HEK293_WT_rep1 = SRR9604619 = GSM3907597 'monosome_rep1'",
+    "HEK293_WT_rep2 = SRR9604620 = GSM3907598 'monosome_rep2'"
+   ],
+   "umi": "library carried random barcodes, trimmed by the authors before deposition (GEO data processing); deposited reads carry no UMI -> NOT deduplicated",
+   "note": "PCR duplicates retained; reads/codon includes duplicates"
+  },
+  "PRJNA_iPS": {
+   "csv_columns": [
+    "iPS_409B2_rep1",
+    "iPS_409B2_rep2"
+   ],
+   "depth_universe": [
+    2920899,
+    821790
+   ],
+   "rep_ids": [
+    "iPS_409B2_rep1 = Ribo_IPSC1 = SRR24746821 = GSM7430289",
+    "iPS_409B2_rep2 = Ribo_IPSC2 = SRR24746803 = GSM7430290"
+   ],
+   "umi": "7 nt in read name, deduplicated",
+   "note": "replicate depths differ ~3.5x"
+  }
+ },
+ "model_evaluation_rules": {
+  "population": "Part II model results are reported on T_low (and T_high separately where needed), never pooled silently",
+  "denominators": "per dataset \u00d7 depth bin \u00d7 role assignment: N_eligible (in T_low), N_with_reference (shallower replicate > 0), N_scored (correlation defined after thinning); report N_scored/N_eligible",
+  "comparison": "methods are compared on the same scorable intersection; undefined correlations are not scored as 0; results are not extrapolated from the scorable subset to all of T_low; being below 10 reads is not the same as unscorable, and a definable correlation is not the same as a reliable reference",
+  "per_transcript_log": [
+   "tx_id",
+   "fold",
+   "seed",
+   "role (input/reference replicate)",
+   "thinned input total",
+   "thinned reference total",
+   "scorable (bool)",
+   "reason if not scorable"
+  ]
+ },
+ "coverage_units": "Part I/T_high threshold: cov = \u03a3c/(3L) > 0.5 reads per nt (c = replicate-mean A-site counts) = 1.5 reads per codon; threshold confirmed with collaborators. Split-diagnostic bins use min(R1,R2)/L reads per codon of a single replicate \u2014 a different quantity."
+}

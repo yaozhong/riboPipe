@@ -1,0 +1,93 @@
+--- a/riboexp_models_py3.py
++++ b/riboexp_models_py3.py
+@@ -1 +1,4 @@
++# [PAPER-PY3] Paper_2026-11-11 port of official Riboexp code/models.py (py2/torch0.3.1 -> py3/torch2.x).
++# Only API-level edits, each marked [PAPER-PY3]; architecture / both branches (structure and no_structure)
++# / reward / loss unchanged. Module attribute names are kept so official best-model.pkl state dicts load.
+ import torch
+@@ -3,5 +6,4 @@
+ import torch.nn.functional as F
+-import nntools.nntools as nntools
+-from torch.autograd import Variable
+-import nntools.utils as nnutils
++import riboexp_nntools_py3 as nntools  # [PAPER-PY3] ported copy of nntools/nntools.py
++# [PAPER-PY3] Variable wrapper no longer needed (tensors carry autograd); nntools.utils (logging only) not imported
+ 
+@@ -28,13 +30,14 @@
+         steps = inputs_p.size(1)
+-        outputs = Variable(torch.zeros(b_s,steps).cuda())
+-        pis = Variable(torch.zeros(b_s,steps).cuda())
+-        ones = Variable(torch.ones(b_s,1).cuda())
+-        probs = Variable(torch.zeros(b_s,steps).cuda())
++        dev = inputs_p.device  # [PAPER-PY3] follow input device instead of hard .cuda()
++        outputs = torch.zeros(b_s,steps, device=dev)
++        pis = torch.zeros(b_s,steps, device=dev)
++        ones = torch.ones(b_s,1, device=dev)
++        probs = torch.zeros(b_s,steps, device=dev)
+         # prate is 0, indicating sampling from predicted policy distribution
+         self.prate = 0.0 
+-        self.switch_m = Variable(torch.FloatTensor(b_s, 2).fill_(self.prate)).cuda()
++        self.switch_m = torch.full((b_s, 2), float(self.prate), device=dev)  # [PAPER-PY3]
+         self.switch_m[:,1] = 1- self.prate
+-        self.action_m = Variable(torch.FloatTensor(b_s,self.cate_num).fill_(1.0/self.cate_num)).cuda()
++        self.action_m = torch.full((b_s,self.cate_num), 1.0/self.cate_num, device=dev)  # [PAPER-PY3]
+ 
+-        tag_onehot = Variable(torch.zeros(b_s,steps+1).cuda())
++        tag_onehot = torch.zeros(b_s,steps+1, device=dev)  # [PAPER-PY3]
+         h_t = self.init_hidden(b_s)
+@@ -43,3 +46,3 @@
+             tag = torch.sum(outputs,1, keepdim = True).long()
+-            tag_onehot.data.zero_()
++            tag_onehot = torch.zeros(b_s,steps+1, device=dev)  # [PAPER-PY3] rebuild instead of in-place zero_ (same values; avoids autograd in-place error)
+             tag_onehot.scatter_(1,tag,ones)
+@@ -52,5 +55,5 @@
+             if self.training:
+-                action_exploit = energe_s.multinomial()  # as edge_predict
+-                explorate_flag = self.switch_m.multinomial()  # as edge_predict
+-                action_explorate = self.action_m.multinomial()
++                action_exploit = energe_s.multinomial(1)  # as edge_predict  [PAPER-PY3] torch>=0.4 needs num_samples (0.3.1 default 1)
++                explorate_flag = self.switch_m.multinomial(1)  # as edge_predict
++                action_explorate = self.action_m.multinomial(1)
+                 action = nntools.repackage_var(explorate_flag*action_exploit +\
+@@ -63,5 +66,5 @@
+             pi = torch.gather(energe_s, 1, s_t) # (b_s,1), \pi for i,j
+-            pis[:,i] = pi
+-            probs[:,i:i+1] = energe_s[:,1:2]
+-            outputs[:,i] = s_t
++            pis = pis.clone(); pis[:,i] = pi.squeeze(1)  # [PAPER-PY3] out-of-place copy (torch2 autograd); same values
++            probs = probs.clone(); probs[:,i:i+1] = energe_s[:,1:2]
++            outputs = outputs.clone(); outputs[:,i] = s_t.squeeze(1).float()
+         return  outputs, pis, probs
+@@ -70,3 +73,3 @@
+         weight = next(self.parameters()).data
+-        return Variable(weight.new(batch_size, self.hidden_size).zero_())
++        return weight.new(batch_size, self.hidden_size).zero_()  # [PAPER-PY3] no Variable
+ 
+@@ -93,3 +96,3 @@
+         self.input_n = 90
+-        self.foldsize = self.hidden_size/2
++        self.foldsize = self.hidden_size//2  # [PAPER-PY3] py3 integer division (py2 '/' on ints)
+         
+@@ -114,2 +117,3 @@
+         length = input.size()[1]
++        dev = input.device  # [PAPER-PY3]
+ 
+@@ -131,3 +135,3 @@
+ 
+-        positionx = Variable(torch.eye(length).repeat(batch_size,1,1)).cuda()
++        positionx = torch.eye(length, device=dev).repeat(batch_size,1,1)  # [PAPER-PY3]
+         x = torch.cat([x,xnt, positionx],2)
+@@ -137,3 +141,3 @@
+ 
+-        h0 = Variable(torch.zeros( 2,batch_size*self.n_repeat, self.hidden_size)).cuda()
++        h0 = torch.zeros( 2,batch_size*self.n_repeat, self.hidden_size, device=dev)  # [PAPER-PY3]
+         g_features,hidden0 = self.encoder_g(inputs_r, h0)
+@@ -142,2 +146,3 @@
+         if maskids is not None:
++            tag_outputs = tag_outputs.clone()  # [PAPER-PY3] out-of-place (same values)
+             for id in maskids:
+@@ -151,3 +156,3 @@
+         if fold is not None:
+-            h0 = Variable(torch.zeros( 2,batch_size*self.n_repeat, self.foldsize)).cuda()
++            h0 = torch.zeros( 2,batch_size*self.n_repeat, self.foldsize, device=dev)  # [PAPER-PY3]
+             xfold = torch.cat([xfold, positionx],2).repeat(self.n_repeat,1,1)

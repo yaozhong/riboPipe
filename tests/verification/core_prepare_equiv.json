@@ -1,0 +1,48 @@
+{
+ "human_unit_fold": {
+  "n_units": 17977,
+  "status": "PASS"
+ },
+ "GSE233886_WT": {
+  "test_by_unit": true,
+  "mfe_norm_max_abs_diff": 3.1086244689504383e-15,
+  "mfe_track_bitwise": true,
+  "status": "PASS"
+ },
+ "GSE133393_WT": {
+  "test_by_unit": true,
+  "mfe_norm_max_abs_diff": 9.769962616701378e-15,
+  "mfe_track_bitwise": true,
+  "status": "PASS"
+ },
+ "PRJNA_iPS": {
+  "test_by_unit": true,
+  "mfe_norm_max_abs_diff": 6.661338147750939e-15,
+  "mfe_track_bitwise": true,
+  "status": "PASS"
+ },
+ "Subtelny14_ribomimo": {
+  "folds_reproduced": true,
+  "mfe_norm_max_abs_diff": 4.440892098500626e-15,
+  "mfe_track_bitwise": true,
+  "status": "PASS"
+ },
+ "Mohammad16": {
+  "folds_reproduced": true,
+  "mfe_norm_max_abs_diff": 8.43769498715119e-15,
+  "mfe_track_bitwise": true,
+  "status": "PASS"
+ },
+ "Mohammad19-1": {
+  "folds_reproduced": true,
+  "mfe_norm_max_abs_diff": 4.440892098500626e-15,
+  "mfe_track_bitwise": true,
+  "status": "PASS"
+ },
+ "Mohammad19-2": {
+  "folds_reproduced": true,
+  "mfe_norm_max_abs_diff": 2.220446049250313e-15,
+  "mfe_track_bitwise": true,
+  "status": "PASS"
+ }
+}

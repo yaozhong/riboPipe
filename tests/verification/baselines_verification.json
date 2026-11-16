@@ -1,0 +1,3173 @@
+{
+ "generated": "2026-11-16 15:01:45 JST",
+ "host": "dl-box",
+ "n_pass": 215,
+ "n_fail": 0,
+ "rows": [
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 RiboMIMO/src/model.py",
+   "reference": "6210949e839255a555bbd381396cbed5",
+   "reproduced": "6210949e839255a555bbd381396cbed5",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 RiboMIMO/src/runRiboMIMO.py",
+   "reference": "516e1699d2ba248425fff70b83eaaedf",
+   "reproduced": "516e1699d2ba248425fff70b83eaaedf",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 RiboMIMO/src/utils.py",
+   "reference": "202d9eb40a2d77311b4e8f842fd70adb",
+   "reproduced": "202d9eb40a2d77311b4e8f842fd70adb",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 RiboMIMO/Readme.md",
+   "reference": "014285507e067c1443fb3ecf9f633a80",
+   "reproduced": "014285507e067c1443fb3ecf9f633a80",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 Riboexp/code/models.py",
+   "reference": "b991e2bb9f98001b527e45a65a6f5a96",
+   "reproduced": "b991e2bb9f98001b527e45a65a6f5a96",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 Riboexp/code/dataio.py",
+   "reference": "5580513b96e0da51b7aa03eb372ec62d",
+   "reproduced": "5580513b96e0da51b7aa03eb372ec62d",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 Riboexp/code/runRiboexp.py",
+   "reference": "5b989ba715c0578a454890993dabce46",
+   "reproduced": "5b989ba715c0578a454890993dabce46",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 Riboexp/code/options.py",
+   "reference": "fe1be2a3e6dea37a438e35d07333ba12",
+   "reproduced": "fe1be2a3e6dea37a438e35d07333ba12",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 Riboexp/code/nntools/nntools.py",
+   "reference": "3ee636dd861ee8788d2ec7bcd5701d9a",
+   "reproduced": "3ee636dd861ee8788d2ec7bcd5701d9a",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 ribogl/src/models/GNN/gnn_utils.py",
+   "reference": "50003f1cb814696bb67ec917c3ac99fb",
+   "reproduced": "50003f1cb814696bb67ec917c3ac99fb",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 ribogl/src/preprocessing/graph_processing_utils.py",
+   "reference": "6488011191e45b4d6f088fa5ccb3455c",
+   "reproduced": "6488011191e45b4d6f088fa5ccb3455c",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 ribogl/src/preprocessing/rna_struct_utils.py",
+   "reference": "3b79f28f753e64ae2e3bbd51d4af1e9e",
+   "reproduced": "3b79f28f753e64ae2e3bbd51d4af1e9e",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 patched/ribomimo/model.py",
+   "reference": "375c7a0e8796092cc45d908be2bf4779",
+   "reproduced": "375c7a0e8796092cc45d908be2bf4779",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 patched/ribomimo/utils.py",
+   "reference": "202d9eb40a2d77311b4e8f842fd70adb",
+   "reproduced": "202d9eb40a2d77311b4e8f842fd70adb",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 patched/riboexp/riboexp_models_py3.py",
+   "reference": "60aea21eaeef05cb1bb56eaf687612e7",
+   "reproduced": "60aea21eaeef05cb1bb56eaf687612e7",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 patched/riboexp/riboexp_dataio_py3.py",
+   "reference": "03bc80e7814960b6d79812e468bff8bd",
+   "reproduced": "03bc80e7814960b6d79812e468bff8bd",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 patched/riboexp/riboexp_nntools_py3.py",
+   "reference": "b38776a12efca1dab3d3922aa543ae64",
+   "reproduced": "b38776a12efca1dab3d3922aa543ae64",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] md5 patched/riboexp/riboexp_run_py3.py",
+   "reference": "14526114e8965279ec18c6127409c6c4",
+   "reproduced": "14526114e8965279ec18c6127409c6c4",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] commit RiboMIMO (https://github.com/tiantz17/RiboMIMO)",
+   "reference": "094c693d4df45f4b29f5a3209b31c452a39092a5",
+   "reproduced": "094c693d4df45f4b29f5a3209b31c452a39092a5",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] commit Riboexp (https://github.com/Liuxg16/Riboexp)",
+   "reference": "8edf66bd4db6a2ec14e9600cee58fb7ee8bff6c5",
+   "reproduced": "8edf66bd4db6a2ec14e9600cee58fb7ee8bff6c5",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] commit ribogl (https://github.com/vam-sin/ribogl)",
+   "reference": "f3722b60c33427484e9fbf483758e41a0736add5",
+   "reproduced": "f3722b60c33427484e9fbf483758e41a0736add5",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] commit iXnos (https://github.com/lareaulab/iXnos)",
+   "reference": "1ea2337dd24d1e6fa3859f08573e99f02512810f",
+   "reproduced": "1ea2337dd24d1e6fa3859f08573e99f02512810f",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_final46.log] fetch_upstream.sh final status",
+   "reference": "OK",
+   "reproduced": "OK",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_final46.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 RiboMIMO/src/model.py",
+   "reference": "6210949e839255a555bbd381396cbed5",
+   "reproduced": "6210949e839255a555bbd381396cbed5",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 RiboMIMO/src/runRiboMIMO.py",
+   "reference": "516e1699d2ba248425fff70b83eaaedf",
+   "reproduced": "516e1699d2ba248425fff70b83eaaedf",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 RiboMIMO/src/utils.py",
+   "reference": "202d9eb40a2d77311b4e8f842fd70adb",
+   "reproduced": "202d9eb40a2d77311b4e8f842fd70adb",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 RiboMIMO/Readme.md",
+   "reference": "014285507e067c1443fb3ecf9f633a80",
+   "reproduced": "014285507e067c1443fb3ecf9f633a80",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 Riboexp/code/models.py",
+   "reference": "b991e2bb9f98001b527e45a65a6f5a96",
+   "reproduced": "b991e2bb9f98001b527e45a65a6f5a96",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 Riboexp/code/dataio.py",
+   "reference": "5580513b96e0da51b7aa03eb372ec62d",
+   "reproduced": "5580513b96e0da51b7aa03eb372ec62d",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 Riboexp/code/runRiboexp.py",
+   "reference": "5b989ba715c0578a454890993dabce46",
+   "reproduced": "5b989ba715c0578a454890993dabce46",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 Riboexp/code/options.py",
+   "reference": "fe1be2a3e6dea37a438e35d07333ba12",
+   "reproduced": "fe1be2a3e6dea37a438e35d07333ba12",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 Riboexp/code/nntools/nntools.py",
+   "reference": "3ee636dd861ee8788d2ec7bcd5701d9a",
+   "reproduced": "3ee636dd861ee8788d2ec7bcd5701d9a",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 ribogl/src/models/GNN/gnn_utils.py",
+   "reference": "50003f1cb814696bb67ec917c3ac99fb",
+   "reproduced": "50003f1cb814696bb67ec917c3ac99fb",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 ribogl/src/preprocessing/graph_processing_utils.py",
+   "reference": "6488011191e45b4d6f088fa5ccb3455c",
+   "reproduced": "6488011191e45b4d6f088fa5ccb3455c",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 ribogl/src/preprocessing/rna_struct_utils.py",
+   "reference": "3b79f28f753e64ae2e3bbd51d4af1e9e",
+   "reproduced": "3b79f28f753e64ae2e3bbd51d4af1e9e",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 patched/ribomimo/model.py",
+   "reference": "375c7a0e8796092cc45d908be2bf4779",
+   "reproduced": "375c7a0e8796092cc45d908be2bf4779",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 patched/ribomimo/utils.py",
+   "reference": "202d9eb40a2d77311b4e8f842fd70adb",
+   "reproduced": "202d9eb40a2d77311b4e8f842fd70adb",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 patched/riboexp/riboexp_models_py3.py",
+   "reference": "60aea21eaeef05cb1bb56eaf687612e7",
+   "reproduced": "60aea21eaeef05cb1bb56eaf687612e7",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 patched/riboexp/riboexp_dataio_py3.py",
+   "reference": "03bc80e7814960b6d79812e468bff8bd",
+   "reproduced": "03bc80e7814960b6d79812e468bff8bd",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 patched/riboexp/riboexp_nntools_py3.py",
+   "reference": "b38776a12efca1dab3d3922aa543ae64",
+   "reproduced": "b38776a12efca1dab3d3922aa543ae64",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] md5 patched/riboexp/riboexp_run_py3.py",
+   "reference": "14526114e8965279ec18c6127409c6c4",
+   "reproduced": "14526114e8965279ec18c6127409c6c4",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] commit RiboMIMO (https://github.com/tiantz17/RiboMIMO)",
+   "reference": "094c693d4df45f4b29f5a3209b31c452a39092a5",
+   "reproduced": "094c693d4df45f4b29f5a3209b31c452a39092a5",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] commit Riboexp (https://github.com/Liuxg16/Riboexp)",
+   "reference": "8edf66bd4db6a2ec14e9600cee58fb7ee8bff6c5",
+   "reproduced": "8edf66bd4db6a2ec14e9600cee58fb7ee8bff6c5",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] commit ribogl (https://github.com/vam-sin/ribogl)",
+   "reference": "f3722b60c33427484e9fbf483758e41a0736add5",
+   "reproduced": "f3722b60c33427484e9fbf483758e41a0736add5",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] commit iXnos (https://github.com/lareaulab/iXnos)",
+   "reference": "1ea2337dd24d1e6fa3859f08573e99f02512810f",
+   "reproduced": "1ea2337dd24d1e6fa3859f08573e99f02512810f",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "fetch_patch",
+   "quantity": "[fetch_test76.log] fetch_upstream.sh final status",
+   "reference": "OK",
+   "reproduced": "OK",
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/fetch_test76.log"
+  },
+  {
+   "section": "smoke",
+   "quantity": "smoke run Paper_RiboExp_Mohammad16 fold0 seed123 (tiny subset): status OK, keys, lengths, provenance, interior=model, finite",
+   "reference": "valid run",
+   "reproduced": {
+    "status": "OK",
+    "n_tx": 10,
+    "keys_ok": true,
+    "bad_length": 0,
+    "bad_prov_code": 0,
+    "interior_not_model": 0,
+    "nonfinite_on_model": 0,
+    "flat_interior": 0,
+    "prov_counts": {
+     "0": 4110,
+     "1": 90,
+     "2": 0
+    }
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_smoke/logs/check_Paper_RiboExp_Mohammad16.json"
+  },
+  {
+   "section": "smoke",
+   "quantity": "smoke run Paper_RiboGL_L2_heldout_Mohammad16 fold0 seed123 (tiny subset): status OK, keys, lengths, provenance, interior=model, finite",
+   "reference": "valid run",
+   "reproduced": {
+    "status": "OK",
+    "n_tx": 10,
+    "keys_ok": true,
+    "bad_length": 0,
+    "bad_prov_code": 0,
+    "interior_not_model": 0,
+    "nonfinite_on_model": 0,
+    "flat_interior": 0,
+    "prov_counts": {
+     "0": 1963,
+     "1": 0,
+     "2": 0
+    }
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_smoke/logs/check_Paper_RiboGL_L2_heldout_Mohammad16.json"
+  },
+  {
+   "section": "smoke",
+   "quantity": "smoke run Paper_RiboGL_heldout_Mohammad16 fold0 seed123 (tiny subset): status OK, keys, lengths, provenance, interior=model, finite",
+   "reference": "valid run",
+   "reproduced": {
+    "status": "OK",
+    "n_tx": 10,
+    "keys_ok": true,
+    "bad_length": 0,
+    "bad_prov_code": 0,
+    "interior_not_model": 0,
+    "nonfinite_on_model": 0,
+    "flat_interior": 0,
+    "prov_counts": {
+     "0": 1963,
+     "1": 0,
+     "2": 0
+    }
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_smoke/logs/check_Paper_RiboGL_heldout_Mohammad16.json"
+  },
+  {
+   "section": "smoke",
+   "quantity": "smoke run Paper_RiboMIMO_L2_Mohammad16 fold0 seed123 (tiny subset): status OK, keys, lengths, provenance, interior=model, finite",
+   "reference": "valid run",
+   "reproduced": {
+    "status": "OK",
+    "n_tx": 20,
+    "keys_ok": true,
+    "bad_length": 0,
+    "bad_prov_code": 0,
+    "interior_not_model": 0,
+    "nonfinite_on_model": 0,
+    "flat_interior": 0,
+    "prov_counts": {
+     "0": 7678,
+     "1": 0,
+     "2": 0
+    }
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_smoke/logs/check_Paper_RiboMIMO_L2_Mohammad16.json"
+  },
+  {
+   "section": "smoke",
+   "quantity": "smoke run Paper_RiboMIMO_Mohammad16 fold0 seed123 (tiny subset): status OK, keys, lengths, provenance, interior=model, finite",
+   "reference": "valid run",
+   "reproduced": {
+    "status": "OK",
+    "n_tx": 20,
+    "keys_ok": true,
+    "bad_length": 0,
+    "bad_prov_code": 0,
+    "interior_not_model": 0,
+    "nonfinite_on_model": 0,
+    "flat_interior": 0,
+    "prov_counts": {
+     "0": 7498,
+     "1": 180,
+     "2": 0
+    }
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_smoke/logs/check_Paper_RiboMIMO_Mohammad16.json"
+  },
+  {
+   "section": "smoke",
+   "quantity": "smoke run Paper_iXnos_MFE_lr005_Mohammad16 fold0 seed123 (tiny subset): status OK, keys, lengths, provenance, interior=model, finite",
+   "reference": "valid run",
+   "reproduced": {
+    "status": "OK",
+    "n_tx": 20,
+    "keys_ok": true,
+    "bad_length": 0,
+    "bad_prov_code": 0,
+    "interior_not_model": 0,
+    "nonfinite_on_model": 0,
+    "flat_interior": 0,
+    "prov_counts": {
+     "0": 7478,
+     "1": 200,
+     "2": 0
+    }
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_smoke/logs/check_Paper_iXnos_MFE_lr005_Mohammad16.json"
+  },
+  {
+   "section": "smoke",
+   "quantity": "smoke run Paper_iXnos_MFE_lr005_elig_Mohammad16 fold0 seed123 (tiny subset): status OK, keys, lengths, provenance, interior=model, finite",
+   "reference": "valid run",
+   "reproduced": {
+    "status": "OK",
+    "n_tx": 20,
+    "keys_ok": true,
+    "bad_length": 0,
+    "bad_prov_code": 0,
+    "interior_not_model": 0,
+    "nonfinite_on_model": 0,
+    "flat_interior": 0,
+    "prov_counts": {
+     "0": 7478,
+     "1": 200,
+     "2": 0
+    }
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_smoke/logs/check_Paper_iXnos_MFE_lr005_elig_Mohammad16.json"
+  },
+  {
+   "section": "smoke",
+   "quantity": "smoke run Paper_iXnos_nocut_lr005_elig_Mohammad16 fold0 seed123 (tiny subset): status OK, keys, lengths, provenance, interior=model, finite",
+   "reference": "valid run",
+   "reproduced": {
+    "status": "OK",
+    "n_tx": 20,
+    "keys_ok": true,
+    "bad_length": 0,
+    "bad_prov_code": 0,
+    "interior_not_model": 0,
+    "nonfinite_on_model": 0,
+    "flat_interior": 0,
+    "prov_counts": {
+     "0": 7678,
+     "1": 0,
+     "2": 0
+    }
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_smoke/logs/check_Paper_iXnos_nocut_lr005_elig_Mohammad16.json"
+  },
+  {
+   "section": "smoke",
+   "quantity": "smoke run Paper_iXnos_seq_lr005_elig_Mohammad16 fold0 seed123 (tiny subset): status OK, keys, lengths, provenance, interior=model, finite",
+   "reference": "valid run",
+   "reproduced": {
+    "status": "OK",
+    "n_tx": 20,
+    "keys_ok": true,
+    "bad_length": 0,
+    "bad_prov_code": 0,
+    "interior_not_model": 0,
+    "nonfinite_on_model": 0,
+    "flat_interior": 0,
+    "prov_counts": {
+     "0": 7498,
+     "1": 180,
+     "2": 0
+    }
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_smoke/logs/check_Paper_iXnos_seq_lr005_elig_Mohammad16.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean DMSO_TX9P1 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "638 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 638,
+    "same_ids": true,
+    "n_bitwise_identical": 638,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean DMSO_TX9P1 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "630 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 630,
+    "same_ids": true,
+    "n_bitwise_identical": 630,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean DMSO_TX9P1 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "610 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 610,
+    "same_ids": true,
+    "n_bitwise_identical": 610,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean DMSO_TX9P1 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "656 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 656,
+    "same_ids": true,
+    "n_bitwise_identical": 656,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean DMSO_TX9P1 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "610 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 610,
+    "same_ids": true,
+    "n_bitwise_identical": 610,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean GSE233886_WT fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "375 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 375,
+    "same_ids": true,
+    "n_bitwise_identical": 375,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean GSE233886_WT fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "385 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 385,
+    "same_ids": true,
+    "n_bitwise_identical": 385,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean GSE233886_WT fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "367 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 367,
+    "same_ids": true,
+    "n_bitwise_identical": 367,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean GSE233886_WT fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "351 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 351,
+    "same_ids": true,
+    "n_bitwise_identical": 351,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean GSE233886_WT fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "347 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 347,
+    "same_ids": true,
+    "n_bitwise_identical": 347,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean GSE133393_WT fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "278 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 278,
+    "same_ids": true,
+    "n_bitwise_identical": 278,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean GSE133393_WT fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "263 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 263,
+    "same_ids": true,
+    "n_bitwise_identical": 263,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean GSE133393_WT fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "256 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 256,
+    "same_ids": true,
+    "n_bitwise_identical": 256,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean GSE133393_WT fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "249 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 249,
+    "same_ids": true,
+    "n_bitwise_identical": 249,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean GSE133393_WT fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "243 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 243,
+    "same_ids": true,
+    "n_bitwise_identical": 243,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean PRJNA_iPS fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "170 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 170,
+    "same_ids": true,
+    "n_bitwise_identical": 170,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean PRJNA_iPS fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "157 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 157,
+    "same_ids": true,
+    "n_bitwise_identical": 157,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean PRJNA_iPS fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "146 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 146,
+    "same_ids": true,
+    "n_bitwise_identical": 146,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean PRJNA_iPS fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "154 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 154,
+    "same_ids": true,
+    "n_bitwise_identical": 154,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean PRJNA_iPS fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "126 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 126,
+    "same_ids": true,
+    "n_bitwise_identical": 126,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Subtelny14_ribomimo fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "785 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 785,
+    "same_ids": true,
+    "n_bitwise_identical": 785,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Subtelny14_ribomimo fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "783 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 783,
+    "same_ids": true,
+    "n_bitwise_identical": 783,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Subtelny14_ribomimo fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "786 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 786,
+    "same_ids": true,
+    "n_bitwise_identical": 786,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Subtelny14_ribomimo fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "784 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 784,
+    "same_ids": true,
+    "n_bitwise_identical": 784,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Subtelny14_ribomimo fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "783 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 783,
+    "same_ids": true,
+    "n_bitwise_identical": 783,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad16 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "233 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 233,
+    "same_ids": true,
+    "n_bitwise_identical": 233,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad16 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "243 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 243,
+    "same_ids": true,
+    "n_bitwise_identical": 243,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad16 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "242 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 242,
+    "same_ids": true,
+    "n_bitwise_identical": 242,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad16 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "233 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 233,
+    "same_ids": true,
+    "n_bitwise_identical": 233,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad16 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "228 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 228,
+    "same_ids": true,
+    "n_bitwise_identical": 228,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad19-1 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "287 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 287,
+    "same_ids": true,
+    "n_bitwise_identical": 287,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad19-1 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "287 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 287,
+    "same_ids": true,
+    "n_bitwise_identical": 287,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad19-1 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "286 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 286,
+    "same_ids": true,
+    "n_bitwise_identical": 286,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad19-1 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "282 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 282,
+    "same_ids": true,
+    "n_bitwise_identical": 282,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad19-1 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "284 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 284,
+    "same_ids": true,
+    "n_bitwise_identical": 284,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad19-2 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "317 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 317,
+    "same_ids": true,
+    "n_bitwise_identical": 317,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad19-2 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "318 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 318,
+    "same_ids": true,
+    "n_bitwise_identical": 318,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad19-2 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "323 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 323,
+    "same_ids": true,
+    "n_bitwise_identical": 323,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad19-2 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "316 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 316,
+    "same_ids": true,
+    "n_bitwise_identical": 316,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_CodonMean Mohammad19-2 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "324 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 324,
+    "same_ids": true,
+    "n_bitwise_identical": 324,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_CodonMean.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST DMSO_TX9P1 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "638 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 638,
+    "same_ids": true,
+    "n_bitwise_identical": 638,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST DMSO_TX9P1 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "630 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 630,
+    "same_ids": true,
+    "n_bitwise_identical": 630,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST DMSO_TX9P1 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "610 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 610,
+    "same_ids": true,
+    "n_bitwise_identical": 610,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST DMSO_TX9P1 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "656 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 656,
+    "same_ids": true,
+    "n_bitwise_identical": 656,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST DMSO_TX9P1 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "610 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 610,
+    "same_ids": true,
+    "n_bitwise_identical": 610,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST GSE233886_WT fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "375 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 375,
+    "same_ids": true,
+    "n_bitwise_identical": 375,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST GSE233886_WT fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "385 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 385,
+    "same_ids": true,
+    "n_bitwise_identical": 385,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST GSE233886_WT fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "367 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 367,
+    "same_ids": true,
+    "n_bitwise_identical": 367,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST GSE233886_WT fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "351 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 351,
+    "same_ids": true,
+    "n_bitwise_identical": 351,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST GSE233886_WT fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "347 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 347,
+    "same_ids": true,
+    "n_bitwise_identical": 347,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST GSE133393_WT fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "278 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 278,
+    "same_ids": true,
+    "n_bitwise_identical": 278,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST GSE133393_WT fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "263 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 263,
+    "same_ids": true,
+    "n_bitwise_identical": 263,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST GSE133393_WT fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "256 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 256,
+    "same_ids": true,
+    "n_bitwise_identical": 256,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST GSE133393_WT fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "249 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 249,
+    "same_ids": true,
+    "n_bitwise_identical": 249,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST GSE133393_WT fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "243 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 243,
+    "same_ids": true,
+    "n_bitwise_identical": 243,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST PRJNA_iPS fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "170 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 170,
+    "same_ids": true,
+    "n_bitwise_identical": 170,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST PRJNA_iPS fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "157 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 157,
+    "same_ids": true,
+    "n_bitwise_identical": 157,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST PRJNA_iPS fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "146 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 146,
+    "same_ids": true,
+    "n_bitwise_identical": 146,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST PRJNA_iPS fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "154 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 154,
+    "same_ids": true,
+    "n_bitwise_identical": 154,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST PRJNA_iPS fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "126 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 126,
+    "same_ids": true,
+    "n_bitwise_identical": 126,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Subtelny14_ribomimo fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "785 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 785,
+    "same_ids": true,
+    "n_bitwise_identical": 785,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Subtelny14_ribomimo fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "783 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 783,
+    "same_ids": true,
+    "n_bitwise_identical": 783,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Subtelny14_ribomimo fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "786 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 786,
+    "same_ids": true,
+    "n_bitwise_identical": 786,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Subtelny14_ribomimo fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "784 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 784,
+    "same_ids": true,
+    "n_bitwise_identical": 784,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Subtelny14_ribomimo fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "783 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 783,
+    "same_ids": true,
+    "n_bitwise_identical": 783,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad16 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "233 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 233,
+    "same_ids": true,
+    "n_bitwise_identical": 233,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad16 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "243 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 243,
+    "same_ids": true,
+    "n_bitwise_identical": 243,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad16 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "242 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 242,
+    "same_ids": true,
+    "n_bitwise_identical": 242,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad16 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "233 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 233,
+    "same_ids": true,
+    "n_bitwise_identical": 233,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad16 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "228 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 228,
+    "same_ids": true,
+    "n_bitwise_identical": 228,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad19-1 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "287 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 287,
+    "same_ids": true,
+    "n_bitwise_identical": 287,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad19-1 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "287 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 287,
+    "same_ids": true,
+    "n_bitwise_identical": 287,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad19-1 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "286 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 286,
+    "same_ids": true,
+    "n_bitwise_identical": 286,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad19-1 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "282 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 282,
+    "same_ids": true,
+    "n_bitwise_identical": 282,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad19-1 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "284 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 284,
+    "same_ids": true,
+    "n_bitwise_identical": 284,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad19-2 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "317 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 317,
+    "same_ids": true,
+    "n_bitwise_identical": 317,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad19-2 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "318 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 318,
+    "same_ids": true,
+    "n_bitwise_identical": 318,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad19-2 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "323 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 323,
+    "same_ids": true,
+    "n_bitwise_identical": 323,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad19-2 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "316 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 316,
+    "same_ids": true,
+    "n_bitwise_identical": 316,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_RUST Mohammad19-2 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "324 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 324,
+    "same_ids": true,
+    "n_bitwise_identical": 324,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_RUST.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge DMSO_TX9P1 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "638 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 638,
+    "same_ids": true,
+    "n_bitwise_identical": 638,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge DMSO_TX9P1 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "630 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 630,
+    "same_ids": true,
+    "n_bitwise_identical": 630,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge DMSO_TX9P1 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "610 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 610,
+    "same_ids": true,
+    "n_bitwise_identical": 610,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge DMSO_TX9P1 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "656 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 656,
+    "same_ids": true,
+    "n_bitwise_identical": 656,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge DMSO_TX9P1 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "610 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 610,
+    "same_ids": true,
+    "n_bitwise_identical": 610,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge GSE233886_WT fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "375 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 375,
+    "same_ids": true,
+    "n_bitwise_identical": 375,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge GSE233886_WT fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "385 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 385,
+    "same_ids": true,
+    "n_bitwise_identical": 385,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge GSE233886_WT fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "367 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 367,
+    "same_ids": true,
+    "n_bitwise_identical": 367,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge GSE233886_WT fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "351 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 351,
+    "same_ids": true,
+    "n_bitwise_identical": 351,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge GSE233886_WT fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "347 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 347,
+    "same_ids": true,
+    "n_bitwise_identical": 347,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge GSE133393_WT fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "278 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 278,
+    "same_ids": true,
+    "n_bitwise_identical": 278,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge GSE133393_WT fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "263 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 263,
+    "same_ids": true,
+    "n_bitwise_identical": 263,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge GSE133393_WT fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "256 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 256,
+    "same_ids": true,
+    "n_bitwise_identical": 256,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge GSE133393_WT fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "249 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 249,
+    "same_ids": true,
+    "n_bitwise_identical": 249,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge GSE133393_WT fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "243 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 243,
+    "same_ids": true,
+    "n_bitwise_identical": 243,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge PRJNA_iPS fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "170 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 170,
+    "same_ids": true,
+    "n_bitwise_identical": 170,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge PRJNA_iPS fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "157 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 157,
+    "same_ids": true,
+    "n_bitwise_identical": 157,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge PRJNA_iPS fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "146 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 146,
+    "same_ids": true,
+    "n_bitwise_identical": 146,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge PRJNA_iPS fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "154 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 154,
+    "same_ids": true,
+    "n_bitwise_identical": 154,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge PRJNA_iPS fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "126 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 126,
+    "same_ids": true,
+    "n_bitwise_identical": 126,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Subtelny14_ribomimo fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "785 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 785,
+    "same_ids": true,
+    "n_bitwise_identical": 785,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Subtelny14_ribomimo fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "783 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 783,
+    "same_ids": true,
+    "n_bitwise_identical": 783,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Subtelny14_ribomimo fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "786 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 786,
+    "same_ids": true,
+    "n_bitwise_identical": 786,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Subtelny14_ribomimo fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "784 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 784,
+    "same_ids": true,
+    "n_bitwise_identical": 784,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Subtelny14_ribomimo fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "783 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 783,
+    "same_ids": true,
+    "n_bitwise_identical": 783,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad16 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "233 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 233,
+    "same_ids": true,
+    "n_bitwise_identical": 233,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad16 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "243 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 243,
+    "same_ids": true,
+    "n_bitwise_identical": 243,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad16 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "242 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 242,
+    "same_ids": true,
+    "n_bitwise_identical": 242,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad16 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "233 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 233,
+    "same_ids": true,
+    "n_bitwise_identical": 233,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad16 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "228 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 228,
+    "same_ids": true,
+    "n_bitwise_identical": 228,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad19-1 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "287 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 287,
+    "same_ids": true,
+    "n_bitwise_identical": 287,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad19-1 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "287 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 287,
+    "same_ids": true,
+    "n_bitwise_identical": 287,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad19-1 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "286 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 286,
+    "same_ids": true,
+    "n_bitwise_identical": 286,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad19-1 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "282 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 282,
+    "same_ids": true,
+    "n_bitwise_identical": 282,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad19-1 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "284 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 284,
+    "same_ids": true,
+    "n_bitwise_identical": 284,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad19-2 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "317 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 317,
+    "same_ids": true,
+    "n_bitwise_identical": 317,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad19-2 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "318 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 318,
+    "same_ids": true,
+    "n_bitwise_identical": 318,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad19-2 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "323 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 323,
+    "same_ids": true,
+    "n_bitwise_identical": 323,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad19-2 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "316 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 316,
+    "same_ids": true,
+    "n_bitwise_identical": 316,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_Ridge Mohammad19-2 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "324 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 324,
+    "same_ids": true,
+    "n_bitwise_identical": 324,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_Ridge.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon DMSO_TX9P1 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "638 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 638,
+    "same_ids": true,
+    "n_bitwise_identical": 638,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon DMSO_TX9P1 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "630 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 630,
+    "same_ids": true,
+    "n_bitwise_identical": 630,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon DMSO_TX9P1 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "610 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 610,
+    "same_ids": true,
+    "n_bitwise_identical": 610,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon DMSO_TX9P1 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "656 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 656,
+    "same_ids": true,
+    "n_bitwise_identical": 656,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon DMSO_TX9P1 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "610 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 610,
+    "same_ids": true,
+    "n_bitwise_identical": 610,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon GSE233886_WT fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "375 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 375,
+    "same_ids": true,
+    "n_bitwise_identical": 375,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon GSE233886_WT fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "385 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 385,
+    "same_ids": true,
+    "n_bitwise_identical": 385,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon GSE233886_WT fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "367 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 367,
+    "same_ids": true,
+    "n_bitwise_identical": 367,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon GSE233886_WT fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "351 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 351,
+    "same_ids": true,
+    "n_bitwise_identical": 351,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon GSE233886_WT fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "347 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 347,
+    "same_ids": true,
+    "n_bitwise_identical": 347,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon GSE133393_WT fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "278 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 278,
+    "same_ids": true,
+    "n_bitwise_identical": 278,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon GSE133393_WT fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "263 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 263,
+    "same_ids": true,
+    "n_bitwise_identical": 263,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon GSE133393_WT fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "256 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 256,
+    "same_ids": true,
+    "n_bitwise_identical": 256,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon GSE133393_WT fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "249 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 249,
+    "same_ids": true,
+    "n_bitwise_identical": 249,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon GSE133393_WT fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "243 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 243,
+    "same_ids": true,
+    "n_bitwise_identical": 243,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon PRJNA_iPS fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "170 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 170,
+    "same_ids": true,
+    "n_bitwise_identical": 170,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon PRJNA_iPS fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "157 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 157,
+    "same_ids": true,
+    "n_bitwise_identical": 157,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon PRJNA_iPS fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "146 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 146,
+    "same_ids": true,
+    "n_bitwise_identical": 146,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon PRJNA_iPS fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "154 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 154,
+    "same_ids": true,
+    "n_bitwise_identical": 154,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon PRJNA_iPS fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "126 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 126,
+    "same_ids": true,
+    "n_bitwise_identical": 126,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Subtelny14_ribomimo fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "785 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 785,
+    "same_ids": true,
+    "n_bitwise_identical": 785,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Subtelny14_ribomimo fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "783 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 783,
+    "same_ids": true,
+    "n_bitwise_identical": 783,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Subtelny14_ribomimo fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "786 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 786,
+    "same_ids": true,
+    "n_bitwise_identical": 786,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Subtelny14_ribomimo fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "784 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 784,
+    "same_ids": true,
+    "n_bitwise_identical": 784,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Subtelny14_ribomimo fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "783 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 783,
+    "same_ids": true,
+    "n_bitwise_identical": 783,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad16 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "233 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 233,
+    "same_ids": true,
+    "n_bitwise_identical": 233,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad16 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "243 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 243,
+    "same_ids": true,
+    "n_bitwise_identical": 243,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad16 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "242 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 242,
+    "same_ids": true,
+    "n_bitwise_identical": 242,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad16 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "233 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 233,
+    "same_ids": true,
+    "n_bitwise_identical": 233,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad16 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "228 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 228,
+    "same_ids": true,
+    "n_bitwise_identical": 228,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad19-1 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "287 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 287,
+    "same_ids": true,
+    "n_bitwise_identical": 287,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad19-1 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "287 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 287,
+    "same_ids": true,
+    "n_bitwise_identical": 287,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad19-1 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "286 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 286,
+    "same_ids": true,
+    "n_bitwise_identical": 286,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad19-1 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "282 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 282,
+    "same_ids": true,
+    "n_bitwise_identical": 282,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad19-1 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "284 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 284,
+    "same_ids": true,
+    "n_bitwise_identical": 284,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad19-2 fold0 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "317 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 317,
+    "same_ids": true,
+    "n_bitwise_identical": 317,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad19-2 fold1 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "318 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 318,
+    "same_ids": true,
+    "n_bitwise_identical": 318,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad19-2 fold2 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "323 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 323,
+    "same_ids": true,
+    "n_bitwise_identical": 323,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad19-2 fold3 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "316 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 316,
+    "same_ids": true,
+    "n_bitwise_identical": 316,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "det_reproduction",
+   "quantity": "Paper_TriCodon Mohammad19-2 fold4 pred.npz/prov.npz vs paper (seeddet)",
+   "reference": "324 transcripts (paper runs/partI)",
+   "reproduced": {
+    "n_new": 324,
+    "same_ids": true,
+    "n_bitwise_identical": 324,
+    "n_length_mismatch": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.0,
+    "error": null
+   },
+   "result": "PASS",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_det/compare_Paper_TriCodon.json"
+  },
+  {
+   "section": "ixnos_cpu_rerun (extra, informational)",
+   "quantity": "Paper_iXnos_MFE_lr005_elig Mohammad16 fold0 seed123 (CPU) vs paper pred.npz",
+   "reference": "233 transcripts",
+   "reproduced": {
+    "n_new": 233,
+    "same_ids": true,
+    "n_bitwise_identical": 0,
+    "n_prov_diff": 0,
+    "max_abs_diff": 0.009243965148925781,
+    "error": null,
+    "diagnostics": {
+     "config": "Paper_iXnos_MFE_lr005_elig",
+     "dataset": "Mohammad16",
+     "fold": 0,
+     "seed": 123,
+     "device": "cpu",
+     "n_train_windows_paper": 198173,
+     "n_train_windows_new": 198173,
+     "train_mse_epoch1": [
+      3.162572060871606,
+      3.1625720566571363
+     ],
+     "train_mse_epoch60": [
+      1.9519554707739089,
+      1.951957826813062
+     ],
+     "max_rel_diff_train_mse_over_epochs": 1.98881384714562e-05,
+     "interior_pearson_new_vs_paper_min": 0.9999989351125702,
+     "interior_pearson_new_vs_paper_median": 0.9999997791838674,
+     "n_tx_correlated": 227,
+     "abs_diff_median": 0.00019982457160949707,
+     "abs_diff_p99": 0.002849379181861878,
+     "abs_diff_max": 0.009243965148925781
+    }
+   },
+   "result": "INFO: not bitwise identical",
+   "source": "<storage>/software/github_0901/verify_v2/evaluate_scratch/baselines/runs_ixnos/compare_Paper_iXnos_MFE_lr005_elig_Mohammad16.json"
+  }
+ ]
+}

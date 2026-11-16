@@ -1,0 +1,135 @@
+{
+ "DMSO_TX9P1": {
+  "t0": {
+   "est": 0.14878585055227397,
+   "lo": 0.13628999383231608,
+   "hi": 0.16153677427575483,
+   "n_occ": 17071,
+   "n_tx": 4699
+  },
+  "t1": {
+   "est": 1.0193450881210864,
+   "lo": 0.9740608677230057,
+   "hi": 1.0645826648154844,
+   "n_occ": 17071,
+   "n_tx": 6198
+  },
+  "t2": {
+   "est": 4.714091809507403,
+   "lo": 4.515688696240704,
+   "hi": 4.922538401222919,
+   "n_occ": 17070,
+   "n_tx": 6590
+  },
+  "n_occ": 51212,
+  "n_tx": 8927
+ },
+ "GSE233886_WT": {
+  "t0": {
+   "est": 0.7360206193715799,
+   "lo": 0.699146440331727,
+   "hi": 0.7742490652636149,
+   "n_occ": 17428,
+   "n_tx": 4748
+  },
+  "t1": {
+   "est": 2.5460887118079536,
+   "lo": 2.4625680471834497,
+   "hi": 2.621263541751593,
+   "n_occ": 17428,
+   "n_tx": 6322
+  },
+  "t2": {
+   "est": 7.680559468596213,
+   "lo": 7.434694071325227,
+   "hi": 7.980933708990517,
+   "n_occ": 17427,
+   "n_tx": 6910
+  },
+  "n_occ": 52283,
+  "n_tx": 9222
+ },
+ "GSE133393_WT": {
+  "t0": {
+   "est": 0.44620165827132735,
+   "lo": 0.41311169222035804,
+   "hi": 0.4826266537292904,
+   "n_occ": 18121,
+   "n_tx": 5072
+  },
+  "t1": {
+   "est": 1.5947797118760048,
+   "lo": 1.5258859458554292,
+   "hi": 1.667911331124563,
+   "n_occ": 18120,
+   "n_tx": 6755
+  },
+  "t2": {
+   "est": 4.093113847353193,
+   "lo": 3.9478459237515557,
+   "hi": 4.2424046461724325,
+   "n_occ": 18120,
+   "n_tx": 7134
+  },
+  "n_occ": 54361,
+  "n_tx": 9843
+ },
+ "PRJNA_iPS": {
+  "t0": {
+   "est": 0.3196398945973128,
+   "lo": 0.29251743338589603,
+   "hi": 0.34583668464220957,
+   "n_occ": 18454,
+   "n_tx": 5348
+  },
+  "t1": {
+   "est": 1.6370433719793656,
+   "lo": 1.5661539099689414,
+   "hi": 1.7129622843853132,
+   "n_occ": 18453,
+   "n_tx": 6999
+  },
+  "t2": {
+   "est": 4.787850179473111,
+   "lo": 4.552977221657455,
+   "hi": 5.045066963761919,
+   "n_occ": 18453,
+   "n_tx": 7236
+  },
+  "n_occ": 55360,
+  "n_tx": 10127
+ },
+ "stamp": {
+  "host": "dl-box3",
+  "time": "2026-11-13 13:16:04 JST",
+  "python": "/home/yaozhong/miniconda3/envs/enformer-pilot/bin/python",
+  "python_version": "3.11.15",
+  "numpy": "1.26.4",
+  "root": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit",
+  "protocol_md5": "ea7906d4428c314a619826a4d8a729a1",
+  "data_tag": "PaperData_v1.0",
+  "manifest_md5": "63080cc9a3144c83834f938560ba6b18",
+  "scripts_md5": {
+   "n2_tercile_ci.py": "c36412625f1bdd952e2723b6d29bae11",
+   "app_lib.py": "29c517a3e3a6a45293448bb43a644b07",
+   "a2_motif_context.py": "1cacf0f1717432f152bee9e04ab56723"
+  },
+  "inputs_md5": {
+   "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/preds/Paper_RiboPipe_MFE_H128/DMSO_TX9P1/pred.npz": "4751a3744c0fa333691d9f256510c35a",
+   "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/preds/Paper_RiboPipe_MFE_H128/DMSO_TX9P1/meta.json": "fb7f7a06366ab06e3463aef33040acea",
+   "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/preds/Paper_RiboPipe_MFE_H128/GSE233886_WT/pred.npz": "580cbe1fc7fb228d2571bacc0fbcc7cb",
+   "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/preds/Paper_RiboPipe_MFE_H128/GSE233886_WT/meta.json": "40f7b6463aae3f920f623b0305bc47a6",
+   "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/preds/Paper_RiboPipe_MFE_H128/GSE133393_WT/pred.npz": "4c06f573f5782aadcdaf629c8adc88b2",
+   "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/preds/Paper_RiboPipe_MFE_H128/GSE133393_WT/meta.json": "9cc3b7460fa4c7045743db1df2810190",
+   "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/preds/Paper_RiboPipe_MFE_H128/PRJNA_iPS/pred.npz": "ba275f9954ceabfcd640871e6cf9947d",
+   "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/preds/Paper_RiboPipe_MFE_H128/PRJNA_iPS/meta.json": "c22f35ca8c6f679f5e83a6899b918882",
+   "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Application_2026-11-13/results/a2_motif_context.json": "fc126e3a57b94e445980354bb65d6d9a"
+  },
+  "threads": {
+   "OMP_NUM_THREADS": "2",
+   "MKL_NUM_THREADS": null,
+   "OPENBLAS_NUM_THREADS": null,
+   "PYTHONNOUSERSITE": "1"
+  }
+ }
+}

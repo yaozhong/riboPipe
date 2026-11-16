@@ -1,0 +1,17 @@
+{
+ "gate": "G1",
+ "passed": true,
+ "n_checks": 70,
+ "n_fail": 0,
+ "failures": [],
+ "orig": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Application_2026-11-13/results/n2_tercile_ci.json",
+ "orig_md5": "5670c99ff20382643e364a03fdce95e2",
+ "rerun": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/ResponseLetter_exp_2026-11-12/analysis/P2_pp_tercile_cmp/results/gate_g1_n2_tercile_ci.json",
+ "rerun_md5": "e461af7ddaef94b84af961995fffa2cd",
+ "pred_source": [
+  "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/preds/Paper_RiboPipe_MFE_H128/DMSO_TX9P1/pred.npz",
+  "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/preds/Paper_RiboPipe_MFE_H128/GSE133393_WT/pred.npz",
+  "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/preds/Paper_RiboPipe_MFE_H128/GSE233886_WT/pred.npz",
+  "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/preds/Paper_RiboPipe_MFE_H128/PRJNA_iPS/pred.npz"
+ ]
+}

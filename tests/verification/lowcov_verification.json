@@ -1,0 +1,8272 @@
+{
+ "written": "2026-11-16 15:08:02 JST",
+ "references": {
+  "crossover": "report/partII_results/rerun76/partII_eval.json",
+  "posterior": "report/partII_results/posterior_partII/posterior_partII_results.json",
+  "ranking_and_kappa": "Application_2026-11-13/results/a1_<dataset>.json"
+ },
+ "n_pass": 589,
+ "n_fail": 0,
+ "per_group": {
+  "crossover": {
+   "PASS": 12,
+   "FAIL": 0
+  },
+  "headline": {
+   "PASS": 61,
+   "FAIL": 0
+  },
+  "headline_bins": {
+   "PASS": 72,
+   "FAIL": 0
+  },
+  "crossover_full": {
+   "PASS": 109,
+   "FAIL": 0
+  },
+  "self_check": {
+   "PASS": 8,
+   "FAIL": 0
+  },
+  "posterior_kappa": {
+   "PASS": 4,
+   "FAIL": 0
+  },
+  "posterior": {
+   "PASS": 13,
+   "FAIL": 0
+  },
+  "posterior_bins": {
+   "PASS": 216,
+   "FAIL": 0
+  },
+  "posterior_full": {
+   "PASS": 16,
+   "FAIL": 0
+  },
+  "posterior_draws": {
+   "PASS": 18,
+   "FAIL": 0
+  },
+  "ranking": {
+   "PASS": 56,
+   "FAIL": 0
+  },
+  "ranking_full": {
+   "PASS": 4,
+   "FAIL": 0
+  }
+ },
+ "runtime": "54 min wall (2026-11-16 14:13:03-15:07:10 JST) on 76 (64 cores, shared with other jobs); crossover all 4 variants x 6 predictors x 4 datasets, posterior draws 0-9, kappa, ranking",
+ "comparisons": [
+  {
+   "group": "crossover",
+   "quantity": "TX9_WT: predictors",
+   "status": "PASS",
+   "reference": [
+    "Paper_RiboPipe_MFE_H128",
+    "Paper_Ridge",
+    "Paper_RiboPipe_noMFE_H128",
+    "Paper_RiboMIMO_adapt_noMFE",
+    "Paper_RiboMIMO_adapt_MFE",
+    "Dummy_noise"
+   ],
+   "reproduced": [
+    "Paper_RiboPipe_MFE_H128",
+    "Paper_Ridge",
+    "Paper_RiboPipe_noMFE_H128",
+    "Paper_RiboMIMO_adapt_noMFE",
+    "Paper_RiboMIMO_adapt_MFE",
+    "Dummy_noise"
+   ]
+  },
+  {
+   "group": "crossover",
+   "quantity": "TX9_WT: T_low",
+   "status": "PASS",
+   "reference": 11946,
+   "reproduced": 11946
+  },
+  {
+   "group": "crossover",
+   "quantity": "TX9_WT: edges",
+   "status": "PASS",
+   "reference": [
+    6.67e-05,
+    0.0001012,
+    0.0001537,
+    0.0002333,
+    0.0003542,
+    0.0005378,
+    0.0008165,
+    0.0012396,
+    0.0018821,
+    0.0028574,
+    0.0043383,
+    0.0065866,
+    0.01,
+    0.0151824,
+    0.0230506,
+    0.0349964,
+    0.0531329,
+    0.0806686,
+    0.1224745,
+    0.1859459,
+    0.2823108,
+    0.4286161,
+    0.6507428,
+    0.9879849,
+    1.5
+   ],
+   "reproduced": [
+    6.67e-05,
+    0.0001012,
+    0.0001537,
+    0.0002333,
+    0.0003542,
+    0.0005378,
+    0.0008165,
+    0.0012396,
+    0.0018821,
+    0.0028574,
+    0.0043383,
+    0.0065866,
+    0.01,
+    0.0151824,
+    0.0230506,
+    0.0349964,
+    0.0531329,
+    0.0806686,
+    0.1224745,
+    0.1859459,
+    0.2823108,
+    0.4286161,
+    0.6507428,
+    0.9879849,
+    1.5
+   ]
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: RiboPipe D* (reads/codon)",
+   "status": "PASS",
+   "reference": 0.34449871473422966,
+   "reproduced": 0.34449871473422966
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: RiboPipe D* status",
+   "status": "PASS",
+   "reference": "OK",
+   "reproduced": "OK"
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: RiboPipe D* 95% bootstrap CI",
+   "status": "PASS",
+   "reference": [
+    0.3059811917330045,
+    0.3777309736264181
+   ],
+   "reproduced": [
+    0.3059811917330045,
+    0.3777309736264181
+   ]
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: RiboPipe bootstrap failure fraction",
+   "status": "PASS",
+   "reference": 0.001,
+   "reproduced": 0.001
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.0008165, 0.00124)",
+   "status": "PASS",
+   "reference": 0.008355846686420285,
+   "reproduced": 0.008355846686420285
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.00124, 0.001882)",
+   "status": "PASS",
+   "reference": 0.01696823768755312,
+   "reproduced": 0.01696823768755312
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.001882, 0.002857)",
+   "status": "PASS",
+   "reference": 0.024839890392583643,
+   "reproduced": 0.024839890392583643
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.002857, 0.004338)",
+   "status": "PASS",
+   "reference": 0.03819128376092103,
+   "reproduced": 0.03819128376092103
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.004338, 0.006587)",
+   "status": "PASS",
+   "reference": 0.04525115081685745,
+   "reproduced": 0.04525115081685745
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.006587, 0.01)",
+   "status": "PASS",
+   "reference": 0.0657808409689016,
+   "reproduced": 0.0657808409689016
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.01, 0.01518)",
+   "status": "PASS",
+   "reference": 0.0885219198003129,
+   "reproduced": 0.0885219198003129
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.01518, 0.02305)",
+   "status": "PASS",
+   "reference": 0.0891004846785327,
+   "reproduced": 0.0891004846785327
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.02305, 0.035)",
+   "status": "PASS",
+   "reference": 0.06830082917320283,
+   "reproduced": 0.06830082917320283
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.035, 0.05313)",
+   "status": "PASS",
+   "reference": 0.07651837915726367,
+   "reproduced": 0.07651837915726367
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.05313, 0.08067)",
+   "status": "PASS",
+   "reference": 0.09305873195154538,
+   "reproduced": 0.09305873195154538
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.08067, 0.1225)",
+   "status": "PASS",
+   "reference": 0.06652653702513417,
+   "reproduced": 0.06652653702513417
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.1225, 0.1859)",
+   "status": "PASS",
+   "reference": 0.058440825399779184,
+   "reproduced": 0.058440825399779184
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.1859, 0.2823)",
+   "status": "PASS",
+   "reference": 0.03516740760415249,
+   "reproduced": 0.03516740760415249
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.2823, 0.4286)",
+   "status": "PASS",
+   "reference": -0.0008359267412798299,
+   "reproduced": -0.0008359267412798299
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.4286, 0.6507)",
+   "status": "PASS",
+   "reference": -0.029804105549465054,
+   "reproduced": -0.029804105549465054
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.6507, 0.988)",
+   "status": "PASS",
+   "reference": -0.08192939911452701,
+   "reproduced": -0.08192939911452701
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "TX9_WT: RiboPipe y, bin [0.988, 1.5)",
+   "status": "PASS",
+   "reference": -0.11094867332237557,
+   "reproduced": -0.11094867332237557
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: opcrit status",
+   "status": "PASS",
+   "reference": "OK",
+   "reproduced": "OK"
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: frac_eligible_below at_D_star",
+   "status": "PASS",
+   "reference": 0.6696802276912774,
+   "reproduced": 0.6696802276912774
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: frac_with_reference_below at_D_star",
+   "status": "PASS",
+   "reference": 0.6404228175687989,
+   "reproduced": 0.6404228175687989
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: frac_scorable_below at_D_star",
+   "status": "PASS",
+   "reference": 0.6325009317927693,
+   "reproduced": 0.6325009317927693
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: frac_eligible_below at_ci_lo",
+   "status": "PASS",
+   "reference": 0.6410513979574753,
+   "reproduced": 0.6410513979574753
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: frac_with_reference_below at_ci_lo",
+   "status": "PASS",
+   "reference": 0.6092582467650811,
+   "reproduced": 0.6092582467650811
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: frac_scorable_below at_ci_lo",
+   "status": "PASS",
+   "reference": 0.600633619083116,
+   "reproduced": 0.600633619083116
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: frac_eligible_below at_ci_hi",
+   "status": "PASS",
+   "reference": 0.6919470952620124,
+   "reproduced": 0.6919470952620124
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: frac_with_reference_below at_ci_hi",
+   "status": "PASS",
+   "reference": 0.6646619281939129,
+   "reproduced": 0.6646619281939129
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: frac_scorable_below at_ci_hi",
+   "status": "PASS",
+   "reference": 0.657286619455833,
+   "reproduced": 0.657286619455833
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: opcrit N_eligible",
+   "status": "PASS",
+   "reference": 11946,
+   "reproduced": 11946
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: opcrit N_with_reference",
+   "status": "PASS",
+   "reference": 10974,
+   "reproduced": 10974
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: opcrit N_scorable",
+   "status": "PASS",
+   "reference": 10732,
+   "reproduced": 10732
+  },
+  {
+   "group": "headline",
+   "quantity": "TX9_WT: noise-predictor positive bins (lo, hi, y)",
+   "status": "PASS",
+   "reference": [
+    [
+     0.0008165,
+     0.0012396,
+     0.001286446238604215
+    ],
+    [
+     0.0012396,
+     0.0018821,
+     0.005787682207834418
+    ],
+    [
+     0.0018821,
+     0.0028574,
+     0.006108768543692332
+    ],
+    [
+     0.0028574,
+     0.0043383,
+     0.007541643467685527
+    ],
+    [
+     0.0043383,
+     0.0065866,
+     0.004223313397554274
+    ],
+    [
+     0.0065866,
+     0.01,
+     0.010621520326067321
+    ],
+    [
+     0.01,
+     0.0151824,
+     0.009494603484217736
+    ]
+   ],
+   "reproduced": [
+    [
+     0.0008165,
+     0.0012396,
+     0.001286446238604215
+    ],
+    [
+     0.0012396,
+     0.0018821,
+     0.005787682207834418
+    ],
+    [
+     0.0018821,
+     0.0028574,
+     0.006108768543692332
+    ],
+    [
+     0.0028574,
+     0.0043383,
+     0.007541643467685527
+    ],
+    [
+     0.0043383,
+     0.0065866,
+     0.004223313397554274
+    ],
+    [
+     0.0065866,
+     0.01,
+     0.010621520326067321
+    ],
+    [
+     0.01,
+     0.0151824,
+     0.009494603484217736
+    ]
+   ]
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_primary Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6686 chars>",
+   "reproduced": "<structure, 6686 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_primary Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6686 chars>",
+   "reproduced": "<structure, 6686 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_primary Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6666 chars>",
+   "reproduced": "<structure, 6666 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_primary Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6672 chars>",
+   "reproduced": "<structure, 6672 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_primary Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6708 chars>",
+   "reproduced": "<structure, 6708 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_primary Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6670 chars>",
+   "reproduced": "<structure, 6670 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_primary: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 63370 chars>",
+   "reproduced": "<structure, 63370 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_inputdepth Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6666 chars>",
+   "reproduced": "<structure, 6666 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_inputdepth Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6674 chars>",
+   "reproduced": "<structure, 6674 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_inputdepth Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6695 chars>",
+   "reproduced": "<structure, 6695 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_inputdepth Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6689 chars>",
+   "reproduced": "<structure, 6689 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_inputdepth Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6672 chars>",
+   "reproduced": "<structure, 6672 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_inputdepth Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6722 chars>",
+   "reproduced": "<structure, 6722 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_inputdepth: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 63349 chars>",
+   "reproduced": "<structure, 63349 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_gridthin Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6816 chars>",
+   "reproduced": "<structure, 6816 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_gridthin Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6851 chars>",
+   "reproduced": "<structure, 6851 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_gridthin Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6820 chars>",
+   "reproduced": "<structure, 6820 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_gridthin Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6827 chars>",
+   "reproduced": "<structure, 6827 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_gridthin Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6810 chars>",
+   "reproduced": "<structure, 6810 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_gridthin Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6960 chars>",
+   "reproduced": "<structure, 6960 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_gridthin: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 63222 chars>",
+   "reproduced": "<structure, 63222 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_binom Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6636 chars>",
+   "reproduced": "<structure, 6636 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_binom Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6654 chars>",
+   "reproduced": "<structure, 6654 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_binom Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6642 chars>",
+   "reproduced": "<structure, 6642 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_binom Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6646 chars>",
+   "reproduced": "<structure, 6646 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_binom Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6633 chars>",
+   "reproduced": "<structure, 6633 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_binom Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6671 chars>",
+   "reproduced": "<structure, 6671 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT v2_sens_binom: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 62740 chars>",
+   "reproduced": "<structure, 62740 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "TX9_WT: opcrit (all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 3414 chars>",
+   "reproduced": "<structure, 3414 chars>"
+  },
+  {
+   "group": "self_check",
+   "quantity": "TX9_WT: dstar_with_curves vs reference dstar() (v2_primary, B=2000)",
+   "status": "PASS",
+   "reference": true,
+   "reproduced": true
+  },
+  {
+   "group": "crossover",
+   "quantity": "GSE233886_WT: predictors",
+   "status": "PASS",
+   "reference": [
+    "Paper_RiboPipe_MFE_H128",
+    "Paper_Ridge",
+    "Paper_RiboPipe_noMFE_H128",
+    "Paper_RiboMIMO_adapt_noMFE",
+    "Paper_RiboMIMO_adapt_MFE",
+    "Dummy_noise"
+   ],
+   "reproduced": [
+    "Paper_RiboPipe_MFE_H128",
+    "Paper_Ridge",
+    "Paper_RiboPipe_noMFE_H128",
+    "Paper_RiboMIMO_adapt_noMFE",
+    "Paper_RiboMIMO_adapt_MFE",
+    "Dummy_noise"
+   ]
+  },
+  {
+   "group": "crossover",
+   "quantity": "GSE233886_WT: T_low",
+   "status": "PASS",
+   "reference": 12621,
+   "reproduced": 12621
+  },
+  {
+   "group": "crossover",
+   "quantity": "GSE233886_WT: edges",
+   "status": "PASS",
+   "reference": [
+    6.67e-05,
+    0.0001012,
+    0.0001537,
+    0.0002333,
+    0.0003542,
+    0.0005378,
+    0.0008165,
+    0.0012396,
+    0.0018821,
+    0.0028574,
+    0.0043383,
+    0.0065866,
+    0.01,
+    0.0151824,
+    0.0230506,
+    0.0349964,
+    0.0531329,
+    0.0806686,
+    0.1224745,
+    0.1859459,
+    0.2823108,
+    0.4286161,
+    0.6507428,
+    0.9879849,
+    1.5
+   ],
+   "reproduced": [
+    6.67e-05,
+    0.0001012,
+    0.0001537,
+    0.0002333,
+    0.0003542,
+    0.0005378,
+    0.0008165,
+    0.0012396,
+    0.0018821,
+    0.0028574,
+    0.0043383,
+    0.0065866,
+    0.01,
+    0.0151824,
+    0.0230506,
+    0.0349964,
+    0.0531329,
+    0.0806686,
+    0.1224745,
+    0.1859459,
+    0.2823108,
+    0.4286161,
+    0.6507428,
+    0.9879849,
+    1.5
+   ]
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: RiboPipe D* (reads/codon)",
+   "status": "PASS",
+   "reference": 0.7320191546820658,
+   "reproduced": 0.7320191546820658
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: RiboPipe D* status",
+   "status": "PASS",
+   "reference": "OK",
+   "reproduced": "OK"
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: RiboPipe D* 95% bootstrap CI",
+   "status": "PASS",
+   "reference": [
+    0.6842741302039704,
+    0.7864254691320928
+   ],
+   "reproduced": [
+    0.6842741302039704,
+    0.7864254691320928
+   ]
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: RiboPipe bootstrap failure fraction",
+   "status": "PASS",
+   "reference": 0.08,
+   "reproduced": 0.08
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.0008165, 0.00124)",
+   "status": "PASS",
+   "reference": 0.011847564745747666,
+   "reproduced": 0.011847564745747666
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.00124, 0.001882)",
+   "status": "PASS",
+   "reference": 0.006906854958852358,
+   "reproduced": 0.006906854958852358
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.001882, 0.002857)",
+   "status": "PASS",
+   "reference": 0.021805960679143033,
+   "reproduced": 0.021805960679143033
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.002857, 0.004338)",
+   "status": "PASS",
+   "reference": 0.038156840999830716,
+   "reproduced": 0.038156840999830716
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.004338, 0.006587)",
+   "status": "PASS",
+   "reference": 0.05970940277713119,
+   "reproduced": 0.05970940277713119
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.006587, 0.01)",
+   "status": "PASS",
+   "reference": 0.08019400677491739,
+   "reproduced": 0.08019400677491739
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.01, 0.01518)",
+   "status": "PASS",
+   "reference": 0.1115984736509386,
+   "reproduced": 0.1115984736509386
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.01518, 0.02305)",
+   "status": "PASS",
+   "reference": 0.1071605061979085,
+   "reproduced": 0.1071605061979085
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.02305, 0.035)",
+   "status": "PASS",
+   "reference": 0.10909391745596754,
+   "reproduced": 0.10909391745596754
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.035, 0.05313)",
+   "status": "PASS",
+   "reference": 0.1014839451943089,
+   "reproduced": 0.1014839451943089
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.05313, 0.08067)",
+   "status": "PASS",
+   "reference": 0.13051992761612982,
+   "reproduced": 0.13051992761612982
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.08067, 0.1225)",
+   "status": "PASS",
+   "reference": 0.12509077169012336,
+   "reproduced": 0.12509077169012336
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.1225, 0.1859)",
+   "status": "PASS",
+   "reference": 0.11559274362095143,
+   "reproduced": 0.11559274362095143
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.1859, 0.2823)",
+   "status": "PASS",
+   "reference": 0.104068442333695,
+   "reproduced": 0.104068442333695
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.2823, 0.4286)",
+   "status": "PASS",
+   "reference": 0.06556488836147778,
+   "reproduced": 0.06556488836147778
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.4286, 0.6507)",
+   "status": "PASS",
+   "reference": 0.03403616870716958,
+   "reproduced": 0.03403616870716958
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.6507, 0.988)",
+   "status": "PASS",
+   "reference": -0.009496041158493673,
+   "reproduced": -0.009496041158493673
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE233886_WT: RiboPipe y, bin [0.988, 1.5)",
+   "status": "PASS",
+   "reference": -0.04543598702951651,
+   "reproduced": -0.04543598702951651
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: opcrit status",
+   "status": "PASS",
+   "reference": "OK",
+   "reproduced": "OK"
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: frac_eligible_below at_D_star",
+   "status": "PASS",
+   "reference": 0.918627684018699,
+   "reproduced": 0.918627684018699
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: frac_with_reference_below at_D_star",
+   "status": "PASS",
+   "reference": 0.9114578843003707,
+   "reproduced": 0.9114578843003707
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: frac_scorable_below at_D_star",
+   "status": "PASS",
+   "reference": 0.9093241330502477,
+   "reproduced": 0.9093241330502477
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: frac_eligible_below at_ci_lo",
+   "status": "PASS",
+   "reference": 0.9067427303700182,
+   "reproduced": 0.9067427303700182
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: frac_with_reference_below at_ci_lo",
+   "status": "PASS",
+   "reference": 0.8985257349771532,
+   "reproduced": 0.8985257349771532
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: frac_scorable_below at_ci_lo",
+   "status": "PASS",
+   "reference": 0.8960544939844303,
+   "reproduced": 0.8960544939844303
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: frac_eligible_below at_ci_hi",
+   "status": "PASS",
+   "reference": 0.9313049679106251,
+   "reproduced": 0.9313049679106251
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: frac_with_reference_below at_ci_hi",
+   "status": "PASS",
+   "reference": 0.9252521769118027,
+   "reproduced": 0.9252521769118027
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: frac_scorable_below at_ci_hi",
+   "status": "PASS",
+   "reference": 0.9233899504600142,
+   "reproduced": 0.9233899504600142
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: opcrit N_eligible",
+   "status": "PASS",
+   "reference": 12621,
+   "reproduced": 12621
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: opcrit N_with_reference",
+   "status": "PASS",
+   "reference": 11599,
+   "reproduced": 11599
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: opcrit N_scorable",
+   "status": "PASS",
+   "reference": 11304,
+   "reproduced": 11304
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE233886_WT: noise-predictor positive bins (lo, hi, y)",
+   "status": "PASS",
+   "reference": [
+    [
+     0.0008165,
+     0.0012396,
+     0.007373509983105368
+    ],
+    [
+     0.0018821,
+     0.0028574,
+     0.0005216870582804454
+    ],
+    [
+     0.0028574,
+     0.0043383,
+     0.005648817721070675
+    ],
+    [
+     0.0043383,
+     0.0065866,
+     0.004482153158787474
+    ],
+    [
+     0.0065866,
+     0.01,
+     0.005372470247342219
+    ],
+    [
+     0.01,
+     0.0151824,
+     0.011119368522189466
+    ]
+   ],
+   "reproduced": [
+    [
+     0.0008165,
+     0.0012396,
+     0.007373509983105368
+    ],
+    [
+     0.0018821,
+     0.0028574,
+     0.0005216870582804454
+    ],
+    [
+     0.0028574,
+     0.0043383,
+     0.005648817721070675
+    ],
+    [
+     0.0043383,
+     0.0065866,
+     0.004482153158787474
+    ],
+    [
+     0.0065866,
+     0.01,
+     0.005372470247342219
+    ],
+    [
+     0.01,
+     0.0151824,
+     0.011119368522189466
+    ]
+   ]
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_primary Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6582 chars>",
+   "reproduced": "<structure, 6582 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_primary Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6613 chars>",
+   "reproduced": "<structure, 6613 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_primary Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6584 chars>",
+   "reproduced": "<structure, 6584 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_primary Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6651 chars>",
+   "reproduced": "<structure, 6651 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_primary Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6583 chars>",
+   "reproduced": "<structure, 6583 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_primary Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6597 chars>",
+   "reproduced": "<structure, 6597 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_primary: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 62063 chars>",
+   "reproduced": "<structure, 62063 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_inputdepth Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6578 chars>",
+   "reproduced": "<structure, 6578 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_inputdepth Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6604 chars>",
+   "reproduced": "<structure, 6604 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_inputdepth Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6600 chars>",
+   "reproduced": "<structure, 6600 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_inputdepth Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6588 chars>",
+   "reproduced": "<structure, 6588 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_inputdepth Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6593 chars>",
+   "reproduced": "<structure, 6593 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_inputdepth Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6643 chars>",
+   "reproduced": "<structure, 6643 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_inputdepth: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 62031 chars>",
+   "reproduced": "<structure, 62031 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_gridthin Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6836 chars>",
+   "reproduced": "<structure, 6836 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_gridthin Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6830 chars>",
+   "reproduced": "<structure, 6830 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_gridthin Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6850 chars>",
+   "reproduced": "<structure, 6850 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_gridthin Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6816 chars>",
+   "reproduced": "<structure, 6816 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_gridthin Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6827 chars>",
+   "reproduced": "<structure, 6827 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_gridthin Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6967 chars>",
+   "reproduced": "<structure, 6967 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_gridthin: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 63629 chars>",
+   "reproduced": "<structure, 63629 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_binom Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6548 chars>",
+   "reproduced": "<structure, 6548 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_binom Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6580 chars>",
+   "reproduced": "<structure, 6580 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_binom Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6557 chars>",
+   "reproduced": "<structure, 6557 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_binom Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6556 chars>",
+   "reproduced": "<structure, 6556 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_binom Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6547 chars>",
+   "reproduced": "<structure, 6547 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_binom Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6605 chars>",
+   "reproduced": "<structure, 6605 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT v2_sens_binom: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 62065 chars>",
+   "reproduced": "<structure, 62065 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE233886_WT: opcrit (all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 3406 chars>",
+   "reproduced": "<structure, 3406 chars>"
+  },
+  {
+   "group": "self_check",
+   "quantity": "GSE233886_WT: dstar_with_curves vs reference dstar() (v2_primary, B=2000)",
+   "status": "PASS",
+   "reference": true,
+   "reproduced": true
+  },
+  {
+   "group": "crossover",
+   "quantity": "GSE133393_WT: predictors",
+   "status": "PASS",
+   "reference": [
+    "Paper_RiboPipe_MFE_H128",
+    "Paper_Ridge",
+    "Paper_RiboPipe_noMFE_H128",
+    "Paper_RiboMIMO_adapt_noMFE",
+    "Paper_RiboMIMO_adapt_MFE",
+    "Dummy_noise"
+   ],
+   "reproduced": [
+    "Paper_RiboPipe_MFE_H128",
+    "Paper_Ridge",
+    "Paper_RiboPipe_noMFE_H128",
+    "Paper_RiboMIMO_adapt_noMFE",
+    "Paper_RiboMIMO_adapt_MFE",
+    "Dummy_noise"
+   ]
+  },
+  {
+   "group": "crossover",
+   "quantity": "GSE133393_WT: T_low",
+   "status": "PASS",
+   "reference": 13604,
+   "reproduced": 13604
+  },
+  {
+   "group": "crossover",
+   "quantity": "GSE133393_WT: edges",
+   "status": "PASS",
+   "reference": [
+    6.67e-05,
+    0.0001012,
+    0.0001537,
+    0.0002333,
+    0.0003542,
+    0.0005378,
+    0.0008165,
+    0.0012396,
+    0.0018821,
+    0.0028574,
+    0.0043383,
+    0.0065866,
+    0.01,
+    0.0151824,
+    0.0230506,
+    0.0349964,
+    0.0531329,
+    0.0806686,
+    0.1224745,
+    0.1859459,
+    0.2823108,
+    0.4286161,
+    0.6507428,
+    0.9879849,
+    1.5
+   ],
+   "reproduced": [
+    6.67e-05,
+    0.0001012,
+    0.0001537,
+    0.0002333,
+    0.0003542,
+    0.0005378,
+    0.0008165,
+    0.0012396,
+    0.0018821,
+    0.0028574,
+    0.0043383,
+    0.0065866,
+    0.01,
+    0.0151824,
+    0.0230506,
+    0.0349964,
+    0.0531329,
+    0.0806686,
+    0.1224745,
+    0.1859459,
+    0.2823108,
+    0.4286161,
+    0.6507428,
+    0.9879849,
+    1.5
+   ]
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE133393_WT: RiboPipe D* (reads/codon)",
+   "status": "PASS",
+   "reference": null,
+   "reproduced": null
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE133393_WT: RiboPipe D* status",
+   "status": "PASS",
+   "reference": "NO_SIGN_CHANGE",
+   "reproduced": "NO_SIGN_CHANGE"
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE133393_WT: RiboPipe D* 95% bootstrap CI",
+   "status": "PASS",
+   "reference": null,
+   "reproduced": null
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE133393_WT: RiboPipe bootstrap failure fraction",
+   "status": "PASS",
+   "reference": 0.9995,
+   "reproduced": 0.9995
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.0008165, 0.00124)",
+   "status": "PASS",
+   "reference": 0.00878817556100564,
+   "reproduced": 0.00878817556100564
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.00124, 0.001882)",
+   "status": "PASS",
+   "reference": 0.015618806320375735,
+   "reproduced": 0.015618806320375735
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.001882, 0.002857)",
+   "status": "PASS",
+   "reference": 0.01826809387623878,
+   "reproduced": 0.01826809387623878
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.002857, 0.004338)",
+   "status": "PASS",
+   "reference": 0.02228018948732301,
+   "reproduced": 0.02228018948732301
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.004338, 0.006587)",
+   "status": "PASS",
+   "reference": 0.030503753718403106,
+   "reproduced": 0.030503753718403106
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.006587, 0.01)",
+   "status": "PASS",
+   "reference": 0.039026406064155014,
+   "reproduced": 0.039026406064155014
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.01, 0.01518)",
+   "status": "PASS",
+   "reference": 0.053006800514143686,
+   "reproduced": 0.053006800514143686
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.01518, 0.02305)",
+   "status": "PASS",
+   "reference": 0.06863896814013848,
+   "reproduced": 0.06863896814013848
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.02305, 0.035)",
+   "status": "PASS",
+   "reference": 0.06849106305980153,
+   "reproduced": 0.06849106305980153
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.035, 0.05313)",
+   "status": "PASS",
+   "reference": 0.07207296688517381,
+   "reproduced": 0.07207296688517381
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.05313, 0.08067)",
+   "status": "PASS",
+   "reference": 0.07670262088123259,
+   "reproduced": 0.07670262088123259
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.08067, 0.1225)",
+   "status": "PASS",
+   "reference": 0.089081578218173,
+   "reproduced": 0.089081578218173
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.1225, 0.1859)",
+   "status": "PASS",
+   "reference": 0.08742794682618238,
+   "reproduced": 0.08742794682618238
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.1859, 0.2823)",
+   "status": "PASS",
+   "reference": 0.09602701981193698,
+   "reproduced": 0.09602701981193698
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.2823, 0.4286)",
+   "status": "PASS",
+   "reference": 0.09572056535369156,
+   "reproduced": 0.09572056535369156
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.4286, 0.6507)",
+   "status": "PASS",
+   "reference": 0.07578005717020633,
+   "reproduced": 0.07578005717020633
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.6507, 0.988)",
+   "status": "PASS",
+   "reference": 0.05044260323903818,
+   "reproduced": 0.05044260323903818
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "GSE133393_WT: RiboPipe y, bin [0.988, 1.5)",
+   "status": "PASS",
+   "reference": 0.024689443859933047,
+   "reproduced": 0.024689443859933047
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE133393_WT: opcrit status",
+   "status": "PASS",
+   "reference": "NO_SIGN_CHANGE",
+   "reproduced": "NO_SIGN_CHANGE"
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE133393_WT: opcrit N_eligible",
+   "status": "PASS",
+   "reference": 13604,
+   "reproduced": 13604
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE133393_WT: opcrit N_with_reference",
+   "status": "PASS",
+   "reference": 12533,
+   "reproduced": 12533
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE133393_WT: opcrit N_scorable",
+   "status": "PASS",
+   "reference": 12268,
+   "reproduced": 12268
+  },
+  {
+   "group": "headline",
+   "quantity": "GSE133393_WT: noise-predictor positive bins (lo, hi, y)",
+   "status": "PASS",
+   "reference": [
+    [
+     0.0008165,
+     0.0012396,
+     0.004890037033115251
+    ],
+    [
+     0.0012396,
+     0.0018821,
+     0.006666482754006532
+    ],
+    [
+     0.0018821,
+     0.0028574,
+     0.002573549758660805
+    ],
+    [
+     0.0028574,
+     0.0043383,
+     0.0027364618781432247
+    ],
+    [
+     0.0043383,
+     0.0065866,
+     0.0053897685507031945
+    ],
+    [
+     0.0065866,
+     0.01,
+     0.0039488091862210604
+    ],
+    [
+     0.01,
+     0.0151824,
+     0.00823799597282161
+    ],
+    [
+     0.0151824,
+     0.0230506,
+     0.012437914907616077
+    ]
+   ],
+   "reproduced": [
+    [
+     0.0008165,
+     0.0012396,
+     0.004890037033115251
+    ],
+    [
+     0.0012396,
+     0.0018821,
+     0.006666482754006532
+    ],
+    [
+     0.0018821,
+     0.0028574,
+     0.002573549758660805
+    ],
+    [
+     0.0028574,
+     0.0043383,
+     0.0027364618781432247
+    ],
+    [
+     0.0043383,
+     0.0065866,
+     0.0053897685507031945
+    ],
+    [
+     0.0065866,
+     0.01,
+     0.0039488091862210604
+    ],
+    [
+     0.01,
+     0.0151824,
+     0.00823799597282161
+    ],
+    [
+     0.0151824,
+     0.0230506,
+     0.012437914907616077
+    ]
+   ]
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_primary Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6641 chars>",
+   "reproduced": "<structure, 6641 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_primary Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6633 chars>",
+   "reproduced": "<structure, 6633 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_primary Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6645 chars>",
+   "reproduced": "<structure, 6645 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_primary Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6637 chars>",
+   "reproduced": "<structure, 6637 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_primary Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6629 chars>",
+   "reproduced": "<structure, 6629 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_primary Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6700 chars>",
+   "reproduced": "<structure, 6700 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_primary: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 62830 chars>",
+   "reproduced": "<structure, 62830 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_inputdepth Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6630 chars>",
+   "reproduced": "<structure, 6630 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_inputdepth Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6642 chars>",
+   "reproduced": "<structure, 6642 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_inputdepth Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6620 chars>",
+   "reproduced": "<structure, 6620 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_inputdepth Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6629 chars>",
+   "reproduced": "<structure, 6629 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_inputdepth Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6629 chars>",
+   "reproduced": "<structure, 6629 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_inputdepth Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6699 chars>",
+   "reproduced": "<structure, 6699 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_inputdepth: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 62859 chars>",
+   "reproduced": "<structure, 62859 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_gridthin Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6831 chars>",
+   "reproduced": "<structure, 6831 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_gridthin Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6860 chars>",
+   "reproduced": "<structure, 6860 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_gridthin Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6846 chars>",
+   "reproduced": "<structure, 6846 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_gridthin Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6849 chars>",
+   "reproduced": "<structure, 6849 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_gridthin Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6836 chars>",
+   "reproduced": "<structure, 6836 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_gridthin Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6966 chars>",
+   "reproduced": "<structure, 6966 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT v2_sens_gridthin: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 63437 chars>",
+   "reproduced": "<structure, 63437 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "GSE133393_WT: opcrit (all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 1270 chars>",
+   "reproduced": "<structure, 1270 chars>"
+  },
+  {
+   "group": "self_check",
+   "quantity": "GSE133393_WT: dstar_with_curves vs reference dstar() (v2_primary, B=2000)",
+   "status": "PASS",
+   "reference": true,
+   "reproduced": true
+  },
+  {
+   "group": "crossover",
+   "quantity": "PRJNA_iPS: predictors",
+   "status": "PASS",
+   "reference": [
+    "Paper_RiboPipe_MFE_H128",
+    "Paper_Ridge",
+    "Paper_RiboPipe_noMFE_H128",
+    "Paper_RiboMIMO_adapt_noMFE",
+    "Paper_RiboMIMO_adapt_MFE",
+    "Dummy_noise"
+   ],
+   "reproduced": [
+    "Paper_RiboPipe_MFE_H128",
+    "Paper_Ridge",
+    "Paper_RiboPipe_noMFE_H128",
+    "Paper_RiboMIMO_adapt_noMFE",
+    "Paper_RiboMIMO_adapt_MFE",
+    "Dummy_noise"
+   ]
+  },
+  {
+   "group": "crossover",
+   "quantity": "PRJNA_iPS: T_low",
+   "status": "PASS",
+   "reference": 14151,
+   "reproduced": 14151
+  },
+  {
+   "group": "crossover",
+   "quantity": "PRJNA_iPS: edges",
+   "status": "PASS",
+   "reference": [
+    6.67e-05,
+    0.0001012,
+    0.0001537,
+    0.0002333,
+    0.0003542,
+    0.0005378,
+    0.0008165,
+    0.0012396,
+    0.0018821,
+    0.0028574,
+    0.0043383,
+    0.0065866,
+    0.01,
+    0.0151824,
+    0.0230506,
+    0.0349964,
+    0.0531329,
+    0.0806686,
+    0.1224745,
+    0.1859459,
+    0.2823108,
+    0.4286161,
+    0.6507428,
+    0.9879849,
+    1.5
+   ],
+   "reproduced": [
+    6.67e-05,
+    0.0001012,
+    0.0001537,
+    0.0002333,
+    0.0003542,
+    0.0005378,
+    0.0008165,
+    0.0012396,
+    0.0018821,
+    0.0028574,
+    0.0043383,
+    0.0065866,
+    0.01,
+    0.0151824,
+    0.0230506,
+    0.0349964,
+    0.0531329,
+    0.0806686,
+    0.1224745,
+    0.1859459,
+    0.2823108,
+    0.4286161,
+    0.6507428,
+    0.9879849,
+    1.5
+   ]
+  },
+  {
+   "group": "headline",
+   "quantity": "PRJNA_iPS: RiboPipe D* (reads/codon)",
+   "status": "PASS",
+   "reference": null,
+   "reproduced": null
+  },
+  {
+   "group": "headline",
+   "quantity": "PRJNA_iPS: RiboPipe D* status",
+   "status": "PASS",
+   "reference": "NO_SIGN_CHANGE",
+   "reproduced": "NO_SIGN_CHANGE"
+  },
+  {
+   "group": "headline",
+   "quantity": "PRJNA_iPS: RiboPipe D* 95% bootstrap CI",
+   "status": "PASS",
+   "reference": null,
+   "reproduced": null
+  },
+  {
+   "group": "headline",
+   "quantity": "PRJNA_iPS: RiboPipe bootstrap failure fraction",
+   "status": "PASS",
+   "reference": 0.733,
+   "reproduced": 0.733
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.0005378, 0.0008165)",
+   "status": "PASS",
+   "reference": 0.014126992028759536,
+   "reproduced": 0.014126992028759536
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.0008165, 0.00124)",
+   "status": "PASS",
+   "reference": 0.019426084365642658,
+   "reproduced": 0.019426084365642658
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.00124, 0.001882)",
+   "status": "PASS",
+   "reference": 0.020583790680764345,
+   "reproduced": 0.020583790680764345
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.001882, 0.002857)",
+   "status": "PASS",
+   "reference": 0.023954186831993584,
+   "reproduced": 0.023954186831993584
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.002857, 0.004338)",
+   "status": "PASS",
+   "reference": 0.03570283986426685,
+   "reproduced": 0.03570283986426685
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.004338, 0.006587)",
+   "status": "PASS",
+   "reference": 0.044945984363173264,
+   "reproduced": 0.044945984363173264
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.006587, 0.01)",
+   "status": "PASS",
+   "reference": 0.061987168618685556,
+   "reproduced": 0.061987168618685556
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.01, 0.01518)",
+   "status": "PASS",
+   "reference": 0.07783344434755066,
+   "reproduced": 0.07783344434755066
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.01518, 0.02305)",
+   "status": "PASS",
+   "reference": 0.09953491305478052,
+   "reproduced": 0.09953491305478052
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.02305, 0.035)",
+   "status": "PASS",
+   "reference": 0.09019387801923015,
+   "reproduced": 0.09019387801923015
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.035, 0.05313)",
+   "status": "PASS",
+   "reference": 0.09459540227803881,
+   "reproduced": 0.09459540227803881
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.05313, 0.08067)",
+   "status": "PASS",
+   "reference": 0.09658088118584694,
+   "reproduced": 0.09658088118584694
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.08067, 0.1225)",
+   "status": "PASS",
+   "reference": 0.09926964276793158,
+   "reproduced": 0.09926964276793158
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.1225, 0.1859)",
+   "status": "PASS",
+   "reference": 0.10618613610248026,
+   "reproduced": 0.10618613610248026
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.1859, 0.2823)",
+   "status": "PASS",
+   "reference": 0.09139731870163537,
+   "reproduced": 0.09139731870163537
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.2823, 0.4286)",
+   "status": "PASS",
+   "reference": 0.0571896447773243,
+   "reproduced": 0.0571896447773243
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.4286, 0.6507)",
+   "status": "PASS",
+   "reference": 0.039473131866725825,
+   "reproduced": 0.039473131866725825
+  },
+  {
+   "group": "headline_bins",
+   "quantity": "PRJNA_iPS: RiboPipe y, bin [0.6507, 0.988)",
+   "status": "PASS",
+   "reference": 0.015766565097414087,
+   "reproduced": 0.015766565097414087
+  },
+  {
+   "group": "headline",
+   "quantity": "PRJNA_iPS: opcrit status",
+   "status": "PASS",
+   "reference": "NO_SIGN_CHANGE",
+   "reproduced": "NO_SIGN_CHANGE"
+  },
+  {
+   "group": "headline",
+   "quantity": "PRJNA_iPS: opcrit N_eligible",
+   "status": "PASS",
+   "reference": 14151,
+   "reproduced": 14151
+  },
+  {
+   "group": "headline",
+   "quantity": "PRJNA_iPS: opcrit N_with_reference",
+   "status": "PASS",
+   "reference": 12451,
+   "reproduced": 12451
+  },
+  {
+   "group": "headline",
+   "quantity": "PRJNA_iPS: opcrit N_scorable",
+   "status": "PASS",
+   "reference": 11898,
+   "reproduced": 11898
+  },
+  {
+   "group": "headline",
+   "quantity": "PRJNA_iPS: noise-predictor positive bins (lo, hi, y)",
+   "status": "PASS",
+   "reference": "<structure, 407 chars>",
+   "reproduced": "<structure, 407 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_primary Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6600 chars>",
+   "reproduced": "<structure, 6600 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_primary Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6620 chars>",
+   "reproduced": "<structure, 6620 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_primary Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6605 chars>",
+   "reproduced": "<structure, 6605 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_primary Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6603 chars>",
+   "reproduced": "<structure, 6603 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_primary Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6666 chars>",
+   "reproduced": "<structure, 6666 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_primary Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6591 chars>",
+   "reproduced": "<structure, 6591 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_primary: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 62186 chars>",
+   "reproduced": "<structure, 62186 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_inputdepth Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6557 chars>",
+   "reproduced": "<structure, 6557 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_inputdepth Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6565 chars>",
+   "reproduced": "<structure, 6565 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_inputdepth Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6578 chars>",
+   "reproduced": "<structure, 6578 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_inputdepth Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6567 chars>",
+   "reproduced": "<structure, 6567 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_inputdepth Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6566 chars>",
+   "reproduced": "<structure, 6566 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_inputdepth Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6627 chars>",
+   "reproduced": "<structure, 6627 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_inputdepth: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 62227 chars>",
+   "reproduced": "<structure, 62227 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_gridthin Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6655 chars>",
+   "reproduced": "<structure, 6655 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_gridthin Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6677 chars>",
+   "reproduced": "<structure, 6677 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_gridthin Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6664 chars>",
+   "reproduced": "<structure, 6664 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_gridthin Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6653 chars>",
+   "reproduced": "<structure, 6653 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_gridthin Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6762 chars>",
+   "reproduced": "<structure, 6762 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_gridthin Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6653 chars>",
+   "reproduced": "<structure, 6653 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_gridthin: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 62183 chars>",
+   "reproduced": "<structure, 62183 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_binom Paper_RiboPipe_MFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6529 chars>",
+   "reproduced": "<structure, 6529 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_binom Paper_Ridge: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6573 chars>",
+   "reproduced": "<structure, 6573 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_binom Paper_RiboPipe_noMFE_H128: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6548 chars>",
+   "reproduced": "<structure, 6548 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_binom Paper_RiboMIMO_adapt_noMFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6541 chars>",
+   "reproduced": "<structure, 6541 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_binom Paper_RiboMIMO_adapt_MFE: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6531 chars>",
+   "reproduced": "<structure, 6531 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_binom Dummy_noise: dstar object (status, D*, CI, failure fraction, zero depth, all bins, bin bootstrap, wording)",
+   "status": "PASS",
+   "reference": "<structure, 6617 chars>",
+   "reproduced": "<structure, 6617 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS v2_sens_binom: per-role counts and medians (all bins, all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 62206 chars>",
+   "reproduced": "<structure, 62206 chars>"
+  },
+  {
+   "group": "crossover_full",
+   "quantity": "PRJNA_iPS: opcrit (all predictors)",
+   "status": "PASS",
+   "reference": "<structure, 2346 chars>",
+   "reproduced": "<structure, 2346 chars>"
+  },
+  {
+   "group": "self_check",
+   "quantity": "PRJNA_iPS: dstar_with_curves vs reference dstar() (v2_primary, B=2000)",
+   "status": "PASS",
+   "reference": true,
+   "reproduced": true
+  },
+  {
+   "group": "posterior_kappa",
+   "quantity": "TX9_WT: chosen prior strength per (role, fold) [value, grid index, mean ll, n records]",
+   "status": "PASS",
+   "reference": "<structure, 670 chars>",
+   "reproduced": "<structure, 670 chars>"
+  },
+  {
+   "group": "posterior",
+   "quantity": "TX9_WT: kappa used",
+   "status": "PASS",
+   "reference": {
+    "role0|fold0": 1.333521432163324,
+    "role0|fold1": 1.333521432163324,
+    "role0|fold2": 1.333521432163324,
+    "role0|fold3": 1.333521432163324,
+    "role0|fold4": 1.333521432163324,
+    "role1|fold0": 1.333521432163324,
+    "role1|fold1": 1.333521432163324,
+    "role1|fold2": 1.333521432163324,
+    "role1|fold3": 1.333521432163324,
+    "role1|fold4": 1.333521432163324
+   },
+   "reproduced": {
+    "role0|fold0": 1.333521432163324,
+    "role0|fold1": 1.333521432163324,
+    "role0|fold2": 1.333521432163324,
+    "role0|fold3": 1.333521432163324,
+    "role0|fold4": 1.333521432163324,
+    "role1|fold0": 1.333521432163324,
+    "role1|fold1": 1.333521432163324,
+    "role1|fold2": 1.333521432163324,
+    "role1|fold3": 1.333521432163324,
+    "role1|fold4": 1.333521432163324
+   }
+  },
+  {
+   "group": "self_check",
+   "quantity": "TX9_WT: posterior run, RiboPipe - reads (main set) == crossover main analysis",
+   "status": "PASS",
+   "reference": "<structure, 6666 chars>",
+   "reproduced": "<structure, 6666 chars>"
+  },
+  {
+   "group": "posterior",
+   "quantity": "TX9_WT: identity check max |r(kappa=0) - r(reads)|",
+   "status": "PASS",
+   "reference": 1.5543122344752192e-15,
+   "reproduced": 1.5543122344752192e-15
+  },
+  {
+   "group": "posterior",
+   "quantity": "TX9_WT: identity check max |r(kappa=1e12) - r(p_seq)|",
+   "status": "PASS",
+   "reference": 1.0895853230080688e-11,
+   "reproduced": 1.0895853230080688e-11
+  },
+  {
+   "group": "posterior_kappa",
+   "quantity": "GSE233886_WT: chosen prior strength per (role, fold) [value, grid index, mean ll, n records]",
+   "status": "PASS",
+   "reference": "<structure, 670 chars>",
+   "reproduced": "<structure, 670 chars>"
+  },
+  {
+   "group": "posterior",
+   "quantity": "GSE233886_WT: kappa used",
+   "status": "PASS",
+   "reference": {
+    "role0|fold0": 1.333521432163324,
+    "role0|fold1": 1.333521432163324,
+    "role0|fold2": 1.7782794100389228,
+    "role0|fold3": 1.333521432163324,
+    "role0|fold4": 1.333521432163324,
+    "role1|fold0": 1.333521432163324,
+    "role1|fold1": 1.333521432163324,
+    "role1|fold2": 1.333521432163324,
+    "role1|fold3": 1.333521432163324,
+    "role1|fold4": 1.333521432163324
+   },
+   "reproduced": {
+    "role0|fold0": 1.333521432163324,
+    "role0|fold1": 1.333521432163324,
+    "role0|fold2": 1.7782794100389228,
+    "role0|fold3": 1.333521432163324,
+    "role0|fold4": 1.333521432163324,
+    "role1|fold0": 1.333521432163324,
+    "role1|fold1": 1.333521432163324,
+    "role1|fold2": 1.333521432163324,
+    "role1|fold3": 1.333521432163324,
+    "role1|fold4": 1.333521432163324
+   }
+  },
+  {
+   "group": "self_check",
+   "quantity": "GSE233886_WT: posterior run, RiboPipe - reads (main set) == crossover main analysis",
+   "status": "PASS",
+   "reference": "<structure, 6582 chars>",
+   "reproduced": "<structure, 6582 chars>"
+  },
+  {
+   "group": "posterior",
+   "quantity": "GSE233886_WT: identity check max |r(kappa=0) - r(reads)|",
+   "status": "PASS",
+   "reference": 1.3322676295501878e-15,
+   "reproduced": 1.3322676295501878e-15
+  },
+  {
+   "group": "posterior",
+   "quantity": "GSE233886_WT: identity check max |r(kappa=1e12) - r(p_seq)|",
+   "status": "PASS",
+   "reference": 8.576830218265385e-12,
+   "reproduced": 8.576830218265385e-12
+  },
+  {
+   "group": "posterior_kappa",
+   "quantity": "GSE133393_WT: chosen prior strength per (role, fold) [value, grid index, mean ll, n records]",
+   "status": "PASS",
+   "reference": "<structure, 674 chars>",
+   "reproduced": "<structure, 674 chars>"
+  },
+  {
+   "group": "posterior",
+   "quantity": "GSE133393_WT: kappa used",
+   "status": "PASS",
+   "reference": {
+    "role0|fold0": 2.371373705661655,
+    "role0|fold1": 1.7782794100389228,
+    "role0|fold2": 2.371373705661655,
+    "role0|fold3": 2.371373705661655,
+    "role0|fold4": 1.7782794100389228,
+    "role1|fold0": 2.371373705661655,
+    "role1|fold1": 1.7782794100389228,
+    "role1|fold2": 2.371373705661655,
+    "role1|fold3": 1.7782794100389228,
+    "role1|fold4": 1.7782794100389228
+   },
+   "reproduced": {
+    "role0|fold0": 2.371373705661655,
+    "role0|fold1": 1.7782794100389228,
+    "role0|fold2": 2.371373705661655,
+    "role0|fold3": 2.371373705661655,
+    "role0|fold4": 1.7782794100389228,
+    "role1|fold0": 2.371373705661655,
+    "role1|fold1": 1.7782794100389228,
+    "role1|fold2": 2.371373705661655,
+    "role1|fold3": 1.7782794100389228,
+    "role1|fold4": 1.7782794100389228
+   }
+  },
+  {
+   "group": "self_check",
+   "quantity": "GSE133393_WT: posterior run, RiboPipe - reads (main set) == crossover main analysis",
+   "status": "PASS",
+   "reference": "<structure, 6633 chars>",
+   "reproduced": "<structure, 6633 chars>"
+  },
+  {
+   "group": "posterior",
+   "quantity": "GSE133393_WT: identity check max |r(kappa=0) - r(reads)|",
+   "status": "PASS",
+   "reference": 1.1102230246251565e-15,
+   "reproduced": 1.1102230246251565e-15
+  },
+  {
+   "group": "posterior",
+   "quantity": "GSE133393_WT: identity check max |r(kappa=1e12) - r(p_seq)|",
+   "status": "PASS",
+   "reference": 1.3226794659537688e-11,
+   "reproduced": 1.3226794659537688e-11
+  },
+  {
+   "group": "posterior_kappa",
+   "quantity": "PRJNA_iPS: chosen prior strength per (role, fold) [value, grid index, mean ll, n records]",
+   "status": "PASS",
+   "reference": "<structure, 669 chars>",
+   "reproduced": "<structure, 669 chars>"
+  },
+  {
+   "group": "posterior",
+   "quantity": "PRJNA_iPS: kappa used",
+   "status": "PASS",
+   "reference": {
+    "role0|fold0": 1.7782794100389228,
+    "role0|fold1": 1.333521432163324,
+    "role0|fold2": 1.7782794100389228,
+    "role0|fold3": 1.333521432163324,
+    "role0|fold4": 1.333521432163324,
+    "role1|fold0": 1.7782794100389228,
+    "role1|fold1": 1.333521432163324,
+    "role1|fold2": 1.7782794100389228,
+    "role1|fold3": 1.333521432163324,
+    "role1|fold4": 1.333521432163324
+   },
+   "reproduced": {
+    "role0|fold0": 1.7782794100389228,
+    "role0|fold1": 1.333521432163324,
+    "role0|fold2": 1.7782794100389228,
+    "role0|fold3": 1.333521432163324,
+    "role0|fold4": 1.333521432163324,
+    "role1|fold0": 1.7782794100389228,
+    "role1|fold1": 1.333521432163324,
+    "role1|fold2": 1.7782794100389228,
+    "role1|fold3": 1.333521432163324,
+    "role1|fold4": 1.333521432163324
+   }
+  },
+  {
+   "group": "self_check",
+   "quantity": "PRJNA_iPS: posterior run, RiboPipe - reads (main set) == crossover main analysis",
+   "status": "PASS",
+   "reference": "<structure, 6600 chars>",
+   "reproduced": "<structure, 6600 chars>"
+  },
+  {
+   "group": "posterior",
+   "quantity": "PRJNA_iPS: identity check max |r(kappa=0) - r(reads)|",
+   "status": "PASS",
+   "reference": 1.7763568394002505e-15,
+   "reproduced": 1.7763568394002505e-15
+  },
+  {
+   "group": "posterior",
+   "quantity": "PRJNA_iPS: identity check max |r(kappa=1e12) - r(p_seq)|",
+   "status": "PASS",
+   "reference": 7.34121097245577e-12,
+   "reproduced": 7.34121097245577e-12
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.0008165, 0.00124) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.008305648206694381,
+    [
+     0.0017153425760885097,
+     0.017649844877609573
+    ]
+   ],
+   "reproduced": [
+    0.008305648206694381,
+    [
+     0.0017153425760885097,
+     0.017649844877609573
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.0008165, 0.00124) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    -5.0198479725904396e-05,
+    [
+     -0.00016684994071088132,
+     -2.3855401212748166e-05
+    ]
+   ],
+   "reproduced": [
+    -5.0198479725904396e-05,
+    [
+     -0.00016684994071088132,
+     -2.3855401212748166e-05
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.0008165, 0.00124) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.008355846686420285,
+    [
+     0.001850552648278286,
+     0.017693820022027646
+    ]
+   ],
+   "reproduced": [
+    0.008355846686420285,
+    [
+     0.001850552648278286,
+     0.017693820022027646
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.00124, 0.001882) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0177600587806317,
+    [
+     0.010029200654849855,
+     0.025893381291550274
+    ]
+   ],
+   "reproduced": [
+    0.0177600587806317,
+    [
+     0.010029200654849855,
+     0.025893381291550274
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.00124, 0.001882) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0007918210930785811,
+    [
+     -0.00020658861284976148,
+     0.003450483977609256
+    ]
+   ],
+   "reproduced": [
+    0.0007918210930785811,
+    [
+     -0.00020658861284976148,
+     0.003450483977609256
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.00124, 0.001882) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.01696823768755312,
+    [
+     0.00932947489773816,
+     0.025941844845232865
+    ]
+   ],
+   "reproduced": [
+    0.01696823768755312,
+    [
+     0.00932947489773816,
+     0.025941844845232865
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.001882, 0.002857) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.024894202260879815,
+    [
+     0.01826461604437011,
+     0.029969820128789876
+    ]
+   ],
+   "reproduced": [
+    0.024894202260879815,
+    [
+     0.01826461604437011,
+     0.029969820128789876
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.001882, 0.002857) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    5.431186829617067e-05,
+    [
+     -0.00024152169825956,
+     0.0024454954880287986
+    ]
+   ],
+   "reproduced": [
+    5.431186829617067e-05,
+    [
+     -0.00024152169825956,
+     0.0024454954880287986
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.001882, 0.002857) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.024839890392583643,
+    [
+     0.018031696842990295,
+     0.029661785204390022
+    ]
+   ],
+   "reproduced": [
+    0.024839890392583643,
+    [
+     0.018031696842990295,
+     0.029661785204390022
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.002857, 0.004338) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.03881131536599107,
+    [
+     0.031069475425538125,
+     0.04555446388516133
+    ]
+   ],
+   "reproduced": [
+    0.03881131536599107,
+    [
+     0.031069475425538125,
+     0.04555446388516133
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.002857, 0.004338) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0006200316050700497,
+    [
+     -0.0002748776587835091,
+     0.0054618864869774185
+    ]
+   ],
+   "reproduced": [
+    0.0006200316050700497,
+    [
+     -0.0002748776587835091,
+     0.0054618864869774185
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.002857, 0.004338) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.03819128376092103,
+    [
+     0.029549892483249126,
+     0.04410918357294339
+    ]
+   ],
+   "reproduced": [
+    0.03819128376092103,
+    [
+     0.029549892483249126,
+     0.04410918357294339
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.004338, 0.006587) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.04942627346116249,
+    [
+     0.043261548745234864,
+     0.055808050681018184
+    ]
+   ],
+   "reproduced": [
+    0.04942627346116249,
+    [
+     0.043261548745234864,
+     0.055808050681018184
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.004338, 0.006587) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.004175122644305036,
+    [
+     0.0007362856446646757,
+     0.007802180083711176
+    ]
+   ],
+   "reproduced": [
+    0.004175122644305036,
+    [
+     0.0007362856446646757,
+     0.007802180083711176
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.004338, 0.006587) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.04525115081685745,
+    [
+     0.039628593111677275,
+     0.05216240777143752
+    ]
+   ],
+   "reproduced": [
+    0.04525115081685745,
+    [
+     0.039628593111677275,
+     0.05216240777143752
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.006587, 0.01) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.07198225842885916,
+    [
+     0.062388287797324866,
+     0.07861248503449028
+    ]
+   ],
+   "reproduced": [
+    0.07198225842885916,
+    [
+     0.062388287797324866,
+     0.07861248503449028
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.006587, 0.01) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.006201417459957562,
+    [
+     0.0005785627364261051,
+     0.00920549092769201
+    ]
+   ],
+   "reproduced": [
+    0.006201417459957562,
+    [
+     0.0005785627364261051,
+     0.00920549092769201
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.006587, 0.01) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0657808409689016,
+    [
+     0.05826472263960366,
+     0.07449641804674395
+    ]
+   ],
+   "reproduced": [
+    0.0657808409689016,
+    [
+     0.05826472263960366,
+     0.07449641804674395
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.01, 0.01518) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09296868176398537,
+    [
+     0.08488941141321421,
+     0.10103842317876004
+    ]
+   ],
+   "reproduced": [
+    0.09296868176398537,
+    [
+     0.08488941141321421,
+     0.10103842317876004
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.01, 0.01518) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.004446761963672476,
+    [
+     0.0014094308385590537,
+     0.00928847070600256
+    ]
+   ],
+   "reproduced": [
+    0.004446761963672476,
+    [
+     0.0014094308385590537,
+     0.00928847070600256
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.01, 0.01518) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0885219198003129,
+    [
+     0.07838953042101,
+     0.09466124319924098
+    ]
+   ],
+   "reproduced": [
+    0.0885219198003129,
+    [
+     0.07838953042101,
+     0.09466124319924098
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.01518, 0.02305) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09650804793917683,
+    [
+     0.06333079877136,
+     0.11989815951071202
+    ]
+   ],
+   "reproduced": [
+    0.09650804793917683,
+    [
+     0.06333079877136,
+     0.11989815951071202
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.01518, 0.02305) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.00740756326064413,
+    [
+     0.003828660850780614,
+     0.012168829130819559
+    ]
+   ],
+   "reproduced": [
+    0.00740756326064413,
+    [
+     0.003828660850780614,
+     0.012168829130819559
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.01518, 0.02305) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0891004846785327,
+    [
+     0.0548011457364569,
+     0.1123670151540943
+    ]
+   ],
+   "reproduced": [
+    0.0891004846785327,
+    [
+     0.0548011457364569,
+     0.1123670151540943
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.02305, 0.035) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0800387166768766,
+    [
+     0.06534635283034457,
+     0.09189348491458241
+    ]
+   ],
+   "reproduced": [
+    0.0800387166768766,
+    [
+     0.06534635283034457,
+     0.09189348491458241
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.02305, 0.035) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.011737887503673772,
+    [
+     0.00653198986683089,
+     0.017264304803175146
+    ]
+   ],
+   "reproduced": [
+    0.011737887503673772,
+    [
+     0.00653198986683089,
+     0.017264304803175146
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.02305, 0.035) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.06830082917320283,
+    [
+     0.0517680471800064,
+     0.08277502594552082
+    ]
+   ],
+   "reproduced": [
+    0.06830082917320283,
+    [
+     0.0517680471800064,
+     0.08277502594552082
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.035, 0.05313) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.08929040368681701,
+    [
+     0.07874760086327809,
+     0.09927671320375005
+    ]
+   ],
+   "reproduced": [
+    0.08929040368681701,
+    [
+     0.07874760086327809,
+     0.09927671320375005
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.035, 0.05313) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.012772024529553339,
+    [
+     0.008965399296709513,
+     0.016782964441243838
+    ]
+   ],
+   "reproduced": [
+    0.012772024529553339,
+    [
+     0.008965399296709513,
+     0.016782964441243838
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.035, 0.05313) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.07651837915726367,
+    [
+     0.06483989982815938,
+     0.08834193072641018
+    ]
+   ],
+   "reproduced": [
+    0.07651837915726367,
+    [
+     0.06483989982815938,
+     0.08834193072641018
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.05313, 0.08067) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.10511108547046016,
+    [
+     0.09502268743747357,
+     0.11468219349765531
+    ]
+   ],
+   "reproduced": [
+    0.10511108547046016,
+    [
+     0.09502268743747357,
+     0.11468219349765531
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.05313, 0.08067) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.012052353518914788,
+    [
+     0.009783177970573414,
+     0.017337468308160225
+    ]
+   ],
+   "reproduced": [
+    0.012052353518914788,
+    [
+     0.009783177970573414,
+     0.017337468308160225
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.05313, 0.08067) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09305873195154538,
+    [
+     0.08000628925978284,
+     0.1023834995774017
+    ]
+   ],
+   "reproduced": [
+    0.09305873195154538,
+    [
+     0.08000628925978284,
+     0.1023834995774017
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.08067, 0.1225) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09825845131461353,
+    [
+     0.09046344125087423,
+     0.10522600419794588
+    ]
+   ],
+   "reproduced": [
+    0.09825845131461353,
+    [
+     0.09046344125087423,
+     0.10522600419794588
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.08067, 0.1225) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.03173191428947936,
+    [
+     0.026577167460940167,
+     0.03641914873114729
+    ]
+   ],
+   "reproduced": [
+    0.03173191428947936,
+    [
+     0.026577167460940167,
+     0.03641914873114729
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.08067, 0.1225) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.06652653702513417,
+    [
+     0.057139581073605894,
+     0.0761225585281775
+    ]
+   ],
+   "reproduced": [
+    0.06652653702513417,
+    [
+     0.057139581073605894,
+     0.0761225585281775
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.1225, 0.1859) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09348938361259185,
+    [
+     0.08714885972706281,
+     0.10269018256068632
+    ]
+   ],
+   "reproduced": [
+    0.09348938361259185,
+    [
+     0.08714885972706281,
+     0.10269018256068632
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.1225, 0.1859) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.035048558212812664,
+    [
+     0.030953751234857458,
+     0.0397620687009541
+    ]
+   ],
+   "reproduced": [
+    0.035048558212812664,
+    [
+     0.030953751234857458,
+     0.0397620687009541
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.1225, 0.1859) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.058440825399779184,
+    [
+     0.049775836622521656,
+     0.06967284453542617
+    ]
+   ],
+   "reproduced": [
+    0.058440825399779184,
+    [
+     0.049775836622521656,
+     0.06967284453542617
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.1859, 0.2823) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.08787877646971975,
+    [
+     0.07744320908210028,
+     0.09501091475156108
+    ]
+   ],
+   "reproduced": [
+    0.08787877646971975,
+    [
+     0.07744320908210028,
+     0.09501091475156108
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.1859, 0.2823) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.052711368865567265,
+    [
+     0.04734720462777288,
+     0.0560469845145202
+    ]
+   ],
+   "reproduced": [
+    0.052711368865567265,
+    [
+     0.04734720462777288,
+     0.0560469845145202
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.1859, 0.2823) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.03516740760415249,
+    [
+     0.023885310500590954,
+     0.04498719549195296
+    ]
+   ],
+   "reproduced": [
+    0.03516740760415249,
+    [
+     0.023885310500590954,
+     0.04498719549195296
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.2823, 0.4286) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0760855117796023,
+    [
+     0.06665466055576381,
+     0.08225146800310294
+    ]
+   ],
+   "reproduced": [
+    0.0760855117796023,
+    [
+     0.06665466055576381,
+     0.08225146800310294
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.2823, 0.4286) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.07692143852088212,
+    [
+     0.07206039775299902,
+     0.08360065971337759
+    ]
+   ],
+   "reproduced": [
+    0.07692143852088212,
+    [
+     0.07206039775299902,
+     0.08360065971337759
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.2823, 0.4286) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    -0.0008359267412798299,
+    [
+     -0.013967163133498222,
+     0.007604160608946332
+    ]
+   ],
+   "reproduced": [
+    -0.0008359267412798299,
+    [
+     -0.013967163133498222,
+     0.007604160608946332
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.4286, 0.6507) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.06870480328700945,
+    [
+     0.06343672858313888,
+     0.07309793602383872
+    ]
+   ],
+   "reproduced": [
+    0.06870480328700945,
+    [
+     0.06343672858313888,
+     0.07309793602383872
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.4286, 0.6507) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0985089088364745,
+    [
+     0.09215256995211014,
+     0.10433720775291305
+    ]
+   ],
+   "reproduced": [
+    0.0985089088364745,
+    [
+     0.09215256995211014,
+     0.10433720775291305
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.4286, 0.6507) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    -0.029804105549465054,
+    [
+     -0.038430391087128105,
+     -0.021282877863564878
+    ]
+   ],
+   "reproduced": [
+    -0.029804105549465054,
+    [
+     -0.038430391087128105,
+     -0.021282877863564878
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.6507, 0.988) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.04995219485789093,
+    [
+     0.0452700773499366,
+     0.054406025397917265
+    ]
+   ],
+   "reproduced": [
+    0.04995219485789093,
+    [
+     0.0452700773499366,
+     0.054406025397917265
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.6507, 0.988) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.13188159397241794,
+    [
+     0.12626782904802072,
+     0.13796217106946665
+    ]
+   ],
+   "reproduced": [
+    0.13188159397241794,
+    [
+     0.12626782904802072,
+     0.13796217106946665
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.6507, 0.988) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    -0.08192939911452701,
+    [
+     -0.09067155466995552,
+     -0.0741491662729387
+    ]
+   ],
+   "reproduced": [
+    -0.08192939911452701,
+    [
+     -0.09067155466995552,
+     -0.0741491662729387
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-reads bin [0.988, 1.5) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.03985259287721565,
+    [
+     0.035754043987395796,
+     0.044147061397131704
+    ]
+   ],
+   "reproduced": [
+    0.03985259287721565,
+    [
+     0.035754043987395796,
+     0.044147061397131704
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: posterior-RiboPipe bin [0.988, 1.5) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.15080126619959122,
+    [
+     0.1443349797029588,
+     0.15803584110702015
+    ]
+   ],
+   "reproduced": [
+    0.15080126619959122,
+    [
+     0.1443349797029588,
+     0.15803584110702015
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "TX9_WT: RiboPipe-reads bin [0.988, 1.5) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    -0.11094867332237557,
+    [
+     -0.11994016553363195,
+     -0.1020555192788478
+    ]
+   ],
+   "reproduced": [
+    -0.11094867332237557,
+    [
+     -0.11994016553363195,
+     -0.1020555192788478
+    ]
+   ]
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "TX9_WT: all valid-bin rows (y, y_role, CI, valid draws, N_scored)",
+   "status": "PASS",
+   "reference": "<structure, 11028 chars>",
+   "reproduced": "<structure, 11028 chars>"
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "TX9_WT: summary",
+   "status": "PASS",
+   "reference": "<structure, 798 chars>",
+   "reproduced": "<structure, 798 chars>"
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "TX9_WT: crossing status of the three comparisons",
+   "status": "PASS",
+   "reference": {
+    "posterior-reads": {
+     "status": "NO_SIGN_CHANGE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.999
+    },
+    "posterior-RiboPipe": {
+     "status": "NOT_LOCATABLE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.6885
+    },
+    "RiboPipe-reads": {
+     "status": "OK",
+     "D_star": 0.34449871473422966,
+     "ci95": [
+      0.3059811917330045,
+      0.3777309736264181
+     ],
+     "bootstrap_fail_fraction": 0.001
+    }
+   },
+   "reproduced": {
+    "posterior-reads": {
+     "status": "NO_SIGN_CHANGE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.999
+    },
+    "posterior-RiboPipe": {
+     "status": "NOT_LOCATABLE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.6885
+    },
+    "RiboPipe-reads": {
+     "status": "OK",
+     "D_star": 0.34449871473422966,
+     "ci95": [
+      0.3059811917330045,
+      0.3777309736264181
+     ],
+     "bootstrap_fail_fraction": 0.001
+    }
+   }
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "TX9_WT: zero-depth counts",
+   "status": "PASS",
+   "reference": {
+    "N_records": 1944,
+    "N_scored": 0
+   },
+   "reproduced": {
+    "N_records": 1944,
+    "N_scored": 0
+   }
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.0008165, 0.00124) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.011823528207072682,
+    [
+     0.005979336861408446,
+     0.036337555604816725
+    ]
+   ],
+   "reproduced": [
+    0.011823528207072682,
+    [
+     0.005979336861408446,
+     0.036337555604816725
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.0008165, 0.00124) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    -2.4036538674984675e-05,
+    [
+     -0.00019809704232919288,
+     -1.3999440750438533e-05
+    ]
+   ],
+   "reproduced": [
+    -2.4036538674984675e-05,
+    [
+     -0.00019809704232919288,
+     -1.3999440750438533e-05
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.0008165, 0.00124) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.011847564745747666,
+    [
+     0.006010198297127334,
+     0.03639607318926792
+    ]
+   ],
+   "reproduced": [
+    0.011847564745747666,
+    [
+     0.006010198297127334,
+     0.03639607318926792
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.00124, 0.001882) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.007939463364665535,
+    [
+     -0.0006946693720267269,
+     0.018880973263307635
+    ]
+   ],
+   "reproduced": [
+    0.007939463364665535,
+    [
+     -0.0006946693720267269,
+     0.018880973263307635
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.00124, 0.001882) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0010326084058131769,
+    [
+     -4.628268149449888e-05,
+     0.007987580660605934
+    ]
+   ],
+   "reproduced": [
+    0.0010326084058131769,
+    [
+     -4.628268149449888e-05,
+     0.007987580660605934
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.00124, 0.001882) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.006906854958852358,
+    [
+     -0.0013780752964765509,
+     0.01696443282736407
+    ]
+   ],
+   "reproduced": [
+    0.006906854958852358,
+    [
+     -0.0013780752964765509,
+     0.01696443282736407
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.001882, 0.002857) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.024427815717195846,
+    [
+     0.016386698546787606,
+     0.034293051616231085
+    ]
+   ],
+   "reproduced": [
+    0.024427815717195846,
+    [
+     0.016386698546787606,
+     0.034293051616231085
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.001882, 0.002857) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0026218550380528154,
+    [
+     -0.0001562232913278699,
+     0.0041646386837634304
+    ]
+   ],
+   "reproduced": [
+    0.0026218550380528154,
+    [
+     -0.0001562232913278699,
+     0.0041646386837634304
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.001882, 0.002857) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.021805960679143033,
+    [
+     0.01583267242398948,
+     0.03340508644830423
+    ]
+   ],
+   "reproduced": [
+    0.021805960679143033,
+    [
+     0.01583267242398948,
+     0.03340508644830423
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.002857, 0.004338) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.04100301681242628,
+    [
+     0.03172359690958486,
+     0.04770426594529757
+    ]
+   ],
+   "reproduced": [
+    0.04100301681242628,
+    [
+     0.03172359690958486,
+     0.04770426594529757
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.002857, 0.004338) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.002846175812595563,
+    [
+     -0.0001819195654855778,
+     0.005905662718244494
+    ]
+   ],
+   "reproduced": [
+    0.002846175812595563,
+    [
+     -0.0001819195654855778,
+     0.005905662718244494
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.002857, 0.004338) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.038156840999830716,
+    [
+     0.028899951024901293,
+     0.04643517535507361
+    ]
+   ],
+   "reproduced": [
+    0.038156840999830716,
+    [
+     0.028899951024901293,
+     0.04643517535507361
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.004338, 0.006587) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.06386063844415349,
+    [
+     0.052592888685774115,
+     0.071480489008457
+    ]
+   ],
+   "reproduced": [
+    0.06386063844415349,
+    [
+     0.052592888685774115,
+     0.071480489008457
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.004338, 0.006587) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.004151235667022298,
+    [
+     -6.836850162393951e-05,
+     0.007603062561778737
+    ]
+   ],
+   "reproduced": [
+    0.004151235667022298,
+    [
+     -6.836850162393951e-05,
+     0.007603062561778737
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.004338, 0.006587) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.05970940277713119,
+    [
+     0.05042835722535497,
+     0.0681946199355549
+    ]
+   ],
+   "reproduced": [
+    0.05970940277713119,
+    [
+     0.05042835722535497,
+     0.0681946199355549
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.006587, 0.01) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.08226440465300447,
+    [
+     0.07421740291662567,
+     0.09155875715743862
+    ]
+   ],
+   "reproduced": [
+    0.08226440465300447,
+    [
+     0.07421740291662567,
+     0.09155875715743862
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.006587, 0.01) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.002070397878087084,
+    [
+     -0.00046310825892998086,
+     0.005057763780374262
+    ]
+   ],
+   "reproduced": [
+    0.002070397878087084,
+    [
+     -0.00046310825892998086,
+     0.005057763780374262
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.006587, 0.01) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.08019400677491739,
+    [
+     0.0713078421954198,
+     0.08890162062179666
+    ]
+   ],
+   "reproduced": [
+    0.08019400677491739,
+    [
+     0.0713078421954198,
+     0.08890162062179666
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.01, 0.01518) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.11687726508483964,
+    [
+     0.10449730226553229,
+     0.12933408936170224
+    ]
+   ],
+   "reproduced": [
+    0.11687726508483964,
+    [
+     0.10449730226553229,
+     0.12933408936170224
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.01, 0.01518) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.005278791433901045,
+    [
+     0.000527184189510177,
+     0.008750319245375742
+    ]
+   ],
+   "reproduced": [
+    0.005278791433901045,
+    [
+     0.000527184189510177,
+     0.008750319245375742
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.01, 0.01518) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.1115984736509386,
+    [
+     0.1013952150689229,
+     0.12567288719623337
+    ]
+   ],
+   "reproduced": [
+    0.1115984736509386,
+    [
+     0.1013952150689229,
+     0.12567288719623337
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.01518, 0.02305) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.11067576038631143,
+    [
+     0.0918869667078205,
+     0.14926470135318753
+    ]
+   ],
+   "reproduced": [
+    0.11067576038631143,
+    [
+     0.0918869667078205,
+     0.14926470135318753
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.01518, 0.02305) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0035152541884029276,
+    [
+     0.00044729749736031096,
+     0.007119375892634487
+    ]
+   ],
+   "reproduced": [
+    0.0035152541884029276,
+    [
+     0.00044729749736031096,
+     0.007119375892634487
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.01518, 0.02305) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.1071605061979085,
+    [
+     0.08728874642144871,
+     0.14696311838457912
+    ]
+   ],
+   "reproduced": [
+    0.1071605061979085,
+    [
+     0.08728874642144871,
+     0.14696311838457912
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.02305, 0.035) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.1142776273129795,
+    [
+     0.10017382961273967,
+     0.1257508865783489
+    ]
+   ],
+   "reproduced": [
+    0.1142776273129795,
+    [
+     0.10017382961273967,
+     0.1257508865783489
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.02305, 0.035) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.005183709857011956,
+    [
+     0.0020162243347382706,
+     0.0095277243199924
+    ]
+   ],
+   "reproduced": [
+    0.005183709857011956,
+    [
+     0.0020162243347382706,
+     0.0095277243199924
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.02305, 0.035) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.10909391745596754,
+    [
+     0.09385071703011744,
+     0.1215097260851984
+    ]
+   ],
+   "reproduced": [
+    0.10909391745596754,
+    [
+     0.09385071703011744,
+     0.1215097260851984
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.035, 0.05313) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.1120184975328018,
+    [
+     0.09705818229201195,
+     0.12525803548277498
+    ]
+   ],
+   "reproduced": [
+    0.1120184975328018,
+    [
+     0.09705818229201195,
+     0.12525803548277498
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.035, 0.05313) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.010534552338492903,
+    [
+     0.006027327598209018,
+     0.015606874061688614
+    ]
+   ],
+   "reproduced": [
+    0.010534552338492903,
+    [
+     0.006027327598209018,
+     0.015606874061688614
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.035, 0.05313) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.1014839451943089,
+    [
+     0.08697602577008841,
+     0.11464652668388214
+    ]
+   ],
+   "reproduced": [
+    0.1014839451943089,
+    [
+     0.08697602577008841,
+     0.11464652668388214
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.05313, 0.08067) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.13970645820833594,
+    [
+     0.13155883809599442,
+     0.14674956615304205
+    ]
+   ],
+   "reproduced": [
+    0.13970645820833594,
+    [
+     0.13155883809599442,
+     0.14674956615304205
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.05313, 0.08067) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.009186530592206116,
+    [
+     0.006956512744385095,
+     0.012211053317148885
+    ]
+   ],
+   "reproduced": [
+    0.009186530592206116,
+    [
+     0.006956512744385095,
+     0.012211053317148885
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.05313, 0.08067) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.13051992761612982,
+    [
+     0.12114410322466752,
+     0.13814797107234889
+    ]
+   ],
+   "reproduced": [
+    0.13051992761612982,
+    [
+     0.12114410322466752,
+     0.13814797107234889
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.08067, 0.1225) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.13898170289367814,
+    [
+     0.13243785947817965,
+     0.14587061464493986
+    ]
+   ],
+   "reproduced": [
+    0.13898170289367814,
+    [
+     0.13243785947817965,
+     0.14587061464493986
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.08067, 0.1225) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.01389093120355478,
+    [
+     0.011670105967478034,
+     0.017013388499026613
+    ]
+   ],
+   "reproduced": [
+    0.01389093120355478,
+    [
+     0.011670105967478034,
+     0.017013388499026613
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.08067, 0.1225) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.12509077169012336,
+    [
+     0.117408356532325,
+     0.132061282649718
+    ]
+   ],
+   "reproduced": [
+    0.12509077169012336,
+    [
+     0.117408356532325,
+     0.132061282649718
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.1225, 0.1859) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.1377426543837479,
+    [
+     0.12868394946157324,
+     0.14318203852350858
+    ]
+   ],
+   "reproduced": [
+    0.1377426543837479,
+    [
+     0.12868394946157324,
+     0.14318203852350858
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.1225, 0.1859) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.02214991076279646,
+    [
+     0.01885016384411094,
+     0.026418781330091762
+    ]
+   ],
+   "reproduced": [
+    0.02214991076279646,
+    [
+     0.01885016384411094,
+     0.026418781330091762
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.1225, 0.1859) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.11559274362095143,
+    [
+     0.10425587049057332,
+     0.12283482698565296
+    ]
+   ],
+   "reproduced": [
+    0.11559274362095143,
+    [
+     0.10425587049057332,
+     0.12283482698565296
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.1859, 0.2823) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.13429240843364032,
+    [
+     0.12749812013807274,
+     0.13895949313998532
+    ]
+   ],
+   "reproduced": [
+    0.13429240843364032,
+    [
+     0.12749812013807274,
+     0.13895949313998532
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.1859, 0.2823) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.03022396609994532,
+    [
+     0.026445625130035157,
+     0.03426239834924274
+    ]
+   ],
+   "reproduced": [
+    0.03022396609994532,
+    [
+     0.026445625130035157,
+     0.03426239834924274
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.1859, 0.2823) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.104068442333695,
+    [
+     0.0958817408015951,
+     0.1097607532372588
+    ]
+   ],
+   "reproduced": [
+    0.104068442333695,
+    [
+     0.0958817408015951,
+     0.1097607532372588
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.2823, 0.4286) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.10582639106760267,
+    [
+     0.09971539292665406,
+     0.11443840847673045
+    ]
+   ],
+   "reproduced": [
+    0.10582639106760267,
+    [
+     0.09971539292665406,
+     0.11443840847673045
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.2823, 0.4286) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.040261502706124885,
+    [
+     0.036869163644947786,
+     0.043977404084792816
+    ]
+   ],
+   "reproduced": [
+    0.040261502706124885,
+    [
+     0.036869163644947786,
+     0.043977404084792816
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.2823, 0.4286) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.06556488836147778,
+    [
+     0.05759797484342649,
+     0.07584591356365869
+    ]
+   ],
+   "reproduced": [
+    0.06556488836147778,
+    [
+     0.05759797484342649,
+     0.07584591356365869
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.4286, 0.6507) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0878400117454497,
+    [
+     0.08360212356108271,
+     0.09252367233439959
+    ]
+   ],
+   "reproduced": [
+    0.0878400117454497,
+    [
+     0.08360212356108271,
+     0.09252367233439959
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.4286, 0.6507) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.05380384303828012,
+    [
+     0.050189839745247905,
+     0.05876344185542643
+    ]
+   ],
+   "reproduced": [
+    0.05380384303828012,
+    [
+     0.050189839745247905,
+     0.05876344185542643
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.4286, 0.6507) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.03403616870716958,
+    [
+     0.026478362691585565,
+     0.040521802289030386
+    ]
+   ],
+   "reproduced": [
+    0.03403616870716958,
+    [
+     0.026478362691585565,
+     0.040521802289030386
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.6507, 0.988) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.06729147227273202,
+    [
+     0.060558081249116165,
+     0.0714734247488152
+    ]
+   ],
+   "reproduced": [
+    0.06729147227273202,
+    [
+     0.060558081249116165,
+     0.0714734247488152
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.6507, 0.988) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0767875134312257,
+    [
+     0.07078052625644209,
+     0.08208265536735153
+    ]
+   ],
+   "reproduced": [
+    0.0767875134312257,
+    [
+     0.07078052625644209,
+     0.08208265536735153
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.6507, 0.988) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    -0.009496041158493673,
+    [
+     -0.019212530924755132,
+     -0.0017985601625218977
+    ]
+   ],
+   "reproduced": [
+    -0.009496041158493673,
+    [
+     -0.019212530924755132,
+     -0.0017985601625218977
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-reads bin [0.988, 1.5) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.04587458101612901,
+    [
+     0.038802311889706835,
+     0.0510892518863629
+    ]
+   ],
+   "reproduced": [
+    0.04587458101612901,
+    [
+     0.038802311889706835,
+     0.0510892518863629
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: posterior-RiboPipe bin [0.988, 1.5) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09131056804564552,
+    [
+     0.08384128673067476,
+     0.09883522321846927
+    ]
+   ],
+   "reproduced": [
+    0.09131056804564552,
+    [
+     0.08384128673067476,
+     0.09883522321846927
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE233886_WT: RiboPipe-reads bin [0.988, 1.5) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    -0.04543598702951651,
+    [
+     -0.05694309881059474,
+     -0.03577416016426328
+    ]
+   ],
+   "reproduced": [
+    -0.04543598702951651,
+    [
+     -0.05694309881059474,
+     -0.03577416016426328
+    ]
+   ]
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "GSE233886_WT: all valid-bin rows (y, y_role, CI, valid draws, N_scored)",
+   "status": "PASS",
+   "reference": "<structure, 11013 chars>",
+   "reproduced": "<structure, 11013 chars>"
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "GSE233886_WT: summary",
+   "status": "PASS",
+   "reference": "<structure, 802 chars>",
+   "reproduced": "<structure, 802 chars>"
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "GSE233886_WT: crossing status of the three comparisons",
+   "status": "PASS",
+   "reference": {
+    "posterior-reads": {
+     "status": "NO_SIGN_CHANGE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.964
+    },
+    "posterior-RiboPipe": {
+     "status": "NOT_LOCATABLE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.662
+    },
+    "RiboPipe-reads": {
+     "status": "OK",
+     "D_star": 0.7320191546820658,
+     "ci95": [
+      0.6842741302039704,
+      0.7864254691320928
+     ],
+     "bootstrap_fail_fraction": 0.08
+    }
+   },
+   "reproduced": {
+    "posterior-reads": {
+     "status": "NO_SIGN_CHANGE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.964
+    },
+    "posterior-RiboPipe": {
+     "status": "NOT_LOCATABLE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.662
+    },
+    "RiboPipe-reads": {
+     "status": "OK",
+     "D_star": 0.7320191546820658,
+     "ci95": [
+      0.6842741302039704,
+      0.7864254691320928
+     ],
+     "bootstrap_fail_fraction": 0.08
+    }
+   }
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "GSE233886_WT: zero-depth counts",
+   "status": "PASS",
+   "reference": {
+    "N_records": 2044,
+    "N_scored": 0
+   },
+   "reproduced": {
+    "N_records": 2044,
+    "N_scored": 0
+   }
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.0008165, 0.00124) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.008757701742533349,
+    [
+     0.004446304421927407,
+     0.017291541605622667
+    ]
+   ],
+   "reproduced": [
+    0.008757701742533349,
+    [
+     0.004446304421927407,
+     0.017291541605622667
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.0008165, 0.00124) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    -3.0473818472291072e-05,
+    [
+     -0.00010425429403416023,
+     -1.962657056752099e-05
+    ]
+   ],
+   "reproduced": [
+    -3.0473818472291072e-05,
+    [
+     -0.00010425429403416023,
+     -1.962657056752099e-05
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.0008165, 0.00124) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.00878817556100564,
+    [
+     0.00448148884271345,
+     0.017352742431293793
+    ]
+   ],
+   "reproduced": [
+    0.00878817556100564,
+    [
+     0.00448148884271345,
+     0.017352742431293793
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.00124, 0.001882) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.015552596916320296,
+    [
+     0.008079147552787436,
+     0.023756908455714616
+    ]
+   ],
+   "reproduced": [
+    0.015552596916320296,
+    [
+     0.008079147552787436,
+     0.023756908455714616
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.00124, 0.001882) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    -6.620940405543865e-05,
+    [
+     -0.00012255119919352998,
+     -3.392198321746066e-05
+    ]
+   ],
+   "reproduced": [
+    -6.620940405543865e-05,
+    [
+     -0.00012255119919352998,
+     -3.392198321746066e-05
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.00124, 0.001882) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.015618806320375735,
+    [
+     0.008154248013050154,
+     0.023890488098389537
+    ]
+   ],
+   "reproduced": [
+    0.015618806320375735,
+    [
+     0.008154248013050154,
+     0.023890488098389537
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.001882, 0.002857) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.01912077174692394,
+    [
+     0.012924249379453525,
+     0.024642838300467883
+    ]
+   ],
+   "reproduced": [
+    0.01912077174692394,
+    [
+     0.012924249379453525,
+     0.024642838300467883
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.001882, 0.002857) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0008526778706851625,
+    [
+     -0.00018401494614891207,
+     0.0035091435134928625
+    ]
+   ],
+   "reproduced": [
+    0.0008526778706851625,
+    [
+     -0.00018401494614891207,
+     0.0035091435134928625
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.001882, 0.002857) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.01826809387623878,
+    [
+     0.011454014222619862,
+     0.023987136208406288
+    ]
+   ],
+   "reproduced": [
+    0.01826809387623878,
+    [
+     0.011454014222619862,
+     0.023987136208406288
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.002857, 0.004338) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.026719353959940153,
+    [
+     0.019035417045875025,
+     0.03129039202703396
+    ]
+   ],
+   "reproduced": [
+    0.026719353959940153,
+    [
+     0.019035417045875025,
+     0.03129039202703396
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.002857, 0.004338) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0044391644726171405,
+    [
+     0.00013277697899408654,
+     0.005889607527601263
+    ]
+   ],
+   "reproduced": [
+    0.0044391644726171405,
+    [
+     0.00013277697899408654,
+     0.005889607527601263
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.002857, 0.004338) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.02228018948732301,
+    [
+     0.01700764533775751,
+     0.028829935093234848
+    ]
+   ],
+   "reproduced": [
+    0.02228018948732301,
+    [
+     0.01700764533775751,
+     0.028829935093234848
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.004338, 0.006587) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.03194093037239984,
+    [
+     0.028078633222960208,
+     0.03659089118869732
+    ]
+   ],
+   "reproduced": [
+    0.03194093037239984,
+    [
+     0.028078633222960208,
+     0.03659089118869732
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.004338, 0.006587) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0014371766539967336,
+    [
+     -0.00010822886816232059,
+     0.0037815057635617734
+    ]
+   ],
+   "reproduced": [
+    0.0014371766539967336,
+    [
+     -0.00010822886816232059,
+     0.0037815057635617734
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.004338, 0.006587) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.030503753718403106,
+    [
+     0.026409203791741883,
+     0.03539605769632351
+    ]
+   ],
+   "reproduced": [
+    0.030503753718403106,
+    [
+     0.026409203791741883,
+     0.03539605769632351
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.006587, 0.01) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.04324854422477306,
+    [
+     0.0369660075041634,
+     0.04827955315736112
+    ]
+   ],
+   "reproduced": [
+    0.04324854422477306,
+    [
+     0.0369660075041634,
+     0.04827955315736112
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.006587, 0.01) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.00422213816061804,
+    [
+     0.0001710650174489594,
+     0.00563490500614827
+    ]
+   ],
+   "reproduced": [
+    0.00422213816061804,
+    [
+     0.0001710650174489594,
+     0.00563490500614827
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.006587, 0.01) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.039026406064155014,
+    [
+     0.0355044993015063,
+     0.045966632787012726
+    ]
+   ],
+   "reproduced": [
+    0.039026406064155014,
+    [
+     0.0355044993015063,
+     0.045966632787012726
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.01, 0.01518) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.057404842510783524,
+    [
+     0.051996392720061395,
+     0.06277096594860826
+    ]
+   ],
+   "reproduced": [
+    0.057404842510783524,
+    [
+     0.051996392720061395,
+     0.06277096594860826
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.01, 0.01518) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.004398041996639835,
+    [
+     0.0010525928769952386,
+     0.006528321481494954
+    ]
+   ],
+   "reproduced": [
+    0.004398041996639835,
+    [
+     0.0010525928769952386,
+     0.006528321481494954
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.01, 0.01518) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.053006800514143686,
+    [
+     0.04877338503610754,
+     0.05954741996726956
+    ]
+   ],
+   "reproduced": [
+    0.053006800514143686,
+    [
+     0.04877338503610754,
+     0.05954741996726956
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.01518, 0.02305) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.07168733761255985,
+    [
+     0.06914669469543593,
+     0.07518522605037314
+    ]
+   ],
+   "reproduced": [
+    0.07168733761255985,
+    [
+     0.06914669469543593,
+     0.07518522605037314
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.01518, 0.02305) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.003048369472421368,
+    [
+     -3.3059897201313945e-05,
+     0.007834165154887754
+    ]
+   ],
+   "reproduced": [
+    0.003048369472421368,
+    [
+     -3.3059897201313945e-05,
+     0.007834165154887754
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.01518, 0.02305) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.06863896814013848,
+    [
+     0.06426201243528856,
+     0.07353517941556738
+    ]
+   ],
+   "reproduced": [
+    0.06863896814013848,
+    [
+     0.06426201243528856,
+     0.07353517941556738
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.02305, 0.035) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.07213842475981988,
+    [
+     0.06442697565313417,
+     0.08413487617334911
+    ]
+   ],
+   "reproduced": [
+    0.07213842475981988,
+    [
+     0.06442697565313417,
+     0.08413487617334911
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.02305, 0.035) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0036473617000183506,
+    [
+     0.0020711096028514734,
+     0.0064276411695663735
+    ]
+   ],
+   "reproduced": [
+    0.0036473617000183506,
+    [
+     0.0020711096028514734,
+     0.0064276411695663735
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.02305, 0.035) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.06849106305980153,
+    [
+     0.0591709860928398,
+     0.08010612199345794
+    ]
+   ],
+   "reproduced": [
+    0.06849106305980153,
+    [
+     0.0591709860928398,
+     0.08010612199345794
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.035, 0.05313) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.07669256958470669,
+    [
+     0.07080722364689553,
+     0.08224772113104407
+    ]
+   ],
+   "reproduced": [
+    0.07669256958470669,
+    [
+     0.07080722364689553,
+     0.08224772113104407
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.035, 0.05313) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0046196026995328834,
+    [
+     0.002277898780423385,
+     0.007128219202348541
+    ]
+   ],
+   "reproduced": [
+    0.0046196026995328834,
+    [
+     0.002277898780423385,
+     0.007128219202348541
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.035, 0.05313) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.07207296688517381,
+    [
+     0.06572880955730757,
+     0.0784721461135539
+    ]
+   ],
+   "reproduced": [
+    0.07207296688517381,
+    [
+     0.06572880955730757,
+     0.0784721461135539
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.05313, 0.08067) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.08256118663131531,
+    [
+     0.07725687523346506,
+     0.08699925445577364
+    ]
+   ],
+   "reproduced": [
+    0.08256118663131531,
+    [
+     0.07725687523346506,
+     0.08699925445577364
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.05313, 0.08067) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.005858565750082728,
+    [
+     0.0036330256230871502,
+     0.007493249044068299
+    ]
+   ],
+   "reproduced": [
+    0.005858565750082728,
+    [
+     0.0036330256230871502,
+     0.007493249044068299
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.05313, 0.08067) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.07670262088123259,
+    [
+     0.07105489432139632,
+     0.08182162789925969
+    ]
+   ],
+   "reproduced": [
+    0.07670262088123259,
+    [
+     0.07105489432139632,
+     0.08182162789925969
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.08067, 0.1225) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09709611540150846,
+    [
+     0.0927763385258263,
+     0.10247737404205208
+    ]
+   ],
+   "reproduced": [
+    0.09709611540150846,
+    [
+     0.0927763385258263,
+     0.10247737404205208
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.08067, 0.1225) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.00801453718333546,
+    [
+     0.005491965083376706,
+     0.009994703925918783
+    ]
+   ],
+   "reproduced": [
+    0.00801453718333546,
+    [
+     0.005491965083376706,
+     0.009994703925918783
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.08067, 0.1225) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.089081578218173,
+    [
+     0.08441706592124093,
+     0.0954899572113521
+    ]
+   ],
+   "reproduced": [
+    0.089081578218173,
+    [
+     0.08441706592124093,
+     0.0954899572113521
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.1225, 0.1859) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09950543124885784,
+    [
+     0.09515166931255466,
+     0.10441346866179192
+    ]
+   ],
+   "reproduced": [
+    0.09950543124885784,
+    [
+     0.09515166931255466,
+     0.10441346866179192
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.1225, 0.1859) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.012077484422675464,
+    [
+     0.009810173505188735,
+     0.014698954736369441
+    ]
+   ],
+   "reproduced": [
+    0.012077484422675464,
+    [
+     0.009810173505188735,
+     0.014698954736369441
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.1225, 0.1859) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.08742794682618238,
+    [
+     0.08165418134142347,
+     0.0932732855672247
+    ]
+   ],
+   "reproduced": [
+    0.08742794682618238,
+    [
+     0.08165418134142347,
+     0.0932732855672247
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.1859, 0.2823) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.11132654732972608,
+    [
+     0.1071152570452342,
+     0.11549517124282796
+    ]
+   ],
+   "reproduced": [
+    0.11132654732972608,
+    [
+     0.1071152570452342,
+     0.11549517124282796
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.1859, 0.2823) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.015299527517789097,
+    [
+     0.012567211208379832,
+     0.018404855051815865
+    ]
+   ],
+   "reproduced": [
+    0.015299527517789097,
+    [
+     0.012567211208379832,
+     0.018404855051815865
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.1859, 0.2823) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09602701981193698,
+    [
+     0.09065366983338402,
+     0.10149582690996083
+    ]
+   ],
+   "reproduced": [
+    0.09602701981193698,
+    [
+     0.09065366983338402,
+     0.10149582690996083
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.2823, 0.4286) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.11907412681820928,
+    [
+     0.1130761145437087,
+     0.1226621908458239
+    ]
+   ],
+   "reproduced": [
+    0.11907412681820928,
+    [
+     0.1130761145437087,
+     0.1226621908458239
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.2823, 0.4286) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.023353561464517725,
+    [
+     0.019093395482280933,
+     0.02613906312614227
+    ]
+   ],
+   "reproduced": [
+    0.023353561464517725,
+    [
+     0.019093395482280933,
+     0.02613906312614227
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.2823, 0.4286) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09572056535369156,
+    [
+     0.08851059980571775,
+     0.10145687434894919
+    ]
+   ],
+   "reproduced": [
+    0.09572056535369156,
+    [
+     0.08851059980571775,
+     0.10145687434894919
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.4286, 0.6507) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.1089661415501465,
+    [
+     0.10285777442706946,
+     0.11358072879520026
+    ]
+   ],
+   "reproduced": [
+    0.1089661415501465,
+    [
+     0.10285777442706946,
+     0.11358072879520026
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.4286, 0.6507) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.03318608437994017,
+    [
+     0.026502873190527104,
+     0.03897153136795803
+    ]
+   ],
+   "reproduced": [
+    0.03318608437994017,
+    [
+     0.026502873190527104,
+     0.03897153136795803
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.4286, 0.6507) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.07578005717020633,
+    [
+     0.06806022538349664,
+     0.08354639519638993
+    ]
+   ],
+   "reproduced": [
+    0.07578005717020633,
+    [
+     0.06806022538349664,
+     0.08354639519638993
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.6507, 0.988) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0995168166644693,
+    [
+     0.09395407278639473,
+     0.10719631444234624
+    ]
+   ],
+   "reproduced": [
+    0.0995168166644693,
+    [
+     0.09395407278639473,
+     0.10719631444234624
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.6507, 0.988) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.04907421342543111,
+    [
+     0.04184056533406628,
+     0.05787972145325667
+    ]
+   ],
+   "reproduced": [
+    0.04907421342543111,
+    [
+     0.04184056533406628,
+     0.05787972145325667
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.6507, 0.988) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.05044260323903818,
+    [
+     0.03995129960820923,
+     0.062143559016443556
+    ]
+   ],
+   "reproduced": [
+    0.05044260323903818,
+    [
+     0.03995129960820923,
+     0.062143559016443556
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-reads bin [0.988, 1.5) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09182787030818976,
+    [
+     0.08297209660863432,
+     0.10130816713870354
+    ]
+   ],
+   "reproduced": [
+    0.09182787030818976,
+    [
+     0.08297209660863432,
+     0.10130816713870354
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: posterior-RiboPipe bin [0.988, 1.5) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.06713842644825671,
+    [
+     0.05860793694703123,
+     0.07698669894791883
+    ]
+   ],
+   "reproduced": [
+    0.06713842644825671,
+    [
+     0.05860793694703123,
+     0.07698669894791883
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "GSE133393_WT: RiboPipe-reads bin [0.988, 1.5) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.024689443859933047,
+    [
+     0.009294568928741578,
+     0.0398466163741755
+    ]
+   ],
+   "reproduced": [
+    0.024689443859933047,
+    [
+     0.009294568928741578,
+     0.0398466163741755
+    ]
+   ]
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "GSE133393_WT: all valid-bin rows (y, y_role, CI, valid draws, N_scored)",
+   "status": "PASS",
+   "reference": "<structure, 11047 chars>",
+   "reproduced": "<structure, 11047 chars>"
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "GSE133393_WT: summary",
+   "status": "PASS",
+   "reference": "<structure, 803 chars>",
+   "reproduced": "<structure, 803 chars>"
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "GSE133393_WT: crossing status of the three comparisons",
+   "status": "PASS",
+   "reference": {
+    "posterior-reads": {
+     "status": "NO_SIGN_CHANGE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 1.0
+    },
+    "posterior-RiboPipe": {
+     "status": "NOT_LOCATABLE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.9125
+    },
+    "RiboPipe-reads": {
+     "status": "NO_SIGN_CHANGE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.9995
+    }
+   },
+   "reproduced": {
+    "posterior-reads": {
+     "status": "NO_SIGN_CHANGE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 1.0
+    },
+    "posterior-RiboPipe": {
+     "status": "NOT_LOCATABLE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.9125
+    },
+    "RiboPipe-reads": {
+     "status": "NO_SIGN_CHANGE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.9995
+    }
+   }
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "GSE133393_WT: zero-depth counts",
+   "status": "PASS",
+   "reference": {
+    "N_records": 2142,
+    "N_scored": 0
+   },
+   "reproduced": {
+    "N_records": 2142,
+    "N_scored": 0
+   }
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.0005378, 0.0008165) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.01409036815427929,
+    [
+     0.005275306755902118,
+     0.021658543525558488
+    ]
+   ],
+   "reproduced": [
+    0.01409036815427929,
+    [
+     0.005275306755902118,
+     0.021658543525558488
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.0005378, 0.0008165) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    -3.662387448024641e-05,
+    [
+     -7.964023314111553e-05,
+     -1.885093675910144e-05
+    ]
+   ],
+   "reproduced": [
+    -3.662387448024641e-05,
+    [
+     -7.964023314111553e-05,
+     -1.885093675910144e-05
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.0005378, 0.0008165) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.014126992028759536,
+    [
+     0.005323891426589308,
+     0.021689144277044485
+    ]
+   ],
+   "reproduced": [
+    0.014126992028759536,
+    [
+     0.005323891426589308,
+     0.021689144277044485
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.0008165, 0.00124) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.01936790377494419,
+    [
+     0.013204465612436128,
+     0.026103866943259144
+    ]
+   ],
+   "reproduced": [
+    0.01936790377494419,
+    [
+     0.013204465612436128,
+     0.026103866943259144
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.0008165, 0.00124) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    -5.8180590698468995e-05,
+    [
+     -9.41514358340223e-05,
+     -3.1660090234890244e-05
+    ]
+   ],
+   "reproduced": [
+    -5.8180590698468995e-05,
+    [
+     -9.41514358340223e-05,
+     -3.1660090234890244e-05
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.0008165, 0.00124) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.019426084365642658,
+    [
+     0.013274498621839912,
+     0.026140596629095788
+    ]
+   ],
+   "reproduced": [
+    0.019426084365642658,
+    [
+     0.013274498621839912,
+     0.026140596629095788
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.00124, 0.001882) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0221265622936133,
+    [
+     0.01663177994805681,
+     0.026907073821693453
+    ]
+   ],
+   "reproduced": [
+    0.0221265622936133,
+    [
+     0.01663177994805681,
+     0.026907073821693453
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.00124, 0.001882) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.001542771612848954,
+    [
+     -0.00013708315720340503,
+     0.0030754763542616553
+    ]
+   ],
+   "reproduced": [
+    0.001542771612848954,
+    [
+     -0.00013708315720340503,
+     0.0030754763542616553
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.00124, 0.001882) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.020583790680764345,
+    [
+     0.015932823379616545,
+     0.02601064266639321
+    ]
+   ],
+   "reproduced": [
+    0.020583790680764345,
+    [
+     0.015932823379616545,
+     0.02601064266639321
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.001882, 0.002857) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.024366073219263276,
+    [
+     0.02008570073430916,
+     0.029212716138968788
+    ]
+   ],
+   "reproduced": [
+    0.024366073219263276,
+    [
+     0.02008570073430916,
+     0.029212716138968788
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.001882, 0.002857) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.00041188638726969394,
+    [
+     -0.0002633315069773883,
+     0.0018911129326834167
+    ]
+   ],
+   "reproduced": [
+    0.00041188638726969394,
+    [
+     -0.0002633315069773883,
+     0.0018911129326834167
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.001882, 0.002857) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.023954186831993584,
+    [
+     0.01981146230031105,
+     0.02891347169409205
+    ]
+   ],
+   "reproduced": [
+    0.023954186831993584,
+    [
+     0.01981146230031105,
+     0.02891347169409205
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.002857, 0.004338) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.036405632073445854,
+    [
+     0.030757552903977924,
+     0.04136711009856978
+    ]
+   ],
+   "reproduced": [
+    0.036405632073445854,
+    [
+     0.030757552903977924,
+     0.04136711009856978
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.002857, 0.004338) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0007027922091790012,
+    [
+     -0.00038177413352088465,
+     0.001819968828957267
+    ]
+   ],
+   "reproduced": [
+    0.0007027922091790012,
+    [
+     -0.00038177413352088465,
+     0.001819968828957267
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.002857, 0.004338) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.03570283986426685,
+    [
+     0.03081276006943344,
+     0.040455755410617716
+    ]
+   ],
+   "reproduced": [
+    0.03570283986426685,
+    [
+     0.03081276006943344,
+     0.040455755410617716
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.004338, 0.006587) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.045200147474291394,
+    [
+     0.04200151469302693,
+     0.048532767044697694
+    ]
+   ],
+   "reproduced": [
+    0.045200147474291394,
+    [
+     0.04200151469302693,
+     0.048532767044697694
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.004338, 0.006587) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0002541631111181268,
+    [
+     -0.00037277838697939096,
+     0.0014928814210803255
+    ]
+   ],
+   "reproduced": [
+    0.0002541631111181268,
+    [
+     -0.00037277838697939096,
+     0.0014928814210803255
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.004338, 0.006587) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.044945984363173264,
+    [
+     0.04147964824374382,
+     0.048190937444179946
+    ]
+   ],
+   "reproduced": [
+    0.044945984363173264,
+    [
+     0.04147964824374382,
+     0.048190937444179946
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.006587, 0.01) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.06281493907771052,
+    [
+     0.05973050483190026,
+     0.06589445532434927
+    ]
+   ],
+   "reproduced": [
+    0.06281493907771052,
+    [
+     0.05973050483190026,
+     0.06589445532434927
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.006587, 0.01) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0008277704590249624,
+    [
+     -0.00020145713064947962,
+     0.002168162470406385
+    ]
+   ],
+   "reproduced": [
+    0.0008277704590249624,
+    [
+     -0.00020145713064947962,
+     0.002168162470406385
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.006587, 0.01) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.061987168618685556,
+    [
+     0.05895804942958946,
+     0.06479657224052927
+    ]
+   ],
+   "reproduced": [
+    0.061987168618685556,
+    [
+     0.05895804942958946,
+     0.06479657224052927
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.01, 0.01518) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.07842992955046828,
+    [
+     0.07622202256093896,
+     0.08139887984365897
+    ]
+   ],
+   "reproduced": [
+    0.07842992955046828,
+    [
+     0.07622202256093896,
+     0.08139887984365897
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.01, 0.01518) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0005964852029176071,
+    [
+     -0.0002466664284084713,
+     0.0019908988556203685
+    ]
+   ],
+   "reproduced": [
+    0.0005964852029176071,
+    [
+     -0.0002466664284084713,
+     0.0019908988556203685
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.01, 0.01518) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.07783344434755066,
+    [
+     0.07496480752703258,
+     0.08081543347910047
+    ]
+   ],
+   "reproduced": [
+    0.07783344434755066,
+    [
+     0.07496480752703258,
+     0.08081543347910047
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.01518, 0.02305) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.1013040868020829,
+    [
+     0.09882552699415777,
+     0.10445388925174225
+    ]
+   ],
+   "reproduced": [
+    0.1013040868020829,
+    [
+     0.09882552699415777,
+     0.10445388925174225
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.01518, 0.02305) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0017691737473023925,
+    [
+     0.000550571112785251,
+     0.0034194631567789134
+    ]
+   ],
+   "reproduced": [
+    0.0017691737473023925,
+    [
+     0.000550571112785251,
+     0.0034194631567789134
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.01518, 0.02305) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09953491305478052,
+    [
+     0.0966272443986967,
+     0.10225134810813596
+    ]
+   ],
+   "reproduced": [
+    0.09953491305478052,
+    [
+     0.0966272443986967,
+     0.10225134810813596
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.02305, 0.035) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09435491465136896,
+    [
+     0.08673117001322589,
+     0.10279558440438309
+    ]
+   ],
+   "reproduced": [
+    0.09435491465136896,
+    [
+     0.08673117001322589,
+     0.10279558440438309
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.02305, 0.035) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.004161036632138813,
+    [
+     0.001931054475011341,
+     0.005479806955999081
+    ]
+   ],
+   "reproduced": [
+    0.004161036632138813,
+    [
+     0.001931054475011341,
+     0.005479806955999081
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.02305, 0.035) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09019387801923015,
+    [
+     0.08262267103656498,
+     0.09953552525752976
+    ]
+   ],
+   "reproduced": [
+    0.09019387801923015,
+    [
+     0.08262267103656498,
+     0.09953552525752976
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.035, 0.05313) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.099199497867433,
+    [
+     0.09364390533703114,
+     0.10373332197529314
+    ]
+   ],
+   "reproduced": [
+    0.099199497867433,
+    [
+     0.09364390533703114,
+     0.10373332197529314
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.035, 0.05313) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.004604095589394189,
+    [
+     0.0026911989635253057,
+     0.00617201939245309
+    ]
+   ],
+   "reproduced": [
+    0.004604095589394189,
+    [
+     0.0026911989635253057,
+     0.00617201939245309
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.035, 0.05313) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09459540227803881,
+    [
+     0.08867247812420136,
+     0.09962650118219774
+    ]
+   ],
+   "reproduced": [
+    0.09459540227803881,
+    [
+     0.08867247812420136,
+     0.09962650118219774
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.05313, 0.08067) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.10417389262027985,
+    [
+     0.0991529927608565,
+     0.11112867791773771
+    ]
+   ],
+   "reproduced": [
+    0.10417389262027985,
+    [
+     0.0991529927608565,
+     0.11112867791773771
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.05313, 0.08067) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.007593011434432903,
+    [
+     0.005464377615199864,
+     0.009598133261292696
+    ]
+   ],
+   "reproduced": [
+    0.007593011434432903,
+    [
+     0.005464377615199864,
+     0.009598133261292696
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.05313, 0.08067) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09658088118584694,
+    [
+     0.09107205022094535,
+     0.10433414694447189
+    ]
+   ],
+   "reproduced": [
+    0.09658088118584694,
+    [
+     0.09107205022094535,
+     0.10433414694447189
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.08067, 0.1225) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.11282352964271135,
+    [
+     0.1065547139102163,
+     0.11793105916917514
+    ]
+   ],
+   "reproduced": [
+    0.11282352964271135,
+    [
+     0.1065547139102163,
+     0.11793105916917514
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.08067, 0.1225) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.013553886874779764,
+    [
+     0.010277005916218865,
+     0.016216304716473725
+    ]
+   ],
+   "reproduced": [
+    0.013553886874779764,
+    [
+     0.010277005916218865,
+     0.016216304716473725
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.08067, 0.1225) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09926964276793158,
+    [
+     0.0921193837224064,
+     0.10581368126786607
+    ]
+   ],
+   "reproduced": [
+    0.09926964276793158,
+    [
+     0.0921193837224064,
+     0.10581368126786607
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.1225, 0.1859) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.12048073346137089,
+    [
+     0.11367046800185254,
+     0.12679330250509585
+    ]
+   ],
+   "reproduced": [
+    0.12048073346137089,
+    [
+     0.11367046800185254,
+     0.12679330250509585
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.1225, 0.1859) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.014294597358890632,
+    [
+     0.010088746276090473,
+     0.01836854181066803
+    ]
+   ],
+   "reproduced": [
+    0.014294597358890632,
+    [
+     0.010088746276090473,
+     0.01836854181066803
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.1225, 0.1859) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.10618613610248026,
+    [
+     0.09833858010026222,
+     0.11395657846667344
+    ]
+   ],
+   "reproduced": [
+    0.10618613610248026,
+    [
+     0.09833858010026222,
+     0.11395657846667344
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.1859, 0.2823) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.11641577182058971,
+    [
+     0.10864658987022442,
+     0.12389138957547938
+    ]
+   ],
+   "reproduced": [
+    0.11641577182058971,
+    [
+     0.10864658987022442,
+     0.12389138957547938
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.1859, 0.2823) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.025018453118954342,
+    [
+     0.01933817917235725,
+     0.030449876330804055
+    ]
+   ],
+   "reproduced": [
+    0.025018453118954342,
+    [
+     0.01933817917235725,
+     0.030449876330804055
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.1859, 0.2823) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09139731870163537,
+    [
+     0.0811101572920881,
+     0.10095918412378332
+    ]
+   ],
+   "reproduced": [
+    0.09139731870163537,
+    [
+     0.0811101572920881,
+     0.10095918412378332
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.2823, 0.4286) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.10414705206300726,
+    [
+     0.0941560867339162,
+     0.11576193107259343
+    ]
+   ],
+   "reproduced": [
+    0.10414705206300726,
+    [
+     0.0941560867339162,
+     0.11576193107259343
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.2823, 0.4286) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.046957407285682956,
+    [
+     0.038509930886264566,
+     0.055822979715214084
+    ]
+   ],
+   "reproduced": [
+    0.046957407285682956,
+    [
+     0.038509930886264566,
+     0.055822979715214084
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.2823, 0.4286) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0571896447773243,
+    [
+     0.04213867093395511,
+     0.07332684858692348
+    ]
+   ],
+   "reproduced": [
+    0.0571896447773243,
+    [
+     0.04213867093395511,
+     0.07332684858692348
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.4286, 0.6507) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.0995855193204584,
+    [
+     0.08059199842361982,
+     0.11692028763417203
+    ]
+   ],
+   "reproduced": [
+    0.0995855193204584,
+    [
+     0.08059199842361982,
+     0.11692028763417203
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.4286, 0.6507) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.06011238745373257,
+    [
+     0.049383287391715644,
+     0.07431078306469346
+    ]
+   ],
+   "reproduced": [
+    0.06011238745373257,
+    [
+     0.049383287391715644,
+     0.07431078306469346
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.4286, 0.6507) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.039473131866725825,
+    [
+     0.011578896495118082,
+     0.06394617674368851
+    ]
+   ],
+   "reproduced": [
+    0.039473131866725825,
+    [
+     0.011578896495118082,
+     0.06394617674368851
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-reads bin [0.6507, 0.988) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.11000742527876367,
+    [
+     0.06030861134044712,
+     0.13235872512915384
+    ]
+   ],
+   "reproduced": [
+    0.11000742527876367,
+    [
+     0.06030861134044712,
+     0.13235872512915384
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: posterior-RiboPipe bin [0.6507, 0.988) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.09424086018134958,
+    [
+     0.058937976026885205,
+     0.14907711533603546
+    ]
+   ],
+   "reproduced": [
+    0.09424086018134958,
+    [
+     0.058937976026885205,
+     0.14907711533603546
+    ]
+   ]
+  },
+  {
+   "group": "posterior_bins",
+   "quantity": "PRJNA_iPS: RiboPipe-reads bin [0.6507, 0.988) y and 95% CI",
+   "status": "PASS",
+   "reference": [
+    0.015766565097414087,
+    [
+     -0.07209827926596525,
+     0.05224614467956636
+    ]
+   ],
+   "reproduced": [
+    0.015766565097414087,
+    [
+     -0.07209827926596525,
+     0.05224614467956636
+    ]
+   ]
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "PRJNA_iPS: all valid-bin rows (y, y_role, CI, valid draws, N_scored)",
+   "status": "PASS",
+   "reference": "<structure, 11064 chars>",
+   "reproduced": "<structure, 11064 chars>"
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "PRJNA_iPS: summary",
+   "status": "PASS",
+   "reference": "<structure, 806 chars>",
+   "reproduced": "<structure, 806 chars>"
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "PRJNA_iPS: crossing status of the three comparisons",
+   "status": "PASS",
+   "reference": {
+    "posterior-reads": {
+     "status": "NO_SIGN_CHANGE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 1.0
+    },
+    "posterior-RiboPipe": {
+     "status": "NOT_LOCATABLE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.5065
+    },
+    "RiboPipe-reads": {
+     "status": "NO_SIGN_CHANGE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.733
+    }
+   },
+   "reproduced": {
+    "posterior-reads": {
+     "status": "NO_SIGN_CHANGE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 1.0
+    },
+    "posterior-RiboPipe": {
+     "status": "NOT_LOCATABLE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.5065
+    },
+    "RiboPipe-reads": {
+     "status": "NO_SIGN_CHANGE",
+     "D_star": null,
+     "ci95": null,
+     "bootstrap_fail_fraction": 0.733
+    }
+   }
+  },
+  {
+   "group": "posterior_full",
+   "quantity": "PRJNA_iPS: zero-depth counts",
+   "status": "PASS",
+   "reference": {
+    "N_records": 3400,
+    "N_scored": 0
+   },
+   "reproduced": {
+    "N_records": 3400,
+    "N_scored": 0
+   }
+  },
+  {
+   "group": "posterior",
+   "quantity": "decision rule (draw 0)",
+   "status": "PASS",
+   "reference": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 66,
+    "pooled_frac_gt_both": 0.9166666666666666,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 0.9444444444444444,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8888888888888888
+    },
+    "holds": true
+   },
+   "reproduced": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 66,
+    "pooled_frac_gt_both": 0.9166666666666666,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 0.9444444444444444,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8888888888888888
+    },
+    "holds": true
+   }
+  },
+  {
+   "group": "headline",
+   "quantity": "pooled bins with 95% interval above zero, posterior - reads",
+   "status": "PASS",
+   "reference": [
+    71,
+    72
+   ],
+   "reproduced": [
+    71,
+    72
+   ]
+  },
+  {
+   "group": "headline",
+   "quantity": "pooled bins with 95% interval below zero, posterior - reads",
+   "status": "PASS",
+   "reference": [
+    0,
+    72
+   ],
+   "reproduced": [
+    0,
+    72
+   ]
+  },
+  {
+   "group": "headline",
+   "quantity": "pooled bins with point estimate > 0, posterior - reads",
+   "status": "PASS",
+   "reference": 72,
+   "reproduced": 72
+  },
+  {
+   "group": "headline",
+   "quantity": "pooled bins with 95% interval above zero, posterior - RiboPipe",
+   "status": "PASS",
+   "reference": [
+    49,
+    72
+   ],
+   "reproduced": [
+    49,
+    72
+   ]
+  },
+  {
+   "group": "headline",
+   "quantity": "pooled bins with 95% interval below zero, posterior - RiboPipe",
+   "status": "PASS",
+   "reference": [
+    6,
+    72
+   ],
+   "reproduced": [
+    6,
+    72
+   ]
+  },
+  {
+   "group": "headline",
+   "quantity": "pooled bins with point estimate > 0, posterior - RiboPipe",
+   "status": "PASS",
+   "reference": 66,
+   "reproduced": 66
+  },
+  {
+   "group": "headline",
+   "quantity": "pooled bins with both differences > 0 (draw 0)",
+   "status": "PASS",
+   "reference": [
+    66,
+    72
+   ],
+   "reproduced": [
+    66,
+    72
+   ]
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 1: per-dataset summary",
+   "status": "PASS",
+   "reference": "<structure, 1971 chars>",
+   "reproduced": "<structure, 1971 chars>"
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 1: decision rule",
+   "status": "PASS",
+   "reference": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 65,
+    "pooled_frac_gt_both": 0.9027777777777778,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 0.9444444444444444,
+     "GSE233886_WT": 0.8888888888888888,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8888888888888888
+    },
+    "holds": true
+   },
+   "reproduced": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 65,
+    "pooled_frac_gt_both": 0.9027777777777778,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 0.9444444444444444,
+     "GSE233886_WT": 0.8888888888888888,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8888888888888888
+    },
+    "holds": true
+   }
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 2: per-dataset summary",
+   "status": "PASS",
+   "reference": "<structure, 1962 chars>",
+   "reproduced": "<structure, 1962 chars>"
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 2: decision rule",
+   "status": "PASS",
+   "reference": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 66,
+    "pooled_frac_gt_both": 0.9166666666666666,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 1.0,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8333333333333334
+    },
+    "holds": true
+   },
+   "reproduced": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 66,
+    "pooled_frac_gt_both": 0.9166666666666666,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 1.0,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8333333333333334
+    },
+    "holds": true
+   }
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 3: per-dataset summary",
+   "status": "PASS",
+   "reference": "<structure, 1965 chars>",
+   "reproduced": "<structure, 1965 chars>"
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 3: decision rule",
+   "status": "PASS",
+   "reference": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 68,
+    "pooled_frac_gt_both": 0.9444444444444444,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 1.0,
+     "GSE233886_WT": 1.0,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8888888888888888
+    },
+    "holds": true
+   },
+   "reproduced": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 68,
+    "pooled_frac_gt_both": 0.9444444444444444,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 1.0,
+     "GSE233886_WT": 1.0,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8888888888888888
+    },
+    "holds": true
+   }
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 4: per-dataset summary",
+   "status": "PASS",
+   "reference": "<structure, 1973 chars>",
+   "reproduced": "<structure, 1973 chars>"
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 4: decision rule",
+   "status": "PASS",
+   "reference": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 65,
+    "pooled_frac_gt_both": 0.9027777777777778,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 0.9444444444444444,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8333333333333334
+    },
+    "holds": true
+   },
+   "reproduced": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 65,
+    "pooled_frac_gt_both": 0.9027777777777778,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 0.9444444444444444,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8333333333333334
+    },
+    "holds": true
+   }
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 5: per-dataset summary",
+   "status": "PASS",
+   "reference": "<structure, 1974 chars>",
+   "reproduced": "<structure, 1974 chars>"
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 5: decision rule",
+   "status": "PASS",
+   "reference": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 65,
+    "pooled_frac_gt_both": 0.9027777777777778,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 0.9444444444444444,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8333333333333334
+    },
+    "holds": true
+   },
+   "reproduced": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 65,
+    "pooled_frac_gt_both": 0.9027777777777778,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 0.9444444444444444,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8333333333333334
+    },
+    "holds": true
+   }
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 6: per-dataset summary",
+   "status": "PASS",
+   "reference": "<structure, 1973 chars>",
+   "reproduced": "<structure, 1973 chars>"
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 6: decision rule",
+   "status": "PASS",
+   "reference": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 66,
+    "pooled_frac_gt_both": 0.9166666666666666,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 1.0,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8333333333333334
+    },
+    "holds": true
+   },
+   "reproduced": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 66,
+    "pooled_frac_gt_both": 0.9166666666666666,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 1.0,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8333333333333334
+    },
+    "holds": true
+   }
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 7: per-dataset summary",
+   "status": "PASS",
+   "reference": "<structure, 1974 chars>",
+   "reproduced": "<structure, 1974 chars>"
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 7: decision rule",
+   "status": "PASS",
+   "reference": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 67,
+    "pooled_frac_gt_both": 0.9305555555555556,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 1.0,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8888888888888888
+    },
+    "holds": true
+   },
+   "reproduced": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 67,
+    "pooled_frac_gt_both": 0.9305555555555556,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 1.0,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8888888888888888
+    },
+    "holds": true
+   }
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 8: per-dataset summary",
+   "status": "PASS",
+   "reference": "<structure, 1968 chars>",
+   "reproduced": "<structure, 1968 chars>"
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 8: decision rule",
+   "status": "PASS",
+   "reference": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 67,
+    "pooled_frac_gt_both": 0.9305555555555556,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 1.0,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8888888888888888
+    },
+    "holds": true
+   },
+   "reproduced": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 67,
+    "pooled_frac_gt_both": 0.9305555555555556,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 1.0,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8888888888888888
+    },
+    "holds": true
+   }
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 9: per-dataset summary",
+   "status": "PASS",
+   "reference": "<structure, 1968 chars>",
+   "reproduced": "<structure, 1968 chars>"
+  },
+  {
+   "group": "posterior_draws",
+   "quantity": "draw 9: decision rule",
+   "status": "PASS",
+   "reference": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 66,
+    "pooled_frac_gt_both": 0.9166666666666666,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 1.0,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8333333333333334
+    },
+    "holds": true
+   },
+   "reproduced": {
+    "all_bins_both_ge_margin": true,
+    "pooled_n_valid": 72,
+    "pooled_n_gt_both": 66,
+    "pooled_frac_gt_both": 0.9166666666666666,
+    "per_dataset_frac_gt_both": {
+     "DMSO_TX9P1": 1.0,
+     "GSE233886_WT": 0.9444444444444444,
+     "GSE133393_WT": 0.8888888888888888,
+     "PRJNA_iPS": 0.8333333333333334
+    },
+    "holds": true
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: n_tx_universe",
+   "status": "PASS",
+   "reference": 2987,
+   "reproduced": 2987
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: estimators",
+   "status": "PASS",
+   "reference": [
+    "Raw",
+    "Smooth",
+    "CodonMean",
+    "Ridge",
+    "RiboPipe",
+    "Hybrid",
+    "Post_RiboPipe",
+    "Post_CodonMean"
+   ],
+   "reproduced": [
+    "Raw",
+    "Smooth",
+    "CodonMean",
+    "Ridge",
+    "RiboPipe",
+    "Hybrid",
+    "Post_RiboPipe",
+    "Post_CodonMean"
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: metrics",
+   "status": "PASS",
+   "reference": [
+    "prec",
+    "prec_tol",
+    "ps_err",
+    "ps_err_p05",
+    "ll_gain",
+    "pearson"
+   ],
+   "reproduced": [
+    "prec",
+    "prec_tol",
+    "ps_err",
+    "ps_err_p05",
+    "ll_gain",
+    "pearson"
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: depths",
+   "status": "PASS",
+   "reference": [
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+   ],
+   "reproduced": [
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: seeds",
+   "status": "PASS",
+   "reference": [
+    0,
+    1,
+    2
+   ],
+   "reproduced": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: grid",
+   "status": "PASS",
+   "reference": "<structure, 612 chars>",
+   "reproduced": "<structure, 612 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: chosen",
+   "status": "PASS",
+   "reference": "<structure, 3408 chars>",
+   "reproduced": "<structure, 3408 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: crossover_prec",
+   "status": "PASS",
+   "reference": "<structure, 448 chars>",
+   "reproduced": "<structure, 448 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: top-5% precision Post_RiboPipe (main_Bge1|role0|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.43571648625251025,
+    "lo": 0.431219716227491,
+    "hi": 0.4403134080010907,
+    "n": 2979
+   },
+   "reproduced": {
+    "mean": 0.43571648625251025,
+    "lo": 0.431219716227491,
+    "hi": 0.4403134080010907,
+    "n": 2979
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: top-5% precision RiboPipe (main_Bge1|role0|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.4041917860516156,
+    "lo": 0.3988853225575193,
+    "hi": 0.40975269478288406,
+    "n": 2979
+   },
+   "reproduced": {
+    "mean": 0.4041917860516156,
+    "lo": 0.3988853225575193,
+    "hi": 0.40975269478288406,
+    "n": 2979
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: top-5% precision Raw (main_Bge1|role0|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.24589419783595698,
+    "lo": 0.24273222595747376,
+    "hi": 0.2493682046740452,
+    "n": 2979
+   },
+   "reproduced": {
+    "mean": 0.24589419783595698,
+    "lo": 0.24273222595747376,
+    "hi": 0.2493682046740452,
+    "n": 2979
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: top-5% precision Post_RiboPipe (main_Bge1|role1|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.428320332393209,
+    "lo": 0.423646045388943,
+    "hi": 0.43330293403388737,
+    "n": 2982
+   },
+   "reproduced": {
+    "mean": 0.428320332393209,
+    "lo": 0.423646045388943,
+    "hi": 0.43330293403388737,
+    "n": 2982
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: top-5% precision RiboPipe (main_Bge1|role1|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.39414228605701945,
+    "lo": 0.3888370987691543,
+    "hi": 0.39991456500849315,
+    "n": 2982
+   },
+   "reproduced": {
+    "mean": 0.39414228605701945,
+    "lo": 0.3888370987691543,
+    "hi": 0.39991456500849315,
+    "n": 2982
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "TX9_WT: top-5% precision Raw (main_Bge1|role1|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.24635410787169332,
+    "lo": 0.2432685283055846,
+    "hi": 0.24940745181213736,
+    "n": 2982
+   },
+   "reproduced": {
+    "mean": 0.24635410787169332,
+    "lo": 0.2432685283055846,
+    "hi": 0.24940745181213736,
+    "n": 2982
+   }
+  },
+  {
+   "group": "ranking_full",
+   "quantity": "TX9_WT: all cells (8 estimators x 6 metrics, 10 comparisons, 2 strata x 2 roles x 6 depths)",
+   "status": "PASS",
+   "reference": "<structure, 276753 chars>",
+   "reproduced": "<structure, 276753 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: n_tx_universe",
+   "status": "PASS",
+   "reference": 1705,
+   "reproduced": 1705
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: estimators",
+   "status": "PASS",
+   "reference": [
+    "Raw",
+    "Smooth",
+    "CodonMean",
+    "Ridge",
+    "RiboPipe",
+    "Hybrid",
+    "Post_RiboPipe",
+    "Post_CodonMean"
+   ],
+   "reproduced": [
+    "Raw",
+    "Smooth",
+    "CodonMean",
+    "Ridge",
+    "RiboPipe",
+    "Hybrid",
+    "Post_RiboPipe",
+    "Post_CodonMean"
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: metrics",
+   "status": "PASS",
+   "reference": [
+    "prec",
+    "prec_tol",
+    "ps_err",
+    "ps_err_p05",
+    "ll_gain",
+    "pearson"
+   ],
+   "reproduced": [
+    "prec",
+    "prec_tol",
+    "ps_err",
+    "ps_err_p05",
+    "ll_gain",
+    "pearson"
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: depths",
+   "status": "PASS",
+   "reference": [
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+   ],
+   "reproduced": [
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: seeds",
+   "status": "PASS",
+   "reference": [
+    0,
+    1,
+    2
+   ],
+   "reproduced": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: grid",
+   "status": "PASS",
+   "reference": "<structure, 612 chars>",
+   "reproduced": "<structure, 612 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: chosen",
+   "status": "PASS",
+   "reference": "<structure, 3403 chars>",
+   "reproduced": "<structure, 3403 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: crossover_prec",
+   "status": "PASS",
+   "reference": "<structure, 446 chars>",
+   "reproduced": "<structure, 446 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: top-5% precision Post_RiboPipe (main_Bge1|role0|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.5595797459395224,
+    "lo": 0.5531131219950385,
+    "hi": 0.5665209841397396,
+    "n": 1702
+   },
+   "reproduced": {
+    "mean": 0.5595797459395224,
+    "lo": 0.5531131219950385,
+    "hi": 0.5665209841397396,
+    "n": 1702
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: top-5% precision RiboPipe (main_Bge1|role0|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.5422569514450728,
+    "lo": 0.5346939082153962,
+    "hi": 0.5499897044919296,
+    "n": 1702
+   },
+   "reproduced": {
+    "mean": 0.5422569514450728,
+    "lo": 0.5346939082153962,
+    "hi": 0.5499897044919296,
+    "n": 1702
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: top-5% precision Raw (main_Bge1|role0|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.2959759145197939,
+    "lo": 0.2915489414905399,
+    "hi": 0.30025855705599425,
+    "n": 1702
+   },
+   "reproduced": {
+    "mean": 0.2959759145197939,
+    "lo": 0.2915489414905399,
+    "hi": 0.30025855705599425,
+    "n": 1702
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: top-5% precision Post_RiboPipe (main_Bge1|role1|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.5827601536660039,
+    "lo": 0.5761715480165124,
+    "hi": 0.5897433075765887,
+    "n": 1703
+   },
+   "reproduced": {
+    "mean": 0.5827601536660039,
+    "lo": 0.5761715480165124,
+    "hi": 0.5897433075765887,
+    "n": 1703
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: top-5% precision RiboPipe (main_Bge1|role1|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.5645154258700847,
+    "lo": 0.5573425747768075,
+    "hi": 0.5725150740452206,
+    "n": 1703
+   },
+   "reproduced": {
+    "mean": 0.5645154258700847,
+    "lo": 0.5573425747768075,
+    "hi": 0.5725150740452206,
+    "n": 1703
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE233886_WT: top-5% precision Raw (main_Bge1|role1|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.29354521271615464,
+    "lo": 0.28884229626355185,
+    "hi": 0.298262104399002,
+    "n": 1703
+   },
+   "reproduced": {
+    "mean": 0.29354521271615464,
+    "lo": 0.28884229626355185,
+    "hi": 0.298262104399002,
+    "n": 1703
+   }
+  },
+  {
+   "group": "ranking_full",
+   "quantity": "GSE233886_WT: all cells (8 estimators x 6 metrics, 10 comparisons, 2 strata x 2 roles x 6 depths)",
+   "status": "PASS",
+   "reference": "<structure, 275324 chars>",
+   "reproduced": "<structure, 275324 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: n_tx_universe",
+   "status": "PASS",
+   "reference": 1182,
+   "reproduced": 1182
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: estimators",
+   "status": "PASS",
+   "reference": [
+    "Raw",
+    "Smooth",
+    "CodonMean",
+    "Ridge",
+    "RiboPipe",
+    "Hybrid",
+    "Post_RiboPipe",
+    "Post_CodonMean"
+   ],
+   "reproduced": [
+    "Raw",
+    "Smooth",
+    "CodonMean",
+    "Ridge",
+    "RiboPipe",
+    "Hybrid",
+    "Post_RiboPipe",
+    "Post_CodonMean"
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: metrics",
+   "status": "PASS",
+   "reference": [
+    "prec",
+    "prec_tol",
+    "ps_err",
+    "ps_err_p05",
+    "ll_gain",
+    "pearson"
+   ],
+   "reproduced": [
+    "prec",
+    "prec_tol",
+    "ps_err",
+    "ps_err_p05",
+    "ll_gain",
+    "pearson"
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: depths",
+   "status": "PASS",
+   "reference": [
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+   ],
+   "reproduced": [
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: seeds",
+   "status": "PASS",
+   "reference": [
+    0,
+    1,
+    2
+   ],
+   "reproduced": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: grid",
+   "status": "PASS",
+   "reference": "<structure, 612 chars>",
+   "reproduced": "<structure, 612 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: chosen",
+   "status": "PASS",
+   "reference": "<structure, 3548 chars>",
+   "reproduced": "<structure, 3548 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: crossover_prec",
+   "status": "PASS",
+   "reference": "<structure, 447 chars>",
+   "reproduced": "<structure, 447 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: top-5% precision Post_RiboPipe (main_Bge1|role0|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.330965788739365,
+    "lo": 0.3231259501600762,
+    "hi": 0.33887681801736624,
+    "n": 1181
+   },
+   "reproduced": {
+    "mean": 0.330965788739365,
+    "lo": 0.3231259501600762,
+    "hi": 0.33887681801736624,
+    "n": 1181
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: top-5% precision RiboPipe (main_Bge1|role0|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.31446545495216416,
+    "lo": 0.3058955671912507,
+    "hi": 0.3236016390964084,
+    "n": 1181
+   },
+   "reproduced": {
+    "mean": 0.31446545495216416,
+    "lo": 0.3058955671912507,
+    "hi": 0.3236016390964084,
+    "n": 1181
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: top-5% precision Raw (main_Bge1|role0|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.17239571567662246,
+    "lo": 0.16667715434164984,
+    "hi": 0.17757540997007962,
+    "n": 1181
+   },
+   "reproduced": {
+    "mean": 0.17239571567662246,
+    "lo": 0.16667715434164984,
+    "hi": 0.17757540997007962,
+    "n": 1181
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: top-5% precision Post_RiboPipe (main_Bge1|role1|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.3289335614614614,
+    "lo": 0.32048458731116986,
+    "hi": 0.3367804071853595,
+    "n": 1181
+   },
+   "reproduced": {
+    "mean": 0.3289335614614614,
+    "lo": 0.32048458731116986,
+    "hi": 0.3367804071853595,
+    "n": 1181
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: top-5% precision RiboPipe (main_Bge1|role1|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.31362997523655983,
+    "lo": 0.3046108819244249,
+    "hi": 0.32177953960562994,
+    "n": 1181
+   },
+   "reproduced": {
+    "mean": 0.31362997523655983,
+    "lo": 0.3046108819244249,
+    "hi": 0.32177953960562994,
+    "n": 1181
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "GSE133393_WT: top-5% precision Raw (main_Bge1|role1|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.1689207659063813,
+    "lo": 0.163458244964898,
+    "hi": 0.17403298149219604,
+    "n": 1181
+   },
+   "reproduced": {
+    "mean": 0.1689207659063813,
+    "lo": 0.163458244964898,
+    "hi": 0.17403298149219604,
+    "n": 1181
+   }
+  },
+  {
+   "group": "ranking_full",
+   "quantity": "GSE133393_WT: all cells (8 estimators x 6 metrics, 10 comparisons, 2 strata x 2 roles x 6 depths)",
+   "status": "PASS",
+   "reference": "<structure, 276385 chars>",
+   "reproduced": "<structure, 276385 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: n_tx_universe",
+   "status": "PASS",
+   "reference": 670,
+   "reproduced": 670
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: estimators",
+   "status": "PASS",
+   "reference": [
+    "Raw",
+    "Smooth",
+    "CodonMean",
+    "Ridge",
+    "RiboPipe",
+    "Hybrid",
+    "Post_RiboPipe",
+    "Post_CodonMean"
+   ],
+   "reproduced": [
+    "Raw",
+    "Smooth",
+    "CodonMean",
+    "Ridge",
+    "RiboPipe",
+    "Hybrid",
+    "Post_RiboPipe",
+    "Post_CodonMean"
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: metrics",
+   "status": "PASS",
+   "reference": [
+    "prec",
+    "prec_tol",
+    "ps_err",
+    "ps_err_p05",
+    "ll_gain",
+    "pearson"
+   ],
+   "reproduced": [
+    "prec",
+    "prec_tol",
+    "ps_err",
+    "ps_err_p05",
+    "ll_gain",
+    "pearson"
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: depths",
+   "status": "PASS",
+   "reference": [
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+   ],
+   "reproduced": [
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: seeds",
+   "status": "PASS",
+   "reference": [
+    0,
+    1,
+    2
+   ],
+   "reproduced": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: grid",
+   "status": "PASS",
+   "reference": "<structure, 612 chars>",
+   "reproduced": "<structure, 612 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: chosen",
+   "status": "PASS",
+   "reference": "<structure, 3411 chars>",
+   "reproduced": "<structure, 3411 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: crossover_prec",
+   "status": "PASS",
+   "reference": "<structure, 450 chars>",
+   "reproduced": "<structure, 450 chars>"
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: top-5% precision Post_RiboPipe (main_Bge1|role0|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.3702858177990205,
+    "lo": 0.3561742014242234,
+    "hi": 0.38460979608710155,
+    "n": 453
+   },
+   "reproduced": {
+    "mean": 0.3702858177990205,
+    "lo": 0.3561742014242234,
+    "hi": 0.38460979608710155,
+    "n": 453
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: top-5% precision RiboPipe (main_Bge1|role0|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.3482341546217581,
+    "lo": 0.33279278638055065,
+    "hi": 0.36436754965364326,
+    "n": 453
+   },
+   "reproduced": {
+    "mean": 0.3482341546217581,
+    "lo": 0.33279278638055065,
+    "hi": 0.36436754965364326,
+    "n": 453
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: top-5% precision Raw (main_Bge1|role0|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.20873045646963834,
+    "lo": 0.20026028868174184,
+    "hi": 0.21716251088382063,
+    "n": 453
+   },
+   "reproduced": {
+    "mean": 0.20873045646963834,
+    "lo": 0.20026028868174184,
+    "hi": 0.21716251088382063,
+    "n": 453
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: top-5% precision Post_RiboPipe (main_Bge1|role1|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.39849596842841606,
+    "lo": 0.38752577810224303,
+    "hi": 0.40982479330818494,
+    "n": 669
+   },
+   "reproduced": {
+    "mean": 0.39849596842841606,
+    "lo": 0.38752577810224303,
+    "hi": 0.40982479330818494,
+    "n": 669
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: top-5% precision RiboPipe (main_Bge1|role1|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.37864910774082877,
+    "lo": 0.36694989854733384,
+    "hi": 0.3906805849659345,
+    "n": 669
+   },
+   "reproduced": {
+    "mean": 0.37864910774082877,
+    "lo": 0.36694989854733384,
+    "hi": 0.3906805849659345,
+    "n": 669
+   }
+  },
+  {
+   "group": "ranking",
+   "quantity": "PRJNA_iPS: top-5% precision Raw (main_Bge1|role1|d0.1)",
+   "status": "PASS",
+   "reference": {
+    "mean": 0.209593294460446,
+    "lo": 0.20231203071833745,
+    "hi": 0.21669126158895144,
+    "n": 669
+   },
+   "reproduced": {
+    "mean": 0.209593294460446,
+    "lo": 0.20231203071833745,
+    "hi": 0.21669126158895144,
+    "n": 669
+   }
+  },
+  {
+   "group": "ranking_full",
+   "quantity": "PRJNA_iPS: all cells (8 estimators x 6 metrics, 10 comparisons, 2 strata x 2 roles x 6 depths)",
+   "status": "PASS",
+   "reference": "<structure, 274605 chars>",
+   "reproduced": "<structure, 274605 chars>"
+  }
+ ]
+}

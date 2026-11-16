@@ -3,6 +3,44 @@
 All notable changes to RiboPipe are documented here. This project adheres to
 [Semantic Versioning](https://semver.org/).
 
+## 2.0.0 (2026-11-16): code and data of the revised paper
+
+This version replaces 1.x. It is not backward compatible: checkpoints and data of 1.x do not load.
+
+**Model.** RiboPipe has three convolutional branches: codon (E, P, A), nucleotide (−15..+14) and amino acid (five
+preceding residues). Their outputs and three footprint-scale folding energies enter one bidirectional GRU.
+The model has 228,321 parameters (1.x had about 0.35 M).
+- Folding energies are standardised per fold on the training windows. Invalid windows enter as exactly 0.
+- The loss is the γ-weighted log-MSE (γ = 0.5).
+- The optional magnitude head of 1.x is removed.
+
+**Data.** All analyses use the paper's analysis input, PaperData_v1.0 (manifest MD5 63080cc9...).
+- Human counts are reprocessed from reads into A-site counts with one pipeline and one annotation (GENCODE v46
+  basic).
+- Each gene is represented by its longest standard ORF.
+- Folds keep similar coding sequences together (sequence-similarity units). Validation transcripts are fixed per
+  fold.
+- The per-replicate counts of the human datasets are included.
+- The 1.x benchmark files and checkpoints are removed.
+
+**Evaluation.** The release includes:
+- the three evaluation settings of the paper: published configurations, common training target, and component
+  removal or replacement with parameter-matched controls;
+- the low-coverage analysis against an independent replicate (crossover depth D\*, noise-predictor control,
+  posterior);
+- the model analyses (single-codon and single-nucleotide edits, window transplantation);
+- wrappers for the published baselines.
+
+**Verification.** `tests/paper_equivalence.py` and `tests/ablation_equivalence.py` compare this release with the
+code and data that produced the paper. They check the data arrays, checkpoint predictions and retraining
+bit for bit.
+
+**Installation.** Optional extras `mfe`, `plot`, `test` and `baselines` (scikit-learn, needed by RiboMIMO). The
+exact package versions of the paper are in `requirements/paper-stack.txt`; RiboExp and RiboGL use the environment in
+`requirements/gnn-baselines.txt`. Acceptance criteria for reproducing on other hardware or software are in
+`docs/REPRODUCE.md` ("Tolerances"). The routing gate of the model analyses allows a difference of up to 1e-5 between
+local and full recomputation and reports the largest difference (bit-identical on the paper's stack).
+
 ## [1.2.0] - 2026-09
 
 Turns the headline model into an end-to-end, submission-quality toolkit: raw reads to

@@ -1,0 +1,3289 @@
+{
+ "generated": "2026-11-16 14:42:23 JST",
+ "host": "dl-box3",
+ "runs": "<storage>/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partI",
+ "data": "<storage>/software/github_0901/verify_v2/data_full",
+ "supplement": "<storage>/software/20260901_riboPipe_BIB_interp/2026-11-12_paperData/2026-11-16/03_supp/supplementary_2_1116_v7.tex",
+ "supplement_md5": "a726250f164bd3ab5cde7dbf6f2a0e9f",
+ "wall_sec": {
+  "setting1_seed123": 548.0,
+  "setting1_3seed": 1110.1,
+  "setting2_seed123": 192.9,
+  "ribopipe_seeds": 24.9
+ },
+ "field_by_field": {
+  "setting1_seed123": {
+   "reference": "<storage>/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/report/partI_results/partI_eval_elig.json",
+   "reference_md5": "a102fe4b1c03d004403e01155a55fd9f",
+   "leaves_compared": 14788,
+   "leaves_equal": 14788,
+   "max_abs_numeric_diff": 0.0,
+   "complete_in_reference_but_not_now": [],
+   "status": "PASS"
+  },
+  "setting1_3seed": {
+   "reference": "<storage>/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/report/partI_results/partI_eval_elig_3seed.json",
+   "reference_md5": "00ae555dc63bafa7692e38fea202e7c5",
+   "leaves_compared": 7613,
+   "leaves_equal": 7613,
+   "max_abs_numeric_diff": 0.0,
+   "complete_in_reference_but_not_now": [],
+   "status": "PASS"
+  },
+  "setting2_seed123": {
+   "reference": "<storage>/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/report/partI_results/T2_matched_eval_elig.json",
+   "reference_md5": "6f3c84daedd403adf1b8894ce686db30",
+   "leaves_compared": 773,
+   "leaves_equal": 773,
+   "max_abs_numeric_diff": 0.0,
+   "complete_in_reference_but_not_now": [],
+   "status": "PASS"
+  },
+  "ribopipe_seeds": {
+   "reference": "<storage>/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/report/partI_results/ribopipe_seed_noise_1114.json",
+   "reference_md5": "7521bb0ddcf431ff4ba5ea552e4a9e68",
+   "leaves_compared": 166,
+   "leaves_equal": 166,
+   "max_abs_numeric_diff": 0.0,
+   "complete_in_reference_but_not_now": [],
+   "status": "PASS"
+  }
+ },
+ "field_mismatches": [],
+ "not_compared_reference_incomplete": [
+  {
+   "file": "setting1_3seed",
+   "key": "datasets.PRJNA_iPS.extra_pairs.Paper_RiboPipe_MFE_H128|Paper_RiboExp.status",
+   "reference": "NA (method not complete or absent)",
+   "reproduced": "OK"
+  }
+ ],
+ "published_tables": {
+  "n": 460,
+  "pass": 460,
+  "fail": 0,
+  "cells": [
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior DMSO_TX9P1 Paper_CodonMean",
+    "reference": "0.172",
+    "reproduced": "0.172",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE233886_WT Paper_CodonMean",
+    "reference": "0.465",
+    "reproduced": "0.465",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE133393_WT Paper_CodonMean",
+    "reference": "0.141",
+    "reproduced": "0.141",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior PRJNA_iPS Paper_CodonMean",
+    "reference": "0.137",
+    "reproduced": "0.137",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Subtelny14_ribomimo Paper_CodonMean",
+    "reference": "0.303",
+    "reproduced": "0.303",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad16 Paper_CodonMean",
+    "reference": "0.119",
+    "reproduced": "0.119",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-1 Paper_CodonMean",
+    "reference": "0.395",
+    "reproduced": "0.395",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-2 Paper_CodonMean",
+    "reference": "0.350",
+    "reproduced": "0.350",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior DMSO_TX9P1 Paper_TriCodon",
+    "reference": "0.183",
+    "reproduced": "0.183",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE233886_WT Paper_TriCodon",
+    "reference": "0.385",
+    "reproduced": "0.385",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE133393_WT Paper_TriCodon",
+    "reference": "0.086",
+    "reproduced": "0.086",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior PRJNA_iPS Paper_TriCodon",
+    "reference": "0.070",
+    "reproduced": "0.070",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Subtelny14_ribomimo Paper_TriCodon",
+    "reference": "0.270",
+    "reproduced": "0.270",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad16 Paper_TriCodon",
+    "reference": "0.066",
+    "reproduced": "0.066",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-1 Paper_TriCodon",
+    "reference": "0.382",
+    "reproduced": "0.382",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-2 Paper_TriCodon",
+    "reference": "0.441",
+    "reproduced": "0.441",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior DMSO_TX9P1 Paper_Ridge",
+    "reference": "0.413",
+    "reproduced": "0.413",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE233886_WT Paper_Ridge",
+    "reference": "0.623",
+    "reproduced": "0.623",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE133393_WT Paper_Ridge",
+    "reference": "0.416",
+    "reproduced": "0.416",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior PRJNA_iPS Paper_Ridge",
+    "reference": "0.393",
+    "reproduced": "0.393",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Subtelny14_ribomimo Paper_Ridge",
+    "reference": "0.454",
+    "reproduced": "0.454",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad16 Paper_Ridge",
+    "reference": "0.612",
+    "reproduced": "0.612",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-1 Paper_Ridge",
+    "reference": "0.625",
+    "reproduced": "0.625",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-2 Paper_Ridge",
+    "reference": "0.637",
+    "reproduced": "0.637",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior DMSO_TX9P1 Paper_RUST",
+    "reference": "0.408",
+    "reproduced": "0.408",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE233886_WT Paper_RUST",
+    "reference": "0.616",
+    "reproduced": "0.616",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE133393_WT Paper_RUST",
+    "reference": "0.407",
+    "reproduced": "0.407",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior PRJNA_iPS Paper_RUST",
+    "reference": "0.392",
+    "reproduced": "0.392",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Subtelny14_ribomimo Paper_RUST",
+    "reference": "0.427",
+    "reproduced": "0.427",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad16 Paper_RUST",
+    "reference": "0.608",
+    "reproduced": "0.608",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-1 Paper_RUST",
+    "reference": "0.614",
+    "reproduced": "0.614",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-2 Paper_RUST",
+    "reference": "0.624",
+    "reproduced": "0.624",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior DMSO_TX9P1 Paper_iXnos_seq_lr005_elig",
+    "reference": "0.543",
+    "reproduced": "0.543",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE233886_WT Paper_iXnos_seq_lr005_elig",
+    "reference": "0.716",
+    "reproduced": "0.716",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE133393_WT Paper_iXnos_seq_lr005_elig",
+    "reference": "0.504",
+    "reproduced": "0.504",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior PRJNA_iPS Paper_iXnos_seq_lr005_elig",
+    "reference": "0.490",
+    "reproduced": "0.490",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Subtelny14_ribomimo Paper_iXnos_seq_lr005_elig",
+    "reference": "0.583",
+    "reproduced": "0.583",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad16 Paper_iXnos_seq_lr005_elig",
+    "reference": "0.656",
+    "reproduced": "0.656",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-1 Paper_iXnos_seq_lr005_elig",
+    "reference": "0.652",
+    "reproduced": "0.652",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-2 Paper_iXnos_seq_lr005_elig",
+    "reference": "0.682",
+    "reproduced": "0.682",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior DMSO_TX9P1 Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.583",
+    "reproduced": "0.583",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE233886_WT Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.727",
+    "reproduced": "0.727",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE133393_WT Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.539",
+    "reproduced": "0.539",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior PRJNA_iPS Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.589",
+    "reproduced": "0.589",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Subtelny14_ribomimo Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.613",
+    "reproduced": "0.613",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad16 Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.660",
+    "reproduced": "0.660",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-1 Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.654",
+    "reproduced": "0.654",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-2 Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.684",
+    "reproduced": "0.684",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior DMSO_TX9P1 Paper_iXnos_MFE_lr005",
+    "reference": "0.538",
+    "reproduced": "0.538",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE233886_WT Paper_iXnos_MFE_lr005",
+    "reference": "0.712",
+    "reproduced": "0.712",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE133393_WT Paper_iXnos_MFE_lr005",
+    "reference": "0.533",
+    "reproduced": "0.533",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior PRJNA_iPS Paper_iXnos_MFE_lr005",
+    "reference": "0.589",
+    "reproduced": "0.589",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Subtelny14_ribomimo Paper_iXnos_MFE_lr005",
+    "reference": "0.529",
+    "reproduced": "0.529",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad16 Paper_iXnos_MFE_lr005",
+    "reference": "0.656",
+    "reproduced": "0.656",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-1 Paper_iXnos_MFE_lr005",
+    "reference": "0.644",
+    "reproduced": "0.644",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-2 Paper_iXnos_MFE_lr005",
+    "reference": "0.676",
+    "reproduced": "0.676",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior DMSO_TX9P1 Paper_RiboMIMO",
+    "reference": "0.578",
+    "reproduced": "0.578",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE233886_WT Paper_RiboMIMO",
+    "reference": "0.756",
+    "reproduced": "0.756",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE133393_WT Paper_RiboMIMO",
+    "reference": "0.518",
+    "reproduced": "0.518",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior PRJNA_iPS Paper_RiboMIMO",
+    "reference": "0.502",
+    "reproduced": "0.502",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Subtelny14_ribomimo Paper_RiboMIMO",
+    "reference": "0.643",
+    "reproduced": "0.643",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad16 Paper_RiboMIMO",
+    "reference": "0.732",
+    "reproduced": "0.732",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-1 Paper_RiboMIMO",
+    "reference": "0.719",
+    "reproduced": "0.719",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-2 Paper_RiboMIMO",
+    "reference": "0.745",
+    "reproduced": "0.745",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior DMSO_TX9P1 Paper_RiboGL_heldout",
+    "reference": "0.531",
+    "reproduced": "0.531",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE233886_WT Paper_RiboGL_heldout",
+    "reference": "0.679",
+    "reproduced": "0.679",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE133393_WT Paper_RiboGL_heldout",
+    "reference": "0.466",
+    "reproduced": "0.466",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior PRJNA_iPS Paper_RiboGL_heldout",
+    "reference": "0.473",
+    "reproduced": "0.473",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Subtelny14_ribomimo Paper_RiboGL_heldout",
+    "reference": "0.578",
+    "reproduced": "0.578",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad16 Paper_RiboGL_heldout",
+    "reference": "0.644",
+    "reproduced": "0.644",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-1 Paper_RiboGL_heldout",
+    "reference": "0.646",
+    "reproduced": "0.646",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-2 Paper_RiboGL_heldout",
+    "reference": "0.691",
+    "reproduced": "0.691",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior DMSO_TX9P1 Paper_RiboExp",
+    "reference": "0.594",
+    "reproduced": "0.594",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE233886_WT Paper_RiboExp",
+    "reference": "0.739",
+    "reproduced": "0.739",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE133393_WT Paper_RiboExp",
+    "reference": "0.540",
+    "reproduced": "0.540",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior PRJNA_iPS Paper_RiboExp",
+    "reference": "0.563",
+    "reproduced": "0.563",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Subtelny14_ribomimo Paper_RiboExp",
+    "reference": "0.627",
+    "reproduced": "0.627",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad16 Paper_RiboExp",
+    "reference": "0.677",
+    "reproduced": "0.677",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-1 Paper_RiboExp",
+    "reference": "0.663",
+    "reproduced": "0.663",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-2 Paper_RiboExp",
+    "reference": "0.682",
+    "reproduced": "0.682",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior DMSO_TX9P1 Paper_BiLSTM97",
+    "reference": "0.582",
+    "reproduced": "0.582",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE233886_WT Paper_BiLSTM97",
+    "reference": "0.759",
+    "reproduced": "0.759",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE133393_WT Paper_BiLSTM97",
+    "reference": "0.521",
+    "reproduced": "0.521",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior PRJNA_iPS Paper_BiLSTM97",
+    "reference": "0.479",
+    "reproduced": "0.479",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Subtelny14_ribomimo Paper_BiLSTM97",
+    "reference": "0.641",
+    "reproduced": "0.641",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad16 Paper_BiLSTM97",
+    "reference": "0.734",
+    "reproduced": "0.734",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-1 Paper_BiLSTM97",
+    "reference": "0.711",
+    "reproduced": "0.711",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-2 Paper_BiLSTM97",
+    "reference": "0.738",
+    "reproduced": "0.738",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior DMSO_TX9P1 Paper_RiboPipe_noMFE_H128",
+    "reference": "0.600",
+    "reproduced": "0.600",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE233886_WT Paper_RiboPipe_noMFE_H128",
+    "reference": "0.764",
+    "reproduced": "0.764",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE133393_WT Paper_RiboPipe_noMFE_H128",
+    "reference": "0.528",
+    "reproduced": "0.528",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior PRJNA_iPS Paper_RiboPipe_noMFE_H128",
+    "reference": "0.522",
+    "reproduced": "0.522",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Subtelny14_ribomimo Paper_RiboPipe_noMFE_H128",
+    "reference": "0.630",
+    "reproduced": "0.630",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad16 Paper_RiboPipe_noMFE_H128",
+    "reference": "0.740",
+    "reproduced": "0.740",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-1 Paper_RiboPipe_noMFE_H128",
+    "reference": "0.712",
+    "reproduced": "0.712",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-2 Paper_RiboPipe_noMFE_H128",
+    "reference": "0.744",
+    "reproduced": "0.744",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior DMSO_TX9P1 Paper_RiboPipe_MFE_H128",
+    "reference": "0.641",
+    "reproduced": "0.641",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE233886_WT Paper_RiboPipe_MFE_H128",
+    "reference": "0.781",
+    "reproduced": "0.781",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior GSE133393_WT Paper_RiboPipe_MFE_H128",
+    "reference": "0.571",
+    "reproduced": "0.571",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior PRJNA_iPS Paper_RiboPipe_MFE_H128",
+    "reference": "0.631",
+    "reproduced": "0.631",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Subtelny14_ribomimo Paper_RiboPipe_MFE_H128",
+    "reference": "0.663",
+    "reproduced": "0.663",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad16 Paper_RiboPipe_MFE_H128",
+    "reference": "0.750",
+    "reproduced": "0.750",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-1 Paper_RiboPipe_MFE_H128",
+    "reference": "0.715",
+    "reproduced": "0.715",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pearson",
+    "quantity": "pearson_interior Mohammad19-2 Paper_RiboPipe_MFE_H128",
+    "reference": "0.740",
+    "reproduced": "0.740",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior DMSO_TX9P1 Paper_CodonMean",
+    "reference": "0.176",
+    "reproduced": "0.176",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE233886_WT Paper_CodonMean",
+    "reference": "0.371",
+    "reproduced": "0.371",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE133393_WT Paper_CodonMean",
+    "reference": "0.134",
+    "reproduced": "0.134",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior PRJNA_iPS Paper_CodonMean",
+    "reference": "0.125",
+    "reproduced": "0.125",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Subtelny14_ribomimo Paper_CodonMean",
+    "reference": "0.258",
+    "reproduced": "0.258",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad16 Paper_CodonMean",
+    "reference": "0.131",
+    "reproduced": "0.131",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-1 Paper_CodonMean",
+    "reference": "0.448",
+    "reproduced": "0.448",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-2 Paper_CodonMean",
+    "reference": "0.397",
+    "reproduced": "0.397",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior DMSO_TX9P1 Paper_TriCodon",
+    "reference": "0.211",
+    "reproduced": "0.211",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE233886_WT Paper_TriCodon",
+    "reference": "0.344",
+    "reproduced": "0.344",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE133393_WT Paper_TriCodon",
+    "reference": "0.101",
+    "reproduced": "0.101",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior PRJNA_iPS Paper_TriCodon",
+    "reference": "0.081",
+    "reproduced": "0.081",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Subtelny14_ribomimo Paper_TriCodon",
+    "reference": "0.249",
+    "reproduced": "0.249",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad16 Paper_TriCodon",
+    "reference": "0.102",
+    "reproduced": "0.102",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-1 Paper_TriCodon",
+    "reference": "0.448",
+    "reproduced": "0.448",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-2 Paper_TriCodon",
+    "reference": "0.501",
+    "reproduced": "0.501",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior DMSO_TX9P1 Paper_Ridge",
+    "reference": "0.434",
+    "reproduced": "0.434",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE233886_WT Paper_Ridge",
+    "reference": "0.579",
+    "reproduced": "0.579",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE133393_WT Paper_Ridge",
+    "reference": "0.423",
+    "reproduced": "0.423",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior PRJNA_iPS Paper_Ridge",
+    "reference": "0.395",
+    "reproduced": "0.395",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Subtelny14_ribomimo Paper_Ridge",
+    "reference": "0.456",
+    "reproduced": "0.456",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad16 Paper_Ridge",
+    "reference": "0.718",
+    "reproduced": "0.718",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-1 Paper_Ridge",
+    "reference": "0.654",
+    "reproduced": "0.654",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-2 Paper_Ridge",
+    "reference": "0.662",
+    "reproduced": "0.662",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior DMSO_TX9P1 Paper_RUST",
+    "reference": "0.436",
+    "reproduced": "0.436",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE233886_WT Paper_RUST",
+    "reference": "0.573",
+    "reproduced": "0.573",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE133393_WT Paper_RUST",
+    "reference": "0.420",
+    "reproduced": "0.420",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior PRJNA_iPS Paper_RUST",
+    "reference": "0.394",
+    "reproduced": "0.394",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Subtelny14_ribomimo Paper_RUST",
+    "reference": "0.454",
+    "reproduced": "0.454",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad16 Paper_RUST",
+    "reference": "0.704",
+    "reproduced": "0.704",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-1 Paper_RUST",
+    "reference": "0.644",
+    "reproduced": "0.644",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-2 Paper_RUST",
+    "reference": "0.653",
+    "reproduced": "0.653",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior DMSO_TX9P1 Paper_iXnos_seq_lr005_elig",
+    "reference": "0.547",
+    "reproduced": "0.547",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE233886_WT Paper_iXnos_seq_lr005_elig",
+    "reference": "0.597",
+    "reproduced": "0.597",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE133393_WT Paper_iXnos_seq_lr005_elig",
+    "reference": "0.505",
+    "reproduced": "0.505",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior PRJNA_iPS Paper_iXnos_seq_lr005_elig",
+    "reference": "0.521",
+    "reproduced": "0.521",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Subtelny14_ribomimo Paper_iXnos_seq_lr005_elig",
+    "reference": "0.547",
+    "reproduced": "0.547",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad16 Paper_iXnos_seq_lr005_elig",
+    "reference": "0.690",
+    "reproduced": "0.690",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-1 Paper_iXnos_seq_lr005_elig",
+    "reference": "0.672",
+    "reproduced": "0.672",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-2 Paper_iXnos_seq_lr005_elig",
+    "reference": "0.696",
+    "reproduced": "0.696",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior DMSO_TX9P1 Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.595",
+    "reproduced": "0.595",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE233886_WT Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.607",
+    "reproduced": "0.607",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE133393_WT Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.542",
+    "reproduced": "0.542",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior PRJNA_iPS Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.618",
+    "reproduced": "0.618",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Subtelny14_ribomimo Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.596",
+    "reproduced": "0.596",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad16 Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.704",
+    "reproduced": "0.704",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-1 Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.672",
+    "reproduced": "0.672",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-2 Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.695",
+    "reproduced": "0.695",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior DMSO_TX9P1 Paper_iXnos_MFE_lr005",
+    "reference": "0.574",
+    "reproduced": "0.574",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE233886_WT Paper_iXnos_MFE_lr005",
+    "reference": "0.606",
+    "reproduced": "0.606",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE133393_WT Paper_iXnos_MFE_lr005",
+    "reference": "0.539",
+    "reproduced": "0.539",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior PRJNA_iPS Paper_iXnos_MFE_lr005",
+    "reference": "0.618",
+    "reproduced": "0.618",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Subtelny14_ribomimo Paper_iXnos_MFE_lr005",
+    "reference": "0.552",
+    "reproduced": "0.552",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad16 Paper_iXnos_MFE_lr005",
+    "reference": "0.701",
+    "reproduced": "0.701",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-1 Paper_iXnos_MFE_lr005",
+    "reference": "0.666",
+    "reproduced": "0.666",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-2 Paper_iXnos_MFE_lr005",
+    "reference": "0.687",
+    "reproduced": "0.687",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior DMSO_TX9P1 Paper_RiboMIMO",
+    "reference": "0.582",
+    "reproduced": "0.582",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE233886_WT Paper_RiboMIMO",
+    "reference": "0.657",
+    "reproduced": "0.657",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE133393_WT Paper_RiboMIMO",
+    "reference": "0.514",
+    "reproduced": "0.514",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior PRJNA_iPS Paper_RiboMIMO",
+    "reference": "0.525",
+    "reproduced": "0.525",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Subtelny14_ribomimo Paper_RiboMIMO",
+    "reference": "0.597",
+    "reproduced": "0.597",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad16 Paper_RiboMIMO",
+    "reference": "0.772",
+    "reproduced": "0.772",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-1 Paper_RiboMIMO",
+    "reference": "0.720",
+    "reproduced": "0.720",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-2 Paper_RiboMIMO",
+    "reference": "0.744",
+    "reproduced": "0.744",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior DMSO_TX9P1 Paper_RiboGL_heldout",
+    "reference": "0.588",
+    "reproduced": "0.588",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE233886_WT Paper_RiboGL_heldout",
+    "reference": "0.661",
+    "reproduced": "0.661",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE133393_WT Paper_RiboGL_heldout",
+    "reference": "0.492",
+    "reproduced": "0.492",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior PRJNA_iPS Paper_RiboGL_heldout",
+    "reference": "0.510",
+    "reproduced": "0.510",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Subtelny14_ribomimo Paper_RiboGL_heldout",
+    "reference": "0.601",
+    "reproduced": "0.601",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad16 Paper_RiboGL_heldout",
+    "reference": "0.810",
+    "reproduced": "0.810",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-1 Paper_RiboGL_heldout",
+    "reference": "0.699",
+    "reproduced": "0.699",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-2 Paper_RiboGL_heldout",
+    "reference": "0.732",
+    "reproduced": "0.732",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior DMSO_TX9P1 Paper_RiboExp",
+    "reference": "0.613",
+    "reproduced": "0.613",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE233886_WT Paper_RiboExp",
+    "reference": "0.643",
+    "reproduced": "0.643",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE133393_WT Paper_RiboExp",
+    "reference": "0.532",
+    "reproduced": "0.532",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior PRJNA_iPS Paper_RiboExp",
+    "reference": "0.588",
+    "reproduced": "0.588",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Subtelny14_ribomimo Paper_RiboExp",
+    "reference": "0.597",
+    "reproduced": "0.597",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad16 Paper_RiboExp",
+    "reference": "0.736",
+    "reproduced": "0.736",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-1 Paper_RiboExp",
+    "reference": "0.673",
+    "reproduced": "0.673",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-2 Paper_RiboExp",
+    "reference": "0.687",
+    "reproduced": "0.687",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior DMSO_TX9P1 Paper_BiLSTM97",
+    "reference": "0.597",
+    "reproduced": "0.597",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE233886_WT Paper_BiLSTM97",
+    "reference": "0.668",
+    "reproduced": "0.668",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE133393_WT Paper_BiLSTM97",
+    "reference": "0.522",
+    "reproduced": "0.522",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior PRJNA_iPS Paper_BiLSTM97",
+    "reference": "0.507",
+    "reproduced": "0.507",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Subtelny14_ribomimo Paper_BiLSTM97",
+    "reference": "0.598",
+    "reproduced": "0.598",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad16 Paper_BiLSTM97",
+    "reference": "0.794",
+    "reproduced": "0.794",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-1 Paper_BiLSTM97",
+    "reference": "0.715",
+    "reproduced": "0.715",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-2 Paper_BiLSTM97",
+    "reference": "0.741",
+    "reproduced": "0.741",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior DMSO_TX9P1 Paper_RiboPipe_noMFE_H128",
+    "reference": "0.608",
+    "reproduced": "0.608",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE233886_WT Paper_RiboPipe_noMFE_H128",
+    "reference": "0.676",
+    "reproduced": "0.676",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE133393_WT Paper_RiboPipe_noMFE_H128",
+    "reference": "0.529",
+    "reproduced": "0.529",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior PRJNA_iPS Paper_RiboPipe_noMFE_H128",
+    "reference": "0.549",
+    "reproduced": "0.549",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Subtelny14_ribomimo Paper_RiboPipe_noMFE_H128",
+    "reference": "0.591",
+    "reproduced": "0.591",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad16 Paper_RiboPipe_noMFE_H128",
+    "reference": "0.797",
+    "reproduced": "0.797",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-1 Paper_RiboPipe_noMFE_H128",
+    "reference": "0.716",
+    "reproduced": "0.716",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-2 Paper_RiboPipe_noMFE_H128",
+    "reference": "0.744",
+    "reproduced": "0.744",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior DMSO_TX9P1 Paper_RiboPipe_MFE_H128",
+    "reference": "0.657",
+    "reproduced": "0.657",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE233886_WT Paper_RiboPipe_MFE_H128",
+    "reference": "0.694",
+    "reproduced": "0.694",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior GSE133393_WT Paper_RiboPipe_MFE_H128",
+    "reference": "0.568",
+    "reproduced": "0.568",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior PRJNA_iPS Paper_RiboPipe_MFE_H128",
+    "reference": "0.648",
+    "reproduced": "0.648",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Subtelny14_ribomimo Paper_RiboPipe_MFE_H128",
+    "reference": "0.645",
+    "reproduced": "0.645",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad16 Paper_RiboPipe_MFE_H128",
+    "reference": "0.803",
+    "reproduced": "0.803",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-1 Paper_RiboPipe_MFE_H128",
+    "reference": "0.715",
+    "reproduced": "0.715",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1spearman",
+    "quantity": "spearman_interior Mohammad19-2 Paper_RiboPipe_MFE_H128",
+    "reference": "0.743",
+    "reproduced": "0.743",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior DMSO_TX9P1 Paper_CodonMean",
+    "reference": "0.122",
+    "reproduced": "0.122",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE233886_WT Paper_CodonMean",
+    "reference": "0.324",
+    "reproduced": "0.324",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE133393_WT Paper_CodonMean",
+    "reference": "0.117",
+    "reproduced": "0.117",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior PRJNA_iPS Paper_CodonMean",
+    "reference": "0.093",
+    "reproduced": "0.093",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Subtelny14_ribomimo Paper_CodonMean",
+    "reference": "0.212",
+    "reproduced": "0.212",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad16 Paper_CodonMean",
+    "reference": "0.096",
+    "reproduced": "0.096",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-1 Paper_CodonMean",
+    "reference": "0.118",
+    "reproduced": "0.118",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-2 Paper_CodonMean",
+    "reference": "0.141",
+    "reproduced": "0.141",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior DMSO_TX9P1 Paper_TriCodon",
+    "reference": "0.145",
+    "reproduced": "0.145",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE233886_WT Paper_TriCodon",
+    "reference": "0.307",
+    "reproduced": "0.307",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE133393_WT Paper_TriCodon",
+    "reference": "0.084",
+    "reproduced": "0.084",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior PRJNA_iPS Paper_TriCodon",
+    "reference": "0.089",
+    "reproduced": "0.089",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Subtelny14_ribomimo Paper_TriCodon",
+    "reference": "0.200",
+    "reproduced": "0.200",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad16 Paper_TriCodon",
+    "reference": "0.091",
+    "reproduced": "0.091",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-1 Paper_TriCodon",
+    "reference": "0.198",
+    "reproduced": "0.198",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-2 Paper_TriCodon",
+    "reference": "0.239",
+    "reproduced": "0.239",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior DMSO_TX9P1 Paper_Ridge",
+    "reference": "0.269",
+    "reproduced": "0.269",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE233886_WT Paper_Ridge",
+    "reference": "0.469",
+    "reproduced": "0.469",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE133393_WT Paper_Ridge",
+    "reference": "0.245",
+    "reproduced": "0.245",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior PRJNA_iPS Paper_Ridge",
+    "reference": "0.243",
+    "reproduced": "0.243",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Subtelny14_ribomimo Paper_Ridge",
+    "reference": "0.285",
+    "reproduced": "0.285",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad16 Paper_Ridge",
+    "reference": "0.425",
+    "reproduced": "0.425",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-1 Paper_Ridge",
+    "reference": "0.350",
+    "reproduced": "0.350",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-2 Paper_Ridge",
+    "reference": "0.368",
+    "reproduced": "0.368",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior DMSO_TX9P1 Paper_RUST",
+    "reference": "0.253",
+    "reproduced": "0.253",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE233886_WT Paper_RUST",
+    "reference": "0.445",
+    "reproduced": "0.445",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE133393_WT Paper_RUST",
+    "reference": "0.239",
+    "reproduced": "0.239",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior PRJNA_iPS Paper_RUST",
+    "reference": "0.235",
+    "reproduced": "0.235",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Subtelny14_ribomimo Paper_RUST",
+    "reference": "0.255",
+    "reproduced": "0.255",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad16 Paper_RUST",
+    "reference": "0.401",
+    "reproduced": "0.401",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-1 Paper_RUST",
+    "reference": "0.345",
+    "reproduced": "0.345",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-2 Paper_RUST",
+    "reference": "0.361",
+    "reproduced": "0.361",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior DMSO_TX9P1 Paper_iXnos_seq_lr005_elig",
+    "reference": "0.364",
+    "reproduced": "0.364",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE233886_WT Paper_iXnos_seq_lr005_elig",
+    "reference": "0.543",
+    "reproduced": "0.543",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE133393_WT Paper_iXnos_seq_lr005_elig",
+    "reference": "0.313",
+    "reproduced": "0.313",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior PRJNA_iPS Paper_iXnos_seq_lr005_elig",
+    "reference": "0.294",
+    "reproduced": "0.294",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Subtelny14_ribomimo Paper_iXnos_seq_lr005_elig",
+    "reference": "0.388",
+    "reproduced": "0.388",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad16 Paper_iXnos_seq_lr005_elig",
+    "reference": "0.465",
+    "reproduced": "0.465",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-1 Paper_iXnos_seq_lr005_elig",
+    "reference": "0.382",
+    "reproduced": "0.382",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-2 Paper_iXnos_seq_lr005_elig",
+    "reference": "0.433",
+    "reproduced": "0.433",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior DMSO_TX9P1 Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.387",
+    "reproduced": "0.387",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE233886_WT Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.551",
+    "reproduced": "0.551",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE133393_WT Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.334",
+    "reproduced": "0.334",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior PRJNA_iPS Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.365",
+    "reproduced": "0.365",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Subtelny14_ribomimo Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.398",
+    "reproduced": "0.398",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad16 Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.465",
+    "reproduced": "0.465",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-1 Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.387",
+    "reproduced": "0.387",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-2 Paper_iXnos_MFE_lr005_elig",
+    "reference": "0.429",
+    "reproduced": "0.429",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior DMSO_TX9P1 Paper_iXnos_MFE_lr005",
+    "reference": "0.353",
+    "reproduced": "0.353",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE233886_WT Paper_iXnos_MFE_lr005",
+    "reference": "0.543",
+    "reproduced": "0.543",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE133393_WT Paper_iXnos_MFE_lr005",
+    "reference": "0.337",
+    "reproduced": "0.337",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior PRJNA_iPS Paper_iXnos_MFE_lr005",
+    "reference": "0.365",
+    "reproduced": "0.365",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Subtelny14_ribomimo Paper_iXnos_MFE_lr005",
+    "reference": "0.333",
+    "reproduced": "0.333",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad16 Paper_iXnos_MFE_lr005",
+    "reference": "0.457",
+    "reproduced": "0.457",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-1 Paper_iXnos_MFE_lr005",
+    "reference": "0.378",
+    "reproduced": "0.378",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-2 Paper_iXnos_MFE_lr005",
+    "reference": "0.425",
+    "reproduced": "0.425",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior DMSO_TX9P1 Paper_RiboMIMO",
+    "reference": "0.390",
+    "reproduced": "0.390",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE233886_WT Paper_RiboMIMO",
+    "reference": "0.579",
+    "reproduced": "0.579",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE133393_WT Paper_RiboMIMO",
+    "reference": "0.321",
+    "reproduced": "0.321",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior PRJNA_iPS Paper_RiboMIMO",
+    "reference": "0.307",
+    "reproduced": "0.307",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Subtelny14_ribomimo Paper_RiboMIMO",
+    "reference": "0.437",
+    "reproduced": "0.437",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad16 Paper_RiboMIMO",
+    "reference": "0.513",
+    "reproduced": "0.513",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-1 Paper_RiboMIMO",
+    "reference": "0.460",
+    "reproduced": "0.460",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-2 Paper_RiboMIMO",
+    "reference": "0.500",
+    "reproduced": "0.500",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior DMSO_TX9P1 Paper_RiboGL_heldout",
+    "reference": "0.363",
+    "reproduced": "0.363",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE233886_WT Paper_RiboGL_heldout",
+    "reference": "0.553",
+    "reproduced": "0.553",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE133393_WT Paper_RiboGL_heldout",
+    "reference": "0.286",
+    "reproduced": "0.286",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior PRJNA_iPS Paper_RiboGL_heldout",
+    "reference": "0.271",
+    "reproduced": "0.271",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Subtelny14_ribomimo Paper_RiboGL_heldout",
+    "reference": "0.405",
+    "reproduced": "0.405",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad16 Paper_RiboGL_heldout",
+    "reference": "0.506",
+    "reproduced": "0.506",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-1 Paper_RiboGL_heldout",
+    "reference": "0.423",
+    "reproduced": "0.423",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-2 Paper_RiboGL_heldout",
+    "reference": "0.479",
+    "reproduced": "0.479",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior DMSO_TX9P1 Paper_RiboExp",
+    "reference": "0.402",
+    "reproduced": "0.402",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE233886_WT Paper_RiboExp",
+    "reference": "0.561",
+    "reproduced": "0.561",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE133393_WT Paper_RiboExp",
+    "reference": "0.356",
+    "reproduced": "0.356",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior PRJNA_iPS Paper_RiboExp",
+    "reference": "0.362",
+    "reproduced": "0.362",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Subtelny14_ribomimo Paper_RiboExp",
+    "reference": "0.416",
+    "reproduced": "0.416",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad16 Paper_RiboExp",
+    "reference": "0.483",
+    "reproduced": "0.483",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-1 Paper_RiboExp",
+    "reference": "0.402",
+    "reproduced": "0.402",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-2 Paper_RiboExp",
+    "reference": "0.434",
+    "reproduced": "0.434",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior DMSO_TX9P1 Paper_BiLSTM97",
+    "reference": "0.391",
+    "reproduced": "0.391",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE233886_WT Paper_BiLSTM97",
+    "reference": "0.578",
+    "reproduced": "0.578",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE133393_WT Paper_BiLSTM97",
+    "reference": "0.329",
+    "reproduced": "0.329",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior PRJNA_iPS Paper_BiLSTM97",
+    "reference": "0.277",
+    "reproduced": "0.277",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Subtelny14_ribomimo Paper_BiLSTM97",
+    "reference": "0.431",
+    "reproduced": "0.431",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad16 Paper_BiLSTM97",
+    "reference": "0.513",
+    "reproduced": "0.513",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-1 Paper_BiLSTM97",
+    "reference": "0.448",
+    "reproduced": "0.448",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-2 Paper_BiLSTM97",
+    "reference": "0.497",
+    "reproduced": "0.497",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior DMSO_TX9P1 Paper_RiboPipe_noMFE_H128",
+    "reference": "0.399",
+    "reproduced": "0.399",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE233886_WT Paper_RiboPipe_noMFE_H128",
+    "reference": "0.582",
+    "reproduced": "0.582",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE133393_WT Paper_RiboPipe_noMFE_H128",
+    "reference": "0.328",
+    "reproduced": "0.328",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior PRJNA_iPS Paper_RiboPipe_noMFE_H128",
+    "reference": "0.315",
+    "reproduced": "0.315",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Subtelny14_ribomimo Paper_RiboPipe_noMFE_H128",
+    "reference": "0.420",
+    "reproduced": "0.420",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad16 Paper_RiboPipe_noMFE_H128",
+    "reference": "0.516",
+    "reproduced": "0.516",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-1 Paper_RiboPipe_noMFE_H128",
+    "reference": "0.458",
+    "reproduced": "0.458",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-2 Paper_RiboPipe_noMFE_H128",
+    "reference": "0.500",
+    "reproduced": "0.500",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior DMSO_TX9P1 Paper_RiboPipe_MFE_H128",
+    "reference": "0.429",
+    "reproduced": "0.429",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE233886_WT Paper_RiboPipe_MFE_H128",
+    "reference": "0.598",
+    "reproduced": "0.598",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior GSE133393_WT Paper_RiboPipe_MFE_H128",
+    "reference": "0.363",
+    "reproduced": "0.363",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior PRJNA_iPS Paper_RiboPipe_MFE_H128",
+    "reference": "0.401",
+    "reproduced": "0.401",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Subtelny14_ribomimo Paper_RiboPipe_MFE_H128",
+    "reference": "0.437",
+    "reproduced": "0.437",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad16 Paper_RiboPipe_MFE_H128",
+    "reference": "0.531",
+    "reproduced": "0.531",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-1 Paper_RiboPipe_MFE_H128",
+    "reference": "0.456",
+    "reproduced": "0.456",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1recall",
+    "quantity": "recall5_interior Mohammad19-2 Paper_RiboPipe_MFE_H128",
+    "reference": "0.500",
+    "reproduced": "0.500",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference DMSO_TX9P1 RiboPipe-Paper_RiboMIMO",
+    "reference": "$+$0.064 & [$+$0.059, $+$0.069] & above & significant",
+    "reproduced": "$+$0.064 & [$+$0.059, $+$0.069] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference DMSO_TX9P1 RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.058 & [$+$0.054, $+$0.063] & above & significant",
+    "reproduced": "$+$0.058 & [$+$0.054, $+$0.063] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference DMSO_TX9P1 RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.110 & [$+$0.105, $+$0.115] & above & significant",
+    "reproduced": "$+$0.110 & [$+$0.105, $+$0.115] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference DMSO_TX9P1 RiboPipe-Paper_RiboExp",
+    "reference": "$+$0.047 & [$+$0.043, $+$0.052] & above & --",
+    "reproduced": "$+$0.047 & [$+$0.043, $+$0.052] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference DMSO_TX9P1 RiboPipe-Paper_iXnos_seq_lr005_elig",
+    "reference": "$+$0.098 & [$+$0.094, $+$0.103] & above & --",
+    "reproduced": "$+$0.098 & [$+$0.094, $+$0.103] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference DMSO_TX9P1 RiboPipe-Paper_BiLSTM97",
+    "reference": "$+$0.059 & [$+$0.054, $+$0.063] & above & --",
+    "reproduced": "$+$0.059 & [$+$0.054, $+$0.063] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference DMSO_TX9P1 RiboPipe-Paper_iXnos_MFE_lr005",
+    "reference": "$+$0.103 & [$+$0.099, $+$0.108] & above & --",
+    "reproduced": "$+$0.103 & [$+$0.099, $+$0.108] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE233886_WT RiboPipe-Paper_RiboMIMO",
+    "reference": "$+$0.025 & [$+$0.019, $+$0.030] & above & significant",
+    "reproduced": "$+$0.025 & [$+$0.019, $+$0.030] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE233886_WT RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.054 & [$+$0.049, $+$0.060] & above & significant",
+    "reproduced": "$+$0.054 & [$+$0.049, $+$0.060] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE233886_WT RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.102 & [$+$0.097, $+$0.107] & above & significant",
+    "reproduced": "$+$0.102 & [$+$0.097, $+$0.107] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE233886_WT RiboPipe-Paper_RiboExp",
+    "reference": "$+$0.042 & [$+$0.038, $+$0.048] & above & --",
+    "reproduced": "$+$0.042 & [$+$0.038, $+$0.048] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE233886_WT RiboPipe-Paper_iXnos_seq_lr005_elig",
+    "reference": "$+$0.065 & [$+$0.060, $+$0.070] & above & --",
+    "reproduced": "$+$0.065 & [$+$0.060, $+$0.070] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE233886_WT RiboPipe-Paper_BiLSTM97",
+    "reference": "$+$0.022 & [$+$0.017, $+$0.027] & above & --",
+    "reproduced": "$+$0.022 & [$+$0.017, $+$0.027] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE233886_WT RiboPipe-Paper_iXnos_MFE_lr005",
+    "reference": "$+$0.069 & [$+$0.063, $+$0.073] & above & --",
+    "reproduced": "$+$0.069 & [$+$0.063, $+$0.073] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE133393_WT RiboPipe-Paper_RiboMIMO",
+    "reference": "$+$0.053 & [$+$0.046, $+$0.061] & above & significant",
+    "reproduced": "$+$0.053 & [$+$0.046, $+$0.061] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE133393_WT RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.033 & [$+$0.024, $+$0.039] & above & significant",
+    "reproduced": "$+$0.033 & [$+$0.024, $+$0.039] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE133393_WT RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.105 & [$+$0.097, $+$0.112] & above & significant",
+    "reproduced": "$+$0.105 & [$+$0.097, $+$0.112] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE133393_WT RiboPipe-Paper_RiboExp",
+    "reference": "$+$0.031 & [$+$0.023, $+$0.037] & above & --",
+    "reproduced": "$+$0.031 & [$+$0.023, $+$0.037] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE133393_WT RiboPipe-Paper_iXnos_seq_lr005_elig",
+    "reference": "$+$0.067 & [$+$0.060, $+$0.075] & above & --",
+    "reproduced": "$+$0.067 & [$+$0.060, $+$0.075] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE133393_WT RiboPipe-Paper_BiLSTM97",
+    "reference": "$+$0.050 & [$+$0.042, $+$0.058] & above & --",
+    "reproduced": "$+$0.050 & [$+$0.042, $+$0.058] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference GSE133393_WT RiboPipe-Paper_iXnos_MFE_lr005",
+    "reference": "$+$0.038 & [$+$0.030, $+$0.046] & above & --",
+    "reproduced": "$+$0.038 & [$+$0.030, $+$0.046] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference PRJNA_iPS RiboPipe-Paper_RiboMIMO",
+    "reference": "$+$0.129 & [$+$0.117, $+$0.136] & above & significant",
+    "reproduced": "$+$0.129 & [$+$0.117, $+$0.136] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference PRJNA_iPS RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.042 & [$+$0.033, $+$0.049] & above & significant",
+    "reproduced": "$+$0.042 & [$+$0.033, $+$0.049] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference PRJNA_iPS RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.159 & [$+$0.149, $+$0.167] & above & significant",
+    "reproduced": "$+$0.159 & [$+$0.149, $+$0.167] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference PRJNA_iPS RiboPipe-Paper_RiboExp",
+    "reference": "$+$0.068 & [$+$0.059, $+$0.076] & above & --",
+    "reproduced": "$+$0.068 & [$+$0.059, $+$0.076] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference PRJNA_iPS RiboPipe-Paper_iXnos_seq_lr005_elig",
+    "reference": "$+$0.141 & [$+$0.131, $+$0.149] & above & --",
+    "reproduced": "$+$0.141 & [$+$0.131, $+$0.149] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference PRJNA_iPS RiboPipe-Paper_BiLSTM97",
+    "reference": "$+$0.152 & [$+$0.142, $+$0.163] & above & --",
+    "reproduced": "$+$0.152 & [$+$0.142, $+$0.163] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference PRJNA_iPS RiboPipe-Paper_iXnos_MFE_lr005",
+    "reference": "$+$0.042 & [$+$0.033, $+$0.049] & above & --",
+    "reproduced": "$+$0.042 & [$+$0.033, $+$0.049] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Subtelny14_ribomimo RiboPipe-Paper_RiboMIMO",
+    "reference": "$+$0.020 & [$+$0.017, $+$0.024] & above & significant",
+    "reproduced": "$+$0.020 & [$+$0.017, $+$0.024] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Subtelny14_ribomimo RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.050 & [$+$0.048, $+$0.054] & above & significant",
+    "reproduced": "$+$0.050 & [$+$0.048, $+$0.054] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Subtelny14_ribomimo RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.085 & [$+$0.082, $+$0.089] & above & significant",
+    "reproduced": "$+$0.085 & [$+$0.082, $+$0.089] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Subtelny14_ribomimo RiboPipe-Paper_RiboExp",
+    "reference": "$+$0.037 & [$+$0.034, $+$0.041] & above & --",
+    "reproduced": "$+$0.037 & [$+$0.034, $+$0.041] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Subtelny14_ribomimo RiboPipe-Paper_iXnos_seq_lr005_elig",
+    "reference": "$+$0.080 & [$+$0.077, $+$0.084] & above & --",
+    "reproduced": "$+$0.080 & [$+$0.077, $+$0.084] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Subtelny14_ribomimo RiboPipe-Paper_BiLSTM97",
+    "reference": "$+$0.022 & [$+$0.020, $+$0.026] & above & --",
+    "reproduced": "$+$0.022 & [$+$0.020, $+$0.026] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Subtelny14_ribomimo RiboPipe-Paper_iXnos_MFE_lr005",
+    "reference": "$+$0.135 & [$+$0.131, $+$0.138] & above & --",
+    "reproduced": "$+$0.135 & [$+$0.131, $+$0.138] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad16 RiboPipe-Paper_RiboMIMO",
+    "reference": "$+$0.018 & [$+$0.011, $+$0.023] & above & significant",
+    "reproduced": "$+$0.018 & [$+$0.011, $+$0.023] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad16 RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.090 & [$+$0.082, $+$0.095] & above & significant",
+    "reproduced": "$+$0.090 & [$+$0.082, $+$0.095] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad16 RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.106 & [$+$0.098, $+$0.113] & above & significant",
+    "reproduced": "$+$0.106 & [$+$0.098, $+$0.113] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad16 RiboPipe-Paper_RiboExp",
+    "reference": "$+$0.073 & [$+$0.066, $+$0.079] & above & --",
+    "reproduced": "$+$0.073 & [$+$0.066, $+$0.079] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad16 RiboPipe-Paper_iXnos_seq_lr005_elig",
+    "reference": "$+$0.094 & [$+$0.086, $+$0.099] & above & --",
+    "reproduced": "$+$0.094 & [$+$0.086, $+$0.099] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad16 RiboPipe-Paper_BiLSTM97",
+    "reference": "$+$0.016 & [$+$0.010, $+$0.022] & undetermined & --",
+    "reproduced": "$+$0.016 & [$+$0.010, $+$0.022] & undetermined & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad16 RiboPipe-Paper_iXnos_MFE_lr005",
+    "reference": "$+$0.094 & [$+$0.087, $+$0.100] & above & --",
+    "reproduced": "$+$0.094 & [$+$0.087, $+$0.100] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-1 RiboPipe-Paper_RiboMIMO",
+    "reference": "$-$0.004 & [$-$0.009, 0.000] & within & n.s.",
+    "reproduced": "$-$0.004 & [$-$0.009, 0.000] & within & n.s.",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-1 RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.061 & [$+$0.056, $+$0.068] & above & significant",
+    "reproduced": "$+$0.061 & [$+$0.056, $+$0.068] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-1 RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.069 & [$+$0.064, $+$0.074] & above & significant",
+    "reproduced": "$+$0.069 & [$+$0.064, $+$0.074] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-1 RiboPipe-Paper_RiboExp",
+    "reference": "$+$0.051 & [$+$0.047, $+$0.058] & above & --",
+    "reproduced": "$+$0.051 & [$+$0.047, $+$0.058] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-1 RiboPipe-Paper_iXnos_seq_lr005_elig",
+    "reference": "$+$0.062 & [$+$0.057, $+$0.070] & above & --",
+    "reproduced": "$+$0.062 & [$+$0.057, $+$0.070] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-1 RiboPipe-Paper_BiLSTM97",
+    "reference": "$+$0.003 & [$-$0.002, $+$0.008] & within & --",
+    "reproduced": "$+$0.003 & [$-$0.002, $+$0.008] & within & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-1 RiboPipe-Paper_iXnos_MFE_lr005",
+    "reference": "$+$0.071 & [$+$0.065, $+$0.076] & above & --",
+    "reproduced": "$+$0.071 & [$+$0.065, $+$0.076] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-2 RiboPipe-Paper_RiboMIMO",
+    "reference": "$-$0.005 & [$-$0.010, $-$0.001] & undetermined & n.s.",
+    "reproduced": "$-$0.005 & [$-$0.010, $-$0.001] & undetermined & n.s.",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-2 RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.056 & [$+$0.051, $+$0.060] & above & significant",
+    "reproduced": "$+$0.056 & [$+$0.051, $+$0.060] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-2 RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.049 & [$+$0.043, $+$0.052] & above & significant",
+    "reproduced": "$+$0.049 & [$+$0.043, $+$0.052] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-2 RiboPipe-Paper_RiboExp",
+    "reference": "$+$0.058 & [$+$0.052, $+$0.062] & above & --",
+    "reproduced": "$+$0.058 & [$+$0.052, $+$0.062] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-2 RiboPipe-Paper_iXnos_seq_lr005_elig",
+    "reference": "$+$0.058 & [$+$0.052, $+$0.061] & above & --",
+    "reproduced": "$+$0.058 & [$+$0.052, $+$0.061] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-2 RiboPipe-Paper_BiLSTM97",
+    "reference": "$+$0.002 & [$-$0.004, $+$0.005] & within & --",
+    "reproduced": "$+$0.002 & [$-$0.004, $+$0.005] & within & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l1pairs",
+    "quantity": "paired difference Mohammad19-2 RiboPipe-Paper_iXnos_MFE_lr005",
+    "reference": "$+$0.063 & [$+$0.058, $+$0.067] & above & --",
+    "reproduced": "$+$0.063 & [$+$0.058, $+$0.067] & above & --",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 DMSO_TX9P1 RiboPipe-Paper_RiboMIMO_L2",
+    "reference": "$+$0.055 & [$+$0.051, $+$0.061] & $+$0.008",
+    "reproduced": "$+$0.055 & [$+$0.051, $+$0.061] & $+$0.008",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 DMSO_TX9P1 RiboPipe-Paper_iXnos_nocut_lr005_elig",
+    "reference": "$+$0.099 & [$+$0.095, $+$0.105] & $-$0.001",
+    "reproduced": "$+$0.099 & [$+$0.095, $+$0.105] & $-$0.001",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 DMSO_TX9P1 RiboPipe-Paper_RiboGL_L2_heldout",
+    "reference": "$+$0.083 & [$+$0.078, $+$0.088] & $+$0.027",
+    "reproduced": "$+$0.083 & [$+$0.078, $+$0.088] & $+$0.027",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 GSE233886_WT RiboPipe-Paper_RiboMIMO_L2",
+    "reference": "$+$0.021 & [$+$0.016, $+$0.025] & $+$0.004",
+    "reproduced": "$+$0.021 & [$+$0.016, $+$0.025] & $+$0.004",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 GSE233886_WT RiboPipe-Paper_iXnos_nocut_lr005_elig",
+    "reference": "$+$0.066 & [$+$0.061, $+$0.071] & $-$0.002",
+    "reproduced": "$+$0.066 & [$+$0.061, $+$0.071] & $-$0.002",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 GSE233886_WT RiboPipe-Paper_RiboGL_L2_heldout",
+    "reference": "$+$0.035 & [$+$0.031, $+$0.040] & $+$0.066",
+    "reproduced": "$+$0.035 & [$+$0.031, $+$0.040] & $+$0.066",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 GSE133393_WT RiboPipe-Paper_RiboMIMO_L2",
+    "reference": "$+$0.046 & [$+$0.037, $+$0.052] & $+$0.007",
+    "reproduced": "$+$0.046 & [$+$0.037, $+$0.052] & $+$0.007",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 GSE133393_WT RiboPipe-Paper_iXnos_nocut_lr005_elig",
+    "reference": "$+$0.068 & [$+$0.060, $+$0.074] & $-$0.001",
+    "reproduced": "$+$0.068 & [$+$0.060, $+$0.074] & $-$0.001",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 GSE133393_WT RiboPipe-Paper_RiboGL_L2_heldout",
+    "reference": "$+$0.092 & [$+$0.083, $+$0.099] & $+$0.013",
+    "reproduced": "$+$0.092 & [$+$0.083, $+$0.099] & $+$0.013",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 PRJNA_iPS RiboPipe-Paper_RiboMIMO_L2",
+    "reference": "$+$0.121 & [$+$0.113, $+$0.130] & $+$0.008",
+    "reproduced": "$+$0.121 & [$+$0.113, $+$0.130] & $+$0.008",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 PRJNA_iPS RiboPipe-Paper_iXnos_nocut_lr005_elig",
+    "reference": "$+$0.136 & [$+$0.125, $+$0.145] & $+$0.005",
+    "reproduced": "$+$0.136 & [$+$0.125, $+$0.145] & $+$0.005",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 PRJNA_iPS RiboPipe-Paper_RiboGL_L2_heldout",
+    "reference": "$+$0.172 & [$+$0.157, $+$0.183] & $-$0.013",
+    "reproduced": "$+$0.172 & [$+$0.157, $+$0.183] & $-$0.013",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 Subtelny14_ribomimo RiboPipe-Paper_RiboMIMO_L2",
+    "reference": "$+$0.013 & [$+$0.011, $+$0.017] & $+$0.007",
+    "reproduced": "$+$0.013 & [$+$0.011, $+$0.017] & $+$0.007",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 Subtelny14_ribomimo RiboPipe-Paper_iXnos_nocut_lr005_elig",
+    "reference": "$+$0.079 & [$+$0.076, $+$0.083] & $+$0.001",
+    "reproduced": "$+$0.079 & [$+$0.076, $+$0.083] & $+$0.001",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 Subtelny14_ribomimo RiboPipe-Paper_RiboGL_L2_heldout",
+    "reference": "$+$0.037 & [$+$0.034, $+$0.041] & $+$0.048",
+    "reproduced": "$+$0.037 & [$+$0.034, $+$0.041] & $+$0.048",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 Mohammad16 RiboPipe-Paper_RiboMIMO_L2",
+    "reference": "$+$0.020 & [$+$0.014, $+$0.027] & $-$0.002",
+    "reproduced": "$+$0.020 & [$+$0.014, $+$0.027] & $-$0.002",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 Mohammad16 RiboPipe-Paper_iXnos_nocut_lr005_elig",
+    "reference": "$+$0.093 & [$+$0.085, $+$0.098] & $+$0.001",
+    "reproduced": "$+$0.093 & [$+$0.085, $+$0.098] & $+$0.001",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 Mohammad16 RiboPipe-Paper_RiboGL_L2_heldout",
+    "reference": "$+$0.025 & [$+$0.018, $+$0.031] & $+$0.081",
+    "reproduced": "$+$0.025 & [$+$0.018, $+$0.031] & $+$0.081",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 Mohammad19-1 RiboPipe-Paper_RiboMIMO_L2",
+    "reference": "$-$0.009 & [$-$0.014, $-$0.004] & $+$0.005",
+    "reproduced": "$-$0.009 & [$-$0.014, $-$0.004] & $+$0.005",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 Mohammad19-1 RiboPipe-Paper_iXnos_nocut_lr005_elig",
+    "reference": "$+$0.062 & [$+$0.055, $+$0.067] & 0.000",
+    "reproduced": "$+$0.062 & [$+$0.055, $+$0.067] & 0.000",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 Mohammad19-1 RiboPipe-Paper_RiboGL_L2_heldout",
+    "reference": "$+$0.029 & [$+$0.023, $+$0.034] & $+$0.040",
+    "reproduced": "$+$0.029 & [$+$0.023, $+$0.034] & $+$0.040",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 Mohammad19-2 RiboPipe-Paper_RiboMIMO_L2",
+    "reference": "$-$0.008 & [$-$0.014, $-$0.005] & $+$0.002",
+    "reproduced": "$-$0.008 & [$-$0.014, $-$0.005] & $+$0.002",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 Mohammad19-2 RiboPipe-Paper_iXnos_nocut_lr005_elig",
+    "reference": "$+$0.055 & [$+$0.049, $+$0.059] & $+$0.003",
+    "reproduced": "$+$0.055 & [$+$0.049, $+$0.059] & $+$0.003",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2l2",
+    "quantity": "setting 2 Mohammad19-2 RiboPipe-Paper_RiboGL_L2_heldout",
+    "reference": "$+$0.018 & [$+$0.012, $+$0.021] & $+$0.031",
+    "reproduced": "$+$0.018 & [$+$0.012, $+$0.021] & $+$0.031",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed DMSO_TX9P1 Paper_RiboPipe_MFE_H128",
+    "reference": "\\makecell[l]{0.641 [0.637, 0.644]\\\\3,139/3,139}",
+    "reproduced": "\\makecell[l]{0.641 [0.637, 0.644]\\\\3,139/3,139}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed DMSO_TX9P1 Paper_RiboMIMO",
+    "reference": "\\makecell[l]{0.577 [0.572, 0.581]\\\\3,139/3,139}",
+    "reproduced": "\\makecell[l]{0.577 [0.572, 0.581]\\\\3,139/3,139}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed DMSO_TX9P1 Paper_iXnos_MFE_lr005_elig",
+    "reference": "\\makecell[l]{0.580 [0.577, 0.583]\\\\3,139/3,139}",
+    "reproduced": "\\makecell[l]{0.580 [0.577, 0.583]\\\\3,139/3,139}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed DMSO_TX9P1 Paper_RiboGL_heldout",
+    "reference": "\\makecell[l]{0.531 [0.529, 0.532]\\\\3,139/3,139}",
+    "reproduced": "\\makecell[l]{0.531 [0.529, 0.532]\\\\3,139/3,139}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed GSE233886_WT Paper_RiboPipe_MFE_H128",
+    "reference": "\\makecell[l]{0.779 [0.777, 0.781]\\\\1,823/1,823}",
+    "reproduced": "\\makecell[l]{0.779 [0.777, 0.781]\\\\1,823/1,823}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed GSE233886_WT Paper_RiboMIMO",
+    "reference": "\\makecell[l]{0.758 [0.756, 0.761]\\\\1,823/1,823}",
+    "reproduced": "\\makecell[l]{0.758 [0.756, 0.761]\\\\1,823/1,823}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed GSE233886_WT Paper_iXnos_MFE_lr005_elig",
+    "reference": "\\makecell[l]{0.724 [0.719, 0.727]\\\\1,823/1,823}",
+    "reproduced": "\\makecell[l]{0.724 [0.719, 0.727]\\\\1,823/1,823}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed GSE233886_WT Paper_RiboGL_heldout",
+    "reference": "\\makecell[l]{0.678 [0.675, 0.679]\\\\1,823/1,823}",
+    "reproduced": "\\makecell[l]{0.678 [0.675, 0.679]\\\\1,823/1,823}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed GSE133393_WT Paper_RiboPipe_MFE_H128",
+    "reference": "\\makecell[l]{0.571 [0.567, 0.573]\\\\1,287/1,287}",
+    "reproduced": "\\makecell[l]{0.571 [0.567, 0.573]\\\\1,287/1,287}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed GSE133393_WT Paper_RiboMIMO",
+    "reference": "\\makecell[l]{0.517 [0.515, 0.518]\\\\1,287/1,287}",
+    "reproduced": "\\makecell[l]{0.517 [0.515, 0.518]\\\\1,287/1,287}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed GSE133393_WT Paper_iXnos_MFE_lr005_elig",
+    "reference": "\\makecell[l]{0.538 [0.534, 0.540]\\\\1,287/1,287}",
+    "reproduced": "\\makecell[l]{0.538 [0.534, 0.540]\\\\1,287/1,287}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed GSE133393_WT Paper_RiboGL_heldout",
+    "reference": "\\makecell[l]{0.468 [0.466, 0.470]\\\\1,287/1,287}",
+    "reproduced": "\\makecell[l]{0.468 [0.466, 0.470]\\\\1,287/1,287}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed PRJNA_iPS Paper_RiboPipe_MFE_H128",
+    "reference": "\\makecell[l]{0.628 [0.625, 0.631]\\\\750/750}",
+    "reproduced": "\\makecell[l]{0.628 [0.625, 0.631]\\\\750/750}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed PRJNA_iPS Paper_RiboMIMO",
+    "reference": "\\makecell[l]{0.505 [0.502, 0.511]\\\\750/750}",
+    "reproduced": "\\makecell[l]{0.505 [0.502, 0.511]\\\\750/750}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed PRJNA_iPS Paper_iXnos_MFE_lr005_elig",
+    "reference": "\\makecell[l]{0.588 [0.586, 0.589]\\\\750/750}",
+    "reproduced": "\\makecell[l]{0.588 [0.586, 0.589]\\\\750/750}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed PRJNA_iPS Paper_RiboGL_heldout",
+    "reference": "\\makecell[l]{0.470 [0.468, 0.473]\\\\750/750}",
+    "reproduced": "\\makecell[l]{0.470 [0.468, 0.473]\\\\750/750}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Subtelny14_ribomimo Paper_RiboPipe_MFE_H128",
+    "reference": "\\makecell[l]{0.664 [0.663, 0.666]\\\\3,914/3,914}",
+    "reproduced": "\\makecell[l]{0.664 [0.663, 0.666]\\\\3,914/3,914}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Subtelny14_ribomimo Paper_RiboMIMO",
+    "reference": "\\makecell[l]{0.643 [0.642, 0.644]\\\\3,914/3,914}",
+    "reproduced": "\\makecell[l]{0.643 [0.642, 0.644]\\\\3,914/3,914}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Subtelny14_ribomimo Paper_iXnos_MFE_lr005_elig",
+    "reference": "\\makecell[l]{0.612 [0.610, 0.613]\\\\3,914/3,914}",
+    "reproduced": "\\makecell[l]{0.612 [0.610, 0.613]\\\\3,914/3,914}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Subtelny14_ribomimo Paper_RiboGL_heldout",
+    "reference": "\\makecell[l]{0.577 [0.575, 0.578]\\\\3,914/3,914}",
+    "reproduced": "\\makecell[l]{0.577 [0.575, 0.578]\\\\3,914/3,914}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Mohammad16 Paper_RiboPipe_MFE_H128",
+    "reference": "\\makecell[l]{0.752 [0.750, 0.753]\\\\1,159/1,159}",
+    "reproduced": "\\makecell[l]{0.752 [0.750, 0.753]\\\\1,159/1,159}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Mohammad16 Paper_RiboMIMO",
+    "reference": "\\makecell[l]{0.731 [0.730, 0.732]\\\\1,159/1,159}",
+    "reproduced": "\\makecell[l]{0.731 [0.730, 0.732]\\\\1,159/1,159}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Mohammad16 Paper_iXnos_MFE_lr005_elig",
+    "reference": "\\makecell[l]{0.661 [0.659, 0.663]\\\\1,157/1,159}",
+    "reproduced": "\\makecell[l]{0.661 [0.659, 0.663]\\\\1,157/1,159}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Mohammad16 Paper_RiboGL_heldout",
+    "reference": "\\makecell[l]{0.644 [0.642, 0.646]\\\\1,159/1,159}",
+    "reproduced": "\\makecell[l]{0.644 [0.642, 0.646]\\\\1,159/1,159}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Mohammad19-1 Paper_RiboPipe_MFE_H128",
+    "reference": "\\makecell[l]{0.714 [0.713, 0.715]\\\\1,402/1,402}",
+    "reproduced": "\\makecell[l]{0.714 [0.713, 0.715]\\\\1,402/1,402}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Mohammad19-1 Paper_RiboMIMO",
+    "reference": "\\makecell[l]{0.719 [0.718, 0.720]\\\\1,402/1,402}",
+    "reproduced": "\\makecell[l]{0.719 [0.718, 0.720]\\\\1,402/1,402}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Mohammad19-1 Paper_iXnos_MFE_lr005_elig",
+    "reference": "\\makecell[l]{0.652 [0.650, 0.654]\\\\1,402/1,402}",
+    "reproduced": "\\makecell[l]{0.652 [0.650, 0.654]\\\\1,402/1,402}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Mohammad19-1 Paper_RiboGL_heldout",
+    "reference": "\\makecell[l]{0.650 [0.646, 0.656]\\\\1,402/1,402}",
+    "reproduced": "\\makecell[l]{0.650 [0.646, 0.656]\\\\1,402/1,402}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Mohammad19-2 Paper_RiboPipe_MFE_H128",
+    "reference": "\\makecell[l]{0.743 [0.740, 0.745]\\\\1,578/1,578}",
+    "reproduced": "\\makecell[l]{0.743 [0.740, 0.745]\\\\1,578/1,578}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Mohammad19-2 Paper_RiboMIMO",
+    "reference": "\\makecell[l]{0.745 [0.745, 0.746]\\\\1,578/1,578}",
+    "reproduced": "\\makecell[l]{0.745 [0.745, 0.746]\\\\1,578/1,578}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Mohammad19-2 Paper_iXnos_MFE_lr005_elig",
+    "reference": "\\makecell[l]{0.683 [0.681, 0.684]\\\\1,578/1,578}",
+    "reproduced": "\\makecell[l]{0.683 [0.681, 0.684]\\\\1,578/1,578}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseedabs",
+    "quantity": "3-seed Mohammad19-2 Paper_RiboGL_heldout",
+    "reference": "\\makecell[l]{0.686 [0.682, 0.691]\\\\1,578/1,578}",
+    "reproduced": "\\makecell[l]{0.686 [0.682, 0.691]\\\\1,578/1,578}",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired DMSO_TX9P1 RiboPipe-Paper_RiboMIMO",
+    "reference": "$+$0.064 & [$+$0.060, $+$0.068] & $+$0.064 & [$+$0.064, $+$0.065] & above & significant",
+    "reproduced": "$+$0.064 & [$+$0.060, $+$0.068] & $+$0.064 & [$+$0.064, $+$0.065] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired DMSO_TX9P1 RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.061 & [$+$0.058, $+$0.064] & $+$0.058 & [$+$0.058, $+$0.066] & above & significant",
+    "reproduced": "$+$0.061 & [$+$0.058, $+$0.064] & $+$0.058 & [$+$0.058, $+$0.066] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired DMSO_TX9P1 RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.110 & [$+$0.106, $+$0.113] & $+$0.110 & [$+$0.105, $+$0.116] & above & significant",
+    "reproduced": "$+$0.110 & [$+$0.106, $+$0.113] & $+$0.110 & [$+$0.105, $+$0.116] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired GSE233886_WT RiboPipe-Paper_RiboMIMO",
+    "reference": "$+$0.020 & [$+$0.016, $+$0.024] & $+$0.025 & [$+$0.017, $+$0.025] & above & significant",
+    "reproduced": "$+$0.020 & [$+$0.016, $+$0.024] & $+$0.025 & [$+$0.017, $+$0.025] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired GSE233886_WT RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.055 & [$+$0.051, $+$0.059] & $+$0.054 & [$+$0.052, $+$0.059] & above & significant",
+    "reproduced": "$+$0.055 & [$+$0.051, $+$0.059] & $+$0.054 & [$+$0.052, $+$0.059] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired GSE233886_WT RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.101 & [$+$0.097, $+$0.105] & $+$0.102 & [$+$0.099, $+$0.102] & above & significant",
+    "reproduced": "$+$0.101 & [$+$0.097, $+$0.105] & $+$0.102 & [$+$0.099, $+$0.102] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired GSE133393_WT RiboPipe-Paper_RiboMIMO",
+    "reference": "$+$0.054 & [$+$0.049, $+$0.060] & $+$0.053 & [$+$0.050, $+$0.059] & above & significant",
+    "reproduced": "$+$0.054 & [$+$0.049, $+$0.060] & $+$0.053 & [$+$0.050, $+$0.059] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired GSE133393_WT RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.033 & [$+$0.028, $+$0.038] & $+$0.033 & [$+$0.027, $+$0.039] & above & significant",
+    "reproduced": "$+$0.033 & [$+$0.028, $+$0.038] & $+$0.033 & [$+$0.027, $+$0.039] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired GSE133393_WT RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.103 & [$+$0.096, $+$0.109] & $+$0.105 & [$+$0.098, $+$0.106] & above & significant",
+    "reproduced": "$+$0.103 & [$+$0.096, $+$0.109] & $+$0.105 & [$+$0.098, $+$0.106] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired PRJNA_iPS RiboPipe-Paper_RiboMIMO",
+    "reference": "$+$0.123 & [$+$0.113, $+$0.130] & $+$0.129 & [$+$0.117, $+$0.129] & above & significant",
+    "reproduced": "$+$0.123 & [$+$0.113, $+$0.130] & $+$0.129 & [$+$0.117, $+$0.129] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired PRJNA_iPS RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.040 & [$+$0.033, $+$0.046] & $+$0.042 & [$+$0.037, $+$0.042] & above & significant",
+    "reproduced": "$+$0.040 & [$+$0.033, $+$0.046] & $+$0.042 & [$+$0.037, $+$0.042] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired PRJNA_iPS RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.158 & [$+$0.150, $+$0.164] & $+$0.159 & [$+$0.156, $+$0.160] & above & significant",
+    "reproduced": "$+$0.158 & [$+$0.150, $+$0.164] & $+$0.159 & [$+$0.156, $+$0.160] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired Subtelny14_ribomimo RiboPipe-Paper_RiboMIMO",
+    "reference": "$+$0.021 & [$+$0.019, $+$0.023] & $+$0.020 & [$+$0.020, $+$0.021] & above & significant",
+    "reproduced": "$+$0.021 & [$+$0.019, $+$0.023] & $+$0.020 & [$+$0.020, $+$0.021] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired Subtelny14_ribomimo RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.053 & [$+$0.050, $+$0.055] & $+$0.050 & [$+$0.050, $+$0.054] & above & significant",
+    "reproduced": "$+$0.053 & [$+$0.050, $+$0.055] & $+$0.050 & [$+$0.050, $+$0.054] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired Subtelny14_ribomimo RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.087 & [$+$0.085, $+$0.090] & $+$0.085 & [$+$0.085, $+$0.091] & above & significant",
+    "reproduced": "$+$0.087 & [$+$0.085, $+$0.090] & $+$0.085 & [$+$0.085, $+$0.091] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired Mohammad16 RiboPipe-Paper_RiboMIMO",
+    "reference": "$+$0.021 & [$+$0.015, $+$0.024] & $+$0.018 & [$+$0.018, $+$0.023] & above & significant",
+    "reproduced": "$+$0.021 & [$+$0.015, $+$0.024] & $+$0.018 & [$+$0.018, $+$0.023] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired Mohammad16 RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.091 & [$+$0.085, $+$0.096] & $+$0.090 & [$+$0.090, $+$0.094] & above & significant",
+    "reproduced": "$+$0.091 & [$+$0.085, $+$0.096] & $+$0.090 & [$+$0.090, $+$0.094] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired Mohammad16 RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.108 & [$+$0.102, $+$0.114] & $+$0.106 & [$+$0.106, $+$0.111] & above & significant",
+    "reproduced": "$+$0.108 & [$+$0.102, $+$0.114] & $+$0.106 & [$+$0.106, $+$0.111] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired Mohammad19-1 RiboPipe-Paper_RiboMIMO",
+    "reference": "$-$0.004 & [$-$0.007, $-$0.001] & $-$0.004 & [$-$0.006, $-$0.003] & within & n.s.",
+    "reproduced": "$-$0.004 & [$-$0.007, $-$0.001] & $-$0.004 & [$-$0.006, $-$0.003] & within & n.s.",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired Mohammad19-1 RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.063 & [$+$0.058, $+$0.068] & $+$0.061 & [$+$0.061, $+$0.065] & above & significant",
+    "reproduced": "$+$0.063 & [$+$0.058, $+$0.068] & $+$0.061 & [$+$0.061, $+$0.065] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired Mohammad19-1 RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.064 & [$+$0.061, $+$0.069] & $+$0.069 & [$+$0.058, $+$0.069] & above & significant",
+    "reproduced": "$+$0.064 & [$+$0.061, $+$0.069] & $+$0.069 & [$+$0.058, $+$0.069] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired Mohammad19-2 RiboPipe-Paper_RiboMIMO",
+    "reference": "$-$0.002 & [$-$0.005, 0.000] & $-$0.005 & [$-$0.005, 0.000] & within & n.s.",
+    "reproduced": "$-$0.002 & [$-$0.005, 0.000] & $-$0.005 & [$-$0.005, 0.000] & within & n.s.",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired Mohammad19-2 RiboPipe-Paper_iXnos_MFE_lr005_elig",
+    "reference": "$+$0.060 & [$+$0.056, $+$0.064] & $+$0.056 & [$+$0.056, $+$0.062] & above & significant",
+    "reproduced": "$+$0.060 & [$+$0.056, $+$0.064] & $+$0.056 & [$+$0.056, $+$0.062] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2threeseed",
+    "quantity": "3-seed paired Mohammad19-2 RiboPipe-Paper_RiboGL_heldout",
+    "reference": "$+$0.057 & [$+$0.052, $+$0.060] & $+$0.049 & [$+$0.049, $+$0.062] & above & significant",
+    "reproduced": "$+$0.057 & [$+$0.052, $+$0.060] & $+$0.049 & [$+$0.049, $+$0.062] & above & significant",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2seeds",
+    "quantity": "seed range DMSO_TX9P1",
+    "reference": "0.007",
+    "reproduced": "0.007",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2seeds",
+    "quantity": "seed range GSE233886_WT",
+    "reference": "0.004",
+    "reproduced": "0.004",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2seeds",
+    "quantity": "seed range GSE133393_WT",
+    "reference": "0.006",
+    "reproduced": "0.006",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2seeds",
+    "quantity": "seed range PRJNA_iPS",
+    "reference": "0.006",
+    "reproduced": "0.006",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2seeds",
+    "quantity": "seed range Subtelny14_ribomimo",
+    "reference": "0.002",
+    "reproduced": "0.002",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2seeds",
+    "quantity": "seed range Mohammad16",
+    "reference": "0.003",
+    "reproduced": "0.003",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2seeds",
+    "quantity": "seed range Mohammad19-1",
+    "reference": "0.002",
+    "reproduced": "0.002",
+    "status": "PASS"
+   },
+   {
+    "table": "tab:s2seeds",
+    "quantity": "seed range Mohammad19-2",
+    "reference": "0.005",
+    "reproduced": "0.005",
+    "status": "PASS"
+   },
+   {
+    "table": "holm",
+    "quantity": "superiority family seed 123: rejected / m",
+    "reference": "22/24",
+    "reproduced": "22/24",
+    "status": "PASS"
+   },
+   {
+    "table": "holm",
+    "quantity": "superiority family 3 seeds: rejected / m",
+    "reference": "22/24",
+    "reproduced": "22/24",
+    "status": "PASS"
+   },
+   {
+    "table": "holm",
+    "quantity": "equivalence family seed 123: rejected / m",
+    "reference": "0/24",
+    "reproduced": "0/24",
+    "status": "PASS"
+   },
+   {
+    "table": "holm",
+    "quantity": "equivalence family 3 seeds: rejected / m",
+    "reference": "2/24",
+    "reproduced": "2/24",
+    "status": "PASS"
+   }
+  ]
+ },
+ "overall": "PASS"
+}

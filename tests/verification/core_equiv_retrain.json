@@ -1,0 +1,45 @@
+{
+ "checks": {
+  "retrain": {
+   "Paper_RiboPipe_MFE_H128/Mohammad16/seed123/fold0": {
+    "rc": 0,
+    "bitwise_equal": true,
+    "max_abs_diff": 0.0,
+    "selected_epoch": [
+     28,
+     28
+    ],
+    "val_best": [
+     0.7348099387904488,
+     0.7348099387904488
+    ],
+    "n_steps": [
+     1782,
+     1782
+    ],
+    "sec": 95.7,
+    "status": "PASS"
+   },
+   "Paper_RiboPipe_MFE_H128/GSE133393_WT/seed123/fold0": {
+    "rc": 0,
+    "bitwise_equal": true,
+    "max_abs_diff": 0.0,
+    "selected_epoch": [
+     24,
+     24
+    ],
+    "val_best": [
+     0.5895993658302113,
+     0.5895993658302113
+    ],
+    "n_steps": [
+     1624,
+     1624
+    ],
+    "sec": 104.4,
+    "status": "PASS"
+   }
+  }
+ },
+ "all_pass": true
+}

@@ -1,0 +1,169 @@
+{
+ "checks": {
+  "data": {
+   "GSE233886_WT/partI": {
+    "n": 1825,
+    "status": "PASS",
+    "issues": []
+   },
+   "GSE233886_WT/partII": {
+    "n": 14446,
+    "status": "PASS",
+    "issues": []
+   },
+   "GSE133393_WT/partI": {
+    "n": 1289,
+    "status": "PASS",
+    "issues": []
+   },
+   "GSE133393_WT/partII": {
+    "n": 14893,
+    "status": "PASS",
+    "issues": []
+   },
+   "PRJNA_iPS/partI": {
+    "n": 753,
+    "status": "PASS",
+    "issues": []
+   },
+   "PRJNA_iPS/partII": {
+    "n": 14904,
+    "status": "PASS",
+    "issues": []
+   },
+   "Subtelny14_ribomimo/partI": {
+    "n": 3921,
+    "status": "PASS",
+    "issues": []
+   },
+   "Mohammad16/partI": {
+    "n": 1179,
+    "status": "PASS",
+    "issues": []
+   },
+   "Mohammad19-1/partI": {
+    "n": 1426,
+    "status": "PASS",
+    "issues": []
+   },
+   "Mohammad19-2/partI": {
+    "n": 1598,
+    "status": "PASS",
+    "issues": []
+   }
+  },
+  "ckpt_cpu": {
+   "Paper_RiboPipe_MFE_H128/GSE133393_WT/seed123/fold0": {
+    "device": "cpu",
+    "n": 278,
+    "bitwise_equal": false,
+    "max_abs_diff": 0.012054443359375,
+    "max_abs_diff_tx_pearson": 0.00017530227921502828,
+    "abs_diff_median_pearson": 7.331742487870496e-05,
+    "status": "PASS"
+   },
+   "Paper_RiboPipe_MFE_H128/GSE133393_WT/seed123/fold3": {
+    "device": "cpu",
+    "n": 249,
+    "bitwise_equal": false,
+    "max_abs_diff": 0.011148452758789062,
+    "max_abs_diff_tx_pearson": 0.00019911963704088986,
+    "abs_diff_median_pearson": 3.7162419614933384e-06,
+    "status": "PASS"
+   },
+   "Paper_RiboPipe_MFE_H128/Mohammad16/seed123/fold0": {
+    "device": "cpu",
+    "n": 233,
+    "bitwise_equal": false,
+    "max_abs_diff": 0.013502120971679688,
+    "max_abs_diff_tx_pearson": 0.0006409446086324683,
+    "abs_diff_median_pearson": 1.3644303824333903e-05,
+    "status": "PASS"
+   },
+   "Paper_RiboPipe_MFE_H128/Mohammad16/seed123/fold3": {
+    "device": "cpu",
+    "n": 233,
+    "bitwise_equal": false,
+    "max_abs_diff": 0.023738861083984375,
+    "max_abs_diff_tx_pearson": 0.00020111834768909986,
+    "abs_diff_median_pearson": 2.7824457820235793e-05,
+    "status": "PASS"
+   },
+   "Paper_RiboPipe_noMFE_H128/PRJNA_iPS/seed123/fold1": {
+    "device": "cpu",
+    "n": 157,
+    "bitwise_equal": false,
+    "max_abs_diff": 0.004486083984375,
+    "max_abs_diff_tx_pearson": 0.0002710896699832377,
+    "abs_diff_median_pearson": 3.532478737944267e-05,
+    "status": "PASS"
+   },
+   "Paper_BiLSTM97/GSE233886_WT/seed123/fold2": {
+    "device": "cpu",
+    "n": 367,
+    "bitwise_equal": false,
+    "max_abs_diff": 0.013011932373046875,
+    "max_abs_diff_tx_pearson": 0.0001910881067264114,
+    "abs_diff_median_pearson": 1.3405128751475814e-06,
+    "status": "PASS"
+   }
+  },
+  "ckpt_gpu": {
+   "Paper_RiboPipe_MFE_H128/GSE133393_WT/seed123/fold0": {
+    "device": "cuda:1",
+    "n": 278,
+    "bitwise_equal": true,
+    "max_abs_diff": 0.0,
+    "max_abs_diff_tx_pearson": 0.0,
+    "abs_diff_median_pearson": 0.0,
+    "status": "PASS"
+   },
+   "Paper_RiboPipe_MFE_H128/GSE133393_WT/seed123/fold3": {
+    "device": "cuda:1",
+    "n": 249,
+    "bitwise_equal": true,
+    "max_abs_diff": 0.0,
+    "max_abs_diff_tx_pearson": 0.0,
+    "abs_diff_median_pearson": 0.0,
+    "status": "PASS"
+   },
+   "Paper_RiboPipe_MFE_H128/Mohammad16/seed123/fold0": {
+    "device": "cuda:1",
+    "n": 233,
+    "bitwise_equal": true,
+    "max_abs_diff": 0.0,
+    "max_abs_diff_tx_pearson": 0.0,
+    "abs_diff_median_pearson": 0.0,
+    "status": "PASS"
+   },
+   "Paper_RiboPipe_MFE_H128/Mohammad16/seed123/fold3": {
+    "device": "cuda:1",
+    "n": 233,
+    "bitwise_equal": true,
+    "max_abs_diff": 0.0,
+    "max_abs_diff_tx_pearson": 0.0,
+    "abs_diff_median_pearson": 0.0,
+    "status": "PASS"
+   },
+   "Paper_RiboPipe_noMFE_H128/PRJNA_iPS/seed123/fold1": {
+    "device": "cuda:1",
+    "n": 157,
+    "bitwise_equal": true,
+    "max_abs_diff": 0.0,
+    "max_abs_diff_tx_pearson": 0.0,
+    "abs_diff_median_pearson": 0.0,
+    "status": "PASS"
+   },
+   "Paper_BiLSTM97/GSE233886_WT/seed123/fold2": {
+    "device": "cuda:1",
+    "n": 367,
+    "bitwise_equal": true,
+    "max_abs_diff": 0.0,
+    "max_abs_diff_tx_pearson": 0.0,
+    "abs_diff_median_pearson": 0.0,
+    "status": "PASS"
+   }
+  }
+ },
+ "all_pass": true
+}

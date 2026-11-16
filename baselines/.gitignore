@@ -1,0 +1,3 @@
+# third-party code fetched by fetch_upstream.sh (not redistributed)
+upstream/
+__pycache__/

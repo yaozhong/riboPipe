@@ -1,0 +1,195 @@
+{
+ "gate_equivalence": {
+  "params_ref": 228321,
+  "params_new": 228321,
+  "bitwise": true,
+  "ok": true
+ },
+ "structure": {
+  "Letter_E1_A2_noNT": {
+   "params": 199873,
+   "status": "PASS"
+  },
+  "Letter_E1_A2_noNT_pm": {
+   "params": 227209,
+   "status": "PASS"
+  },
+  "Letter_E1_A3_noAA": {
+   "params": 200353,
+   "status": "PASS"
+  },
+  "Letter_E1_A3_noAA_pm": {
+   "params": 227689,
+   "status": "PASS"
+  },
+  "Letter_E1_A4_codonMFE": {
+   "params": 171905,
+   "status": "PASS"
+  },
+  "Letter_E1_A4_codonMFE_pm": {
+   "params": 228325,
+   "status": "PASS"
+  },
+  "Letter_E1_A5_noRecur": {
+   "params": 127457,
+   "status": "PASS"
+  },
+  "Letter_E1_A5_noRecur_pm": {
+   "params": 228635,
+   "status": "PASS"
+  },
+  "Letter_E1_A6_noConv": {
+   "params": 251713,
+   "status": "PASS"
+  },
+  "Letter_E1_A6_noConv_pm": {
+   "params": 227593,
+   "status": "PASS"
+  },
+  "Letter_E2_BiLSTM_pm": {
+   "params": 229137,
+   "status": "PASS"
+  },
+  "Letter_E2_BiLSTM_H128": {
+   "params": 295137,
+   "status": "PASS"
+  },
+  "Letter_E2_TF1_pm": {
+   "params": 231113,
+   "status": "PASS"
+  },
+  "Letter_E2_TF2_pm": {
+   "params": 226393,
+   "status": "PASS"
+  },
+  "Letter_E2_TF4_pm": {
+   "params": 220321,
+   "status": "PASS"
+  },
+  "Letter_E4L_HuberLog": {
+   "params": 228321,
+   "status": "PASS"
+  },
+  "Letter_E12_aaMFE": {
+   "params": 138369,
+   "status": "PASS"
+  },
+  "Letter_E12_ntMFE": {
+   "params": 138849,
+   "status": "PASS"
+  },
+  "Letter_E12_aantMFE": {
+   "params": 166817,
+   "status": "PASS"
+  },
+  "Letter_E12nm_C": {
+   "params": 169601,
+   "status": "PASS"
+  },
+  "Letter_E12nm_A": {
+   "params": 136065,
+   "status": "PASS"
+  },
+  "Letter_E12nm_N": {
+   "params": 136545,
+   "status": "PASS"
+  },
+  "Letter_E12nm_CA": {
+   "params": 197569,
+   "status": "PASS"
+  },
+  "Letter_E12nm_CN": {
+   "params": 198049,
+   "status": "PASS"
+  },
+  "Letter_E12nm_AN": {
+   "params": 164513,
+   "status": "PASS"
+  },
+  "Letter_E12nm_CAN": {
+   "params": 226017,
+   "status": "PASS"
+  },
+  "Letter_E3_frac0.05_d0": {
+   "params": 228321,
+   "status": "PASS"
+  },
+  "Letter_E3_frac0.05_d1": {
+   "params": 228321,
+   "status": "PASS"
+  },
+  "Letter_E3_frac0.05_d2": {
+   "params": 228321,
+   "status": "PASS"
+  },
+  "Letter_E3_frac0.1_d0": {
+   "params": 228321,
+   "status": "PASS"
+  },
+  "Letter_E3_frac0.1_d1": {
+   "params": 228321,
+   "status": "PASS"
+  },
+  "Letter_E3_frac0.1_d2": {
+   "params": 228321,
+   "status": "PASS"
+  },
+  "Letter_E3_frac0.2_d0": {
+   "params": 228321,
+   "status": "PASS"
+  },
+  "Letter_E3_frac0.4_d0": {
+   "params": 228321,
+   "status": "PASS"
+  },
+  "Letter_E3_frac0.7_d0": {
+   "params": 228321,
+   "status": "PASS"
+  }
+ },
+ "ckpt": {
+  "Letter_E1_A2_noNT/GSE133393_WT/fold0": {
+   "n": 278,
+   "bitwise_equal": true,
+   "max_abs_diff": 0.0,
+   "status": "PASS"
+  },
+  "Letter_E1_A5_noRecur_pm/Mohammad16/fold1": {
+   "n": 243,
+   "bitwise_equal": true,
+   "max_abs_diff": 0.0,
+   "status": "PASS"
+  },
+  "Letter_E1_A6_noConv/PRJNA_iPS/fold2": {
+   "n": 146,
+   "bitwise_equal": true,
+   "max_abs_diff": 0.0,
+   "status": "PASS"
+  },
+  "Letter_E2_BiLSTM_pm/GSE233886_WT/fold3": {
+   "n": 351,
+   "bitwise_equal": true,
+   "max_abs_diff": 0.0,
+   "status": "PASS"
+  },
+  "Letter_E2_TF2_pm/Mohammad19-1/fold4": {
+   "n": 284,
+   "bitwise_equal": true,
+   "max_abs_diff": 0.0,
+   "status": "PASS"
+  },
+  "Letter_E12nm_CA/DMSO_TX9P1/fold0": {
+   "n": 638,
+   "bitwise_equal": true,
+   "max_abs_diff": 0.0,
+   "status": "PASS"
+  },
+  "Letter_E3_frac0.2_d0/GSE133393_WT/fold1": {
+   "n": 263,
+   "bitwise_equal": true,
+   "max_abs_diff": 0.0,
+   "status": "PASS"
+  }
+ },
+ "all_pass": true
+}

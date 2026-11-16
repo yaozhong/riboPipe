@@ -1,0 +1,433 @@
+{
+ "description": "Inputs of the four main-figure reproduction scripts (reproduce/figures/fig1.py ... fig4.py). 'copied unchanged' files are aggregate result JSONs copied byte for byte from the machine that made the published figures; their md5 equals the md5 recorded in the published figure provenance. 'derived' files keep only what is drawn from larger internal artefacts and were made by the paper_results/derive_*.py scripts (which need the internal artefacts and are shipped for documentation).",
+ "published_provenance": {
+  "fig1": {
+   "file": "fig_partI_main_1115_v5_provenance.json",
+   "md5": "040891ea4dbc1831140974434cbae590"
+  },
+  "fig2": {
+   "file": "fig_part2_1115_v8_provenance.json",
+   "md5": "31c3950f77ac99ec850585aa301a02f8"
+  },
+  "fig3": {
+   "file": "fig_part2_use_1115_v4_provenance.json",
+   "md5": "b3c5a794d8225f41571713c8fc1edce4"
+  },
+  "fig4": {
+   "file": "fig_part3_merge_1115_v5_provenance.json",
+   "md5": "4ab0c95eb2a7352794e18c58b877c881"
+  }
+ },
+ "files": {
+  "application/a1_DMSO_TX9P1.json": {
+   "kind": "copied unchanged",
+   "md5": "2621952b9ebf7f99f7e0c70073b511dd",
+   "bytes": 367199,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Application_2026-11-13/results/a1_DMSO_TX9P1.json",
+   "md5_in_published_provenance": {
+    "fig3": "2621952b9ebf7f99f7e0c70073b511dd"
+   },
+   "figures": [
+    "fig3"
+   ]
+  },
+  "application/a1_GSE133393_WT.json": {
+   "kind": "copied unchanged",
+   "md5": "25f5a518a0be2744ad279967478176ee",
+   "bytes": 367009,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Application_2026-11-13/results/a1_GSE133393_WT.json",
+   "md5_in_published_provenance": {
+    "fig3": "25f5a518a0be2744ad279967478176ee"
+   },
+   "figures": [
+    "fig3"
+   ]
+  },
+  "application/a1_GSE233886_WT.json": {
+   "kind": "copied unchanged",
+   "md5": "e93c210d1b96aeb8c14c7410a688e688",
+   "bytes": 365802,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Application_2026-11-13/results/a1_GSE233886_WT.json",
+   "md5_in_published_provenance": {
+    "fig3": "e93c210d1b96aeb8c14c7410a688e688"
+   },
+   "figures": [
+    "fig3"
+   ]
+  },
+  "application/a1_PRJNA_iPS.json": {
+   "kind": "copied unchanged",
+   "md5": "13318df37857c6ef32d1cb08e001abb2",
+   "bytes": 365037,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Application_2026-11-13/results/a1_PRJNA_iPS.json",
+   "md5_in_published_provenance": {
+    "fig3": "13318df37857c6ef32d1cb08e001abb2"
+   },
+   "figures": [
+    "fig3"
+   ]
+  },
+  "application/gate_g1.json": {
+   "kind": "copied unchanged",
+   "md5": "b98769bfaba866189f533e5f72d5b1b7",
+   "bytes": 1128,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/ResponseLetter_exp_2026-11-12/analysis/P2_pp_tercile_cmp/results/gate_g1.json",
+   "md5_in_published_provenance": {
+    "fig3": "b98769bfaba866189f533e5f72d5b1b7"
+   },
+   "figures": [
+    "fig3"
+   ]
+  },
+  "application/n2_tercile_ci.json": {
+   "kind": "copied unchanged",
+   "md5": "5670c99ff20382643e364a03fdce95e2",
+   "bytes": 4349,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Application_2026-11-13/results/n2_tercile_ci.json",
+   "md5_in_published_provenance": {
+    "fig3": "5670c99ff20382643e364a03fdce95e2"
+   },
+   "figures": [
+    "fig3"
+   ]
+  },
+  "application/pp_tercile_cmp.json": {
+   "kind": "copied unchanged",
+   "md5": "6c60d4f931bf097bdf9f5b7cb90f0b89",
+   "bytes": 83093,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/ResponseLetter_exp_2026-11-12/analysis/P2_pp_tercile_cmp/results/pp_tercile_cmp.json",
+   "md5_in_published_provenance": {
+    "fig3": "6c60d4f931bf097bdf9f5b7cb90f0b89"
+   },
+   "figures": [
+    "fig3"
+   ]
+  },
+  "partI/PROTOCOL_PartI_v1.3.json": {
+   "kind": "copied unchanged",
+   "md5": "697395008f5c3c05fd1eb0f22eae3eca",
+   "bytes": 29109,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/protocol/PROTOCOL_PartI_v1.3.json",
+   "md5_in_published_provenance": {
+    "fig1": "697395008f5c3c05fd1eb0f22eae3eca"
+   },
+   "figures": [
+    "fig1"
+   ]
+  },
+  "partI/T2_matched_eval_elig.json": {
+   "kind": "copied unchanged",
+   "md5": "6f3c84daedd403adf1b8894ce686db30",
+   "bytes": 27242,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/report/partI_results/T2_matched_eval_elig.json",
+   "md5_in_published_provenance": {
+    "fig1": "6f3c84daedd403adf1b8894ce686db30"
+   },
+   "figures": [
+    "fig1"
+   ]
+  },
+  "partI/e1_results.json": {
+   "kind": "copied unchanged",
+   "md5": "0c6b4b8d2a632b28d64989f12a4529d0",
+   "bytes": 917185,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/ResponseLetter_exp_2026-11-12/analysis/E1/e1_results.json",
+   "md5_in_published_provenance": {
+    "fig1": "0c6b4b8d2a632b28d64989f12a4529d0"
+   },
+   "figures": [
+    "fig1"
+   ]
+  },
+  "partI/partI_eval_elig.json": {
+   "kind": "copied unchanged",
+   "md5": "a102fe4b1c03d004403e01155a55fd9f",
+   "bytes": 591430,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/report/partI_results/partI_eval_elig.json",
+   "md5_in_published_provenance": {
+    "fig1": "a102fe4b1c03d004403e01155a55fd9f"
+   },
+   "figures": [
+    "fig1"
+   ]
+  },
+  "partII/PARTII_CROSSOVER_v2.json": {
+   "kind": "copied unchanged",
+   "md5": "39ae5628b8d123b104450f1ca2ee7f0b",
+   "bytes": 4883,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/protocol/PARTII_CROSSOVER_v2.json",
+   "md5_in_published_provenance": {
+    "fig3": "39ae5628b8d123b104450f1ca2ee7f0b"
+   },
+   "figures": [
+    "fig3"
+   ]
+  },
+  "partII/eval_v2_ixnos/eval_v2_DMSO_TX9P1.json": {
+   "kind": "copied unchanged",
+   "md5": "f74c71e15e0b9a86b8dbe03e48910825",
+   "bytes": 65988,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/eval_v2_ixnos/DMSO_TX9P1/eval_v2_DMSO_TX9P1.json",
+   "md5_in_published_provenance": {
+    "fig2": "f74c71e15e0b9a86b8dbe03e48910825"
+   },
+   "figures": [
+    "fig2"
+   ]
+  },
+  "partII/eval_v2_ixnos/eval_v2_GSE133393_WT.json": {
+   "kind": "copied unchanged",
+   "md5": "c58731bf1fa38195a699fda2e56e7e35",
+   "bytes": 65055,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/eval_v2_ixnos/GSE133393_WT/eval_v2_GSE133393_WT.json",
+   "md5_in_published_provenance": {
+    "fig2": "c58731bf1fa38195a699fda2e56e7e35"
+   },
+   "figures": [
+    "fig2"
+   ]
+  },
+  "partII/eval_v2_ixnos/eval_v2_GSE233886_WT.json": {
+   "kind": "copied unchanged",
+   "md5": "6000256a454dfcd1c5f01b05f5c53b1c",
+   "bytes": 65362,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/eval_v2_ixnos/GSE233886_WT/eval_v2_GSE233886_WT.json",
+   "md5_in_published_provenance": {
+    "fig2": "6000256a454dfcd1c5f01b05f5c53b1c"
+   },
+   "figures": [
+    "fig2"
+   ]
+  },
+  "partII/eval_v2_ixnos/eval_v2_PRJNA_iPS.json": {
+   "kind": "copied unchanged",
+   "md5": "9b68ae18e8e7bb9c79d764e672ae94de",
+   "bytes": 64747,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/eval_v2_ixnos/PRJNA_iPS/eval_v2_PRJNA_iPS.json",
+   "md5_in_published_provenance": {
+    "fig2": "9b68ae18e8e7bb9c79d764e672ae94de"
+   },
+   "figures": [
+    "fig2"
+   ]
+  },
+  "partII/ixnos_addon_results.json": {
+   "kind": "copied unchanged",
+   "md5": "525ce4e8d73495b127d19416d22b99a5",
+   "bytes": 95641,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/report/partII_results/ixnos_addon/ixnos_addon_results.json",
+   "md5_in_published_provenance": {
+    "fig2": "525ce4e8d73495b127d19416d22b99a5"
+   },
+   "figures": [
+    "fig2"
+   ]
+  },
+  "partII/more_addon_results.json": {
+   "kind": "copied unchanged",
+   "md5": "f4a4f6efd489605ee8b807c10e5027f3",
+   "bytes": 226136,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/report/partII_results/more_predictors_addon/more_addon_results.json",
+   "md5_in_published_provenance": {
+    "fig2": "f4a4f6efd489605ee8b807c10e5027f3"
+   },
+   "figures": [
+    "fig2"
+   ]
+  },
+  "partII/partII_eval.json": {
+   "kind": "copied unchanged",
+   "md5": "31f870e3e5d572915a2d263955ea1f1e",
+   "bytes": 2504197,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/report/partII_results/rerun76/partII_eval.json",
+   "md5_in_published_provenance": {
+    "fig2": "31f870e3e5d572915a2d263955ea1f1e",
+    "fig3": "31f870e3e5d572915a2d263955ea1f1e"
+   },
+   "figures": [
+    "fig2",
+    "fig3"
+   ]
+  },
+  "partII/posterior_partII_results.json": {
+   "kind": "copied unchanged",
+   "md5": "4ad4c9758d5480dfa8b8524bfc8a2b3a",
+   "bytes": 115200,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/report/partII_results/posterior_partII/posterior_partII_results.json",
+   "md5_in_published_provenance": {
+    "fig3": "4ad4c9758d5480dfa8b8524bfc8a2b3a"
+   },
+   "figures": [
+    "fig3"
+   ]
+  },
+  "partII/thinning_seeds.json": {
+   "kind": "copied unchanged",
+   "md5": "3874cc145b4f9874e046ebe0a6d227e7",
+   "bytes": 83600,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/report/partII_results/rerun76/thinning_seeds/thinning_seeds.json",
+   "md5_in_published_provenance": {
+    "fig2": "3874cc145b4f9874e046ebe0a6d227e7"
+   },
+   "figures": [
+    "fig2"
+   ]
+  },
+  "partIII/figdata_partIII_levels.json": {
+   "kind": "copied unchanged",
+   "md5": "3dbcedcf30655e421c10e1a2add0273d",
+   "bytes": 39073,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/software/20260901_riboPipe_BIB_interp/2026-11-12_paperData/2026-11-15_overnight/experiments/figdata_partIII_levels.json",
+   "md5_in_published_provenance": {
+    "fig4": "3dbcedcf30655e421c10e1a2add0273d"
+   },
+   "figures": [
+    "fig4"
+   ]
+  },
+  "partIII/partIII_addendum_v2.json": {
+   "kind": "copied unchanged",
+   "md5": "40d701ae589d9ab558c1e1e99a745af8",
+   "bytes": 105393,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/report/partIII_results/partIII_addendum_v2.json",
+   "md5_in_published_provenance": {
+    "fig4": "40d701ae589d9ab558c1e1e99a745af8"
+   },
+   "figures": [
+    "fig4"
+   ]
+  },
+  "partIII/results_X1ext.json": {
+   "kind": "copied unchanged",
+   "md5": "76c918c334676e04df434d85f64f60f1",
+   "bytes": 659807,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/software/20260901_riboPipe_BIB_interp/2026-11-12_paperData/2026-11-15_overnight/experiments/results_X1ext.json",
+   "md5_in_published_provenance": {
+    "fig4": "76c918c334676e04df434d85f64f60f1"
+   },
+   "figures": [
+    "fig4"
+   ]
+  },
+  "partIII/results_X2.json": {
+   "kind": "copied unchanged",
+   "md5": "9046b9b2a9a04bd7b860a3db4f20968c",
+   "bytes": 203133,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/software/20260901_riboPipe_BIB_interp/2026-11-12_paperData/2026-11-15_overnight/experiments/results_X2.json",
+   "md5_in_published_provenance": {
+    "fig4": "9046b9b2a9a04bd7b860a3db4f20968c"
+   },
+   "figures": [
+    "fig4"
+   ]
+  },
+  "partIII/results_X3.json": {
+   "kind": "copied unchanged",
+   "md5": "3477b27ab617e369155db91f5bd5b4db",
+   "bytes": 40462,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/software/20260901_riboPipe_BIB_interp/2026-11-12_paperData/2026-11-15_overnight/experiments/results_X3.json",
+   "md5_in_published_provenance": {
+    "fig4": "3477b27ab617e369155db91f5bd5b4db"
+   },
+   "figures": [
+    "fig4"
+   ]
+  },
+  "partIII/results_X5.json": {
+   "kind": "copied unchanged",
+   "md5": "5617a123438c443859bd5739634de5a4",
+   "bytes": 186392,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/software/20260901_riboPipe_BIB_interp/2026-11-12_paperData/2026-11-15_overnight/experiments/results_X5.json",
+   "md5_in_published_provenance": {
+    "fig4": "5617a123438c443859bd5739634de5a4"
+   },
+   "figures": [
+    "fig4"
+   ]
+  },
+  "partIII/results_X7.json": {
+   "kind": "copied unchanged",
+   "md5": "7557dc14da187a4df0edc65c32ac15c2",
+   "bytes": 574161,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/software/20260901_riboPipe_BIB_interp/2026-11-12_paperData/2026-11-15_overnight/experiments/results_X7.json",
+   "md5_in_published_provenance": {
+    "fig4": "7557dc14da187a4df0edc65c32ac15c2"
+   },
+   "figures": [
+    "fig4"
+   ]
+  },
+  "partIII/xr_e12_fwd_logorep.json": {
+   "kind": "copied unchanged",
+   "md5": "ade707b186d192784eebfa73596c9926",
+   "bytes": 6819,
+   "original_path_76": "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/ResponseLetter_exp_2026-11-12/analysis/E12_crossreview/xr_e12_fwd_logorep.json",
+   "md5_in_published_provenance": {
+    "fig4": "ade707b186d192784eebfa73596c9926"
+   },
+   "figures": [
+    "fig4"
+   ]
+  },
+  "partI/fig1_derived.json": {
+   "kind": "derived",
+   "md5": "9db6776d92f2504e4e3139b308525a2f",
+   "bytes": 90934,
+   "made_by": "paper_results/derive_fig1.py",
+   "figures": [
+    "fig1"
+   ],
+   "derived_from": {
+    "(prediction runs) /mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partI/<config>/<dataset>/seed*/fold*": null,
+    "(counts, folds) /mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/data/PaperData_v1": null
+   },
+   "derived_from_md5_in_published_provenance": {},
+   "derivation_host": "dl-box3",
+   "derivation_time": "2026-11-16 14:23:20 JST"
+  },
+  "partII/fig2_depth_cdf.json": {
+   "kind": "derived",
+   "md5": "bda871852b63d2a405b2f9af8f4bbb3d",
+   "bytes": 1966088,
+   "made_by": "paper_results/derive_fig2.py",
+   "figures": [
+    "fig2"
+   ],
+   "derived_from": {
+    "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/eval_v2/DMSO_TX9P1/records_natural.tsv.gz": "afada85ba76b916beb3df68783d09620",
+    "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/eval_v2/GSE233886_WT/records_natural.tsv.gz": "3bc19da2806a7758abd6138e4aeec173",
+    "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/eval_v2/GSE133393_WT/records_natural.tsv.gz": "68a0caab7d61210729a15b9279b726a1",
+    "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/eval_v2/PRJNA_iPS/records_natural.tsv.gz": "7b552c80205a6d96b8097360822abc25"
+   },
+   "derived_from_md5_in_published_provenance": {},
+   "derivation_host": "dl-box3",
+   "derivation_time": "2026-11-16 14:18:55 JST"
+  },
+  "partIII/fig4_logos.json": {
+   "kind": "derived",
+   "md5": "beb5422a42c058f5ebe865a3415e9684",
+   "bytes": 9255,
+   "made_by": "paper_results/derive_fig4.py",
+   "figures": [
+    "fig4"
+   ],
+   "derived_from": {
+    "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/ResponseLetter_exp_2026-11-12/analysis/E12_motif/e12_logos.npz": "e35b3da9ca4ac138c0c50d1156151695"
+   },
+   "derived_from_md5_in_published_provenance": {
+    "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/ResponseLetter_exp_2026-11-12/analysis/E12_motif/e12_logos.npz": "e35b3da9ca4ac138c0c50d1156151695"
+   },
+   "derivation_host": "dl-box3",
+   "derivation_time": "2026-11-16 14:19:01 JST"
+  }
+ },
+ "not_shipped": {
+  "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/report/partIII_results/partIII_eval.json": "registered as an input by the Figure 4 generator but no value from it is drawn",
+  "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/ResponseLetter_exp_2026-11-12/analysis/E12_motif/e12_results.json": "loaded by the imported helper module of the Figure 4 generator; no value from it is drawn",
+  "/mnt/ws1/ribo_seq_work2/software/20260901_riboPipe_BIB_interp/2026-11-12_paperData/2026-11-15_overnight/experiments/results_X1ext_accuracy.json": "loaded by the Figure 4 generator (host assert only); no value from it is drawn",
+  "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/ResponseLetter_exp_2026-11-12/analysis/E12_motif/e12_logos.npz": "3.6 MB archive of 2,620 arrays; only the three drawn logos are shipped (partIII/fig4_logos.json)",
+  "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partII/eval_v2/<dataset>/records_natural.tsv.gz": "per-transcript record tables (include transcript IDs and per-transcript read totals); only the drawn depth curve is shipped (partII/fig2_depth_cdf.json)",
+  "/mnt/ws1/ribo_seq_work2/20261102_human_reAnalysis/2026-11-04_newSplit/Paper_2026-11-11/runs/partI + data/PaperData_v1": "per-codon predictions and counts (TX9_WT withheld until publication); only per-fold medians and hexbin cell counts are shipped (partI/fig1_derived.json)"
+ },
+ "total_bytes": 10290909
+}

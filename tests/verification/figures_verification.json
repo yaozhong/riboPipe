@@ -1,0 +1,360 @@
+{
+ "dpi_pdf_render": 200,
+ "renderer": "pdftoppm version 22.02.0",
+ "figures": {
+  "fig1": {
+   "published_pdf": "fig_partI_main_1115_v5.pdf",
+   "published_pdf_md5": "0464e228de2aa385af8e5fca1d5dba59",
+   "new_pdf_md5": "985fb1062c8cf07b5303d7f3eb95fe57",
+   "published_png_md5": "3f23be9ddf65d61bd691d47fefb44cd8",
+   "new_png_md5": "3f23be9ddf65d61bd691d47fefb44cd8",
+   "numbers": {
+    "keys_compared": [
+     "datasets",
+     "params_legend",
+     "panel_b",
+     "panel_d",
+     "panel_e"
+    ],
+    "n_leaves_compared": 1645,
+    "n_numeric_leaves_published": 1513,
+    "n_mismatches": 0,
+    "mismatches": []
+   },
+   "pdf_render_pixel_diff": {
+    "same_size": true,
+    "shape": [
+     1616,
+     1440,
+     3
+    ],
+    "max_abs_diff": 0,
+    "n_pixels_differing": 0,
+    "n_pixels": 2327040
+   },
+   "png_300dpi_pixel_diff": {
+    "same_size": true,
+    "shape": [
+     2423,
+     2160,
+     3
+    ],
+    "max_abs_diff": 0,
+    "n_pixels_differing": 0,
+    "n_pixels": 5233680
+   },
+   "pass": true,
+   "python": "3.10.18",
+   "matplotlib": "3.10.9"
+  },
+  "fig2": {
+   "published_pdf": "fig_part2_1115_v8.pdf",
+   "published_pdf_md5": "0789aef1390f9565e1d7e76b0588bdcc",
+   "new_pdf_md5": "e0bc67b972d0488e48c9467faabbcc68",
+   "published_png_md5": "9ec400b180159cfa9d9392bb360374d8",
+   "new_png_md5": "9ec400b180159cfa9d9392bb360374d8",
+   "numbers": {
+    "keys_compared": [
+     "numbers_drawn",
+     "labels_drawn",
+     "seed_counts_used"
+    ],
+    "n_leaves_compared": 694,
+    "n_numeric_leaves_published": 566,
+    "n_mismatches": 0,
+    "mismatches": []
+   },
+   "pdf_render_pixel_diff": {
+    "same_size": true,
+    "shape": [
+     1968,
+     1815,
+     3
+    ],
+    "max_abs_diff": 0,
+    "n_pixels_differing": 0,
+    "n_pixels": 3571920
+   },
+   "png_300dpi_pixel_diff": {
+    "same_size": true,
+    "shape": [
+     2951,
+     2721,
+     3
+    ],
+    "max_abs_diff": 0,
+    "n_pixels_differing": 0,
+    "n_pixels": 8029671
+   },
+   "pass": true,
+   "python": "3.10.18",
+   "matplotlib": "3.10.9"
+  },
+  "fig3": {
+   "published_pdf": "fig_part2_use_1115_v4.pdf",
+   "published_pdf_md5": "3f4be56493a185049b813fc55f41112f",
+   "new_pdf_md5": "9780ace135d09b99385f2a3690f56d9d",
+   "published_png_md5": "4bb293c68238fe115f730c18df7c26fe",
+   "new_png_md5": "4bb293c68238fe115f730c18df7c26fe",
+   "numbers": {
+    "keys_compared": [
+     "numbers_drawn"
+    ],
+    "n_leaves_compared": 1716,
+    "n_numeric_leaves_published": 1716,
+    "n_mismatches": 0,
+    "mismatches": []
+   },
+   "pdf_render_pixel_diff": {
+    "same_size": true,
+    "shape": [
+     1920,
+     1512,
+     3
+    ],
+    "max_abs_diff": 0,
+    "n_pixels_differing": 0,
+    "n_pixels": 2903040
+   },
+   "png_300dpi_pixel_diff": {
+    "same_size": true,
+    "shape": [
+     2880,
+     2268,
+     3
+    ],
+    "max_abs_diff": 0,
+    "n_pixels_differing": 0,
+    "n_pixels": 6531840
+   },
+   "pass": true,
+   "python": "3.10.18",
+   "matplotlib": "3.10.9"
+  },
+  "fig4": {
+   "published_pdf": "fig_part3_main_1115_v5.pdf",
+   "published_pdf_md5": "757a83d0d4abb04caba45e6b52bdc193",
+   "new_pdf_md5": "01b6f4969062ee93414e117f29e3e20d",
+   "published_png_md5": "ba2fa41510bcadbfe95000da7868d6cb",
+   "new_png_md5": "ba2fa41510bcadbfe95000da7868d6cb",
+   "numbers": {
+    "keys_compared": [
+     "numbers_drawn",
+     "numbers_drawn_new",
+     "main_logos"
+    ],
+    "n_leaves_compared": 1577,
+    "n_numeric_leaves_published": 1327,
+    "n_mismatches": 0,
+    "mismatches": []
+   },
+   "pdf_render_pixel_diff": {
+    "same_size": true,
+    "shape": [
+     1640,
+     1457,
+     3
+    ],
+    "max_abs_diff": 0,
+    "n_pixels_differing": 0,
+    "n_pixels": 2389480
+   },
+   "png_300dpi_pixel_diff": {
+    "same_size": true,
+    "shape": [
+     2460,
+     2185,
+     3
+    ],
+    "max_abs_diff": 0,
+    "n_pixels_differing": 0,
+    "n_pixels": 5375100
+   },
+   "pass": true,
+   "python": "3.10.18",
+   "matplotlib": "3.10.9"
+  }
+ },
+ "negative_controls": {
+  "one_ulp_change_detected": true,
+  "one_pixel_change_detected": true
+ },
+ "all_pass": true,
+ "other_environment": {
+  "all_pass": false,
+  "figures": {
+   "fig1": {
+    "published_pdf": "fig_partI_main_1115_v5.pdf",
+    "published_pdf_md5": "0464e228de2aa385af8e5fca1d5dba59",
+    "new_pdf_md5": "89cc6116178451a611523d168ed279a4",
+    "published_png_md5": "3f23be9ddf65d61bd691d47fefb44cd8",
+    "new_png_md5": "b421f49c197d25644579e89f211c9d79",
+    "numbers": {
+     "keys_compared": [
+      "datasets",
+      "params_legend",
+      "panel_b",
+      "panel_d",
+      "panel_e"
+     ],
+     "n_leaves_compared": 1645,
+     "n_numeric_leaves_published": 1513,
+     "n_mismatches": 0,
+     "mismatches": []
+    },
+    "pdf_render_pixel_diff": {
+     "same_size": true,
+     "shape": [
+      1616,
+      1440,
+      3
+     ],
+     "max_abs_diff": 0,
+     "n_pixels_differing": 0,
+     "n_pixels": 2327040
+    },
+    "png_300dpi_pixel_diff": {
+     "same_size": true,
+     "shape": [
+      2423,
+      2160,
+      3
+     ],
+     "max_abs_diff": 0,
+     "n_pixels_differing": 0,
+     "n_pixels": 5233680
+    },
+    "pass": true,
+    "python": "3.11.15",
+    "matplotlib": "3.10.7"
+   },
+   "fig2": {
+    "published_pdf": "fig_part2_1115_v8.pdf",
+    "published_pdf_md5": "0789aef1390f9565e1d7e76b0588bdcc",
+    "new_pdf_md5": "5e6c42f3e6043af88d2448656861af9b",
+    "published_png_md5": "9ec400b180159cfa9d9392bb360374d8",
+    "new_png_md5": "de6e6db4e5bf84721d227b8801846c64",
+    "numbers": {
+     "keys_compared": [
+      "numbers_drawn",
+      "labels_drawn",
+      "seed_counts_used"
+     ],
+     "n_leaves_compared": 694,
+     "n_numeric_leaves_published": 566,
+     "n_mismatches": 0,
+     "mismatches": []
+    },
+    "pdf_render_pixel_diff": {
+     "same_size": true,
+     "shape": [
+      1968,
+      1815,
+      3
+     ],
+     "max_abs_diff": 0,
+     "n_pixels_differing": 0,
+     "n_pixels": 3571920
+    },
+    "png_300dpi_pixel_diff": {
+     "same_size": true,
+     "shape": [
+      2951,
+      2721,
+      3
+     ],
+     "max_abs_diff": 0,
+     "n_pixels_differing": 0,
+     "n_pixels": 8029671
+    },
+    "pass": true,
+    "python": "3.11.15",
+    "matplotlib": "3.10.7"
+   },
+   "fig3": {
+    "published_pdf": "fig_part2_use_1115_v4.pdf",
+    "published_pdf_md5": "3f4be56493a185049b813fc55f41112f",
+    "new_pdf_md5": "078c719603cae1e16414961a31bcc32d",
+    "published_png_md5": "4bb293c68238fe115f730c18df7c26fe",
+    "new_png_md5": "69593b9cdc37a5ac0d563ff916547042",
+    "numbers": {
+     "keys_compared": [
+      "numbers_drawn"
+     ],
+     "n_leaves_compared": 1716,
+     "n_numeric_leaves_published": 1716,
+     "n_mismatches": 0,
+     "mismatches": []
+    },
+    "pdf_render_pixel_diff": {
+     "same_size": true,
+     "shape": [
+      1920,
+      1512,
+      3
+     ],
+     "max_abs_diff": 0,
+     "n_pixels_differing": 0,
+     "n_pixels": 2903040
+    },
+    "png_300dpi_pixel_diff": {
+     "same_size": true,
+     "shape": [
+      2880,
+      2268,
+      3
+     ],
+     "max_abs_diff": 0,
+     "n_pixels_differing": 0,
+     "n_pixels": 6531840
+    },
+    "pass": true,
+    "python": "3.11.15",
+    "matplotlib": "3.10.7"
+   },
+   "fig4": {
+    "published_pdf": "fig_part3_main_1115_v5.pdf",
+    "published_pdf_md5": "757a83d0d4abb04caba45e6b52bdc193",
+    "new_pdf_md5": "cdcc1bfc1a936f2cbc56bbf602299f29",
+    "published_png_md5": "ba2fa41510bcadbfe95000da7868d6cb",
+    "new_png_md5": "f70bc58615de65cbbe844783c3ca6bf3",
+    "numbers": {
+     "keys_compared": [
+      "numbers_drawn",
+      "numbers_drawn_new",
+      "main_logos"
+     ],
+     "n_leaves_compared": 1577,
+     "n_numeric_leaves_published": 1327,
+     "n_mismatches": 0,
+     "mismatches": []
+    },
+    "pdf_render_pixel_diff": {
+     "same_size": true,
+     "shape": [
+      1640,
+      1457,
+      3
+     ],
+     "max_abs_diff": 0,
+     "n_pixels_differing": 0,
+     "n_pixels": 2389480
+    },
+    "png_300dpi_pixel_diff": {
+     "same_size": true,
+     "shape": [
+      2460,
+      2185,
+      3
+     ],
+     "max_abs_diff": 1,
+     "n_pixels_differing": 2,
+     "n_pixels": 5375100
+    },
+    "pass": false,
+    "python": "3.11.15",
+    "matplotlib": "3.10.7"
+   }
+  }
+ }
+}

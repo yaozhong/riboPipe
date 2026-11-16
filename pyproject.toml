@@ -1,9 +1,9 @@
 [project]
 name = "ribopipe"
-version = "1.2.1"
-description = "Within-sample Ribo-seq imputation: predict codon-level pause profiles for low-coverage transcripts"
+version = "2.0.0"
+description = "A lightweight sequence-based predictor of relative footprint density for within-sample imputation of low-coverage ribosome profiles"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 license = {text = "MIT"}
 authors = [{ name = "The RiboPipe Authors" }]
 keywords = ["ribosome-profiling", "ribo-seq", "imputation", "translation", "bioinformatics"]
@@ -13,26 +13,17 @@ classifiers = [
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
-dependencies = [
-    "numpy",
-    "pandas",
-    "scipy",
-    "scikit-learn",
-    "torch>=1.12",
-    "biopython",
-    "tqdm",
-    "matplotlib",
-]
+dependencies = ["numpy>=1.22", "scipy>=1.8", "torch>=1.12"]
 
 [project.optional-dependencies]
-# ViennaRNA is only needed to (re)generate the local-structure (MFE) feature cache
-# used by the headline motif-CNN + BiGRU model. Training/prediction on an
-# existing cache do not require it.
-struct = ["ViennaRNA>=2.5"]
-# Raw-read -> P-site -> codon-count CSV conversion (ribopipe raw2csv). Only needed to
-# go from BAM to the package's input CSV; training/prediction on a CSV do not import it.
-raw = ["pysam>=0.17"]
+# ViennaRNA computes the folding-energy (MFE) tracks for new data (`ribopipe prepare`) and for the model analyses
+# that recompute MFE after a sequence edit. Training and prediction on the released data do not need it.
+mfe = ["ViennaRNA>=2.5"]
+plot = ["matplotlib>=3.5"]
 test = ["pytest"]
+# scikit-learn is imported by the official RiboMIMO code (python -m baselines.run). RiboExp and RiboGL need a separate
+# environment: requirements/gnn-baselines.txt.
+baselines = ["scikit-learn>=1.0"]
 
 [project.urls]
 Homepage = "https://github.com/yaozhong/riboPipe"
@@ -47,3 +38,9 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 include = ["ribopipe*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.json.gz"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

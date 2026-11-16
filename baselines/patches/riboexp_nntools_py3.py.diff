@@ -1,0 +1,32 @@
+--- a/riboexp_nntools_py3.py
++++ b/riboexp_nntools_py3.py
+@@ -1 +1,2 @@
++# [PAPER-PY3] Paper_2026-11-11 port of official Riboexp code/nntools/nntools.py; only onehot/repackage_var are used
+ #!/usr/bin/python3
+@@ -11,6 +12,7 @@
+     """Wraps hidden states in new Variables, to detach them from their history."""
+-    if type(vs) == Variable:
+-        return Variable(vs.data, requires_grad = requires_grad)
+-    elif type(vs) == Parameter:
++    # [PAPER-PY3] torch>=0.4 merged Variable into Tensor: test Parameter first, then any tensor -> detach
++    if type(vs) == Parameter:
+         return Parameter(vs.data,requires_grad = requires_grad)
++    elif torch.is_tensor(vs):
++        return vs.detach().requires_grad_(requires_grad)
+     else:
+@@ -21,10 +23,7 @@
+     batch_size = data1.size()[0]
+-    data = data1.view(-1,1)  
+-    if hasattr(data1,'data'):
+-        assert  (torch.max(data1)< n_dimension).data.all() # bs,1
+-        y_onehot = Variable(torch.FloatTensor(data.size(0),n_dimension).zero_())
+-        ones = Variable(torch.FloatTensor(data.size()).fill_(1))
+-    else:
+-        y_onehot = torch.FloatTensor(data.size(0),n_dimension).zero_()
+-        ones = torch.FloatTensor(data.size()).fill_(1)
++    data = data1.reshape(-1,1)  # [PAPER-PY3] reshape (non-contiguous safe); same values
++    # [PAPER-PY3] every input is a Tensor in torch2 (original branched on Variable vs Tensor; both built the same float one-hot)
++    assert  bool((torch.max(data1)< n_dimension).all()) # bs,1
++    y_onehot = torch.zeros(data.size(0),n_dimension)
++    ones = torch.ones(data.size())
+ 

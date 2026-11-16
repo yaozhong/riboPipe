@@ -5,40 +5,24 @@ __pycache__/
 dist/
 build/
 *.egg
-
-# Virtual environments
 .venv/
 venv/
-env/
-
-# Jupyter
-.ipynb_checkpoints/
-
-# Test / build caches and stray logs
 .pytest_cache/
+.ipynb_checkpoints/
 *.log
 
-# Model checkpoints and data (too large for git)
-*.pt
-*.npz
-*.h5
-*.pkl
-
-# Output directories
+# run outputs and checkpoints written by users
+runs/
 output/
-results/
+reproduce/figures/out/
+*.pt
 
-# OS
+# release data: count matrices are tracked; MFE tracks are release assets (tools/download_mfe.py)
+*.npz
+!data/*/*.npz
+data/mfe/*
+!data/mfe/README.md
+
 .DS_Store
-Thumbs.db
-
-# IDE
 .vscode/
 .idea/
-
-# Public benchmark dataset (small, intentionally tracked)
-!data/TX9_WT/tx9_wt_benchmark.npz
-!data/TX9_WT/
-!data/GSE233886_WT/gse233886_wt_benchmark.npz
-!data/GSE133393_WT/gse133393_wt_benchmark.npz
-!data/PRJNA_iPS/prjna_ips_benchmark.npz

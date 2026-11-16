@@ -1,0 +1,70 @@
+{
+ "file": "PARTII_CROSSOVER",
+ "version": "2",
+ "created": "2026-11-12 08:06:15",
+ "status": "FROZEN by user approval 2026-11-12 (before any D* on this axis); supersedes v1 (candidate)",
+ "supersedes": {
+  "file": "protocol/PARTII_CROSSOVER_v1.json",
+  "md5": "97bb105830d658f375da6712f87ad425"
+ },
+ "x_axis_primary": "min(R1, R2) / L in reads/codon: PRE-thinning depth of the SHALLOWER of the two biological replicates (as defined in the approved PaperData_v1.0 data report); identical for both role assignments",
+ "input_depth_primary": "natural depth: the deeper replicate is binomially thinned only to the shallower replicate's expected depth (REFERENCE_PROTOCOL); NO additional per-bin thinning",
+ "x_axis_sensitivity": [
+  "realised post-matching input depth (input_total_matched / L)",
+  "per-bin thinned input library (v1 grid-thinning design), same transcripts at controlled depths"
+ ],
+ "zero_depth": "transcripts with 0 reads after thinning: reported as counts only (N_records, N_scored); never placed on the log axis, never interpolated",
+ "edges_reads_per_codon": [
+  6.67e-05,
+  0.0001012,
+  0.0001537,
+  0.0002333,
+  0.0003542,
+  0.0005378,
+  0.0008165,
+  0.0012396,
+  0.0018821,
+  0.0028574,
+  0.0043383,
+  0.0065866,
+  0.01,
+  0.0151824,
+  0.0230506,
+  0.0349964,
+  0.0531329,
+  0.0806686,
+  0.1224745,
+  0.1859459,
+  0.2823108,
+  0.4286161,
+  0.6507428,
+  0.9879849,
+  1.5
+ ],
+ "edges_note": "v1 grid (12 log bins 0.01..1.5, ratio 1.5182) extended DOWNWARD with the same ratio to <= 0.0001 so that every positive depth falls in a bin (observed minimum positive depth 0.00011-0.00023 across the four datasets); bins with N_scored < 30 per role are invalid by rule",
+ "x_abscissa": "log10 of the geometric centre of each bin (fixed by the edges, not data-dependent)",
+ "per_bin_value": "for each role separately: median(model corr) - median(reads corr) over the SAME scorable transcripts; bin valid only if EACH role has N_scored >= 30; bin value = equal-weight mean of the two roles",
+ "per_bin_counts": "N_eligible / N_with_reference / N_scored per role",
+ "interpolation": "linear in log10 depth between ADJACENT valid bins only; an invalid bin breaks the curve (no interpolation across it)",
+ "sign": "y > 0 positive; y <= 0 non-positive; crossing = positive -> non-positive between adjacent valid bins",
+ "uniqueness": "exactly one crossing required; otherwise NOT_LOCATABLE",
+ "bootstrap": "resample similarity units with replacement (both roles of a transcript, and all transcripts of a unit, drawn together); B = 2000; localization failure fraction > 0.10 -> NOT_LOCATABLE",
+ "wording": {
+  "OK": "D* with 95% bootstrap CI",
+  "NO_SIGN_CHANGE": "the paired difference did not change sign within [lo, hi] reads/codon",
+  "NOT_LOCATABLE": "no crossover could be located under the pre-registered rule"
+ },
+ "interpretation": "D* is the crossover depth RELATIVE TO AN INDEPENDENT REPLICATE LIBRARY (a noisy reference); with a noisy reference the crossing of median correlations lies a few percent above the crossing against noise-free truth (synthetic check: 0.594 vs theoretical 0.5625). Bins are formed ACROSS transcripts at their natural depths: a per-bin difference mixes depth with transcript properties that covary with depth; the per-bin thinning sensitivity (same transcripts at controlled depth) addresses this",
+ "dataset_notes": {
+  "GSE133393_WT": "not deduplicated: depth includes PCR duplicates; not directly comparable with the other three datasets",
+  "PRJNA_iPS": "top bin [0.988, 1.5) empty and next bin 34 transcripts: analysable range ends near 0.99 reads/codon by the N_scored >= 30 rule"
+ },
+ "changes_vs_v1": [
+  "x axis: post-thinning input depth -> min(R1,R2)/L pre-thinning (approved data report definition; role-invariant). Reason: v1 axis differed from the approved report, could move a transcript between bins when roles swap, and could exceed 1.5 after random thinning",
+  "input depth: per-bin thinning -> natural depth after expected-depth matching (per-bin thinning kept as sensitivity). Reason: primary axis then reflects the real low-coverage distribution",
+  "edges: extended downward with the same log ratio to 0.0001 (adds 12 bins). Reason: 0 < d < 0.01 held 9.6-22.2% of T_low and fell outside every bin; a single wide [0.0001,0.01) bin was considered (user-approved option) but rejected because its fixed geometric-centre abscissa (0.001) would misplace a bin whose transcripts lie mostly in 0.005-0.01, biasing interpolation; the uniform grid keeps one abscissa rule for all bins",
+  "PRJNA_iPS high-end empty bin: no edge change; invalid by rule; analysable range reported",
+  "added interpretation and dataset notes (reference-relative D*, cross-transcript binning, GSE133393 PCR duplicates)"
+ ],
+ "reference_implementation": "paper_eval/partII_crossover.py (definitions unchanged; only edges and axis inputs change)"
+}

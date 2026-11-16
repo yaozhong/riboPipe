@@ -1,0 +1,15 @@
+# Versions used to compute the manuscript's results (RiboPipe, in-house baselines, iXnos, RiboMIMO, Part II, Part III).
+# Use as a constraints file, e.g. in a fresh Python 3.11 environment:
+#   pip install torch==2.1.2 --index-url https://download.pytorch.org/whl/cu121      # or the CPU wheel
+#   pip install ".[mfe,plot,test,baselines]" -c requirements/paper-stack.txt
+# With these versions on the authors' machine (RTX 4090), retraining with seed 123 reproduced the original runs bit for
+# bit and the routing gate was bit-identical. Other versions work (see docs/REPRODUCE.md, "Tolerances").
+numpy==1.26.4
+scipy==1.12.0
+torch==2.1.2
+scikit-learn==1.8.0
+# The MFE tracks were computed with ViennaRNA 2.7.0; ViennaRNA 2.8.0 (current pip wheel) gave identical values on
+# 300 transcripts tested.
+ViennaRNA>=2.7,<2.9
+matplotlib==3.10.7
+pytest==9.2.0

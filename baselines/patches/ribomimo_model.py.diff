@@ -1,0 +1,12 @@
+--- a/model.py
++++ b/model.py
+@@ -61,3 +61,3 @@
+     def get_rnn_feature(self, x, length):
+-        x = pack_padded_sequence(x, length, batch_first=True)
++        x = pack_padded_sequence(x, length.cpu(), batch_first=True)  # PAPER-COMPAT: torch>=1.7 要求 lengths 在 CPU（无语义改动）
+         x, _ = self.rnn(x)
+@@ -277,3 +277,3 @@
+             density_level.append(levels)
+-        self.density_level = np.array(density_level)
++        self.density_level = np.array(density_level, dtype=object)  # PAPER-COMPAT: numpy>=1.24 不再隐式建 ragged 数组（无语义改动）
+ 

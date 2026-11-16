@@ -1,0 +1,530 @@
+{
+ "protocol": "PROTOCOL_PartI",
+ "status": "CANDIDATE (pre-pilot). The ONLY authoritative Part I protocol. Method configurations are NOT yet frozen: until the four hparams audits are back-filled and bound by md5 (next version), baselines may only be called 'pilot configurations', not 'audited formal baselines'. Any post-pilot change that can alter predictions or ranking -> new version + rerun of affected pilots.",
+ "created": "2026-11-12 00:49:31",
+ "design_doc": {
+  "path": "docs/model_audit/2026-11-11_PartI_Comparison_Design_v3.md",
+  "md5": "24333401574961c8dc6228c41b17db6f"
+ },
+ "data": {
+  "tag": "PaperData_v1.0",
+  "path": "data/PaperData_v1",
+  "manifest_md5": "63080cc9a3144c83834f938560ba6b18",
+  "splits": "human: folds_partI.json (test, val); nonhuman: folds.json (test, val). Every runner reads frozen test/val IDs first, then applies its own training filter to the remaining training IDs",
+  "length_cap": "none"
+ },
+ "task": "Given CDS sequence only (no Ribo-seq counts of test transcripts as input), predict relative per-codon RPF distribution on transcripts sequence-isolated from training",
+ "truth": {
+  "definition": "y_i = c_i / mean_full(c) over the whole CDS (zeros included), c = frozen avg_count (A-site)",
+  "note": "scoring takes subsets of y; the denominator never changes with the scoring domain"
+ },
+ "domains": {
+  "primary": {
+   "name": "interior",
+   "positions": "[20, L-20)",
+   "zeros": "kept"
+  },
+  "secondary_required": {
+   "name": "full",
+   "positions": "[0, L)",
+   "zeros": "kept"
+  },
+  "sensitivity": [
+   "positive_only (interior, c>0)",
+   "5prime_20",
+   "3prime_20",
+   "coverage_strata",
+   "length_strata",
+   "spike_transcripts"
+  ]
+ },
+ "position_provenance": {
+  "codes": [
+   "model",
+   "adapter",
+   "undefined"
+  ],
+  "rules": [
+   "adapter positions are never counted as model predictions",
+   "interior primary uses model positions only; a transcript whose interior domain contains adapter/undefined positions is unscorable for that method",
+   "full-length: deployed row (pre-registered endpoint policy, adapter fraction reported) and native-coverage row; no legitimate full-length output -> NA",
+   "undefined positions are never silently zero-filled"
+  ]
+ },
+ "scorability": {
+  "truth": "domain has >= 3 positions and truth non-constant (interior requires L-40 >= 3, so L=41,42 excluded)",
+  "method": "prediction finite and non-constant on the domain (model positions only for interior)"
+ },
+ "status_codes": {
+  "MODEL_FAILED": "seed x fold: all predictions non-finite or constant, or run failed within allowed attempts -> method's 3-seed main score on that dataset = FAILED",
+  "NO_SCORABLE_TRUTH": "transcript whose truth is not scorable on the domain (< 3 positions or constant truth): KEPT in N_domain; excluded from N_truth_scorable, from every performance statistic and from every paired set; never counted as a model failure",
+  "NO_PAIRED_SUPPORT": "dataset x method pair: empty paired set -> NA, no number, no rank",
+  "transcript_unscorable_for_method": "removes the transcript from that method's set only; not MODEL_FAILED"
+ },
+ "aggregation": {
+  "cell": "M(d,m,s,f;T) = median over transcripts in T of per-transcript Pearson",
+  "method_score": "S(d,m;T) = mean over pre-registered seeds of [ mean over 5 folds (equal weight) of M ]; single-model expected performance, NOT an ensemble of seed predictions",
+  "deterministic_methods": "trained once (codon_mean, tricodon, ridge, rust)",
+  "sets": {
+   "absolute": "T_A,f = {t in test fold f : truth-scorable on the domain AND A scorable on the domain in EVERY pre-registered seed}",
+   "paired": "T_AB,f = per fold f, per method pair (A,B): truth-scorable AND A scorable in every pre-registered seed AND B scorable in every pre-registered seed (one common set for all seeds of both methods; never a per-seed set)",
+   "fig_A_forest": "each cell uses its own T_AB,f; the cell is annotated with N_paired = sum over folds of the size of T_AB,f and N_paired/N_truth_scorable",
+   "fig_B_interior_vs_full": "one common population per (dataset, method): transcripts truth-scorable on BOTH domains and scorable by the method on BOTH domains (interior: model positions only; full: deployed policy) in every seed; both bars computed on that same population",
+   "mfe_interaction": "common set of the four arms (RiboPipe H128 +/-MFE, RiboMIMO-adapt +/-MFE): truth-scorable AND all four arms scorable in every seed",
+   "deterministic_methods": "seed set = {det}; 'every seed' means that single run"
+  },
+  "dispersion": "mean [min, max] over seeds",
+  "coverage_column": "N_scored / N_domain",
+  "report_format": {
+   "score": "S mean [min, max] over the pre-registered seeds (deterministic: single value)",
+   "coverage": "N_domain = universe transcripts whose domain is non-empty (interior: L > 40 codons); N_truth_scorable <= N_domain; N_scored = sum over folds of the size of T_A,f (truth-scorable AND scorable by the method in every seed). Report N_scored/N_domain (overall scorable fraction) AND N_scored/N_truth_scorable (what the method itself loses)",
+   "units": "per dataset: universe size, N_domain, N_truth_scorable from report/ledgers/data_eligibility_ledger.json (pre-run); N_scored, failures, N_paired from the run/scoring ledger (post-T1)"
+  },
+  "denominator_regression": "PRJNA_iPS interior: N_domain 751 -> N_truth_scorable 750 -> N_scored (per method); asserted by paper_eval/build_eligibility_ledger.py",
+  "empty_fold": "if a fold's set is empty (absolute: T_A,f; paired: T_AB,f) while the models trained successfully, the five-fold quantity is 'NA: empty paired fold' (listing the fold); never re-averaged over the remaining folds and never MODEL_FAILED"
+ },
+ "metrics": {
+  "primary": "per-transcript Pearson (linear, truth y)",
+  "secondary": [
+   "per-transcript Spearman",
+   "peak recall: true peaks = top 5% of truth in domain (fixed); predicted top-k with expected-hit tie handling at the cutoff"
+  ],
+  "supplementary": [
+   "pooled Pearson",
+   "native-domain metrics (extended table only)",
+   "amplitude recovery (no test-truth optimal rescaling for deployable claims)",
+   "compression index",
+   "spike-transcript failure rate"
+  ],
+  "dropped": [
+   "Jaccard (== Rec/(2-Rec))"
+  ],
+  "peak_recall_rule": "true peaks = domain positions with y >= numpy.quantile(y_domain, 0.95, linear); all truth ties at that value are included; k = number of true peaks; k = 0 or k = domain length -> unscorable for this metric; predicted top-k: positions strictly above the k-th largest prediction are taken, ties at the k-th value contribute expected hits = (k - n_strictly_above) * (true peaks among the tied) / (number tied); recall = expected hits / k",
+  "implementation": "paper_eval/score_partI.py: pearson, spearman (average ranks), recall5"
+ },
+ "uncertainty": {
+  "interval": "cluster bootstrap within fold over frozen similarity units; one draw applies to both methods and all seeds; recompute full Delta; B=2000; 95% percentile (descriptive)",
+  "retraining": "report seed points / [min,max] separately"
+ },
+ "decision": {
+  "delta": 0.01,
+  "core_comparators": [
+   "RiboMIMO",
+   "iXnos+MFE (fixed-seed original)",
+   "RiboGL-heldout"
+  ],
+  "figure_classes": {
+   "superior": "95% CI entirely > +delta",
+   "inferior": "entirely < -delta",
+   "equivalent": "entirely within (-delta,+delta)",
+   "undetermined": "touches or crosses a bound",
+   "failed_or_NA": "separate symbol"
+  },
+  "families": {
+   "superiority": {
+    "m": 24,
+    "cells": "interior per-transcript Pearson x 3 core comparators x 8 datasets",
+    "H0": "Delta <= +delta",
+    "alpha": 0.05,
+    "procedure": "Holm step-down"
+   },
+   "equivalence": {
+    "m": 24,
+    "cells": "same 24 cells",
+    "H0": "abs(Delta) >= delta (TOST)",
+    "alpha": 0.05,
+    "procedure": "Holm step-down"
+   },
+   "failed_or_NA_cells": "stay in the family with p = 1 (never rejected); family size m stays 24; no re-run to fill a failed cell",
+   "independence": "two families controlled separately; no claim is made across families",
+   "figure_vs_test": "figure classes come from the 95% bootstrap CI (descriptive); a 'formal' marker is added only for Holm-rejected cells"
+  },
+  "p_values": "boundary-shifted Wald with cluster-bootstrap SE (B=2000, unit resampling within fold, same draw for both methods and all seeds): p_sup = 1 - Phi((D - delta)/SE); TOST p_lo = 1 - Phi((D + delta)/SE), p_hi = Phi((D - delta)/SE), p_eq = max(p_lo, p_hi); SE = 0 -> p by sign of the boundary comparison",
+  "statistical_claims": {
+   "superiority_beyond_delta": {
+    "H0": "Delta <= +0.01",
+    "H1": "Delta > +0.01",
+    "p": "p_sup = 1 - Phi((D - 0.01)/SE)",
+    "family": "superiority, m = 24, Holm alpha 0.05",
+    "wording_if_rejected": "exceeds the practical-significance threshold of 0.01 (formal)"
+   },
+   "equivalence": {
+    "H0": "abs(Delta) >= 0.01",
+    "H1": "-0.01 < Delta < 0.01",
+    "p": "TOST: p_eq = max(1 - Phi((D + 0.01)/SE), Phi((D - 0.01)/SE))",
+    "family": "equivalence, m = 24, Holm alpha 0.05",
+    "wording_if_rejected": "equivalent within +/-0.01 (formal)"
+   },
+   "better_than_zero": "NOT pre-registered and NOT tested; the manuscript must not state 'significantly better than zero'",
+   "figure_classes": "descriptive only: colour from the 95% cluster-bootstrap CI vs +/-0.01 (superior / inferior / equivalent / undetermined); 'formal' marker only for Holm-rejected cells",
+   "undetermined": "means the CI touches or crosses a bound; it is NOT evidence of no difference",
+   "failed_or_NA": "p = 1 inside its family (m stays 24); effect size reported as NA, never imputed",
+   "seed_range": "[min, max] over the three seeds is a retraining range, NOT a confidence interval"
+  }
+ },
+ "seeds": {
+  "preregistered": [
+   123,
+   124,
+   125
+  ],
+  "machine_interruption": "resume with original config and seed; logged",
+  "retry_stabilized_ixnos_mfe": {
+   "max_total_attempts": 3,
+   "attempt_seeds": "s, s+1000, s+2000 per original seed x fold",
+   "trigger": "training output all zero OR validation loss non-finite",
+   "selection": "first passing attempt"
+  }
+ },
+ "methods": {
+  "Paper_RiboPipe_MFE_H128": {
+   "group": "ours",
+   "config": "MB1v2NoC2MFE H128 (228,321 params); gamma=0.5 weighted log-MSE; Adam 1e-3 wd 1e-6 StepLR(5,0.95); window 64 / stride 16; <=99 epochs; patience 5 on val median per-tx Pearson; no dropout; MFE standardized per fold on training valid windows (MFE_NORM_FOLDWISE.json), padding masked"
+  },
+  "Paper_RiboMIMO": {
+   "group": "published",
+   "label": "official architecture, adapted training driver",
+   "config": "official 97-dim input & network; training coverage filter mean(c>0.5)>0.6; Xavier; class thresholds computed before end trimming; 5/4 end handling; loss domain c>0.5; MSE + 3*CE; frozen val"
+  },
+  "Paper_iXnos_seq": {
+   "group": "published",
+   "config": "codon[-5,+4] + nt[-15,+14]; 20/20 training trim; interior-mean target; MSE; official gene filters (min_cod_w_data=100; top-500 from current training fold only, all if <500, count logged); schedule human 70/32, yeast 60/16, E. coli 60/16 (pre-registered cross-species adaptation); log windows and optimizer steps"
+  },
+  "Paper_iXnos_MFE": {
+   "group": "published",
+   "config": "as iXnos_seq + 3 raw MFE windows (footprint windows); fixed-seed original recipe (core comparator)"
+  },
+  "Paper_iXnos_MFE_stabilized": {
+   "group": "published-variant",
+   "config": "as iXnos_MFE + retry rule (seeds.retry_stabilized_ixnos_mfe); separately named"
+  },
+  "Paper_RiboExp": {
+   "group": "published",
+   "config": "official default WITH structure features, official training filters, effective windows, selector; native validation frequency / rationale-length condition restored or explicitly labelled; params counted on full predictive path; if numeric check vs official fails -> report 'faithful reproduction not achieved' (no substitution)"
+  },
+  "Paper_RiboGL_heldout": {
+   "group": "published",
+   "config": "official code; native TRAINING gene filter restored (coverage>30%, NaN<=5%, max zero-run<=20) for training only; checkpoint on frozen val; inference on all eligible test transcripts; blind-inference test required; output softmax scored as-is against linear truth (Pearson, Spearman) + native-scale correlation reported"
+  },
+  "Paper_RUST": {
+   "group": "reference",
+   "config": "enrichment re-implementation, no 1000 cap, trained once"
+  },
+  "Paper_Ridge": {
+   "group": "reference",
+   "config": "one-hot +/-5 codons, alpha=10, fit on training fold only, trained once"
+  },
+  "Paper_CodonMean": {
+   "group": "reference-extended"
+  },
+  "Paper_TriCodon": {
+   "group": "reference-extended",
+   "note": "position (P,A,A+1); unseen -> global mean"
+  },
+  "Paper_RiboExp_noStruct_port": {
+   "group": "extended"
+  },
+  "Paper_RiboMIMO_impl": {
+   "group": "control"
+  },
+  "Paper_BiLSTM97": {
+   "group": "control"
+  },
+  "T3": {
+   "Paper_RiboPipe_noMFE_H128": "identical to Paper_RiboPipe_MFE_H128 except the 3 MFE inputs and the parameters they require",
+   "Paper_RiboPipe_MFE_H110": "width check: as MFE_H128 with hidden 110",
+   "Paper_RiboPipe_noMFE_H110": "width check: as noMFE_H128 with hidden 110",
+   "Paper_RiboMIMO_adapt_MFE": "task-adapted RiboMIMO backbone + the same 3 valid MFE inputs (fold-wise standardised, padding masked)",
+   "Paper_RiboMIMO_adapt_noMFE": "identical to Paper_RiboMIMO_adapt_MFE except the MFE inputs and the parameters they require",
+   "Paper_RiboPipe_MFE_logSE": "loss_target_3 arm 2: log1p(y) + plain SE",
+   "loss_target_3_arm3": "linear y + plain SE = the SAME config as T2 Paper_RiboPipe_MFE_linear (no separate config_id)",
+   "Paper_BiLSTM97": "simple backbone control"
+  },
+  "T2": {
+   "Paper_RiboPipe_MFE_linear": "RiboPipe-MFE H128 trained on linear y = c/mean(c), plain SE",
+   "Paper_RiboMIMO_L2": "RiboMIMO with y = c/mean(c), padding-only mask, no end trim",
+   "Paper_iXnos_nocut": "iXnos with y = c/mean(c), no 20/20 trim",
+   "Paper_RiboGL_L2_heldout": "prediction = L_eff * softmax(z) vs y, padding excluded; loss coefficients and reduction registered"
+  },
+  "sensitivity": {
+   "same_checkpoint_criterion": [
+    "Paper_RiboMIMO",
+    "Paper_RiboPipe_MFE_H128"
+   ]
+  }
+ },
+ "logging": {
+  "run": [
+   "dataset",
+   "config_id",
+   "method",
+   "seed",
+   "attempt",
+   "fold",
+   "checkpoint_id",
+   "n_train_tx",
+   "n_train_windows",
+   "n_optimizer_steps",
+   "val_metric",
+   "selected_epoch",
+   "failure_reason",
+   "data_tag",
+   "manifest_md5",
+   "protocol_md5"
+  ],
+  "transcript": [
+   "tx_id",
+   "similarity_unit",
+   "fold",
+   "cds_len",
+   "n_interior",
+   "n_full",
+   "scorable_flag",
+   "reason"
+  ],
+  "position": [
+   "pred",
+   "provenance(model/adapter/undefined)",
+   "valid_mask"
+  ],
+  "partII_extra": [
+   "input_library_role",
+   "reference_library_role",
+   "depth_before",
+   "depth_after",
+   "depth_bin"
+  ]
+ },
+ "partII_crossover": {
+  "status": "frozen before Part II analysis",
+  "y": "median model corr - median sparse-reads corr on the same transcripts per depth bin",
+  "roles": "compute per role, equal-weight average per bin",
+  "interp": "log depth, linear between adjacent valid bins (N_scored>=30)",
+  "crossing": "unique positive->negative zero crossing within observed range; no gap crossing, no extrapolation",
+  "report": "D*, 95% CI, localization success rate. When D* is not reported, use exactly one of: 'the paired difference did not change sign within [lo, hi] reads/codon' or 'no crossover could be located under the pre-registered rule' (multiple candidates, gap, or bootstrap localization failure > 10%). Never 'no crossover exists'",
+  "counts": "per bin N_eligible / N_with_reference / N_scored",
+  "machine_readable": "protocol/PARTII_CROSSOVER_v1.json md5 97bb105830d658f375da6712f87ad425 (candidate; reference implementation paper_eval/partII_crossover.py with numerical example)"
+ },
+ "pilots": {
+  "datasets": {
+   "PRJNA_iPS": "one frozen fold",
+   "Mohammad16": "one frozen fold"
+  },
+  "methods": "all main-table methods",
+  "acceptance_uses": "training/validation side and engineering checks only",
+  "release_criteria": [
+   "test counts invisible to inference (blind test with cache rebuild)",
+   "fold / similarity unit / position keys consistent",
+   "interior vs full-length missingness distinguishable",
+   "fixed-seed failures not replaced",
+   "same predictions rebuild main table and forest plot (synthetic file + independent scorer)"
+  ],
+  "scope": "each pilot = one real fold: verifies real inputs, blind inference, logs, bitwise outputs and SINGLE-FOLD rebuild of main-table and forest-plot quantities; five-fold behaviours (equal-weight fold mean, empty single fold) are verified on the five-fold synthetic file"
+ },
+ "version": "1.3",
+ "supersedes": {
+  "file": "protocol/PROTOCOL_PartI_v1.2.json",
+  "md5": "3423633205e4be3d02371a82da969b59",
+  "chain": "v1_candidate (83898a89) -> v1.1 (c4357cf1) -> v1.2 (34236332) -> v1.3"
+ },
+ "scope": {
+  "governed_by_this_protocol": [
+   "Part I T1 (main comparison)",
+   "Part I T2 (target-matched, extended)",
+   "Part I T3 (configuration/MFE ablations, extended)",
+   "Part II training of predictors (same frozen folds; Part II scoring rules in GUARDRAILS_PartII_III)"
+  ],
+  "NOT_governed (separately labelled, own data/rules)": [
+   "T0 reproduction under each method's original protocol",
+   "controlled simulation (fig:sim, tab:sim)",
+   "external/orthogonal validation (disome; girolline)"
+  ],
+  "data": "PaperData_v1.0 only (MANIFEST md5 63080cc9a3144c83834f938560ba6b18)"
+ },
+ "register_and_admission": {
+  "register": "all human model inputs/outputs and truths are A-site (v3 npz already A-site; no extra offset may be applied)",
+  "human_partI_admission": "cov = sum(c)/(3L) > 0.5 reads/nt (= 1.5 reads/codon), replicate mean; this threshold is ONLY the human Part I high-coverage admission rule",
+  "nonhuman_admission": "RiboMIMO Supplementary Table S1 official transcript lists (no length cap); the 0.5 reads/nt rule is NOT applied",
+  "partII_T_low": "all expressed (sum c > 0) non-high human transcripts; the 0.5 reads/nt rule defines only its complement",
+  "scope_of_threshold": ">0.5 reads/nt (>1.5 reads/codon) is the human Part I ADMISSION rule only; it is not a cross-species threshold and does not define Part II scorability"
+ },
+ "questions_and_allowed_wording": {
+  "T1_fig_A": {
+   "question": "relative to each core comparator, how large is the paired difference on each dataset, and is it outside / inside / across the +/-0.01 band",
+   "allowed": "superior / inferior / equivalent / undetermined per CI; 'formal' only if Holm-rejected",
+   "forbidden": "architecture is better; imputation works"
+  },
+  "T1_fig_B": {
+   "question": "does the class of each pre-registered pair change between interior and full-length scoring (same transcripts)",
+   "allowed": "both Deltas with CIs on one ID set; 'class changed / unchanged'",
+   "forbidden": "attributing a full_deployed drop to the model (only full_native can)"
+  },
+  "T3_width": {
+   "question": "how much does performance differ within the tested width range",
+   "allowed": "differences within the tested range (e.g. H64-H128), with interval",
+   "forbidden": "capacity is not limiting; architecture-level statements beyond the tested range"
+  },
+  "T2": {
+   "question": "does the ranking change when training targets are matched",
+   "allowed": "rank/Delta under matched targets vs native",
+   "forbidden": "the gap is independent of target"
+  },
+  "T1_main_table": {
+   "question": "absolute performance of each method on its own scorable set, with coverage",
+   "allowed": "values with seed range and coverage; formal claims ONLY for the three pre-registered pairs of Fig A",
+   "forbidden": "a full ranking of all methods; differences of two main-table numbers as comparisons"
+  }
+ },
+ "ledgers": {
+  "data_eligibility": "report/ledgers/data_eligibility_ledger.json (built now from frozen data; script paper_eval/build_eligibility_ledger.py)",
+  "run_scoring": "built only after T1 by score_partI.py: per method x dataset x seed x fold status, N_scored, failures, N_paired; never pre-filled"
+ },
+ "diff_vs_v1_candidate_and_design_v3_1": [
+  "ADD version/supersedes; this file is the single authoritative protocol",
+  "ADD scope: T1/T2/T3/Part II training only; T0, simulation, external validation excluded and labelled separately",
+  "ADD register_and_admission: A-site for all human outputs; 0.5 reads/nt is only the human Part I admission rule",
+  "CLARIFY paired set: per fold, per pair, common across ALL pre-registered seeds of both methods (was implicit)",
+  "ADD Fig A N_paired annotation; Fig B common population over both domains; MFE 4-arm common set",
+  "CHANGE report format: main table uses N_scored/N_domain and 'mean [min, max]' over seeds (was 'coverage_column' only)",
+  "CLARIFY Holm: m fixed at 24 per family, alpha 0.05, failed/NA p = 1, p algorithm spelled out",
+  "ADD neutral question wording and allowed/forbidden conclusions per figure",
+  "SPLIT ledgers: data-eligibility (now) vs run/scoring (post-T1)",
+  "NO change to: truth, domains, delta, comparators, seeds, retry rule, method configs, crossover rule, pilot criteria"
+ ],
+ "guardrails_partII_partIII": "protocol/GUARDRAILS_PartII_III_v3.json",
+ "two_quantities": {
+  "main_table": "ABSOLUTE performance of each method on ITS OWN scorable set T_A,f (coverage N_scored/N_domain shown alongside)",
+  "forest_plot": "PAIRED difference on the SAME transcripts: per fold, per pair, common across all pre-registered seeds of both methods (T_AB,f), re-aggregated from per-transcript predictions",
+  "rule": "the forest-plot Delta is NEVER computed as a difference of two main-table numbers; when coverage differs the two need not agree. Captions must say: main table = absolute performance; forest plot = which method is better on the same transcripts",
+  "verification": "synthetic test case where one method is missing exactly the hard transcripts (paper_eval/test_synthetic_scorer.py) + pilot rebuild of both from the same prediction files"
+ },
+ "fig_B": {
+  "primary_pair_level": "for each pre-registered pair (A,B) on each dataset: ONE common set = truth-scorable on interior AND full, A and B scorable on interior (model only) AND full_deployed in every seed; Delta_interior and Delta_full_deployed are computed on the SAME IDs (md5 reported) with the SAME unit-bootstrap draws; report both classes and whether the class changes; Delta_full_native only if A and B both have native full-length output on the whole set, otherwise NA (never filled)",
+  "question": "does the winner/class of a pre-registered pair change with end trimming",
+  "secondary_within_method": "per method, interior / full_native / full_deployed on that method's own common population = within-method endpoint sensitivity (supplementary); it cannot answer whether a pair's class changes",
+  "implementation": "score_pair_interior_vs_full (primary); score_interior_vs_full (secondary)"
+ },
+ "method_naming_in_text": {
+  "Paper_RiboMIMO": "RiboMIMO (official setting, adapted training driver)",
+  "Paper_RiboMIMO_adapt_*": "RiboMIMO-adapt (task-adapted backbone; never called 'RiboMIMO')",
+  "Paper_RiboGL_heldout": "RiboGL-heldout (checkpoint selected on frozen validation only; never on test)",
+  "Paper_iXnos_MFE": "iXnos+MFE (never abbreviated to 'iXnos' or called the iXnos default)",
+  "Paper_iXnos_seq": "iXnos (sequence-only)"
+ },
+ "config_freeze": {
+  "bind": "next protocol version binds every method row to: code md5 (runner + model files), native vs adapted changes (CHANGES.md md5), training filter, target and mask, validation metric, early stopping, seed passing, retry rule, and the hparams_<group>.json md5 (all entries machine-verified by paper_eval/verify_hparams.py)",
+  "pilot_rule": "pilots run with the final configurations; a pilot run whose logged config md5 differs from the bound one does not count for release"
+ },
+ "run_log_required": [
+  "protocol version, md5 and sha256 as resolved from protocol/CURRENT at run time",
+  "data tag + MANIFEST md5",
+  "config_id + config md5 (code + hparams)",
+  "seed, attempt, fold",
+  "environment (python/torch/CUDA, host)"
+ ],
+ "blind_inference": {
+  "RiboGL_heldout": "AFTER fitting: keep the checkpoint, delete or shuffle the test transcripts' counts, rebuild every cache, re-infer; predictions must be bitwise identical (np.array_equal); report n transcripts and max abs(diff)",
+  "all_methods": "test counts never enter inputs, caches, thresholds or masks (checked by the same procedure where caches exist)"
+ },
+ "reporting_scope": "results are stated per dataset; an advantage in individual cells is never summarised as 'leading across species'",
+ "release_order": [
+  "engineering pilots (PRJNA_iPS, Mohammad16, fold 0) may start now with pilot configurations",
+  "back-fill the four hparams audits -> bind configs (next version) -> rerun pilots with final configs; acceptance includes rebuilding BOTH the main table and the forest plot from the same prediction files",
+  "lock full protocol + config hashes -> 8-dataset main run on 76 (compute estimate reported first)",
+  "no reopening of model selection and no change to the frozen split"
+ ],
+ "diff_vs_v1_1": [
+  "ADD two_quantities (main table vs forest plot) + synthetic test of missing-hard-transcripts",
+  "ADD fig_B three results (interior / full_native / full_deployed) and ID-identity of the population",
+  "ADD decision.statistical_claims: H0 of superiority is Delta <= +0.01; 'better than zero' not tested; failed -> p=1, effect NA; seed range is not a CI",
+  "ADD method_naming_in_text; config_freeze; run_log_required; blind_inference (post-fit shuffled counts); reporting_scope; release_order",
+  "CLARIFY 0.5 reads/nt is human Part I admission only",
+  "CHANGE partII_crossover.report wording (replaces 'no crossing observed' / 'not stably locatable'); ADD per-bin counts",
+  "NO change to truth, domains, delta, comparators, seeds, retry rule, crossover rule"
+ ],
+ "mfe_interaction_arms": {
+  "rows": [
+   "Paper_RiboPipe_MFE_H128",
+   "Paper_RiboPipe_noMFE_H128",
+   "Paper_RiboMIMO_adapt_MFE",
+   "Paper_RiboMIMO_adapt_noMFE"
+  ],
+  "contrast": "(MFE_H128 - noMFE_H128) - (adapt_MFE - adapt_noMFE) on the four-arm common set",
+  "check": "within each backbone the two configs differ ONLY in MFE inputs and their required parameters (field-by-field hparams diff in the group AUDIT)"
+ },
+ "expected_configs": {
+  "T1": [
+   "Paper_RiboPipe_MFE_H128",
+   "Paper_RiboMIMO",
+   "Paper_iXnos_seq",
+   "Paper_iXnos_MFE",
+   "Paper_iXnos_MFE_stabilized",
+   "Paper_RiboExp",
+   "Paper_RiboGL_heldout",
+   "Paper_RUST",
+   "Paper_Ridge",
+   "Paper_CodonMean",
+   "Paper_TriCodon"
+  ],
+  "extended_control": [
+   "Paper_RiboExp_noStruct_port",
+   "Paper_RiboMIMO_impl",
+   "Paper_BiLSTM97"
+  ],
+  "T2": [
+   "Paper_RiboPipe_MFE_linear",
+   "Paper_RiboMIMO_L2",
+   "Paper_iXnos_nocut",
+   "Paper_RiboGL_L2_heldout"
+  ],
+  "T3": [
+   "Paper_RiboPipe_noMFE_H128",
+   "Paper_RiboPipe_MFE_H110",
+   "Paper_RiboPipe_noMFE_H110",
+   "Paper_RiboMIMO_adapt_MFE",
+   "Paper_RiboMIMO_adapt_noMFE",
+   "Paper_RiboPipe_MFE_logSE"
+  ],
+  "partIII": [
+   "Paper_RiboPipe_MFEhead"
+  ],
+  "required_fields": [
+   "input_features",
+   "window",
+   "architecture",
+   "n_params",
+   "target",
+   "loss",
+   "mask",
+   "end_handling",
+   "optimizer",
+   "lr",
+   "weight_decay",
+   "scheduler",
+   "batch_size",
+   "max_epochs",
+   "early_stop_metric",
+   "patience",
+   "val_source",
+   "train_filter",
+   "init",
+   "seed_passing",
+   "length_cap",
+   "retry_rule",
+   "inference_endpoints",
+   "code_md5"
+  ],
+  "release_condition": "paper_eval/verify_hparams.py exits 0 only if every expected config is present, every required field is present for it, and every paper_source check is OK (not 'no error found')",
+  "binding": "PENDING: the next version records, per config, md5 of hparams JSON entry + code files; until then configurations are pilot configurations"
+ },
+ "diff_vs_v1_2": [
+  "FIX NO_SCORABLE_TRUTH: kept in N_domain, excluded from N_truth_scorable / statistics / paired sets (was 'excluded from every denominator'); report N_scored/N_domain AND N_scored/N_truth_scorable; iPS regression 751 -> 750",
+  "CHANGE fig_B primary to pair level (one ID set across both methods, both domains, all seeds; same bootstrap draws; class change); per-method three results become secondary within-method sensitivity",
+  "REPLACE absolute-value bars by abs(Delta) and set sizes by words in all formulas (rendering)",
+  "ADD empty_fold rule (NA: empty paired fold), peak_recall_rule (truth ties, k, prediction ties), metric implementations",
+  "REPLACE T2/T3 placeholders by explicit config IDs; ADD mfe_interaction_arms; ADD expected_configs + required_fields + release_condition (binding pending)",
+  "ADD T1_main_table wording: formal claims only for the three pre-registered pairs; no full ranking",
+  "ADD partII_crossover.machine_readable (PARTII_CROSSOVER_v1 candidate + reference implementation)",
+  "ADD pilots.scope (single-fold real pilots; five-fold behaviours on synthetic file)"
+ ]
+}

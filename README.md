@@ -1,241 +1,225 @@
 # RiboPipe
 
-*An interpretable sequence-to-occupancy model for reliability-aware imputation of
-low-depth ribosome profiling.*
+*A lightweight sequence-based predictor of relative footprint density for within-sample imputation of
+low-coverage ribosome profiles.*
 
-**Within-sample Ribo-seq imputation**: learn a sequence-to-occupancy mapping from a
-sample's own high-coverage transcripts and use it to recover codon-resolution ribosome
-pause profiles for the same sample's sparse transcripts.
+**Within-sample Ribo-seq imputation.** Within a sample, most transcripts have too few footprints to estimate how
+ribosomes are distributed along them. RiboPipe learns local sequence patterns from the sample's own
+high-coverage transcripts. It then predicts the relative footprint density, y = c / mean(c), along the sample's
+low-coverage transcripts from sequence alone. A replicate library of the same sample shows the depth below which
+the predicted profiles agree more closely with an independent measurement than the transcripts' own sparse reads
+do. This is the crossover depth D\*.
+
+> Version 2.0.0 accompanies the revised manuscript. It replaces 1.x (see [Previous versions](#previous-versions)).
+> To reproduce every analysis of the manuscript, see **[docs/REPRODUCE.md](docs/REPRODUCE.md)**.
 
 ## Installation
 
 ```bash
-# from GitHub (pin the release tag)
-pip install "ribopipe[struct] @ git+https://github.com/yaozhong/riboPipe.git@v1.2.1"
-
-# or from a clone (editable)
 git clone https://github.com/yaozhong/riboPipe
 cd riboPipe
-pip install -e ".[struct]"
+pip install .                 # numpy, scipy, torch
+pip install ".[mfe]"          # + ViennaRNA, to compute folding energies for your own data
+python tools/download_mfe.py  # folding-energy tracks of the released datasets (~74 MB, release assets)
 ```
 
-This installs the **`ribopipe`** command-line tool and Python package: the headline model
-class **`RiboPipeCNN`** — a **motif-CNN (k=7) + BiGRU-128** backbone (~0.35 M parameters;
-load a released checkpoint with `ribopipe.model.load_cnn_from_paper_checkpoint`) — plus
-training / 5-fold CV / prediction and the baselines. The **`[struct]`** extra pulls in
-`ViennaRNA>=2.5` for the local-structure (MFE) features the paper's model uses, so it is
-part of the default install above; everything else is a core dependency (Python ≥ 3.8,
-PyTorch ≥ 1.12, NumPy, Pandas, SciPy, scikit-learn, Biopython, matplotlib).
+Optional extras: `plot` (matplotlib, for the figures), `test` (pytest) and `baselines` (scikit-learn, for the
+published comparators; see [`baselines/README.md`](baselines/README.md)). The exact versions used for the manuscript
+are in [`requirements/paper-stack.txt`](requirements/paper-stack.txt).
 
-Only to rebuild the input CSV from raw BAMs do you need the extra **`[raw]`** (`pysam`, for
-`ribopipe raw2csv`); the datasets in `data/` already ship model-ready, so this is rarely
-needed.
-
-The four pre-trained headline checkpoints are in `checkpoints/` in the repository (not
-shipped in the pip wheel); load one with
-`ribopipe.model.load_cnn_from_paper_checkpoint(path)`.
+This installs the **`ribopipe`** command-line tool and Python package. Python >= 3.9 and PyTorch >= 1.12 are
+required. A GPU is optional: one cross-validation fold takes about 2 minutes on an RTX 4090.
 
 ## Data processing
 
-RiboPipe consumes **per-codon Ribo-seq counts**, not raw reads: the entry point is a
-codon-level counts CSV plus a CDS FASTA. The preprocessing that turns these into
-model-ready tensors is shared across all datasets in the paper and ships with the package
-under `ribopipe/preprocess/`.
+RiboPipe consumes **per-codon A-site footprint counts** along CDSs. The released human datasets were processed
+from reads with one pipeline and one annotation (GRCh38, GENCODE v46 basic):
 
-**Input CSV schema** — one row per codon, validated by `ribopipe.preprocess.schema`:
+| Step | Software | Settings |
+|---|---|---|
+| Trimming | fastp 0.23.4 | `-q 20 -n 10 -l 20` |
+| UMI extraction | UMI-tools 1.1.6 | where the library has UMIs |
+| rRNA removal | Bowtie2 2.5.4 | `--very-sensitive`, unaligned reads kept |
+| Alignment | STAR 2.7.11b | local alignment, ≤ 2 mismatches, ≤ 10 loci, `--quantMode TranscriptomeSAM` |
+| Deduplication | UMI-tools 1.1.6 | `dedup --method=unique`, where a UMI exists |
+| P-site | riboWaltz 2.0 | offsets per read length (in-frame criterion) |
+| A-site | | P-site counts shifted by one codon |
 
-| Column | Meaning |
-|---|---|
-| `transcript` | transcript ID (matches the FASTA header) |
-| `start`, `end` | codon coordinates |
-| `from_cds_start`, `from_cds_stop` | codon offset from the CDS start / stop |
-| `region` | `5UTR` / `CDS` / `3UTR` |
-| one column **per sample** | per-codon read count for that sample |
+Each gene is represented by its longest standard ORF (start and stop codons annotated, no internal stop).
+Transcripts with identical CDSs are counted once. The non-human datasets use the per-codon matrices released with
+RiboMIMO.
 
-Sample columns follow `Celltype|genotype|treatment|replicate|type|remarks`
-(e.g. `HEK293T|WT|DMSO|rep1|mono|x`); the legacy `<condition>_repN` form is also accepted.
-
-**From raw reads.** If you start from aligned reads rather than a counts CSV,
-`ribopipe raw2csv` turns **CDS-aligned BAM(s)** (one per sample) into the codon-count CSV
-above by standard P-site assignment (fixed offset, or `--auto-offset` from the start-codon
-metagene). It needs the `[raw]` extra (`pip install -e ".[raw]"`, pulls in `pysam`).
+**Your own sample.** Bring A-site-aligned CDS sequences (FASTA) and per-codon A-site counts (tab-separated:
+`transcript`, `codon` (0-based), one column per replicate). Then run:
 
 ```bash
-ribopipe raw2csv \
-  --bam sampleA.bam sampleB.bam \
-  --sample "HEK293T|WT|DMSO|rep1|mono|x" "HEK293T|WT|DMSO|rep2|mono|x" \
-  --fasta transcripts_cds.fa --out-csv codon_counts.csv --auto-offset
+ribopipe prepare --fasta cds.fa --counts counts.tsv [--genes tx2gene.tsv] --out mydata --tag MySample
 ```
 
-> The paper's human data were P-site-assigned upstream with **riboWaltz** (R). `raw2csv`
-> re-implements that standard step so the toolkit is runnable end-to-end from BAM; it is
-> **not** a byte-for-byte reproduction of the paper's riboWaltz run. For the published
-> numbers, use the released count CSVs / checkpoints.
+To try this end to end, `python examples/make_example_input.py --out example_input` writes such an input from a released
+dataset.
 
-**Preprocessing chain** (the three steps of the Quick start below):
+`prepare` applies the rules used for the released data:
 
-1. `ribopipe preprocess` — CSV (+ CDS FASTA) → per-transcript NPZ (`cds.sequence`, `cds.avg_count`).
-2. `ribopipe matrix` — the NPZ directory → a transcript × sample coverage matrix, used for the high-/low-coverage split.
-3. `ribopipe struct` — the ViennaRNA local-structure (MFE) feature cache.
+1. **High / low coverage.** Transcripts with more than 0.5 reads per nucleotide are high coverage (training and
+   benchmark). All transcripts with at least one read form the low-coverage study population.
+2. **Sequence-similarity units.** Genes whose CDSs share ≥ 20% of their 31-mers form one unit. A unit always stays
+   on one side of a split.
+3. **Folds.** Five folds over units. 10% of each fold's training units are held out for early stopping.
+4. **Folding energies.** RNAfold MFE of the 30-nt window starting at every nucleotide (ViennaRNA), standardised
+   with each fold's training windows.
 
-## Quick start (one sample, end to end)
+## Quick start (released data)
 
 ```bash
-# 1. Preprocess raw CSV to per-transcript NPZ
-ribopipe preprocess --csv codon_counts.csv --fasta transcripts_cds.fa --out-dir ./npz
-
-# 2. Build transcript × sample coverage matrix
-ribopipe matrix --npz-dir ./npz --out-csv coverage_matrix.csv
-
-# 3. Precompute the ViennaRNA local-structure (MFE) cache  (one-time per dataset)
-ribopipe struct --npz ./npz/my_sample.npz
-#   -> ./npz/struct_cache/my_sample_struct.npz
-
-# 4. Train the headline model
-ribopipe train \
-  --npz ./npz/my_sample.npz \
-  --struct-npz ./npz/struct_cache/my_sample_struct.npz \
-  --coverage-csv coverage_matrix.csv \
-  --sample my_sample \
-  --enst2ensg reproduce/enst2ensg_grch38.json.gz \
-  --out-dir ./model
-
-# 5. Predict pause profiles for all transcripts
-ribopipe predict \
-  --checkpoint ./model/ribopipe_model.pt \
-  --npz ./npz/my_sample.npz \
-  --struct-npz ./npz/struct_cache/my_sample_struct.npz \
-  --out-csv predictions.csv
+ribopipe configs                                              # model configurations and parameter counts
+ribopipe train --dataset GSE133393_WT --fold 0 --out runs/    # RiboPipe, seed 123, one fold
+ribopipe cv5   --dataset GSE133393_WT --out runs/             # all five folds
+ribopipe predict --ckpt runs/Paper_RiboPipe_MFE_H128/GSE133393_WT/seed123/fold0/model.pt \
+                 --dataset GSE133393_WT --part partII --out pred.npz   # predict any transcripts of the dataset
 ```
 
-The checkpoint stores its own feature configuration, so `predict` restores the exact
-training setup automatically. Pass `--no-struct` at step 4 (and drop `--struct-npz`) for
-the codon+NT ablation that needs no ViennaRNA.
+Each run writes `<out>/<config>/<dataset>/seed<seed>/fold<fold>/`. The directory holds:
+- `pred.npz`: relative footprint density of every test transcript;
+- `model.pt`: a self-contained checkpoint;
+- `train_log.json`;
+- `run.json`.
 
-See [`examples/run_ribopipe.sh`](examples/run_ribopipe.sh) for a complete annotated script.
-
-## Reproduce the headline benchmark
+For your own sample, point to the prepared directory:
 
 ```bash
-NPZ=./npz/my_sample.npz \
-STRUCT=./npz/struct_cache/my_sample_struct.npz \
-bash reproduce/run_cv5.sh
+RIBOPIPE_DATA=mydata RIBOPIPE_MFE=mydata/mfe ribopipe cv5 --dataset MySample --out runs/
 ```
 
-Gene-level 5-fold CV of the headline model against the baselines (codon-mean, tri-codon,
-ridge, BiLSTM-base). See [`reproduce/README.md`](reproduce/README.md).
+## Model
 
-## Interpretability
+<p align="center">
+  <img src="docs/assets/ribopipe-architecture.png" width="700" alt="RiboPipe architecture. For output codon i, the codon branch reads codons i-2 to i (E, P and A sites), the nucleotide branch reads nucleotides -15 to +14 relative to the first base of codon i, and the amino-acid branch reads residues i-5 to i-1. The three branch outputs and three standardised folding energies are concatenated (131 values per codon), passed through a bidirectional GRU and a per-codon output layer.">
+</p>
 
-RiboPipe is interpretable in two complementary ways.
+*At output codon i, the codon branch reads codons i−2 to i (E, P and A sites), the amino-acid branch reads residues
+i−5 to i−1, and the nucleotide branch reads nucleotides −15 to +14 relative to the first base of codon i. The branch
+outputs are concatenated with three standardised folding energies before the BiGRU. The density profile is
+illustrative.*
 
-**Local — motif filters.** The k=7 exp-motif CNN's first-layer filters read out directly as
-E/P/A amino-acid sequence logos (e.g. P-site proline, acidic/aromatic A-site residues).
-No data needed — weights only:
+RiboPipe has 228,321 parameters. Three convolutional branches feed one bidirectional GRU:
+- **codon branch**: the E, P and A codons (one-hot, exponential activation);
+- **nucleotide branch**: nucleotides −15..+14 relative to the first A-site nucleotide;
+- **amino-acid branch**: the five residues preceding the A site.
+
+The branch outputs and three footprint-scale folding energies (30-nt windows starting 17, 16 and 15 nt upstream of
+the A site) enter the GRU (hidden 128). A small output layer then gives log1p(relative density).
+**RiboPipe (−MFE)** is the same model without the folding energies.
+
+Training uses a γ-weighted log-MSE, mean[(1+y)^0.5 (u − log1p y)²], with Adam (lr 1e-3) and early stopping on the
+median per-transcript Pearson correlation of the validation transcripts. Test transcripts are predicted from
+sequence and folding energies only. Their reads are never used.
+
+## Low-coverage reliability (when to trust the predictions)
+
+With two replicate libraries, compare the prediction and the sparse reads against the other replicate across
+depth, and locate D\*:
 
 ```bash
-ribopipe motifs --checkpoint checkpoints/ribopipe_headline_TX9_WT.pt \
-  --top 3 --out-csv motif_weights.csv --out-png motif_logos.png
+ribopipe lowcov-predict --runs runs/ --dataset GSE133393_WT --out preds/   # out-of-fold predictions for all transcripts
+ribopipe crossover --dataset GSE133393_WT --pred RiboPipe=preds/Paper_RiboPipe_MFE_H128/GSE133393_WT/pred.npz --out cross/
+ribopipe crossover-summary --eval cross/GSE133393_WT/eval_GSE133393_WT.json --out cross/summary
 ```
 
-**Non-local — in-silico mutagenesis (ISM).** Substituting the A-site codon with all 64
-codons and re-running the full network gives a per-codon / per-amino-acid A-site
-attribution — the model-derived counterpart of an empirical A-site dwell profile:
+The analysis covers both replicate assignments and similarity-unit bootstrap intervals. It also runs a
+sequence-independent noise predictor as a control: at the lowest depths even noise can agree with the reference
+more closely than sparse reads do.
+
+`ribopipe posterior` combines the prediction with the reads. It uses the prediction as the prior of a
+Dirichlet–multinomial posterior, with the prior strength chosen on high-coverage transcripts of other folds
+(`ribopipe posterior-kappa`).
+
+## Interpretability (what the trained model responds to)
 
 ```bash
-ribopipe ism --checkpoint checkpoints/ribopipe_headline_TX9_WT.pt \
-  --npz ./npz/my_sample.npz --struct-npz ./npz/struct_cache/my_sample_struct.npz \
-  --out-csv asite_attribution.csv
+ribopipe ism        --dataset GSE133393_WT --ckpt-dir runs/Paper_RiboPipe_MFE_H128/GSE133393_WT/seed123 --out ism/
+ribopipe routing    --dataset GSE133393_WT --ckpt-dir ... --out routing/     # which branch carries each edit's effect
+ribopipe transplant --dataset GSE133393_WT --ckpt-dir ... --out tp/ --subwindows
+ribopipe logos      --dataset GSE133393_WT --ckpt-dir ... --out logos/ --device cuda:0
 ```
 
-The Python API exposes `ribopipe.interpret.{filter_aa_matrices, motif_report,
-asite_codon_attribution, motif_vs_ism}`; `motif_vs_ism` scores where the local and ISM
-readouts agree, and disagreement flags occupancy the local codon window cannot explain.
+- **Single-codon and single-nucleotide edits** around predicted peaks, with folding energies recomputed or held
+  fixed.
+- **Branch routing** of each edit's effect.
+- **Window transplantation**: the local window, its shuffled codons, and its parts, grafted into other transcripts.
+- **Activation logos** of the first-layer filters, as an inspection tool.
 
-## Low-coverage reliability (when to trust the model)
-
-RiboPipe says not only *what* the profile is but *when* to trust it over the reads.
-
-**Crossover D\*.** An independent read-split (disjoint halves of a transcript's reads) scores
-the model and the down-sampled reads against a held-out reference; the depth where the reads
-overtake the model is the crossover **D\* ≈ 0.22–0.57 reads/codon**. Below it the model is the
-more reliable estimator. `crossover` also reports the model-favoured fraction of expressed
-genes and locates D\* by the sweep-free `r⁻¹(m)` inversion:
-
-```bash
-ribopipe crossover --checkpoint checkpoints/ribopipe_headline_TX9_WT.pt \
-  --npz ./npz/my_sample.npz --struct-npz ./npz/struct_cache/my_sample_struct.npz \
-  --out-json crossover.json
-```
-
-**Depth-weighted imputation.** The drop-in low-coverage estimator blends prediction and reads
-with a logistic gate in log-depth centred at D* (`w = sigmoid((ln rc − ln D*)/0.5)`): mostly
-model where coverage is sparse, mostly reads where it is deep. It matches or exceeds either
-source alone at every depth.
-
-```bash
-ribopipe impute --checkpoint checkpoints/ribopipe_headline_TX9_WT.pt \
-  --npz ./npz/my_sample.npz --struct-npz ./npz/struct_cache/my_sample_struct.npz \
-  --out-csv imputed_profiles.csv          # --dstar is estimated if not given
-```
-
-Python API: `ribopipe.reliability.{estimate_dstar, fraction_below, invert_dstar,
-depth_weight, hybrid_profile, impute}`. Everything is covered-mean-normalised Pearson; the
-read split is binomial by default (repsplit where genuine replicates exist).
+These describe the trained model, not the cause of ribosome accumulation.
 
 ## Python API
 
 ```python
-import ribopipe
+import torch
+from ribopipe import data, train
 
-# Train the headline model on a set of high-coverage transcript IDs
-model = ribopipe.train_on_ids(
-    "sample.npz", train_ids, val_ids=val_ids,
-    struct_npz_path="struct_cache/sample_struct.npz",
-    use_nt=True, use_struct=True,   # headline: codon + NT(+/-15) + struct MFE
-    loss_name="huber",              # unweighted Huber (delta=1)
-)   # backbone="cnn" (default) = motif-CNN k=7 + BiGRU-128 (h=128), ~0.35M params
+ds = data.load_dataset("GSE133393_WT")                 # or load_dataset("MySample", data="mydata")
+cfg = train.CONFIGS["Paper_RiboPipe_MFE_H128"]
+dev = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+model, best, info = train.train_one(cfg, ds, fold=0, seed=123, dev=dev,
+                                    train_ids=ds.train_ids(0), val_ids=ds.val_ids(0))
+model.load_state_dict(best["native"][2])               # weights of the early-stopping epoch
+pred = train.predict_transcripts(model, ds, ds.test_ids(0), cfg, dev)   # {transcript: relative density}
 
-# Predict
-preds = ribopipe.predict(
-    model, "sample.npz", test_ids,
-    struct_npz_path="struct_cache/sample_struct.npz",
-    use_nt=True, use_struct=True,
-)  # dict: transcript_id -> np.ndarray (pause scores, len = CDS codons)
-
-# Gene-level 5-fold CV
-summary = ribopipe.run_cv5(
-    "sample.npz", all_ids,
-    enst2ensg_path="reproduce/enst2ensg_grch38.json.gz",
-    struct_npz_path="struct_cache/sample_struct.npz",
-    methods=["ribopipe", "bilstm_base", "tricodon"],
-)
+model, ckpt = train.load_ckpt("runs/Paper_RiboPipe_MFE_H128/GSE133393_WT/seed123/fold0/model.pt")
 ```
 
-## Design
+## Design and scope
 
-RiboPipe frames Ribo-seq imputation as **within-sample learning**:
-
-1. **T_high** (top-coverage transcripts) — used for training and evaluation.
-2. **T_low** (the sparse remainder of the transcriptome) — prediction targets.
-
-All model-selection and benchmarking splits are **gene-level** to avoid isoform leakage.
-
-An **independent-read-split** analysis identifies a crossover depth
-**D\* ≈ 0.22–0.57 reads/codon**, below which the model's prediction is more reliable than
-a transcript's own sparse reads — a regime that covers **52–82 % of expressed genes**. This
-is the *reliability-aware* part of the title: RiboPipe reports not only what the pause
-profile is, but when to trust it over the raw reads. A depth-weighted hybrid of prediction
-and reads then matches or exceeds either source alone at every depth tested.
+- **Within-sample.** A model is trained and applied within one sample, so it can use the sample's own library
+  characteristics. D\* depends on the sample, the predictor, the reference library and the transcripts scored.
+  Estimate it with a replicate of your own sample.
+- **Similarity-aware splits.** Folds keep similar coding sequences together, so accuracy is not inflated by
+  near-duplicate transcripts.
+- **Relative shape, not magnitude.** Predictions describe the profile shape within a transcript and the
+  high-density codons it implies. They do not give absolute footprint load, individual peak heights (the
+  strongest peaks are underestimated) or ribosome pausing strength.
+- **Biology and library preparation.** Measured footprint density reflects both translation and library
+  preparation, and the model learns both. Its responses near the footprint 5' end and to the folding energies may
+  be technical.
 
 ## Data availability
 
-The per-codon benchmark data for all four datasets ship with this repository under `data/`
-(one `*_benchmark.npz` + index CSV + README per dataset). Sources: the public datasets are
-GEO **GSE133393** and **GSE233886** and BioProject **PRJNA976655**; the in-house HEK293
-dataset (**TX9_WT**) is released here as processed per-codon counts, with the raw reads to be
-deposited in GEO upon publication.
+`data/` holds the processed datasets (see [data/README.md](data/README.md)): per-codon counts, populations,
+folds, similarity units and MFE normalisation.
+
+| Dataset | Source | Notes |
+|---|---|---|
+| GSE233886_WT | GEO GSE233886 | two replicates |
+| GSE133393_WT | GEO GSE133393 | two replicates |
+| PRJNA_iPS | BioProject PRJNA976655 | two replicates |
+| Subtelny14 | GEO GSE53268 | yeast |
+| Mohammad16 | GEO GSE72899 | *E. coli* |
+| Mohammad19-1, Mohammad19-2 | GEO GSE119104 | *E. coli* |
+| TX9_WT (in-house HEK293T) | GEO GSE350848 | released on publication |
+
+The folding-energy tracks are release assets (`python tools/download_mfe.py`).
+
+## Repository layout
+
+```
+ribopipe/        data loader, network, training, ablations, evaluation, low-coverage analysis, model analyses, prepare
+baselines/       wrappers that run the published methods and the in-house references (baselines/README.md)
+data/            released datasets
+paper_results/   result files of the manuscript, used to redraw its figures
+reproduce/       figure scripts
+docs/            REPRODUCE.md, assets/ (README figure)
+requirements/    exact package versions of the manuscript (paper-stack.txt) and of the RiboExp/RiboGL environment
+tests/           unit tests and the verification against the original analysis
+tools/           data release builder, MFE download
+```
+
+## Previous versions
+
+RiboPipe 1.x used a motif-CNN + BiGRU with about 0.35 M parameters, an optional magnitude head and the earlier
+data and folds. It remains available as the tags `v1.1.0`, `v1.2.0` and `v1.2.1`. Checkpoints and data of 1.x do
+not load in 2.0.0 (see [CHANGELOG.md](CHANGELOG.md)).
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE). The official code of the published methods is not redistributed:
+`baselines/fetch_upstream.sh` downloads it from the original repositories at the commits used.

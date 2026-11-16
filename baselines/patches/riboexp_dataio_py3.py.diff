@@ -1,0 +1,151 @@
+--- a/riboexp_dataio_py3.py
++++ b/riboexp_dataio_py3.py
+@@ -1 +1,4 @@
++# [PAPER-PY3] Paper_2026-11-11 port of official Riboexp code/dataio.py. Official classes/functions kept (py3 API edits
++# marked [PAPER-PY3]); process_structure / process_fragment / genVocab are byte-identical to the official logic.
++# New code is appended at the end under '# ==== [PAPER] ====' (PaperData_v1 reader + structure-track mapping).
+ import sys, os
+@@ -5,3 +8,3 @@
+ import random, copy
+-import cPickle as pickle
++import pickle  # [PAPER-PY3] cPickle -> pickle
+ import string
+@@ -13,2 +16,4 @@
+ 
++PY2_DICT_ORDER = ['A', 'C', 'T', 'G']  # [PAPER-PY3]
++
+ class Dataset_yeast_structure(object):
+@@ -58,3 +63,3 @@
+         energypath = join('/'.join(self.path.split('/')[:-1]),'energy/energy.fold')
+-        docs_= open(energypath,"rb").read()
++        docs_= open(energypath,"r").read()  # [PAPER-PY3] text mode
+         docs = docs_.strip().split('\n')
+@@ -68,3 +73,3 @@
+             fold = float(docs[3*i+2].strip().split()[-1].strip(')').strip('('))
+-            if name2seqdict.has_key(name):
++            if name in name2seqdict:  # [PAPER-PY3] has_key
+                 assert lastname == name
+@@ -77,3 +82,3 @@
+ 
+-        traindocs_= open(join(self.path,'traindata.txt'),"rb").read()
++        traindocs_= open(join(self.path,'traindata.txt'),"r").read()  # [PAPER-PY3] text mode
+         docs = traindocs_.strip().split('\n')
+@@ -97,3 +102,3 @@
+             foldsource = name2folddict[name]+[-1]*14
+-            index = string.index(foldtext, text)
++            index = foldtext.index(text)  # [PAPER-PY3] string.index
+             assert index == 13
+@@ -103,3 +108,3 @@
+ 
+-        validdocs_= open(join(self.path,'validdata.txt'),"rb").read()
++        validdocs_= open(join(self.path,'validdata.txt'),"r").read()  # [PAPER-PY3] text mode
+         docs = validdocs_.strip().split('\n')
+@@ -123,3 +128,3 @@
+             foldsource = name2folddict[name]+[-1]*14
+-            index = string.index(foldtext, text)
++            index = foldtext.index(text)  # [PAPER-PY3] string.index
+             assert index == 13
+@@ -130,3 +135,3 @@
+ 
+-        testdocs_= open(join(self.path,'testdata.txt'),"rb").read()
++        testdocs_= open(join(self.path,'testdata.txt'),"r").read()  # [PAPER-PY3] text mode
+         docs = testdocs_.strip().split('\n')
+@@ -150,3 +155,3 @@
+             foldsource = name2folddict[name]+[-1]*14
+-            index = string.index(foldtext, text)
++            index = foldtext.index(text)  # [PAPER-PY3] string.index
+             assert index == 13
+@@ -173,5 +178,7 @@
+         num = 0
+-        for c in self.char_vocab:
+-            for c1 in self.char_vocab:
+-                for c2 in self.char_vocab:
++        # [PAPER-PY3] iterate in CPython-2.7 dict order of {'A':1,'C':2,'G':3,'T':4} = A,C,T,G (verified with
++        # /usr/bin/python2 2.7.18: AAA=1, AAC=2, AAT=3, AAG=4 ...); py3 insertion order would give a different codon id map
++        for c in PY2_DICT_ORDER:
++            for c1 in PY2_DICT_ORDER:
++                for c2 in PY2_DICT_ORDER:
+                     num +=1
+@@ -183,3 +190,3 @@
+     def getIndex(self,word,vocab):
+-        if vocab.has_key(word):
++        if word in vocab:  # [PAPER-PY3] has_key
+             return vocab[word]
+@@ -244,3 +251,3 @@
+     def readfile(self):
+-        traindocs_= open(join(self.path,'traindata.txt'),"rb").read()
++        traindocs_= open(join(self.path,'traindata.txt'),"r").read()  # [PAPER-PY3] text mode
+         docs = traindocs_.strip().split('\n')
+@@ -262,3 +269,3 @@
+ 
+-        validdocs_= open(join(self.path,'validdata.txt'),"rb").read()
++        validdocs_= open(join(self.path,'validdata.txt'),"r").read()  # [PAPER-PY3] text mode
+         docs = validdocs_.strip().split('\n')
+@@ -280,3 +287,3 @@
+ 
+-        testdocs_= open(join(self.path,'testdata.txt'),"rb").read()
++        testdocs_= open(join(self.path,'testdata.txt'),"r").read()  # [PAPER-PY3] text mode
+         docs = testdocs_.strip().split('\n')
+@@ -310,5 +317,7 @@
+         num = 0
+-        for c in self.char_vocab:
+-            for c1 in self.char_vocab:
+-                for c2 in self.char_vocab:
++        # [PAPER-PY3] iterate in CPython-2.7 dict order of {'A':1,'C':2,'G':3,'T':4} = A,C,T,G (verified with
++        # /usr/bin/python2 2.7.18: AAA=1, AAC=2, AAT=3, AAG=4 ...); py3 insertion order would give a different codon id map
++        for c in PY2_DICT_ORDER:
++            for c1 in PY2_DICT_ORDER:
++                for c2 in PY2_DICT_ORDER:
+                     num +=1
+@@ -320,3 +329,3 @@
+     def getIndex(self,word,vocab):
+-        if vocab.has_key(word):
++        if word in vocab:  # [PAPER-PY3] has_key
+             return vocab[word]
+@@ -444,4 +453,44 @@
+ 
+-if __name__ == "__main__":
+ 
+-    pass
++# ==== [PAPER] ==== PaperData_v1 adapter (all data reads go through paper_eval/paperdata_io) ====
++# Official structure feature (Dataset_yeast_structure.readfile, dataio.py:57-102): energy.fold holds RNAfold MFE of 30-nt
++# windows starting at CDS offsets -13 ... 3L-20 (iXnos processing, 13 nt 5'UTR / 10 nt 3'UTR flank). readfile stores
++# foldsource = [-1]*14 + [MFE(window o) for o = -13..] + [-1]*14 and takes fold = foldsource[13 : 13+3L], i.e.
++#     fold[j] = MFE(RNAfold(seq[j-14 : j+16]))   for windows available, else -1 (official missing marker).
++# PaperData_v1 mfe_raw(tx)[k] = MFE(RNA.fold(seq[k:k+30])) for k < n_valid = 3L-29 (CDS only, no UTR), so
++#     fold[j] = mfe_raw[j-14]  if 0 <= j-14 < n_valid  else -1.
++# Positions j in [1,13] and [3L-15, 3L-6] use UTR-flank windows in the official data; they are -1 here (CDS only).
++FOLD_SHIFT = 14          # official alignment: value at nt j = window starting at j-14
++FOLD_MISSING = -1.0      # official missing marker ([-1]*14 padding in readfile)
++
++
++def paper_fold_track(mfe_raw, n_valid, n_nt):
++    """Official-aligned per-nt MFE track (length n_nt = 3L) from PaperData mfe_raw (window start k)."""
++    fold = np.full(n_nt, FOLD_MISSING, dtype=float)
++    j = np.arange(n_nt); k = j - FOLD_SHIFT
++    ok = (k >= 0) & (k < n_valid)
++    fold[ok] = np.asarray(mfe_raw, float)[k[ok]]
++    return fold
++
++
++def paper_docs(ds, ids, with_counts=True, structure=True):
++    """Return official-format docs for transcripts `ids` of a paperdata_io dataset:
++    codon-string lists, nt-char lists, per-nt fold lists (structure) and per-codon labels (avg_count).
++    with_counts=False never touches ds.counts (used for test-time inference: labels are None)."""
++    docs_c, docs_nt, docs_fold, docs_lab = [], [], [], []
++    for k in ids:
++        seq = ds.seq[k]
++        L = len(seq) // 3
++        docs_c.append([seq[3*i:3*i+3] for i in range(L)])
++        docs_nt.append([x for x in seq])
++        docs_fold.append(list(paper_fold_track(ds.mfe_raw(k), ds.mfe_valid(k), len(seq))) if structure else None)
++        docs_lab.append(list(np.asarray(ds.counts[k], float)) if with_counts else None)
++    return docs_c, docs_nt, docs_fold, docs_lab
++
++
++_VOCAB = Dataset_yeast.__new__(Dataset_yeast); _VOCAB.genVocab()
++CODON_VOCAB, CHAR_VOCAB = _VOCAB.codon_vocab, _VOCAB.char_vocab   # official genVocab (dataio.py:170-181)
++
++
++def to_index(docs, vocab):
++    return [[vocab[x] for x in doc] for doc in docs]   # official word2index without 'unk' (PaperData is pure ACGT; asserted)

@@ -1,492 +1,143 @@
-"""RiboPipe command-line interface."""
-from __future__ import annotations
+"""Command-line interface: ``ribopipe <command> ...``
 
-import argparse
-import sys
+  ribopipe train    --config Paper_RiboPipe_MFE_H128 --dataset GSE133393_WT --fold 0 --seed 123 --out runs/
+                    one (config, dataset, seed, fold) run: train on train_ids, early-stop on val_ids, predict test_ids
+  ribopipe cv5      same, all five folds
+  ribopipe predict  --ckpt runs/.../model.pt --dataset GSE133393_WT [--part partII] [--ids file] --out pred.npz
+  ribopipe configs  list the model configurations and their parameter counts
+Further commands (score, crossover, posterior, ism, transplant, ablation) are registered by their modules.
+"""
+import os, sys, json, time, argparse, traceback
+import numpy as np
 
 
-def _add_feature_flags(ap):
-    """Shared feature toggles (headline defaults: all on)."""
-    ap.add_argument("--no-nt", dest="use_nt", action="store_false",
-                    help="Drop the +/-15 nt one-hot window (ablation)")
-    ap.add_argument("--no-struct", dest="use_struct", action="store_false",
-                    help="Drop the ViennaRNA MFE features (ablation / no struct cache)")
-    ap.add_argument("--backbone", default="cnn", choices=["cnn", "bilstm"],
-                    help="cnn = headline exp-motif CNN + BiGRU-128 (default); bilstm = legacy")
-    ap.set_defaults(use_nt=True, use_struct=True)
+def _run_one(config_id, dataset, fold, seed, out_root, device="cuda:0", deterministic=True, max_epochs=0,
+             smoke_n=(0, 0, 0), allow_any_seed=False, data=None, mfe=None, configs=None, builder=None, gate=None, inputs=None,
+             train_transform=None):
+    import torch
+    from . import train as RP, data as D
+    cfgs = configs or RP.CONFIGS
+    cfg = cfgs[config_id]
+    if seed not in RP.PREREG_SEEDS and not allow_any_seed:
+        raise SystemExit(f"seed {seed} is not one of the pre-registered seeds {RP.PREREG_SEEDS} (use --allow-any-seed)")
+    dev = torch.device(device if torch.cuda.is_available() else "cpu")
+    t0 = time.time()
+    ds = D.load_dataset(dataset, data=data, mfe=mfe)
+    te, va, tr = ds.test_ids(fold), ds.val_ids(fold), ds.train_ids(fold)
+    assert not (set(te) & set(tr)) and not (set(va) & set(tr)) and not (set(te) & set(va))
+    sub_info = None
+    if train_transform is not None:
+        tr, sub_info = train_transform(ds, tr)
+    smoke = any(list(smoke_n) + [max_epochs])
+    if smoke:
+        pick = lambda ids, n: sorted(ids)[:n] if n else ids
+        tr, va, te = pick(tr, smoke_n[0]), pick(va, smoke_n[1]), pick(te, smoke_n[2])
+    print(f"[run] {config_id} {dataset} fold {fold} seed {seed} | train {len(tr)} val {len(va)} test {len(te)} | "
+          f"device {dev} | deterministic {deterministic} | smoke {smoke} | data {D.DATA_TAG if ds.group != 'user' else ds.dir}", flush=True)
+    base_meta = dict(method=cfg["method"], tier=cfg.get("tier"), env=RP.env_info(), code_md5=RP.code_md5(),
+                     deterministic=deterministic, smoke=({"n": list(smoke_n), "max_epochs": max_epochs} if smoke else False),
+                     batch_window=RP.BATCH_WINDOW, batch_stride=RP.BATCH_STRIDE, loss=cfg["loss"], gamma=cfg["gamma"],
+                     target=cfg["target"], hidden=cfg["hidden"], expected_params=cfg["expected_params"],
+                     length_cap=None, register="A-site (no offset applied)", train_subsample=sub_info)
+    kw = {}
+    if builder: kw["model_builder"] = builder
+    if gate: kw["gate"] = gate
+    if inputs: kw["inputs"] = inputs
+    try:
+        model, best, info = RP.train_one(cfg, ds, fold, seed, dev, tr, va, max_epochs=(max_epochs or None),
+                                         deterministic=deterministic, log=lambda s: print(s, flush=True), **kw)
+    except RP.TrainingFailure as e:
+        D.write_run(out_root, config_id, dataset, seed, fold, {}, {}, dict(base_meta, status="MODEL_FAILED", failure_reason=str(e),
+                    traceback=traceback.format_exc()))
+        print(f"[FAILED] {e}", flush=True); return 3
+    run_dir = os.path.join(out_root, config_id, dataset, f"seed{seed}", f"fold{fold}"); os.makedirs(run_dir, exist_ok=True)
+    json.dump(info, open(os.path.join(run_dir, "train_log.json"), "w"), indent=1)
+    te_items, _ = RP.make_items(ds, te, cfg["model"], cfg["target"], with_target=False, **({"inputs": inputs} if inputs else {}))
+    outputs = {config_id: ("native", "val_median_tx_pearson_linear_full")}
+    for cid, crit in cfg.get("also_write", {}).items():
+        outputs[cid] = (crit, "val_median_tx_pearson_linear_interior")
+    rc = 0
+    for cid, (crit, vname) in outputs.items():
+        vbest, ep_sel, state = best[crit]
+        d = os.path.join(out_root, cid, dataset, f"seed{seed}", f"fold{fold}"); os.makedirs(d, exist_ok=True)
+        if state is None:
+            D.write_run(out_root, cid, dataset, seed, fold, {}, {}, dict(base_meta, status="MODEL_FAILED",
+                        failure_reason=f"validation criterion {crit} was never valid")); rc = 3; continue
+        model.load_state_dict(state)
+        u = RP.predict_raw(model, te_items, dev)
+        preds = {k: RP.back_transform(u[k], cfg["target"]).astype(np.float32) for k in te}
+        provs = {k: np.zeros(len(preds[k]), np.int8) for k in te}
+        for k in te: assert len(preds[k]) == len(ds.seq[k]) // 3, k
+        ck = os.path.join(d, "model.pt")
+        ck_md5 = RP.save_ckpt(ck, model, cfg, cid, dataset, seed, fold, ep_sel, info["mfe_norm"])
+        n_bad = int(sum((~np.isfinite(p)).any() or float(np.nanstd(p)) == 0 for p in preds.values()))
+        status = "MODEL_FAILED" if (preds and n_bad >= len(preds)) else "OK"
+        meta = dict(base_meta, status=status, checkpoint_id=f"{os.path.relpath(ck, out_root)} md5:{ck_md5}",
+                    n_train_tx=info["n_train_tx"], n_val_tx=info["n_val_tx"], n_test_tx=len(te),
+                    n_optimizer_steps=info["n_optimizer_steps"], epochs_run=info["epochs_run"], stopped_early=info["stopped_early"],
+                    val_metric_name=vname, val_metric_best=vbest, selected_epoch=ep_sel, selection_criterion=crit,
+                    params_trainable=info["structure"]["params"], mfe_norm=info["mfe_norm"], wall_sec=round(time.time() - t0, 1))
+        out = D.write_run(out_root, cid, dataset, seed, fold, preds if status == "OK" else {}, provs if status == "OK" else {}, meta)
+        print(f"[write] {cid} -> {out} status={status} selected_epoch={ep_sel} val={vbest:.5f} ({crit})", flush=True)
+        if status != "OK": rc = 3
+    return rc
+
+
+def _add_common(p):
+    p.add_argument("--data", default=None, help="data directory (default: ./data or $RIBOPIPE_DATA)")
+    p.add_argument("--mfe", default=None, help="MFE track directory (default: <data>/mfe or $RIBOPIPE_MFE)")
 
 
 def main(argv=None):
-    p = argparse.ArgumentParser(
-        prog="ribopipe",
-        description=(
-            "RiboPipe: within-sample Ribo-seq imputation.\n"
-            "Learn from high-coverage transcripts, predict pause profiles for sparse ones.\n"
-            "Headline model: motif-CNN (k=7) + BiGRU-128 (codon + NT +/-15 + MFE, unweighted Huber; ~0.35M params)."
-        ),
-    )
-    sub = p.add_subparsers(dest="cmd", required=True)
-
-    # ---- raw2csv ----
-    ap_raw = sub.add_parser(
-        "raw2csv",
-        help="Convert CDS-aligned BAM(s) to a per-codon P-site count CSV (input to preprocess)")
-    ap_raw.add_argument("--bam", required=True, nargs="+",
-                        help="One or more CDS-aligned BAM files (one per sample/replicate)")
-    ap_raw.add_argument("--sample", required=True, nargs="+",
-                        help="Output count-column name per BAM, e.g. 'HEK293T|WT|DMSO|rep1|mono|x' "
-                             "(parallel to --bam)")
-    ap_raw.add_argument("--fasta", required=True, help="CDS FASTA the BAMs are aligned to")
-    ap_raw.add_argument("--out-csv", required=True, help="Output codon-count CSV")
-    ap_raw.add_argument("--offset", type=int, default=12,
-                        help="Fixed P-site offset in nt (default 12; ignored if --auto-offset)")
-    ap_raw.add_argument("--auto-offset", action="store_true",
-                        help="Derive per-read-length P-site offsets from the start-codon metagene")
-    ap_raw.add_argument("--min-len", type=int, default=25, help="Min footprint length (default 25)")
-    ap_raw.add_argument("--max-len", type=int, default=35, help="Max footprint length (default 35)")
-
-    # ---- preprocess ----
-    ap_p = sub.add_parser("preprocess", help="Convert raw Ribo-seq CSV to per-condition NPZ")
-    ap_p.add_argument("--csv", required=True, help="Input codon-level counts CSV")
-    ap_p.add_argument("--fasta", required=True, help="Transcript FASTA (CDS sequences)")
-    ap_p.add_argument("--out-dir", required=True, help="Output directory for NPZ files")
-    ap_p.add_argument("--fasta-cache", default=None, help="Optional pickle cache for FASTA dict")
-
-    # ---- matrix ----
-    ap_m = sub.add_parser("matrix", help="Build transcript × sample coverage matrix from NPZ directory")
-    ap_m.add_argument("--npz-dir", required=True)
-    ap_m.add_argument("--out-csv", required=True)
-
-    # ---- struct ----
-    ap_s = sub.add_parser(
-        "struct",
-        help="Precompute the ViennaRNA local-structure (MFE) cache for a dataset NPZ")
-    ap_s.add_argument("--npz", required=True, help="Per-transcript NPZ (from preprocess)")
-    ap_s.add_argument("--out-npz", default=None,
-                      help="Cache output path (default: <npz_dir>/struct_cache/<base>_struct.npz)")
-    ap_s.add_argument("--window", type=int, default=30, help="Fold window length in nt (paper: 30)")
-    ap_s.add_argument("--workers", type=int, default=None, help="Process-pool size (default: cores-2)")
-
-    # ---- train ----
-    ap_t = sub.add_parser("train", help="Train the headline RiboPipe model on a single Ribo-seq sample")
-    ap_t.add_argument("--npz", required=True, help="Per-transcript NPZ (from preprocess)")
-    ap_t.add_argument("--coverage-csv", required=True, help="Coverage matrix CSV (from matrix)")
-    ap_t.add_argument("--sample", required=True, help="Column name in coverage CSV for this sample")
-    ap_t.add_argument("--struct-npz", default=None,
-                      help="Struct MFE cache (from `ribopipe struct`); required unless --no-struct")
-    ap_t.add_argument("--enst2ensg", default=None,
-                      help="ENST→ENSG JSON(.gz) for a leak-free gene-level validation hold-out")
-    ap_t.add_argument("--hidden", type=int, default=256, choices=[128, 256, 512],
-                      help="BiLSTM hidden units per direction (only used with --backbone bilstm)")
-    ap_t.add_argument("--epochs", type=int, default=200)
-    ap_t.add_argument("--patience", type=int, default=20)
-    ap_t.add_argument("--batch-size", type=int, default=64)
-    ap_t.add_argument("--lr", type=float, default=1e-3)
-    ap_t.add_argument("--loss", default="huber",
-                      choices=["huber", "peakmse", "wmse", "peakw"],
-                      help="Training loss (headline: unweighted Huber, delta=1)")
-    ap_t.add_argument("--target", default="meannorm",
-                      choices=["meannorm", "meannorm_log", "minmax"])
-    ap_t.add_argument("--max-codons", type=int, default=1000)
-    ap_t.add_argument("--out-dir", required=True, help="Output directory for checkpoint + log")
-    ap_t.add_argument("--device", default=None, help="'cuda' or 'cpu' (default: auto)")
-    ap_t.add_argument("--seed", type=int, default=123)
-    _add_feature_flags(ap_t)
-
-    # ---- predict ----
-    ap_r = sub.add_parser("predict", help="Predict pause profiles from a trained checkpoint")
-    ap_r.add_argument("--checkpoint", required=True, help="Path to .pt checkpoint")
-    ap_r.add_argument("--npz", required=True, help="Per-transcript NPZ")
-    ap_r.add_argument("--struct-npz", default=None, help="Struct MFE cache (if the model uses struct)")
-    ap_r.add_argument("--ids", default=None,
-                      help="Text file with one transcript ID per line (default: all in NPZ)")
-    ap_r.add_argument("--max-codons", type=int, default=1000)
-    ap_r.add_argument("--out-csv", required=True, help="Output CSV with per-transcript Pearson scores")
-    ap_r.add_argument("--device", default=None)
-
-    # ---- cv5 ----
-    ap_c = sub.add_parser(
-        "cv5",
-        help="Gene-level 5-fold cross-validation (the leak-free headline benchmark protocol)")
-    ap_c.add_argument("--npz", required=True, help="Per-transcript NPZ")
-    ap_c.add_argument("--enst2ensg", required=True, help="ENST→ENSG JSON(.gz) for gene-level folds")
-    ap_c.add_argument("--struct-npz", default=None, help="Struct MFE cache (for the headline model)")
-    ap_c.add_argument("--methods", default="ribopipe",
-                      help="Comma-separated: ribopipe,bilstm_base,codon_mean,tricodon,ridge")
-    ap_c.add_argument("--ids", default=None,
-                      help="Text file of transcript IDs to use (default: all in NPZ)")
-    ap_c.add_argument("--folds", default=None,
-                      help="Frozen gene-level fold file (reproduce/folds/cv5_folds_<TAG>.json). "
-                           "Reproduces the paper's evaluation universe (T_high INTERSECT gene-longest "
-                           "REP) and fixed fold assignments; overrides --ids and the on-the-fly split.")
-    ap_c.add_argument("--n-folds", type=int, default=5)
-    ap_c.add_argument("--epochs", type=int, default=200)
-    ap_c.add_argument("--patience", type=int, default=20)
-    ap_c.add_argument("--hidden", type=int, default=256)
-    ap_c.add_argument("--loss", default="huber")
-    ap_c.add_argument("--target", default="covmean0_log",
-                      choices=["covmean0_log", "covmean0", "meannorm", "meannorm_log", "minmax"],
-                      help="Regression target for the neural methods (headline: covmean0_log)")
-    ap_c.add_argument("--out-json", default=None, help="Write the summary dict to this JSON")
-    ap_c.add_argument("--device", default=None)
-    _add_feature_flags(ap_c)  # --backbone {cnn,bilstm}, --no-nt, --no-struct (headline: all on)
-
-    # ---- magnitude (optional transcript-level ribosome-load head) ----
-    ap_mag = sub.add_parser(
-        "magnitude",
-        help="Optional magnitude head: predict transcript-level log mean density from "
-             "5'UTR + CDS-global sequence features (train with --out, predict with --checkpoint)")
-    ap_mag.add_argument("--npz", required=True, help="Per-transcript NPZ (from preprocess)")
-    ap_mag.add_argument("--train-ids", default=None,
-                        help="Text file of high-coverage TRAIN transcript IDs (train mode; "
-                             "default: all covered transcripts)")
-    ap_mag.add_argument("--ids", default=None,
-                        help="Text file of transcript IDs to predict (default: all covered)")
-    ap_mag.add_argument("--out", default=None, help="TRAIN mode: save the magnitude head .pt here")
-    ap_mag.add_argument("--checkpoint", default=None,
-                        help="PREDICT mode: load a magnitude head .pt (mutually exclusive with --out)")
-    ap_mag.add_argument("--out-csv", default=None,
-                        help="Write per-transcript m_t (log density) and mean density prediction")
-    ap_mag.add_argument("--epochs", type=int, default=300)
-    ap_mag.add_argument("--hidden", type=int, default=64)
-    ap_mag.add_argument("--min-codons", type=int, default=20)
-    ap_mag.add_argument("--seed", type=int, default=123)
-    ap_mag.add_argument("--device", default=None)
-
-    # ---- motifs (interpretability) ----
-    ap_mo = sub.add_parser(
-        "motifs", help="Read the first-layer exp-motif CNN filters as E/P/A amino-acid logos")
-    ap_mo.add_argument("--checkpoint", required=True, help="Headline .pt checkpoint")
-    ap_mo.add_argument("--top", type=int, default=3, help="Number of top filters to report")
-    ap_mo.add_argument("--rank-aa", default="P", help="Amino acid to rank filters by (default P)")
-    ap_mo.add_argument("--rank-register", default="P", choices=["E", "P", "A"],
-                       help="Register for ranking (default P-site)")
-    ap_mo.add_argument("--out-csv", default=None, help="Per-position AA weight table CSV")
-    ap_mo.add_argument("--out-png", default=None, help="E/P/A sequence-logo figure")
-    ap_mo.add_argument("--device", default="cpu")
-
-    # ---- ism (interpretability) ----
-    ap_is = sub.add_parser(
-        "ism", help="End-to-end in-silico-mutagenesis A-site codon/AA attribution")
-    ap_is.add_argument("--checkpoint", required=True, help="Headline .pt checkpoint")
-    ap_is.add_argument("--npz", required=True, help="Per-transcript NPZ")
-    ap_is.add_argument("--struct-npz", default=None, help="Struct MFE cache (if the model uses struct)")
-    ap_is.add_argument("--ids", default=None, help="Text file of transcript IDs (default: all)")
-    ap_is.add_argument("--max-transcripts", type=int, default=100)
-    ap_is.add_argument("--max-len", type=int, default=200, help="Skip transcripts longer than this")
-    ap_is.add_argument("--out-csv", default=None, help="Per-codon / per-AA A-site attribution CSV")
-    ap_is.add_argument("--device", default="cpu")
-
-    # ---- crossover (reliability) ----
-    ap_x = sub.add_parser(
-        "crossover",
-        help="Estimate the read-split crossover depth D* and the model-favoured fraction")
-    ap_x.add_argument("--checkpoint", required=True, help="Headline .pt checkpoint")
-    ap_x.add_argument("--npz", required=True, help="Per-transcript NPZ (predictions + pooled counts)")
-    ap_x.add_argument("--struct-npz", default=None, help="Struct MFE cache (if the model uses struct)")
-    ap_x.add_argument("--ids", default=None, help="Text file of transcript IDs (default: all)")
-    ap_x.add_argument("--seeds", type=int, default=10, help="Binomial read-split seeds to average")
-    ap_x.add_argument("--max-codons", type=int, default=1000)
-    ap_x.add_argument("--out-json", default=None, help="Write D*, fraction and curves to JSON")
-    ap_x.add_argument("--device", default="cpu")
-
-    # ---- impute (reliability) ----
-    ap_im = sub.add_parser(
-        "impute",
-        help="Depth-weighted hybrid of prediction and reads (low-coverage estimator)")
-    ap_im.add_argument("--checkpoint", required=True, help="Headline .pt checkpoint")
-    ap_im.add_argument("--npz", required=True, help="Per-transcript NPZ")
-    ap_im.add_argument("--struct-npz", default=None, help="Struct MFE cache (if the model uses struct)")
-    ap_im.add_argument("--ids", default=None, help="Text file of transcript IDs (default: all)")
-    ap_im.add_argument("--dstar", type=float, default=None,
-                       help="Crossover reads/codon (default: estimate from the read split)")
-    ap_im.add_argument("--slope", type=float, default=0.5, help="Logistic gate slope in log-depth")
-    ap_im.add_argument("--max-codons", type=int, default=1000)
-    ap_im.add_argument("--out-csv", required=True, help="Output imputed per-codon profiles CSV")
-    ap_im.add_argument("--device", default="cpu")
-
-    args = p.parse_args(argv)
-
-    # ---- dispatch ----
-    if args.cmd == "raw2csv":
-        if len(args.bam) != len(args.sample):
-            p.error(f"--bam ({len(args.bam)}) and --sample ({len(args.sample)}) must match in count")
-        from .rawcount import bams_to_codon_csv
-        bams_to_codon_csv(
-            args.bam, args.sample, args.fasta, args.out_csv,
-            auto_offset=args.auto_offset, default_offset=args.offset,
-            min_len=args.min_len, max_len=args.max_len,
-        )
+    from . import train as RP
+    ap = argparse.ArgumentParser(prog="ribopipe", description="RiboPipe: within-sample imputation of relative footprint density")
+    sp = ap.add_subparsers(dest="cmd", required=True)
+    for name in ("train", "cv5"):
+        p = sp.add_parser(name, help="train one fold" if name == "train" else "train all five folds")
+        p.add_argument("--config", default="Paper_RiboPipe_MFE_H128", choices=sorted(RP.CONFIGS))
+        p.add_argument("--dataset", required=True)
+        if name == "train": p.add_argument("--fold", type=int, required=True)
+        p.add_argument("--seed", type=int, default=RP.DEFAULT_SEED)
+        p.add_argument("--out", required=True)
+        p.add_argument("--device", default="cuda:0")
+        p.add_argument("--no-deterministic", action="store_true")
+        p.add_argument("--max-epochs", type=int, default=0, help="smoke runs only")
+        p.add_argument("--smoke-n", type=int, nargs=3, default=(0, 0, 0), metavar=("TRAIN", "VAL", "TEST"),
+                       help="smoke runs only: first n sorted ids of each split")
+        p.add_argument("--allow-any-seed", action="store_true")
+        _add_common(p)
+    p = sp.add_parser("predict", help="predict relative footprint density with a checkpoint")
+    p.add_argument("--ckpt", required=True); p.add_argument("--dataset", required=True)
+    p.add_argument("--part", default="partI", choices=("partI", "partII"))
+    p.add_argument("--ids", default=None, help="text file with one transcript id per line (default: whole universe)")
+    p.add_argument("--out", required=True); p.add_argument("--device", default="cpu"); _add_common(p)
+    sp.add_parser("configs", help="list model configurations")
+    import importlib
+    for mod in ("evaluate", "lowcov", "interpret", "ablation", "prepare"):
+        try:
+            m = importlib.import_module(f"ribopipe.{mod}")
+        except ImportError:
+            continue
+        if hasattr(m, "register"): m.register(sp)
+    a = ap.parse_args(argv)
+    if a.cmd == "configs":
+        for k, c in RP.CONFIGS.items(): print(f"{k:32s} {c['method']:18s} {c['expected_params']:>8,d}  {c['note']}")
         return 0
-
-    if args.cmd == "preprocess":
-        from .preprocess.builder import csv_to_npz_dir
-        written = csv_to_npz_dir(args.csv, args.fasta, args.out_dir, fasta_cache=args.fasta_cache)
-        for fp in written:
-            print(fp)
-        return 0
-
-    if args.cmd == "matrix":
-        from .preprocess.matrix import build_coverage_matrix
-        out = build_coverage_matrix(args.npz_dir, args.out_csv)
-        print(out)
-        return 0
-
-    if args.cmd == "struct":
-        from .struct import compute_struct_cache
-        out = compute_struct_cache(args.npz, cache_path=args.out_npz,
-                                   n_workers=args.workers, win=args.window)
-        print(out)
-        return 0
-
-    if args.cmd == "train":
-        from .train import train
-        if args.use_struct and not args.struct_npz:
-            p.error("--struct-npz is required for the headline model; "
-                    "run `ribopipe struct` first, or pass --no-struct for the ablation.")
-        train(
-            npz_path=args.npz,
-            coverage_csv=args.coverage_csv,
-            sample_col=args.sample,
-            struct_npz_path=args.struct_npz,
-            enst2ensg_path=args.enst2ensg,
-            hidden=args.hidden,
-            epochs=args.epochs,
-            patience=args.patience,
-            batch_size=args.batch_size,
-            lr=args.lr,
-            max_codons=args.max_codons,
-            use_nt=args.use_nt,
-            use_struct=args.use_struct,
-            loss_name=args.loss,
-            target=args.target,
-            device=args.device,
-            seed=args.seed,
-            out_dir=args.out_dir,
-            verbose=True,
-        )
-        return 0
-
-    if args.cmd == "predict":
-        import numpy as np
-        from .predict import predict_from_checkpoint
-
-        if args.ids:
-            with open(args.ids) as f:
-                ids = [line.strip() for line in f if line.strip()]
-        else:
-            z = np.load(args.npz, allow_pickle=True)
-            ids = list(z.files)
-
-        _, scores = predict_from_checkpoint(
-            pt_path=args.checkpoint,
-            npz_path=args.npz,
-            transcript_ids=ids,
-            struct_npz_path=args.struct_npz,
-            out_csv=args.out_csv,
-            device=args.device,
-            max_codons=args.max_codons,
-        )
-        print(f"Wrote {len(scores)} transcripts → {args.out_csv}")
-        print(scores.head(10).to_string(index=False))
-        return 0
-
-    if args.cmd == "cv5":
-        import json
-        import numpy as np
-        from .cv5 import run_cv5
-
-        folds = None
-        if args.folds:
-            from .folds import load_frozen_folds
-            folds, ids, meta = load_frozen_folds(args.folds)
-            print(f"[folds] {args.folds}: {meta.get('tag','?')} "
-                  f"{len(ids)} tx, {len(folds)} folds (seed {meta.get('seed', 0)})")
-        elif args.ids:
-            with open(args.ids) as f:
-                ids = [line.strip() for line in f if line.strip()]
-        else:
-            z = np.load(args.npz, allow_pickle=True)
-            ids = list(z.files)
-
-        summary = run_cv5(
-            npz_path=args.npz,
-            all_ids=ids,
-            enst2ensg_path=args.enst2ensg,
-            methods=[m.strip() for m in args.methods.split(",") if m.strip()],
-            struct_npz_path=args.struct_npz,
-            folds=folds,
-            n_folds=args.n_folds,
-            epochs=args.epochs,
-            patience=args.patience,
-            loss_name=args.loss,
-            hidden=args.hidden,
-            backbone=args.backbone,
-            use_nt=args.use_nt,
-            use_struct=args.use_struct,
-            target=args.target,
-            device=args.device,
-            out_json=args.out_json,
-            verbose=True,
-        )
-        print(json.dumps(summary, indent=2))
-        return 0
-
-    if args.cmd == "magnitude":
-        import csv
-        import numpy as np
-        from . import magnitude as MAG
-
-        if args.out and args.checkpoint:
-            p.error("--out (train) and --checkpoint (predict) are mutually exclusive")
-
-        z = np.load(args.npz, allow_pickle=True)
-        npzd = {k: z[k].item() for k in z.files}
-
-        def _read_ids(path):
-            with open(path) as f:
-                return [ln.strip() for ln in f if ln.strip()]
-
-        if args.checkpoint:  # ---- PREDICT ----
-            ckpt = MAG.load_magnitude_head(args.checkpoint, device=args.device)
-            ids = _read_ids(args.ids) if args.ids else None
-            X, _y, kept = MAG.build_magnitude_dataset(npzd, ids=ids, min_codons=args.min_codons)
-            m = MAG.predict_log_density(ckpt, X, device=args.device)
-            mean_hat = np.expm1(m)
-            print(f"predicted magnitude for {len(kept)} transcripts")
-        else:               # ---- TRAIN ----
-            train_ids = _read_ids(args.train_ids) if args.train_ids else None
-            Xtr, ytr, kept_tr = MAG.build_magnitude_dataset(npzd, ids=train_ids,
-                                                            min_codons=args.min_codons)
-            if len(kept_tr) == 0:
-                p.error("no covered training transcripts found for the magnitude head")
-            ckpt = MAG.fit_magnitude_head(Xtr, ytr, epochs=args.epochs, hidden=args.hidden,
-                                          seed=args.seed, device=args.device)
-            print(f"trained magnitude head on {len(kept_tr)} transcripts "
-                  f"({ckpt['in_dim']} features: {', '.join(ckpt['features'])})")
-            if args.out:
-                MAG.save_magnitude_head(ckpt, args.out)
-                print(f"saved -> {args.out}")
-            # predict on the requested set (default all) for the CSV
-            ids = _read_ids(args.ids) if args.ids else None
-            X, _y, kept = MAG.build_magnitude_dataset(npzd, ids=ids, min_codons=args.min_codons)
-            m = MAG.predict_log_density(ckpt, X, device=args.device)
-            mean_hat = np.expm1(m)
-
-        if args.out_csv:
-            with open(args.out_csv, "w", newline="") as fh:
-                wr = csv.writer(fh)
-                wr.writerow(["transcript", "m_t_log_density", "mean_density_hat"])
-                for tid, mi, mh in zip(kept, m, mean_hat):
-                    wr.writerow([tid, f"{mi:.5f}", f"{mh:.5f}"])
-            print(f"wrote {len(kept)} rows -> {args.out_csv}")
-        return 0
-
-    if args.cmd == "motifs":
-        from .interpret.motifs import motif_report
-        order = motif_report(args.checkpoint, top=args.top, rank_aa=args.rank_aa,
-                             rank_register=args.rank_register, out_csv=args.out_csv,
-                             out_png=args.out_png, device=args.device)
-        print("Top motif filters (by %s-site %s): %s"
-              % (args.rank_register, args.rank_aa, ", ".join(str(int(f)) for f in order)))
-        return 0
-
-    if args.cmd == "ism":
-        import csv
-        import numpy as np
-        from .interpret.aa import AA20, CODONS
-        from .interpret.ism import asite_codon_attribution
-        from .model import load_cnn_from_paper_checkpoint
-
-        if args.ids:
-            with open(args.ids) as f:
-                ids = [line.strip() for line in f if line.strip()]
-        else:
-            z = np.load(args.npz, allow_pickle=True)
-            ids = list(z.files)
-
-        model = load_cnn_from_paper_checkpoint(args.checkpoint, device=args.device)
-        res = asite_codon_attribution(
-            model, args.npz, ids, struct_npz_path=args.struct_npz,
-            max_transcripts=args.max_transcripts, max_len=args.max_len, device=args.device)
-        print(f"A-site ISM attribution over {res['n_positions']} positions")
-        aa_order = np.argsort(-res["per_aa"])
-        print("  top A-site amino acids: " +
-              ", ".join(f"{AA20[j]}({res['per_aa'][j]:+.3f})" for j in aa_order[:6]))
-        if args.out_csv:
-            with open(args.out_csv, "w", newline="") as fh:
-                wr = csv.writer(fh)
-                wr.writerow(["level", "symbol", "asite_attribution"])
-                for j in range(20):
-                    wr.writerow(["aa", AA20[j], f"{res['per_aa'][j]:.5f}"])
-                for c in range(64):
-                    wr.writerow(["codon", CODONS[c], f"{res['per_codon'][c]:.5f}"])
-            print(f"  wrote {args.out_csv}")
-        return 0
-
-    if args.cmd in ("crossover", "impute"):
-        import numpy as np
-        from .model import load_cnn_from_paper_checkpoint
-        from .predict import predict
-        from .reliability.readsplit import pooled_counts_from_npz
-
-        if args.ids:
-            with open(args.ids) as f:
-                ids = [line.strip() for line in f if line.strip()]
-        else:
-            z = np.load(args.npz, allow_pickle=True)
-            ids = list(z.files)
-
-        model = load_cnn_from_paper_checkpoint(args.checkpoint, device=args.device)
-        use_struct = int(model.config.get("bio_dim", 123)) >= 123
-        pred = predict(model, args.npz, ids, use_nt=True, use_struct=use_struct,
-                       struct_npz_path=args.struct_npz, device=args.device, max_codons=args.max_codons)
-        counts = {k: v for k, v in pooled_counts_from_npz(args.npz).items() if k in pred}
-
-        if args.cmd == "crossover":
-            import json
-            from .reliability.crossover import estimate_dstar, invert_dstar, fraction_below
-            res = estimate_dstar(pred, counts, seeds=args.seeds)
-            dstar = res["dstar_codon"]
-            inv = invert_dstar(res["rc"], res["raw"], res["model"])
-            print(f"model accuracy level m = {res['model']:.3f}  (n={res['n']} tx-splits)")
-            print(f"crossover D* = {dstar:.3f} reads/codon" if dstar else
-                  "crossover D*: model does not cross reads in the grid")
-            print(f"D* via r^-1(m) inversion (no sweep) = {inv:.3f} reads/codon" if inv else "")
-            if dstar:
-                fb = fraction_below(counts, dstar)
-                print(f"model-favoured: {fb['frac_expressed']*100:.0f}% of {fb['n_expressed']} "
-                      f"expressed transcripts below D*")
-            if args.out_json:
-                out = {"dstar_codon": dstar, "dstar_inverted": inv, "model_level": res["model"],
-                       "rc_centres": res["rc"].tolist(), "raw_curve": res["raw"].tolist(),
-                       "n_tx_splits": res["n"]}
-                if dstar:
-                    out.update(fraction_below(counts, dstar))
-                with open(args.out_json, "w") as fh:
-                    json.dump(out, fh, indent=2)
-                print(f"wrote {args.out_json}")
-            return 0
-
-        # impute
-        import csv
-        from .reliability.crossover import estimate_dstar
-        from .reliability.hybrid import impute as hybrid_impute
-        dstar = args.dstar if args.dstar is not None else estimate_dstar(pred, counts)["dstar_codon"]
-        if dstar is None:
-            p.error("could not estimate D*; pass --dstar explicitly")
-        imp = hybrid_impute(pred, counts, dstar, slope=args.slope)
-        with open(args.out_csv, "w", newline="") as fh:
-            wr = csv.writer(fh)
-            wr.writerow(["transcript", "codon", "imputed_meannorm"])
-            for tid, prof in imp.items():
-                for i, v in enumerate(prof):
-                    wr.writerow([tid, i, f"{v:.5f}"])
-        print(f"imputed {len(imp)} transcripts at D*={dstar:.3f} (slope {args.slope}) -> {args.out_csv}")
-        return 0
-
-    p.print_help(sys.stderr)
-    return 1
+    if a.cmd in ("train", "cv5"):
+        folds = [a.fold] if a.cmd == "train" else range(5)
+        rc = 0
+        for f in folds:
+            rc |= _run_one(a.config, a.dataset, f, a.seed, a.out, a.device, not a.no_deterministic, a.max_epochs,
+                           tuple(a.smoke_n), a.allow_any_seed, a.data, a.mfe)
+        return rc
+    if a.cmd == "predict":
+        from . import data as D
+        m, ck = RP.load_ckpt(a.ckpt)
+        ds = D.load_dataset(a.dataset, a.part, data=a.data, mfe=a.mfe)
+        ids = [l.strip() for l in open(a.ids)] if a.ids else ds.ids
+        preds = RP.predict_transcripts(m, ds, ids, ck["config"], a.device)
+        np.savez(a.out, **preds); print(f"[predict] {len(preds)} transcripts -> {a.out}"); return 0
+    return a.func(a)
 
 
 if __name__ == "__main__":

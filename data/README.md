@@ -1,33 +1,42 @@
-# Benchmark datasets
+# Released data
 
-Processed per-codon ribosome-profiling data for the four human datasets used in the paper,
-packaged so the headline gene-level 5-fold benchmark (Table 1 / Figure 1) reproduces from this
-repository alone. Each folder ships a compact per-transcript `.npz`, a human-readable index
-`.csv`, and a `README.md` with the record schema and a one-line reproduction command.
+The analysis input of the paper (PaperData_v1.0, manifest MD5 `63080cc9a3144c83834f938560ba6b18`) reduced to the
+transcripts of the paper's populations. `tools/build_release_data.py` made these files from PaperData_v1.0 and
+`data/RELEASE_MANIFEST.json` records the MD5 of every file and of every source file.
+`tests/paper_equivalence.py` checks that `ribopipe.data` returns the same arrays, in the same order, as the paper's
+loader.
 
-| dataset | cell type | source | transcripts | scored | codon_mean P |
-|---|---|---|---|---|---|
-| `TX9_WT` | HEK293 WT/DMSO | in-house (raw to be deposited in GEO on publication) | 3,257 | 3,101 | 0.1629 |
-| `GSE233886_WT` | HEK293F WT/DMSO | public GSE233886 | 1,704 | 1,643 | 0.1391 |
-| `GSE133393_WT` | HEK293 WT | public GSE133393 | 1,088 | 1,056 | 0.1553 |
-| `PRJNA_iPS` | iPSC 409B2 | public PRJNA976655 / GSE233555 | 1,656 | 1,618 | 0.1277 |
+| Dataset | Organism, cells | Source | Transcripts (Part I / Part II) | Counts |
+|---|---|---|---|---|
+| TX9_WT (`DMSO_TX9P1`) | human, HEK293T | in-house, GEO GSE350848 | 3,144 / 15,090 | released on publication |
+| GSE233886_WT | human, HEK293 Flp-In T-REx | Schneider-Poetsch et al. 2025 | 1,825 / 14,446 | two replicates |
+| GSE133393_WT | human, HEK293 | Han et al. 2020 | 1,289 / 14,893 | two replicates |
+| PRJNA_iPS | human, iPSC 409B2 | Tomuro et al. 2024 (PRJNA976655) | 753 / 14,904 | two replicates |
+| Subtelny14 (`Subtelny14_ribomimo`) | *S. cerevisiae* | GSE53268, matrix released with RiboMIMO | 3,921 | released average |
+| Mohammad16 | *E. coli* | GSE72899, matrix released with RiboMIMO | 1,179 | mean of 3 |
+| Mohammad19-1, Mohammad19-2 | *E. coli* | GSE119104, matrices released with RiboMIMO | 1,426, 1,598 | released average |
 
-"transcripts" = frozen-fold universe (gene-longest, high-coverage); "scored" = transcripts with a
-defined per-transcript metric that enter the reported numbers. Each shipped `codon_mean` value was
-verified to reproduce the canonical harness bit-for-bit.
+Per dataset directory:
 
-Reproduce any dataset:
+- `<tag>.npz`: transcript ids, A-site-aligned CDS sequences and per-codon A-site counts, concatenated with offsets.
+  Human datasets store the two replicates (`reps`, int32); the per-codon count used for training and as the truth
+  is their mean. Non-human datasets store the released average (`avg_count`).
+- `universe_partI.json` and `universe_partII.json` (human), or `universe.json` (non-human): the transcripts of
+  each population. Part I contains the high-coverage transcripts (coverage > 0.5 reads per nucleotide). Part II
+  contains all transcripts with at least one read, split into `strata.high` and `strata.low`.
+- `folds_partI.json` and `folds_partII.json` (or `folds.json`): test and validation ids of each of the five
+  folds. Training is the universe minus test minus validation.
+- `units.json`: the sequence-similarity unit of each transcript. A unit stays on one side of every split.
+- `mfe_valid.json`: number of valid 30-nt MFE windows (len(seq) - 29).
 
-```bash
-ribopipe cv5 \
-  --npz       data/<TAG>/<tag>_benchmark.npz \
-  --enst2ensg reproduce/enst2ensg_grch38.json.gz \
-  --folds     reproduce/folds/cv5_folds_<TAG>.json \
-  --methods   codon_mean,ribopipe
-```
+Global files:
 
-The shipped data are raw per-codon P-site counts plus CDS (and 5'UTR) sequence; the covered-mean
-`log(1+mu)` training target (`covmean0_log`) is applied inside `ribopipe`, so no transform is hidden
-in preprocessing. Per-replicate raw data (for the reliability-crossover analysis) and the full
-transcriptome (for the coverage filter) come from the original accessions / the GEO deposit on
-publication.
+- `MFE_NORM_FOLDWISE.json`: mean and SD of the MFE over the valid windows of each fold's training transcripts.
+- `REFERENCE_PROTOCOL.json`: rules of the replicate reference.
+
+The MFE tracks themselves are release assets (`python tools/download_mfe.py`, see `mfe/README.md`).
+
+**TX9_WT.** The in-house HEK293T data (GEO GSE350848) are private until publication. Their count matrices will be
+added to this directory on publication, and analyses of TX9_WT need them. The two global JSON files above already
+contain TX9_WT summary statistics (MFE normalisation constants and reference-depth summaries) but no per-codon
+counts.
