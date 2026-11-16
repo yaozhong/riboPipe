@@ -27,7 +27,7 @@ Optional extras: `plot` (matplotlib, for the figures), `test` (pytest) and `base
 published comparators; see [`baselines/README.md`](baselines/README.md)). The exact versions used for the manuscript
 are in [`requirements/paper-stack.txt`](requirements/paper-stack.txt).
 
-This installs the **`ribopipe`** command-line tool and Python package. Python >= 3.9 and PyTorch >= 1.12 are
+This installs the **`ribopipe`** command-line tool and Python package. Python >= 3.10 and PyTorch >= 1.12 are
 required. A GPU is optional: one cross-validation fold takes about 2 minutes on an RTX 4090.
 
 ## Data processing

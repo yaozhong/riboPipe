@@ -6,7 +6,7 @@ check their MD5 against data/RELEASE_MANIFEST.json.
     python tools/download_mfe.py GSE133393_WT         # one dataset
 The tracks can also be recomputed from sequence with ViennaRNA (ribopipe.prepare.mfe_track); the downloaded files
 are the exact values used in the paper (ViennaRNA 2.7.0)."""
-import os, sys, json, hashlib, urllib.request
+import os, sys, json, hashlib, urllib.request, urllib.error
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = "https://github.com/yaozhong/riboPipe/releases/download/v2.0.0/"
@@ -29,7 +29,14 @@ def main(tags):
         if os.path.exists(p) and md5(p) == man[f]:
             print(f"[ok] {f} already present"); continue
         print(f"[get] {BASE + f}", flush=True)
-        urllib.request.urlretrieve(BASE + f, p + ".part"); os.replace(p + ".part", p)
+        try:
+            urllib.request.urlretrieve(BASE + f, p + ".part")
+        except urllib.error.HTTPError as e:
+            if os.path.exists(p + ".part"): os.remove(p + ".part")
+            raise SystemExit(f"could not download {f} (HTTP {e.code}). Check that release v2.0.0 with its MFE assets is "
+                             f"published at https://github.com/yaozhong/riboPipe/releases, or recompute the tracks with "
+                             f"ViennaRNA (ribopipe prepare).")
+        os.replace(p + ".part", p)
         if md5(p) != man[f]: raise SystemExit(f"MD5 mismatch for {f}: {md5(p)} != {man[f]}")
         print(f"[ok] {f} md5 {man[f]}")
 
